@@ -29,10 +29,8 @@ function Roy(board, inventory) {
   this.name = 'Roy';
   this.position = null;
   this.action_taken = false;
+  this.mapSprite = new Sprite(c, 18, 18, "royMapSpriteSheet.png", 6, 12);
 
-  let roy_image = new Image();
-  roy_image.src = "roy_map_sprite_1.png";
-  this.sprite = roy_image;
 }
 
 Roy.prototype = Object.create(PlayerUnit.prototype);

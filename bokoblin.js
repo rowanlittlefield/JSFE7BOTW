@@ -33,6 +33,8 @@ function Bokoblin(board, inventory) {
   let bokoblin_image = new Image();
   bokoblin_image.src = "bokoblin_sprite.png";
   this.sprite = bokoblin_image;
+
+  this.mapSprite = new Sprite(c, 533, 607, "bokoblin_sprite.png", 6, 1);
 }
 
 Bokoblin.prototype = Object.create(EnemyUnit.prototype);

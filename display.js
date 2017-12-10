@@ -13,14 +13,6 @@ Display.prototype.render = function(sF) {
 }
 
 Display.prototype.renderBoard = function(sF) {
-  /*
-  for(var row = 0; row < this.board.grid.length; row++){
-    for(var col = 0; col < this.board.grid[row].length; col++){
-      this.renderSpot(row, col, sF);
-    }
-  }
-  */
-//  debugger;
   this.boardIterator(this.renderSpot.bind(this), sF);
 }
 
@@ -37,9 +29,13 @@ Display.prototype.renderSpot = function(row, col, sF) {
     c.stroke();
     c.lineTo(row * sF, col * sF);
     c.stroke();
-
     if(this.board.grid[row][col][0] != null){
-      c.drawImage(this.board.grid[row][col][0].sprite, row * sF +(sF * 0.1), col * sF + (sF * 0.01), 0.8 * sF, 1 * sF);
+      this.board.grid[row][col][0].mapSprite.renderSprite(
+        row * sF +(sF * 0.1),
+        col * sF + (sF * 0.01),
+        0.8 * sF,
+        1   * sF
+      );
     }
 
     if(row === this.cursor.cursorPos[0] &&  col === this.cursor.cursorPos[1]) {
@@ -49,20 +45,6 @@ Display.prototype.renderSpot = function(row, col, sF) {
 }
 
 Display.prototype.possibleMovesRender = function(selectedUnit, moveSpaces, attackSpaces, sF) {
-/*
-  for(let row = 0; row < this.board.grid.length; row++) {
-    for(let col = 0; col < this.board.grid[row].length; col++) {
-      if(moveSpaces[[row, col]]) {
-        this.possibleMoveSpaceRender(row, col, sF);
-      } if (attackSpaces[[row, col]]) {
-        this.possibleAttackSpaceRender(row, col, sF);
-      } else {
-        this.renderSpot(row, col, sF);
-      }
-    }
-  }
-  */
-
   this.boardIterator(this.moveSelectionRender.bind(this), sF);
 }
 

@@ -22,7 +22,7 @@ Unit.prototype.adjacentSpacesCanMoveThrough = function(space, targetSpace) {
   let adjSpaces = this.adjacentSpaceList(space);
   let moveableAdjSpaces = [];
 
-  for (var i = 0; i < adjSpaces.length; i++) {
+  for (let i = 0; i < adjSpaces.length; i++) {
     let space = adjSpaces[i];
 
     if(this.board.grid[space[0]][space[1]][0] === null ||
@@ -40,14 +40,14 @@ Unit.prototype.possibleSpacesCanMoveThrough = function() {
   spaces[this.position] = true;
   let moves = this.stats['move'];
 
-  for(var j = 0; j < moves; j++) {
+  for(let j = 0; j < moves; j++) {
     let keys = Object.keys(spaces);
 
-    for(var idx3 = 0; idx3 < keys.length; idx3++) {
+    for(let idx3 = 0; idx3 < keys.length; idx3++) {
       let arrayString = keys[idx3];
       let splitString = arrayString.split(',');
       let adSpaces = this.adjacentSpacesCanMoveThrough([parseInt(splitString[0]), parseInt(splitString[1])]);
-      for(var idx4 = 0; idx4 < adSpaces.length; idx4++) {
+      for(let idx4 = 0; idx4 < adSpaces.length; idx4++) {
         spaces[adSpaces[idx4]] = true;
       }
     }

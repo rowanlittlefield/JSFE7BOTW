@@ -29,10 +29,7 @@ function Link(board, inventory) {
   this.name = 'Link';
   this.position = null;
   this.action_taken = false;
-
-  let link_image = new Image();
-  link_image.src = "link_sprite_two.png";
-  this.sprite = link_image;
+  this.mapSprite = new Sprite(c, 288, 368, "link_sprite_two.png", 6, 1);
 }
 
 Link.prototype = Object.create(PlayerUnit.prototype);
