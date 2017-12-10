@@ -29,7 +29,7 @@ function Link(board, inventory) {
   this.name = 'Link';
   this.position = null;
   this.action_taken = false;
-  this.mapSprite = new Sprite(c, 288, 368, "link_sprite_two.png", 6, 1);
+  this.mapSprite = new Sprite(c, 288, 368, "units/link_sprite_two.png", 6, 1);
 }
 
 Link.prototype = Object.create(PlayerUnit.prototype);

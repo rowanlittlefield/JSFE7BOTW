@@ -28,11 +28,7 @@ function Zelda(board, inventory) {
   this.name = 'Zelda';
   this.position = null;
   this.actionTaken = false;
-  let zelda_image = new Image();
-  zelda_image.src = 'zelda_sprite.png';
-  this.sprite = zelda_image;
-
-  this.mapSprite = new Sprite(c, 173, 344, "zelda_sprite.png", 6, 1);
+  this.mapSprite = new Sprite(c, 173, 344, "units/zelda_sprite.png", 6, 1);
 }
 
 Zelda.prototype = Object.create(PlayerUnit.prototype);

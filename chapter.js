@@ -1,6 +1,7 @@
 function Chapter(board, objective) {
   this.board = board;
-  this.display = new Display(this.board, new Cursor([0,0], this.board));
+  this.display = new Display(this.board, new Cursor(board));
+  this.cursor = this.display.cursor;
   this.objective = objective;
   this.number_of_turns = 0;
   this.player = new Player(this.board, this.display);
@@ -9,5 +10,5 @@ function Chapter(board, objective) {
 }
 
 Chapter.prototype.gameOver = function() {
-  
+
 }

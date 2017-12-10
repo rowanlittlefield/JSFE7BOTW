@@ -11,26 +11,26 @@ window.addEventListener("keydown", checkKeyPress, false);
 
 function checkKeyPress(key) {
 
-  if(key.keyCode == "65" && newCursor.cursorPos[0] > 0) {
-    newCursor.cursorPos[0] -= 1;
+  if(key.keyCode == "65" && newChapter.cursor.cursorPos[0] > 0) {
+    newChapter.cursor.cursorPos[0] -= 1;
   }
-  else if(key.keyCode == "68" && newCursor.cursorPos[0] < newBoard.dimensions[0] - 1) {
-    newCursor.cursorPos[0] += 1;
+  else if(key.keyCode == "68" && newChapter.cursor.cursorPos[0] < newBoard.dimensions[0] - 1) {
+    newChapter.cursor.cursorPos[0] += 1;
   }
-  else if(key.keyCode == "87" && newCursor.cursorPos[1] > 0){
-    newCursor.cursorPos[1] -= 1;
+  else if(key.keyCode == "87" && newChapter.cursor.cursorPos[1] > 0){
+    newChapter.cursor.cursorPos[1] -= 1;
   }
-  else if(key.keyCode == "83" && newCursor.cursorPos[1] < newBoard.dimensions[1] - 1){
-    newCursor.cursorPos[1] += 1;
+  else if(key.keyCode == "83" && newChapter.cursor.cursorPos[1] < newBoard.dimensions[1] - 1){
+    newChapter.cursor.cursorPos[1] += 1;
   }
   else if(key.keyCode == "13") {
-    newCursor.enterKeyAction();
+    newChapter.cursor.enterKeyAction();
   }
 }
 
 Cursor.prototype.enterKeyAction = function() {
   let spaceOccupant = this.board.grid[this.cursorPos[0]][this.cursorPos[1]][0]
-  
+
   if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit)) {
     this.selectedUnit = spaceOccupant;
     this.moveSpaces = this.selectedUnit.possibleSpacesCanMoveThrough();
