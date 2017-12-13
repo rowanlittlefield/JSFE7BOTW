@@ -28,7 +28,7 @@ function Link(board, inventory) {
   this.inventory = inventory;
   this.name = 'Link';
   this.position = null;
-  this.action_taken = false;
+  this.actionTaken = false;
   this.mapSprite = new Sprite(c, 288, 368, "units/link_sprite_two.png", 6, 1);
 }
 

@@ -1,8 +1,8 @@
-Player.prototype.listOfOwnUnits = function() {
+GeneralPlayer.prototype.listOfOwnUnits = function() {
   return this.listOfUnits(this.unitType);
 }
 
-Player.prototype.listOfUnits = function(type) {
+GeneralPlayer.prototype.listOfUnits = function(type) {
   let units = new Map();
 
   for(let idx = 0; idx < this.board.grid.length; idx++) {
@@ -16,7 +16,7 @@ Player.prototype.listOfUnits = function(type) {
   return units;
 }
 
-Player.prototype.resetUnitsAction = function() {
+GeneralPlayer.prototype.resetUnitsAction = function() {
 
   this.units.forEach(function(item, key, map) {
     key.actionTaken = false;
@@ -24,7 +24,7 @@ Player.prototype.resetUnitsAction = function() {
 
 }
 
-Player.prototype.unitDeath = function() {
+GeneralPlayer.prototype.unitDeath = function() {
   this.units.forEach(function(item, key, map) {
     if(key.current_hp === 0) {
       map.delete(key);
@@ -32,7 +32,7 @@ Player.prototype.unitDeath = function() {
   });
 }
 
-Player.prototype.everyUnitMoved = function() {
+GeneralPlayer.prototype.everyUnitMoved = function() {
   let everyActionTaken = true;
   this.units.forEach(function(item, key, map) {
     if(key.actionTaken === false) {

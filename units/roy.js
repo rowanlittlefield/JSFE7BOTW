@@ -28,7 +28,7 @@ function Roy(board, inventory) {
   this.inventory = inventory;
   this.name = 'Roy';
   this.position = null;
-  this.action_taken = false;
+  this.actionTaken = false;
   this.mapSprite = new Sprite(c, 18, 18, "units/royMapSpriteSheet.png", 6, 12);
 
 }

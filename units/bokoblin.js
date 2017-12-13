@@ -1,4 +1,4 @@
-function Bokoblin(board, inventory) {
+function Bokoblin(board, inventory, behavior) {
   this.stats = {
     level: 1,
     experience: 0,
@@ -29,6 +29,7 @@ function Bokoblin(board, inventory) {
   this.name = 'bokoblin';
   this.position = null;
   this.actionTaken = false;
+  this.behavior = 'idle';
   this.mapSprite = new Sprite(c, 533, 607, "units/bokoblin_sprite.png", 6, 1);
 }
 

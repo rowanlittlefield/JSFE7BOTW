@@ -29,6 +29,7 @@ Display.prototype.renderSpot = function(row, col, sF) {
     c.stroke();
     c.lineTo(row * sF, col * sF);
     c.stroke();
+
     if(this.board.grid[row][col][0] != null){
       this.board.grid[row][col][0].mapSprite.renderSprite(
         row * sF +(sF * 0.1),
@@ -36,6 +37,10 @@ Display.prototype.renderSpot = function(row, col, sF) {
         0.8 * sF,
         1   * sF
       );
+      if(this.board.grid[row][col][0].actionTaken) {
+        c.fillStyle = "rgba(128, 128, 128, 0.2)";
+        c.fill();
+      }
     }
 
     if(row === this.cursor.cursorPos[0] &&  col === this.cursor.cursorPos[1]) {

@@ -13,12 +13,12 @@ MagicalWeapon.prototype.constructor = MagicalWeapon;
 
 function Sword() {
 }
-Sword.prototype = Object.create(Weapon.prototype);
+Sword.prototype = Object.create(PhysicalWeapon.prototype);
 Sword.prototype.constructor = Sword;
 
 function LightMagic() {
 }
-LightMagic.prototype = Object.create(LightMagic.prototype);
+LightMagic.prototype = Object.create(MagicalWeapon.prototype);
 LightMagic.prototype.constructor = LightMagic;
 
 function RustedSword() {

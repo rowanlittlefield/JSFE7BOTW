@@ -30,16 +30,28 @@ function checkKeyPress(key) {
 
 Cursor.prototype.enterKeyAction = function() {
   let spaceOccupant = this.board.grid[this.cursorPos[0]][this.cursorPos[1]][0]
-
-  if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit)) {
-    this.selectedUnit = spaceOccupant;
-    this.moveSpaces = this.selectedUnit.possibleSpacesCanMoveThrough();
-    this.attackSpaces = this.selectedUnit.possibleAttackSpaces();
+  if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
+  spaceOccupant.actionTaken === false && this.selectedUnit === null) {
+    this.selectUnit(spaceOccupant);
   } else if(this.selectedUnit != null &&
     this.selectedUnit.validMoveSpaces()[[this.cursorPos[0], this.cursorPos[1]]]) {
     this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
-    this.selectedUnit = null;
-    this.moveSpaces = null;
-    this.attackSpaces = null;
+    this.selectedUnit.actionTaken = true;
+    this.deselectUnit();
+    if(newChapter.isPhaseOver()) {
+      newChapter.changePhase();
+    }
   }
+}
+
+Cursor.prototype.selectUnit = function(unit) {
+  this.selectedUnit = unit;
+  this.moveSpaces = this.selectedUnit.possibleSpacesCanMoveThrough();
+  this.attackSpaces = this.selectedUnit.possibleAttackSpaces();
+}
+
+Cursor.prototype.deselectUnit = function() {
+  this.selectedUnit = null;
+  this.moveSpaces = null;
+  this.attackSpaces = null;
 }
