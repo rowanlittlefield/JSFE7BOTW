@@ -30,7 +30,7 @@ function Roy(board, inventory) {
   this.position = null;
   this.actionTaken = false;
   this.mapSprite = new Sprite(c, 18, 18, "units/royMapSpriteSheet.png", 6, 12);
-
+  this.hpWindowSprite = new Sprite(c, 217, 210, "units/royHPWindowSprite.png", 6, 1);
 }
 
 Roy.prototype = Object.create(PlayerUnit.prototype);

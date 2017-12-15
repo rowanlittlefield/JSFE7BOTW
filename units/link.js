@@ -30,6 +30,7 @@ function Link(board, inventory) {
   this.position = null;
   this.actionTaken = false;
   this.mapSprite = new Sprite(c, 288, 368, "units/link_sprite_two.png", 6, 1);
+  this.hpWindowSprite = new Sprite(c, 800, 774, "units/botwLinkChibiHead.jpg", 6, 1);
 }
 
 Link.prototype = Object.create(PlayerUnit.prototype);

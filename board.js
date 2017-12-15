@@ -26,8 +26,8 @@ Board.prototype.inBounds = function(pos) {
 }
 
 function distance(pos1, pos2) {
-  let dr = pos1[0] + pos2[0];
-  let dc = pos1[1] + pos2[1];
+  let dr = Math.abs(pos1[0] - pos2[0]);
+  let dc = Math.abs(pos1[1] - pos2[1]);
   return (dr + dc);
 }
 

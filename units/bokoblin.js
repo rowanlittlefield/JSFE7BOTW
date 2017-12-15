@@ -31,6 +31,7 @@ function Bokoblin(board, inventory, behavior) {
   this.actionTaken = false;
   this.behavior = 'idle';
   this.mapSprite = new Sprite(c, 533, 607, "units/bokoblin_sprite.png", 6, 1);
+  this.hpWindowSprite = new Sprite(c, 533, 607, "units/bokoblinHPWindowSprite.jpg", 6, 1);
 }
 
 Bokoblin.prototype = Object.create(EnemyUnit.prototype);

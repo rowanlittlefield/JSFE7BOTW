@@ -29,6 +29,7 @@ function Zelda(board, inventory) {
   this.position = null;
   this.actionTaken = false;
   this.mapSprite = new Sprite(c, 173, 344, "units/zelda_sprite.png", 6, 1);
+  this.hpWindowSprite = new Sprite(c, 568, 560, "units/zeldaHPWindowSprite.png", 6, 1);
 }
 
 Zelda.prototype = Object.create(PlayerUnit.prototype);
