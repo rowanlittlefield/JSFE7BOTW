@@ -5,14 +5,11 @@ GeneralPlayer.prototype.listOfOwnUnits = function() {
 GeneralPlayer.prototype.listOfUnits = function(type) {
   let units = new Map();
 
-  for(let idx = 0; idx < this.board.grid.length; idx++) {
-    for(let idx2 = 0; idx2 < this.board.grid[idx].length; idx2++) {
-      if (this.board.grid[idx][idx2][0] instanceof(type)) {
-        units.set(this.board.grid[idx][idx2][0], true);
-      }
+  this.board.boardIterator(function(row, col) {
+    if (this.board.grid[row][col][0] instanceof(type)) {
+      units.set(this.board.grid[row][col][0], true);
     }
-  }
-
+  }.bind(this));
   return units;
 }
 

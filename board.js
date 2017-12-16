@@ -32,12 +32,26 @@ function distance(pos1, pos2) {
 }
 
 Board.prototype.list_of_units = function(type) {
+  /*
   let units = {};
 
   for(let i = 0; i < this.grid.length; i++) {
-    for(let j = 0; j < this.grid.length; j++) {
-      if(this.grid[i][j][0].typeof(Unit)) {
+    for(let j = 0; j < this.grid[i].length; j++) {
+      let condition = this.grid[i][j][0] instanceof(type);
+      if(this.grid[i][j][0] instanceof(type)) {
         units[this.grid[i][j][0]] = true;
+      }
+    }
+  }
+debugger;
+  return units;
+  */
+  let units = new Map();
+
+  for(let idx = 0; idx < this.grid.length; idx++) {
+    for(let idx2 = 0; idx2 < this.grid[idx].length; idx2++) {
+      if (this.grid[idx][idx2][0] instanceof(type)) {
+        units.set(this.grid[idx][idx2][0], true);
       }
     }
   }
@@ -45,3 +59,11 @@ Board.prototype.list_of_units = function(type) {
   return units;
 }
 // NEED UNIT DEATH METHOD
+
+Board.prototype.boardIterator = function(callBack) {
+  for(let row = 0; row < this.grid.length; row++){
+    for(let col = 0; col < this.grid[row].length; col++){
+      callBack(row, col);
+    }
+  }
+}

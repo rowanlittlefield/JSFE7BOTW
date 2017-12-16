@@ -87,23 +87,25 @@ Display.prototype.boardIterator = function(callBack, sF) {
 }
 
 Display.prototype.renderUnitHPWindow = function(sF) {
+  let windowx = window.innerWidth - (6 * sF);
+  let windowEndx = windowx + (6 * sF);
   let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0];
 
   unit instanceof(PlayerUnit) ? c.fillStyle = "rgba(0, 255, 255, 0.7)": c.fillStyle = "rgba(255, 0, 0, 0.7)";
   //c.fillStyle = "rgba(0, 255, 255, 0.7)";
-  c.fillRect(0, 0, 6 * sF, 2 * sF);
+  c.fillRect(windowx, 0, 6 * sF, 2 * sF);
   unit.hpWindowSprite.renderSprite(
-    0,
+    windowx,
     0,
     2 * sF,
     2 * sF
   );
   c.font = "20px Arial";
   c.fillStyle = 'rgba(0,0,0,1)';
-  c.fillText(`${unit.name}`, 2 * sF, 0.5 *sF);
-  c.fillText(`HP: ${unit.current_hp} / ${unit.stats['hp']}`, 2 * sF, 1 * sF);
+  c.fillText(`${unit.name}`, windowx + (2 * sF), 0.5 *sF);
+  c.fillText(`HP: ${unit.current_hp} / ${unit.stats['hp']}`, windowx + (2 * sF), 1 * sF);
   c.fillStyle = "rgba(0, 0, 0, 0.9)";
-  c.fillRect(2 * sF, 1.2 * sF, 3.5 * sF, 0.5 * sF);
+  c.fillRect(windowx + (2 * sF), 1.2 * sF, 3.5 * sF, 0.5 * sF);
   c.fillStyle = "rgba(255, 223, 0, 1)";
-  c.fillRect(2 * sF, 1.3 * sF, 3.5 * sF *(unit.current_hp / unit.stats['hp']), 0.3 * sF);
+  c.fillRect(windowx + (2 * sF), 1.3 * sF, 3.5 * sF *(unit.current_hp / unit.stats['hp']), 0.3 * sF);
 }
