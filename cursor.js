@@ -5,26 +5,31 @@ function Cursor(board) {
   this.selectedUnit = null;
   this.moveSpaces = null;
   this.attackSpaces = null;
+  this.selectedUnitPrevPos = null;
 }
 
 window.addEventListener("keydown", checkKeyPress, false);
 
 function checkKeyPress(key) {
-
-  if(key.keyCode == "65" && newChapter.cursor.cursorPos[0] > 0) {
-    newChapter.cursor.cursorPos[0] -= 1;
-  }
-  else if(key.keyCode == "68" && newChapter.cursor.cursorPos[0] < newBoard.dimensions[0] - 1) {
-    newChapter.cursor.cursorPos[0] += 1;
-  }
-  else if(key.keyCode == "87" && newChapter.cursor.cursorPos[1] > 0){
-    newChapter.cursor.cursorPos[1] -= 1;
-  }
-  else if(key.keyCode == "83" && newChapter.cursor.cursorPos[1] < newBoard.dimensions[1] - 1){
-    newChapter.cursor.cursorPos[1] += 1;
-  }
-  else if(key.keyCode == "13") {
-    newChapter.cursor.enterKeyAction();
+  //board cursor handling
+  if (newChapter.cursor.selectedUnitPrevPos === null) {
+    if(key.keyCode == "65" && newChapter.cursor.cursorPos[0] > 0) {
+      newChapter.cursor.cursorPos[0] -= 1;
+    }
+    else if(key.keyCode == "68" && newChapter.cursor.cursorPos[0] < newBoard.dimensions[0] - 1) {
+      newChapter.cursor.cursorPos[0] += 1;
+    }
+    else if(key.keyCode == "87" && newChapter.cursor.cursorPos[1] > 0){
+      newChapter.cursor.cursorPos[1] -= 1;
+    }
+    else if(key.keyCode == "83" && newChapter.cursor.cursorPos[1] < newBoard.dimensions[1] - 1){
+      newChapter.cursor.cursorPos[1] += 1;
+    }
+    else if(key.keyCode == "13") {
+      newChapter.cursor.enterKeyAction();
+    }
+  } else if(newChapter.cursor.selectedUnitPrevPos != null) {
+    newChapter.cursor.postMovePhase();
   }
 }
 
@@ -35,23 +40,38 @@ Cursor.prototype.enterKeyAction = function() {
     this.selectUnit(spaceOccupant);
   } else if(this.selectedUnit != null &&
     this.selectedUnit.validMoveSpaces()[[this.cursorPos[0], this.cursorPos[1]]]) {
-    this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
-    this.selectedUnit.actionTaken = true;
-    this.deselectUnit();
-    if(newChapter.isPhaseOver()) {
-      newChapter.changePhase();
-    }
+    this.moveSelectedUnit();
+    //this.selectedUnit.actionTaken = true;
+    //this.deselectUnit();
+  //  if(newChapter.isPhaseOver()) {
+    //  newChapter.changePhase();
+    //}
+  }
+}
+
+Cursor.prototype.postMovePhase = function(windowSelection) {
+  newChapter.cursor.selectedUnit.actionTaken = true;
+  newChapter.cursor.deselectUnit();
+
+  if(newChapter.isPhaseOver()) {
+    newChapter.changePhase();
   }
 }
 
 Cursor.prototype.selectUnit = function(unit) {
   this.selectedUnit = unit;
-  this.moveSpaces = this.selectedUnit.possibleSpacesCanMoveThrough();
-  this.attackSpaces = this.selectedUnit.possibleAttackSpaces();
+  this.moveSpaces = unit.possibleSpacesCanMoveThrough();
+  this.attackSpaces = unit.possibleAttackSpaces();
+}
+
+Cursor.prototype.moveSelectedUnit = function() {
+  this.selectedUnitPrevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
+  this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
 }
 
 Cursor.prototype.deselectUnit = function() {
   this.selectedUnit = null;
   this.moveSpaces = null;
   this.attackSpaces = null;
+  this.selectedUnitPrevPos = null;
 }

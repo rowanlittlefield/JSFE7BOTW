@@ -4,15 +4,18 @@ function Display(board, cursor) {
 }
 
 Display.prototype.render = function(sF) {
-  if(this.cursor.selectedUnit === null) {
+  if(this.cursor.selectedUnit === null || this.cursor.selectedUnitPrevPos != null) {
     this.renderBoard(sF);
-  } else if(this.cursor.selectedUnit != null) {
+  } else if(this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos === null) {
     this.possibleMovesRender(this.cursor.selectedUnit, this.cursor.moveSpaces, this.cursor.attackSpaces, sF);
   }
   if(this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0] != null &&
-    this.cursor.selectedUnit === null) {
+    this.cursor.selectedUnit === null && this.cursor.selectedUnitPrevPos === null) {
       this.renderUnitHPWindow(sF);
     }
+  if (this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos != null) {
+    this.renderPostMovePhaseWindow(sF);
+  }
 }
 
 Display.prototype.renderBoard = function(sF) {
@@ -108,4 +111,15 @@ Display.prototype.renderUnitHPWindow = function(sF) {
   c.fillRect(windowx + (2 * sF), 1.2 * sF, 3.5 * sF, 0.5 * sF);
   c.fillStyle = "rgba(255, 223, 0, 1)";
   c.fillRect(windowx + (2 * sF), 1.3 * sF, 3.5 * sF *(unit.current_hp / unit.stats['hp']), 0.3 * sF);
+}
+
+Display.prototype.renderPostMovePhaseWindow = function(sF) {
+  let unitPosition = this.cursor.selectedUnit.position;
+  let windowx = (unitPosition[0] * sF) + (2 * sF);
+  let windowy = (unitPosition[1] * sF);
+  c.fillStyle = "rgba(65, 105, 225, 1)";
+  c.fillRect(windowx, windowy, 2 * sF, sF);
+  c.font = "20px Arial";
+  c.fillStyle = 'rgba(255, 255, 225, 1)';
+  c.fillText('End', windowx, windowy + sF *0.5);
 }
