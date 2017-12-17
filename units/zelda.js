@@ -9,7 +9,7 @@ function Zelda(board, inventory) {
     luck: 10,
     defense: 2,
     resistance: 4,
-    move: 1,
+    move: 5,
     constitution: 5,
     aid: 0,
     hp_growth_rate: 40,

@@ -60,6 +60,18 @@ debugger;
 }
 // NEED UNIT DEATH METHOD
 
+Board.prototype.listOfUnits = function(type) {
+  let units = new Map();
+
+  this.boardIterator(function(row, col) {
+    if (this.grid[row][col][0] instanceof(type)) {
+      units.set(this.grid[row][col][0], true);
+    }
+  }.bind(this));
+
+  return units;
+}
+
 Board.prototype.boardIterator = function(callBack) {
   for(let row = 0; row < this.grid.length; row++){
     for(let col = 0; col < this.grid[row].length; col++){

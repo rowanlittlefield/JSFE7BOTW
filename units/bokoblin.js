@@ -9,7 +9,7 @@ function Bokoblin(board, inventory, behavior) {
     luck: 0,
     defense: 3,
     resistance: 0,
-    move: 1,
+    move: 5,
     constitution: 12,
     aid: 0,
     hp_growth_rate: 82,
@@ -29,7 +29,7 @@ function Bokoblin(board, inventory, behavior) {
   this.name = 'bokoblin';
   this.position = null;
   this.actionTaken = false;
-  this.behavior = 'idle';
+  this.behavior = behavior;
   this.mapSprite = new Sprite(c, 533, 607, "units/bokoblin_sprite.png", 6, 1);
   this.hpWindowSprite = new Sprite(c, 533, 607, "units/bokoblinHPWindowSprite.jpg", 6, 1);
 }
