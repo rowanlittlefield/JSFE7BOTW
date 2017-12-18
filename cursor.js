@@ -1,4 +1,5 @@
 function Cursor(board) {
+  let that = this;
   this.board = board;
   this.cursorPos = [0, 0];
   this.window_cursor_pos = 0;
@@ -6,8 +7,23 @@ function Cursor(board) {
   this.moveSpaces = null;
   this.attackSpaces = null;
   this.selectedUnitPrevPos = null;
-}
 
+  this.checkKeyPress = function(key) {
+      //board cursor handling
+      if (that.selectedUnitPrevPos === null) {
+        if(key.keyCode == "13") {
+          that.enterKeyAction();
+        } else {
+          that.moveCursorPosition(key);
+        }
+      } else if(that.selectedUnitPrevPos != null) {
+        that.postMovePhase();
+      }
+  }
+
+window.addEventListener("keydown", this.checkKeyPress, false);
+}
+/*
 window.addEventListener("keydown", checkKeyPress, false);
 
 function checkKeyPress(key) {
@@ -30,6 +46,19 @@ function checkKeyPress(key) {
     }
   } else if(newChapter.cursor.selectedUnitPrevPos != null) {
     newChapter.cursor.postMovePhase();
+  }
+}
+*/
+
+Cursor.prototype.moveCursorPosition = function(key) {
+  if(key.keyCode == "65" && this.cursorPos[0] > 0) {
+    this.cursorPos[0] -= 1;
+  } else if(key.keyCode == "68" && this.cursorPos[0] < this.board.dimensions[0] - 1) {
+    this.cursorPos[0] += 1;
+  } else if(key.keyCode == "87" && this.cursorPos[1] > 0) {
+    this.cursorPos[1] -= 1;
+  } else if(key.keyCode == "83" && this.cursorPos[1] < this.board.dimensions[1] - 1) {
+    this.cursorPos[1] += 1;
   }
 }
 
@@ -74,4 +103,8 @@ Cursor.prototype.deselectUnit = function() {
   this.moveSpaces = null;
   this.attackSpaces = null;
   this.selectedUnitPrevPos = null;
+}
+
+Cursor.prototype.removeEventListener = function() {
+  window.removeEventListener("keydown", this.checkKeyPress, false);
 }
