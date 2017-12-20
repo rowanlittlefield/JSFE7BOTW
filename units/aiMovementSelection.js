@@ -17,7 +17,7 @@ Unit.prototype.attackPlayerUnitInRange = function() {
       playerUnitPositionsInRange.push([row, col]);
     }
   }.bind(this));
-  
+
   if (playerUnitPositionsInRange.length > 0) {
     let attackIndex = Math.floor(Math.random() * playerUnitPositionsInRange.length);
     let pos = playerUnitPositionsInRange[attackIndex];
@@ -57,4 +57,25 @@ Unit.prototype.possibleAttackSetupSpace = function() {
   let moveSpaceIndex = Math.floor(Math.random() * setupSpaces.length);
   let pos = setupSpaces[moveSpaceIndex];
   return pos;
+}
+
+Unit.prototype.isOppInRange = function() {
+  let ranges = this.inventory.stats['range'];
+  let oppUnitPositions = [];
+  let oppUnitsPosInRange = [];
+
+  this.board.boardIterator(function(row, col){
+    if (this.board.grid[row][col][0] &&
+      this.board.grid[row][col][0] instanceof(EnemyUnit)) {
+      oppUnitPositions.push([row, col]);
+    }
+  }.bind(this));
+
+  for(let i = 0; i < oppUnitPositions.length; i++) {
+    if (ranges.includes(distance(oppUnitPositions[i], this.position))) {
+      oppUnitsPosInRange.push(oppUnitPositions[i]);
+    }
+  }
+
+  return oppUnitsPosInRange;
 }

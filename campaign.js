@@ -10,6 +10,8 @@ newBoard.placeUnit(boko, [2,2]);
 newBoard.placeUnit(roy, [0, 3]);
 console.log('boko finds possible attack setup space and fights');
 boko.possibleAttackSetupSpace();
+debugger;
+zelda.isOppInRange();
 console.log('');
 /*
 let player = new Player(newBoard, newDisplay);
