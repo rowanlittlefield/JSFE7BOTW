@@ -59,6 +59,9 @@ Unit.prototype.possibleAttackSetupSpace = function() {
   return pos;
 }
 
+// Possibly non-AI methods that may need to be sorted into their own
+// methods later
+
 Unit.prototype.isOppInRange = function() {
   let ranges = this.inventory.stats['range'];
   let oppUnitPositions = [];
@@ -78,4 +81,14 @@ Unit.prototype.isOppInRange = function() {
   }
 
   return oppUnitsPosInRange;
+}
+
+Unit.prototype.postMoveWindowOptions = function() {
+  options = [];
+  if (this.isOppInRange().length > 0) {
+    options.push('Fight');
+  }
+  options.push('End');
+
+  return options;
 }

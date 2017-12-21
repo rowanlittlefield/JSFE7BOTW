@@ -2,7 +2,8 @@ function Cursor(board) {
   let that = this;
   this.board = board;
   this.cursorPos = [0, 0];
-  this.window_cursor_pos = 0;
+  this.windowCursorPos = 0;
+  this.windowOptions = null;
   this.selectedUnit = null;
   this.moveSpaces = null;
   this.attackSpaces = null;
@@ -17,7 +18,7 @@ function Cursor(board) {
           that.moveCursorPosition(key);
         }
       } else if(that.selectedUnitPrevPos != null) {
-        that.postMovePhase();
+        that.postMovePhase(key);
       }
   }
 
@@ -70,6 +71,7 @@ Cursor.prototype.enterKeyAction = function() {
   } else if(this.selectedUnit != null &&
     this.selectedUnit.validMoveSpaces()[[this.cursorPos[0], this.cursorPos[1]]]) {
     this.moveSelectedUnit();
+    this.windowOptions = this.selectedUnit.postMoveWindowOptions();
     //this.selectedUnit.actionTaken = true;
     //this.deselectUnit();
   //  if(newChapter.isPhaseOver()) {
@@ -78,10 +80,19 @@ Cursor.prototype.enterKeyAction = function() {
   }
 }
 
-Cursor.prototype.postMovePhase = function(windowSelection) {
+Cursor.prototype.postMovePhase = function(key) {
+  if (key.keyCode == '83' && this.windowCursorPos < this.windowOptions.length - 1) {
+    this.windowCursorPos += 1;
+  } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
+    this.windowCursorPos -= 1;
+  } else if(key.keyCode == '13') {
+    newChapter.cursor.selectedUnit.actionTaken = true;
+    newChapter.cursor.deselectUnit();
+  }
+  /*
   newChapter.cursor.selectedUnit.actionTaken = true;
   newChapter.cursor.deselectUnit();
-
+*/
   if(newChapter.isPhaseOver()) {
     newChapter.changePhase();
   }
@@ -103,6 +114,7 @@ Cursor.prototype.deselectUnit = function() {
   this.moveSpaces = null;
   this.attackSpaces = null;
   this.selectedUnitPrevPos = null;
+  this.windowOptions = null;
 }
 
 Cursor.prototype.removeEventListener = function() {

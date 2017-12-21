@@ -115,21 +115,22 @@ Display.prototype.renderUnitHPWindow = function(sF) {
 
 Display.prototype.renderPostMovePhaseWindow = function(sF) {
   let unitPosition = this.cursor.selectedUnit.position;
-  let options = [];
-  if (this.cursor.selectedUnit.isOppInRange().length > 0) {
-    options.push('Fight');
-  }
-  options.push('End');
+  let options = this.cursor.selectedUnit.postMoveWindowOptions();
   let windowx = (unitPosition[0] * sF) + (2 * sF);
   let windowy = (unitPosition[1] * sF);
 
   c.fillStyle = "rgba(65, 105, 225, 1)";
   c.fillRect(windowx, windowy, sF * 2, sF * options.length * 0.5 + (sF*0.2));
 
-  for(let i = 0; i < options.length; i++){
+  for(let i = 0; i < options.length; i++) {
     c.font = "20px Arial";
     c.fillStyle = 'rgba(255, 255, 225, 1)';
     c.fillText(`${options[i]}`, windowx, windowy + sF * 0.5 + sF * i * 0.5);
+
+    if (this.cursor.windowCursorPos === i) {
+      c.fillStyle = "rgba(255, 223, 0, 0.5)";
+      c.fillRect(windowx, windowy + (sF * 0.1) + (i * sF * 0.5) , sF * 2, sF * 0.5);
+    }
   }
 
 }
