@@ -4,16 +4,20 @@ function Display(board, cursor) {
 }
 
 Display.prototype.render = function(sF) {
-  if(this.cursor.selectedUnit === null || this.cursor.selectedUnitPrevPos != null) {
+  if((this.cursor.selectedUnit === null || this.cursor.selectedUnitPrevPos != null) && this.cursor.fightOptions === null) {
     this.renderBoard(sF);
   } else if(this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos === null) {
     this.possibleMovesRender(this.cursor.selectedUnit, this.cursor.moveSpaces, this.cursor.attackSpaces, sF);
+  } else if(this.cursor.fightOptions != null) {
+
+    this.selectAttackRender(sF);
   }
   if(this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0] != null &&
     this.cursor.selectedUnit === null && this.cursor.selectedUnitPrevPos === null) {
       this.renderUnitHPWindow(sF);
     }
-  if (this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos != null) {
+  if (this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos != null &&
+    this.cursor.fightOptions === null) {
     this.renderPostMovePhaseWindow(sF);
   }
 }
@@ -132,5 +136,45 @@ Display.prototype.renderPostMovePhaseWindow = function(sF) {
       c.fillRect(windowx, windowy + (sF * 0.1) + (i * sF * 0.5) , sF * 2, sF * 0.5);
     }
   }
+}
 
+Display.prototype.selectAttackRender = function(sF) {
+  this.boardIterator(this.attackSelectionRender.bind(this), sF);
+}
+
+Display.prototype.attackSelectionRender = function(row, col, sF) {
+  if (this.cursor.fightOptions[this.cursor.windowCursorPos][0] === row &&
+    this.cursor.fightOptions[this.cursor.windowCursorPos][1] === col) {
+      this.renderSpot(row, col, sF);
+      c.fillStyle = "rgba(255, 0, 255, 0.2)";
+      c.fillRect(row * sF, col * sF, sF, sF);
+  } else if (includePosition(this.cursor.fightOptions, [row, col])) {
+    this.possibleAttackSpaceRender(row, col, sF);
+  } else {
+    this.renderSpot(row, col, sF);
+  }
+}
+/*
+Display.prototype.possibleMovesRender = function(selectedUnit, moveSpaces, attackSpaces, sF) {
+  this.boardIterator(this.moveSelectionRender.bind(this), sF);
+}
+
+Display.prototype.moveSelectionRender = function(row, col, sF) {
+  if(this.cursor.moveSpaces[[row, col]]) {
+    this.possibleMoveSpaceRender(row, col, sF);
+  } if (this.cursor.attackSpaces[[row, col]]) {
+    this.possibleAttackSpaceRender(row, col, sF);
+  } else {
+    this.renderSpot(row, col, sF);
+  }
+}
+*/
+
+function includePosition(array, pos) {
+  for(let i = 0; i < array.length; i++) {
+    if (array[i][0] === pos[0] && array[i][1] === pos[1]) {
+      return true;
+    }
+  }
+  return false;
 }

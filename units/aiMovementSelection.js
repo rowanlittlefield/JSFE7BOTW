@@ -92,3 +92,18 @@ Unit.prototype.postMoveWindowOptions = function() {
 
   return options;
 }
+
+Unit.prototype.stationaryUnitAttackSpaces = function() {
+  let ranges = this.inventory.stats['range'];
+  let attackPositions = [];
+
+  this.board.boardIterator(function(row, col){
+    if ((this.board.grid[row][col][0] === null ||
+      this.board.grid[row][col][0] instanceof(EnemyUnit)) &&
+      ranges.includes(distance([row, col], this.position))) {
+      attackPositions.push([row, col]);
+    }
+  }.bind(this));
+
+  return attackPositions;
+}

@@ -4,6 +4,7 @@ function Cursor(board) {
   this.cursorPos = [0, 0];
   this.windowCursorPos = 0;
   this.windowOptions = null;
+  this.fightOptions = null;
   this.selectedUnit = null;
   this.moveSpaces = null;
   this.attackSpaces = null;
@@ -24,32 +25,6 @@ function Cursor(board) {
 
 window.addEventListener("keydown", this.checkKeyPress, false);
 }
-/*
-window.addEventListener("keydown", checkKeyPress, false);
-
-function checkKeyPress(key) {
-  //board cursor handling
-  if (newChapter.cursor.selectedUnitPrevPos === null) {
-    if(key.keyCode == "65" && newChapter.cursor.cursorPos[0] > 0) {
-      newChapter.cursor.cursorPos[0] -= 1;
-    }
-    else if(key.keyCode == "68" && newChapter.cursor.cursorPos[0] < newBoard.dimensions[0] - 1) {
-      newChapter.cursor.cursorPos[0] += 1;
-    }
-    else if(key.keyCode == "87" && newChapter.cursor.cursorPos[1] > 0){
-      newChapter.cursor.cursorPos[1] -= 1;
-    }
-    else if(key.keyCode == "83" && newChapter.cursor.cursorPos[1] < newBoard.dimensions[1] - 1){
-      newChapter.cursor.cursorPos[1] += 1;
-    }
-    else if(key.keyCode == "13") {
-      newChapter.cursor.enterKeyAction();
-    }
-  } else if(newChapter.cursor.selectedUnitPrevPos != null) {
-    newChapter.cursor.postMovePhase();
-  }
-}
-*/
 
 Cursor.prototype.moveCursorPosition = function(key) {
   if(key.keyCode == "65" && this.cursorPos[0] > 0) {
@@ -72,27 +47,41 @@ Cursor.prototype.enterKeyAction = function() {
     this.selectedUnit.validMoveSpaces()[[this.cursorPos[0], this.cursorPos[1]]]) {
     this.moveSelectedUnit();
     this.windowOptions = this.selectedUnit.postMoveWindowOptions();
-    //this.selectedUnit.actionTaken = true;
-    //this.deselectUnit();
-  //  if(newChapter.isPhaseOver()) {
-    //  newChapter.changePhase();
-    //}
   }
 }
 
 Cursor.prototype.postMovePhase = function(key) {
-  if (key.keyCode == '83' && this.windowCursorPos < this.windowOptions.length - 1) {
-    this.windowCursorPos += 1;
-  } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
-    this.windowCursorPos -= 1;
-  } else if(key.keyCode == '13') {
-    newChapter.cursor.selectedUnit.actionTaken = true;
-    newChapter.cursor.deselectUnit();
+
+  if (this.fightOptions === null) {
+    if (key.keyCode == '83' && this.windowCursorPos < this.windowOptions.length - 1) {
+      this.windowCursorPos += 1;
+    } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
+      this.windowCursorPos -= 1;
+    } else if(key.keyCode == '13') {
+    if (this.windowOptions[this.windowCursorPos] === 'End') {
+      this.windowCursorPos = 0;
+      this.selectedUnit.actionTaken = true;
+      this.deselectUnit();
+    } else if (this.windowOptions[this.windowCursorPos] === 'Fight') {
+      this.windowCursorPos = 0;
+      this.fightOptions = this.selectedUnit.isOppInRange();
+      // this.selectedUnit.fight(this.board.grid[enemyPoses[0]][enemyPoses[1]][0]);
+      }
+    }
+  } else if(this.fightOptions != null) {
+    if (key.keyCode == '83' && this.windowCursorPos < this.fightOptions.length - 1) {
+      this.windowCursorPos += 1;
+    } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
+      this.windowCursorPos -= 1;
+    } else if(key.keyCode == '13') {
+      let pos = this.windowCursorPos;
+      this.selectedUnit.fight(this.board.grid[this.fightOptions[pos][0]][this.fightOptions[pos][1]][0]);
+      this.windowCursorPos = 0;
+      this.selectedUnit.actionTaken = true;
+      this.deselectUnit();
+    }
   }
-  /*
-  newChapter.cursor.selectedUnit.actionTaken = true;
-  newChapter.cursor.deselectUnit();
-*/
+
   if(newChapter.isPhaseOver()) {
     newChapter.changePhase();
   }
@@ -115,6 +104,11 @@ Cursor.prototype.deselectUnit = function() {
   this.attackSpaces = null;
   this.selectedUnitPrevPos = null;
   this.windowOptions = null;
+  this.fightOptions = null;
+}
+
+Cursor.prototype.scrollWindowCursor = function(key) {
+
 }
 
 Cursor.prototype.removeEventListener = function() {
