@@ -65,7 +65,6 @@ Cursor.prototype.postMovePhase = function(key) {
     } else if (this.windowOptions[this.windowCursorPos] === 'Fight') {
       this.windowCursorPos = 0;
       this.fightOptions = this.selectedUnit.isOppInRange();
-      // this.selectedUnit.fight(this.board.grid[enemyPoses[0]][enemyPoses[1]][0]);
       }
     }
   } else if(this.fightOptions != null) {

@@ -99,7 +99,6 @@ Display.prototype.renderUnitHPWindow = function(sF) {
   let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0];
 
   unit instanceof(PlayerUnit) ? c.fillStyle = "rgba(0, 255, 255, 0.7)": c.fillStyle = "rgba(255, 0, 0, 0.7)";
-  //c.fillStyle = "rgba(0, 255, 255, 0.7)";
   c.fillRect(windowx, 0, 6 * sF, 2 * sF);
   unit.hpWindowSprite.renderSprite(
     windowx,
@@ -154,21 +153,6 @@ Display.prototype.attackSelectionRender = function(row, col, sF) {
     this.renderSpot(row, col, sF);
   }
 }
-/*
-Display.prototype.possibleMovesRender = function(selectedUnit, moveSpaces, attackSpaces, sF) {
-  this.boardIterator(this.moveSelectionRender.bind(this), sF);
-}
-
-Display.prototype.moveSelectionRender = function(row, col, sF) {
-  if(this.cursor.moveSpaces[[row, col]]) {
-    this.possibleMoveSpaceRender(row, col, sF);
-  } if (this.cursor.attackSpaces[[row, col]]) {
-    this.possibleAttackSpaceRender(row, col, sF);
-  } else {
-    this.renderSpot(row, col, sF);
-  }
-}
-*/
 
 function includePosition(array, pos) {
   for(let i = 0; i < array.length; i++) {
