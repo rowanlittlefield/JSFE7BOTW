@@ -7,26 +7,37 @@ CombatInformationWindow.prototype.render = function(pos, sF) {
   let x = (pos[0] * sF) + (sF * 2);
   let y = (pos[1] * sF) - (sF * 1.5);
   let width = 150;
-  let height = 300;
+  let height = 135;
   let centerX = x + (width / 2);
 
-  c.fillStyle = 'rgba(0, 0, 0, 1)';
-  c.fillRect(x, y, width, height);
+  //c.fillStyle = 'rgba(0, 0, 0, 1)';
+  //c.fillRect(x, y, width, height);
+
+  c.fillStyle = "rgba(0, 255, 255, 1)";
+  c.fillRect(x, y, width, 35);
+  c.fillRect(x, y + 35, 50, 65);
+
+  c.fillStyle = "rgba(204, 204, 0, 1)";
+  c.fillRect(x + 50, y + 35, 50, 65);
+
+  c.fillStyle = "rgba(255, 0, 0, 1)";
+  c.fillRect(x + 100, y + 35, 50, 65);
+  c.fillRect(x, y + 100, width, 35);
 
   this.renderText(this.unit.name, 'center', centerX, y + 15);
   this.renderText(this.unit.inventory.stats['name'], 'center', centerX, y + 30);
-  this.renderStatRow(this.unit.current_hp, this.opponent.current_hp, 'HP', centerX, y + 45, width);
+  this.renderStatRow(this.unit.current_hp, this.opponent.current_hp, 'HP', centerX, y + 50, width);
   this.renderStatRow(this.unit.damage(this.opponent),
-  this.opponent.damage(this.unit), 'MT', centerX, y + 60, width);
+  this.opponent.damage(this.unit), 'MT', centerX, y + 65, width);
 
   this.renderStatRow(this.unit.accuracy(this.opponent),
-  this.opponent.accuracy(this.unit), 'HT', centerX, y + 75, width);
+  this.opponent.accuracy(this.unit), 'HT', centerX, y + 80, width);
 
   this.renderStatRow(this.unit.criticalChance(this.opponent),
-  this.opponent.criticalChance(this.unit), 'CT', centerX, y + 90, width);
+  this.opponent.criticalChance(this.unit), 'CT', centerX, y + 95, width);
 
-  this.renderText(this.opponent.inventory.stats['name'], 'center', centerX, y + 105);
-  this.renderText(this.opponent.name, 'center', centerX, y + 120);
+  this.renderText(this.opponent.inventory.stats['name'], 'center', centerX, y + 115);
+  this.renderText(this.opponent.name, 'center', centerX, y + 130);
 }
 
 CombatInformationWindow.prototype.renderStatRow = function(unitStat, oppStat, statName, centerX, y, width) {
