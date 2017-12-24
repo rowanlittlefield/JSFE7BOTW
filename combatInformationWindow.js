@@ -10,6 +10,18 @@ CombatInformationWindow.prototype.render = function(pos, sF) {
   let height = 135;
   let centerX = x + (width / 2);
 
+if ((pos[0] * sF) + (sF * 2) + width <= window.innerWidth) {
+  x = (pos[0] * sF) + (sF * 2);
+} else {
+  x = (pos[0] * sF) - (sF * 2) - (width);
+}
+
+if ((pos[1] * sF) - (sF * 1.5) >= 0) {
+  y = (pos[1] * sF) - (sF * 1.5);
+} else {
+  y = (pos[1] * sF) + (sF * 1.5);
+}
+
   //c.fillStyle = 'rgba(0, 0, 0, 1)';
   //c.fillRect(x, y, width, height);
 
@@ -58,4 +70,18 @@ CombatInformationWindow.prototype.renderText = function(text, alignment, centerX
   c.textAlign = alignment;
   c.fillStyle = 'rgba(255, 255, 225, 1)';
   c.fillText(text, centerX, y);
+}
+
+CombatInformationWindow.prototype.setWindowCoordinates = function(x, y, width, height, pos, sF) {
+  if ((pos[0] * sF) + (sF * 2) + width <= window.innerWidth) {
+    x = (pos[0] * sF) + (sF * 2);
+  } else {
+    x = (pos[0] * sF) - (sF * 2) - (width);
+  }
+
+  if ((pos[1] * sF) - (sF * 1.5) >= 0) {
+    y = (pos[1] * sF) - (sF * 1.5);
+  } else {
+    y = (pos[1] * sF) + (sF * 1.5);
+  }
 }

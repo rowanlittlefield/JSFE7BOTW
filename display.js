@@ -142,7 +142,7 @@ Display.prototype.selectAttackRender = function(sF) {
   this.boardIterator(this.attackSelectionRender.bind(this), sF);
   let oppPos = [this.cursor.fightOptions[this.cursor.windowCursorPos][0], this.cursor.fightOptions[this.cursor.windowCursorPos][1]];
   let ciw = new CombatInformationWindow(this.cursor.selectedUnit, this.board.grid[oppPos[0]][oppPos[1]][0]);
-  ciw.render(this.cursor.selectedUnit.position, sF);
+  ciw.render(this.cursor.fightOptions[this.cursor.windowCursorPos], sF);
 }
 
 Display.prototype.attackSelectionRender = function(row, col, sF) {
