@@ -38,6 +38,13 @@ CombatInformationWindow.prototype.render = function(pos, sF) {
 
   this.renderText(this.opponent.inventory.stats['name'], 'center', centerX, y + 115);
   this.renderText(this.opponent.name, 'center', centerX, y + 130);
+
+  if (this.unit.isRepeatedAttack(this.opponent)) {
+    this.renderText('x2', 'right', x + width, y + 30);
+  }
+  if (this.unit.isRepeatedAttack(this.opponent)) {
+    this.renderText('x2', 'right', x + width, y + 115);
+  }
 }
 
 CombatInformationWindow.prototype.renderStatRow = function(unitStat, oppStat, statName, centerX, y, width) {
