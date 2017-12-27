@@ -102,6 +102,7 @@ Unit.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpaces) {
 }
 
 Unit.prototype.possibleAttackSpaces = function() {
+  //debugger;
   let moveSpaces = this.validMoveSpaces();
   let range = this.inventory.stats['range'];
   let maxRange = Math.max.apply(null, range);
@@ -133,7 +134,7 @@ Unit.prototype.possibleAttackSpaces = function() {
     }
 
   }
-
+//debugger;
   for(let space in listOfAttackSpaces) {
     if(this.isCorrectDistance(space, moveSpaces, range)) {
       delete listOfAttackSpaces[space];
@@ -149,7 +150,7 @@ Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange){
 
     let mSpaceArrayString = key.split(',');
     let mSpaceArray = [parseInt(mSpaceArrayString[0]), parseInt(mSpaceArrayString[1])]
-    if(weaponRange.includes(distance(key, mSpace))) {
+    if(weaponRange.includes(distance(keyArray, mSpaceArray))) {
       return true;
     }
   }
