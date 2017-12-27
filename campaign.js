@@ -1,4 +1,4 @@
-let newBoard = new Board([12, 5]);
+let newBoard = new Board([16, 5]);
 
 let link = new Link(newBoard, new RustedSword());
 let zelda = new Zelda(newBoard, new Light());
@@ -7,8 +7,8 @@ let bokoTwo = new Bokoblin(newBoard, new RustedSword(), 'TWBS');
 let roy = new Roy(newBoard, new RustedSword());
 newBoard.placeUnit(link, [0,0]);
 newBoard.placeUnit(zelda, [2,3]);
-newBoard.placeUnit(boko, [2,2]);
-newBoard.placeUnit(bokoTwo, [3,2]);
+newBoard.placeUnit(boko, [12,2]);
+newBoard.placeUnit(bokoTwo, [13,2]);
 newBoard.placeUnit(roy, [0, 3]);
 console.log('Link shows stationary attackSpaces');
 console.log(link.stationaryUnitAttackSpaces());
