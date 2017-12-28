@@ -14,7 +14,9 @@ Display.prototype.render = function(sF) {
   }
   if(this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0] != null &&
     this.cursor.selectedUnit === null && this.cursor.selectedUnitPrevPos === null) {
-      this.renderUnitHPWindow(sF);
+      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0];
+      newUnitMapWindow = new UnitMapWindow(unit);
+      newUnitMapWindow.render(sF);
     }
   if (this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos != null &&
     this.cursor.fightOptions === null) {
@@ -45,7 +47,7 @@ Display.prototype.renderSpot = function(row, col, sF) {
     }
 
     if(this.board.grid[row][col][0] != null){
-      this.board.grid[row][col][0].mapSprite.renderSprite(
+      this.board.grid[row][col][0].mapSprite.render(
         row * sF +(sF * 0.1),
         col * sF + (sF * 0.01),
         0.8 * sF,
@@ -95,30 +97,6 @@ Display.prototype.boardIterator = function(callBack, sF) {
       callBack(row, col, sF);
     }
   }
-}
-
-Display.prototype.renderUnitHPWindow = function(sF) {
-  let windowx = window.innerWidth - (6 * sF);
-  let windowEndx = windowx + (6 * sF);
-  let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0];
-
-  unit instanceof(PlayerUnit) ? c.fillStyle = "rgba(0, 255, 255, 0.7)": c.fillStyle = "rgba(255, 0, 0, 0.7)";
-  c.fillRect(windowx, 0, 6 * sF, 2 * sF);
-  unit.hpWindowSprite.renderSprite(
-    windowx,
-    0,
-    2 * sF,
-    2 * sF
-  );
-  c.textAlign = 'left';
-  c.font = "20px Arial";
-  c.fillStyle = 'rgba(0,0,0,1)';
-  c.fillText(`${unit.name}`, windowx + (2 * sF), 0.5 *sF);
-  c.fillText(`HP: ${unit.current_hp} / ${unit.stats['hp']}`, windowx + (2 * sF), 1 * sF);
-  c.fillStyle = "rgba(0, 0, 0, 0.9)";
-  c.fillRect(windowx + (2 * sF), 1.2 * sF, 3.5 * sF, 0.5 * sF);
-  c.fillStyle = "rgba(255, 223, 0, 1)";
-  c.fillRect(windowx + (2 * sF), 1.3 * sF, 3.5 * sF *(unit.current_hp / unit.stats['hp']), 0.3 * sF);
 }
 
 Display.prototype.renderPostMovePhaseWindow = function(sF) {

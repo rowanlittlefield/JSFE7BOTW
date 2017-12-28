@@ -26,7 +26,7 @@ Sprite.prototype.update = function() {
   }
 }
 
-Sprite.prototype.renderSprite = function(cx, cy, cWidth, cHeight) {
+Sprite.prototype.render = function(cx, cy, cWidth, cHeight) {
   this.context.drawImage(
     this.spriteSheet,
     this.frameIndex * this.width,
