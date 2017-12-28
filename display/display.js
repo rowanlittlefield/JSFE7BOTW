@@ -20,7 +20,9 @@ Display.prototype.render = function(sF) {
     }
   if (this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos != null &&
     this.cursor.fightOptions === null) {
-    this.renderPostMovePhaseWindow(sF);
+      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0];
+      newUnitPostMovePhaseWindow = new UnitPostMovePhaseWindow(unit, this.cursor.windowCursorPos);
+      newUnitPostMovePhaseWindow.render(sF);
   }
 }
 
@@ -95,27 +97,6 @@ Display.prototype.boardIterator = function(callBack, sF) {
   for(let row = 0; row < this.board.grid.length; row++){
     for(let col = 0; col < this.board.grid[row].length; col++){
       callBack(row, col, sF);
-    }
-  }
-}
-
-Display.prototype.renderPostMovePhaseWindow = function(sF) {
-  let unitPosition = this.cursor.selectedUnit.position;
-  let options = this.cursor.selectedUnit.postMoveWindowOptions();
-  let windowx = (unitPosition[0] * sF) + (2 * sF);
-  let windowy = (unitPosition[1] * sF);
-
-  c.fillStyle = "rgba(65, 105, 225, 1)";
-  c.fillRect(windowx, windowy, sF * 2, sF * options.length * 0.5 + (sF*0.2));
-
-  for(let i = 0; i < options.length; i++) {
-    c.font = "20px Arial";
-    c.fillStyle = 'rgba(255, 255, 225, 1)';
-    c.fillText(`${options[i]}`, windowx, windowy + sF * 0.5 + sF * i * 0.5);
-
-    if (this.cursor.windowCursorPos === i) {
-      c.fillStyle = "rgba(255, 223, 0, 0.5)";
-      c.fillRect(windowx, windowy + (sF * 0.1) + (i * sF * 0.5) , sF * 2, sF * 0.5);
     }
   }
 }
