@@ -28,8 +28,8 @@ function Zelda(board, inventory) {
   this.name = 'Zelda';
   this.position = null;
   this.actionTaken = false;
-  this.mapSprite = new Sprite(c, 173, 344, "units/zelda_sprite.png", 6, 1);
-  this.hpWindowSprite = new Sprite(c, 568, 560, "units/zeldaHPWindowSprite.png", 6, 1);
+  this.mapSprite = new Sprite(c, 173, 344, "units/playerUnits/zelda/zelda_sprite.png", 6, 1);
+  this.hpWindowSprite = new Sprite(c, 568, 560, "units/playerUnits/zelda/zeldaHPWindowSprite.png", 6, 1);
 }
 
 Zelda.prototype = Object.create(PlayerUnit.prototype);
