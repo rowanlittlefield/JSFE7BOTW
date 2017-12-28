@@ -120,12 +120,3 @@ Display.prototype.attackSelectionRender = function(row, col, sF) {
     this.renderSpot(row, col, sF);
   }
 }
-
-function includePosition(array, pos) {
-  for(let i = 0; i < array.length; i++) {
-    if (array[i][0] === pos[0] && array[i][1] === pos[1]) {
-      return true;
-    }
-  }
-  return false;
-}

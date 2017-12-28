@@ -25,27 +25,7 @@ Board.prototype.inBounds = function(pos) {
   return !(pos[0] < 0 || pos[0] > this.grid.length || pos[1] < 0 || pos[1] > this.grid[0].length);
 }
 
-function distance(pos1, pos2) {
-  let dr = Math.abs(pos1[0] - pos2[0]);
-  let dc = Math.abs(pos1[1] - pos2[1]);
-  return (dr + dc);
-}
-
 Board.prototype.list_of_units = function(type) {
-  /*
-  let units = {};
-
-  for(let i = 0; i < this.grid.length; i++) {
-    for(let j = 0; j < this.grid[i].length; j++) {
-      let condition = this.grid[i][j][0] instanceof(type);
-      if(this.grid[i][j][0] instanceof(type)) {
-        units[this.grid[i][j][0]] = true;
-      }
-    }
-  }
-debugger;
-  return units;
-  */
   let units = new Map();
 
   for(let idx = 0; idx < this.grid.length; idx++) {
@@ -61,7 +41,7 @@ debugger;
 // NEED UNIT DEATH METHOD
 
 Board.prototype.unitDeath = function(unit) {
-  this.grid[unit.position[0]][unit.position[1]][0] = null; 
+  this.grid[unit.position[0]][unit.position[1]][0] = null;
 }
 
 Board.prototype.listOfUnits = function(type) {
