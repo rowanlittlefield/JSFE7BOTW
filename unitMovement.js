@@ -25,8 +25,8 @@ Unit.prototype.adjacentSpacesCanMoveThrough = function(space, targetSpace) {
   for (let i = 0; i < adjSpaces.length; i++) {
     let space = adjSpaces[i];
 
-    if(this.board.grid[space[0]][space[1]][0] === null ||
-      this.board.grid[space[0]][space[1]][0] instanceof(PlayerUnit) === this instanceof(PlayerUnit) &&
+    if((this.board.grid[space[0]][space[1]][0] === null ||
+      this.board.grid[space[0]][space[1]][0] instanceof(PlayerUnit) === this instanceof(PlayerUnit)) &&
       this.board.grid[space[0]][space[1]][1] === null) {
       moveableAdjSpaces.push(space);
     }

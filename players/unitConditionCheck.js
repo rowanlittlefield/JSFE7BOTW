@@ -24,6 +24,7 @@ GeneralPlayer.prototype.resetUnitsAction = function() {
 GeneralPlayer.prototype.unitDeath = function() {
   this.units.forEach(function(item, key, map) {
     if(key.current_hp === 0) {
+      key.position = null;
       map.delete(key);
     }
   });

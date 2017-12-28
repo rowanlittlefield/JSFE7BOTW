@@ -22,10 +22,13 @@ Chapter.prototype.postUnitActionCheck = function() {
 }
 
 Chapter.prototype.isPhaseOver = function() {
+  this.player.unitDeath();
+  this.enemyPlayer.unitDeath();
   return this.currentPlayer.isPhaseOver();
 }
 
 Chapter.prototype.changePhase = function() {
+  this.currentPlayer.unitDeath();
   this.currentPlayer.resetUnitsAction();
   this.phase = (this.phase + 1) % 2;
   this.currentPlayer = this.players[this.phase];

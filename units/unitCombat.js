@@ -9,8 +9,13 @@ Unit.prototype.fight = function(opposingUnit) {
     opposingUnit.individualAttack(this);
   }
   this.repeatAttack(opposingUnit);
+  if (enemyUnit.current_hp === 0) {
+    enemyUnit.board.unitDeath(enemyUnit);
+  }
   if(playerUnit.current_hp > 0) {
     playerUnit.allotExp(enemyUnit, enemyUnitInitialHP);
+  } else {
+    playerUnit.board.unitDeath(playerUnit);
   }
 }
 

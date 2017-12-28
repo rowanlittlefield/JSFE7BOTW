@@ -40,6 +40,10 @@ Display.prototype.renderSpot = function(row, col, sF) {
     c.lineTo(row * sF, col * sF);
     c.stroke();
 
+    if (this.board.grid[row][col][1] != null) {
+      this.board.grid[row][col][1].render(row, col, sF);
+    }
+
     if(this.board.grid[row][col][0] != null){
       this.board.grid[row][col][0].mapSprite.renderSprite(
         row * sF +(sF * 0.1),

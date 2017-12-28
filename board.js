@@ -60,6 +60,10 @@ debugger;
 }
 // NEED UNIT DEATH METHOD
 
+Board.prototype.unitDeath = function(unit) {
+  this.grid[unit.position[0]][unit.position[1]][0] = null; 
+}
+
 Board.prototype.listOfUnits = function(type) {
   let units = new Map();
 
