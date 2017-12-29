@@ -25,9 +25,9 @@ Unit.prototype.adjacentSpacesCanMoveThrough = function(space, targetSpace) {
   for (let i = 0; i < adjSpaces.length; i++) {
     let space = adjSpaces[i];
 
-    if((this.board.grid[space[0]][space[1]][0] === null ||
-      this.board.grid[space[0]][space[1]][0] instanceof(PlayerUnit) === this instanceof(PlayerUnit)) &&
-      this.board.grid[space[0]][space[1]][1] === null) {
+    if((this.board.grid[space[0]][space[1]].unit === null ||
+      this.board.grid[space[0]][space[1]].unit instanceof(PlayerUnit) === this instanceof(PlayerUnit)) &&
+      this.board.grid[space[0]][space[1]].terrain === null) {
       moveableAdjSpaces.push(space);
     }
   }
@@ -71,12 +71,9 @@ Unit.prototype.validMoveSpaces = function() {
 }
 
 Unit.prototype.isValidMove = function(endPos) {
-  var one = this.board.grid[endPos[0]][endPos[1]] != null;
-  var two = !this.possibleSpacesCanMoveThrough()[endPos];
-
   if (endPos[0] === this.position[0] && endPos[1] === this.position[1]) {
     return true;
-  } else if ((this.board.grid[endPos[0]][endPos[1]][0] != null) ||
+  } else if ((this.board.grid[endPos[0]][endPos[1]].unit != null) ||
     !this.possibleSpacesCanMoveThrough()[endPos]) {
     return false;
   }
@@ -90,8 +87,8 @@ Unit.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpaces) {
 
   for (let i = 0; i < adjSpaces.length; i++) {
     let space = adjSpaces[i];
-    if(moveSpaces[space] != true && (this.board.grid[space[0]][space[1]][0] === null ||
-      this.board.grid[space[0]][space[1]][0] instanceof(PlayerUnit) != this instanceof(PlayerUnit))) {
+    if(moveSpaces[space] != true && (this.board.grid[space[0]][space[1]].unit === null ||
+      this.board.grid[space[0]][space[1]].unit instanceof(PlayerUnit) != this instanceof(PlayerUnit))) {
       attackableAdjSpaces.push(space);
     }
   }
@@ -149,7 +146,7 @@ Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange) {
 }
 
 Unit.prototype.move = function(pos) {
-  this.board.grid[this.position[0]][this.position[1]][0] = null;
-  this.board.grid[pos[0]][pos[1]][0] = this;
+  this.board.grid[this.position[0]][this.position[1]].unit = null;
+  this.board.grid[pos[0]][pos[1]].unit = this;
   this.position = pos;
 }

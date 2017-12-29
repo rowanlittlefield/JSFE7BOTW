@@ -6,8 +6,8 @@ GeneralPlayer.prototype.listOfUnits = function(type) {
   let units = new Map();
 
   this.board.boardIterator(function(row, col) {
-    if (this.board.grid[row][col][0] instanceof(type)) {
-      units.set(this.board.grid[row][col][0], true);
+    if (this.board.grid[row][col].unit instanceof(type)) {
+      units.set(this.board.grid[row][col].unit, true);
     }
   }.bind(this));
   return units;

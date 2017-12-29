@@ -17,3 +17,18 @@ function includePosition(array, pos) {
   }
   return false;
 }
+
+function renderSquare(row, col, sF) {
+  c.beginPath();
+  c.lineWidth="1";
+  c.strokeStyle="black"; // Green path
+  c.moveTo(row * sF, col * sF);
+  c.lineTo(row * sF + sF, col * sF);
+  c.stroke();
+  c.lineTo(row * sF + sF, col * sF + sF);
+  c.stroke();
+  c.lineTo(row * sF, col * sF + sF);
+  c.stroke();
+  c.lineTo(row * sF, col * sF);
+  c.stroke();
+}

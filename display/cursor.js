@@ -39,7 +39,7 @@ Cursor.prototype.moveCursorPosition = function(key) {
 }
 
 Cursor.prototype.enterKeyAction = function() {
-  let spaceOccupant = this.board.grid[this.cursorPos[0]][this.cursorPos[1]][0]
+  let spaceOccupant = this.board.grid[this.cursorPos[0]][this.cursorPos[1]].unit
   if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
   spaceOccupant.actionTaken === false && this.selectedUnit === null) {
     this.selectUnit(spaceOccupant);
@@ -74,7 +74,7 @@ Cursor.prototype.postMovePhase = function(key) {
       this.windowCursorPos -= 1;
     } else if(key.keyCode == '13') {
       let pos = this.windowCursorPos;
-      this.selectedUnit.fight(this.board.grid[this.fightOptions[pos][0]][this.fightOptions[pos][1]][0]);
+      this.selectedUnit.fight(this.board.grid[this.fightOptions[pos][0]][this.fightOptions[pos][1]].unit);
       this.windowCursorPos = 0;
       this.selectedUnit.actionTaken = true;
       this.deselectUnit();

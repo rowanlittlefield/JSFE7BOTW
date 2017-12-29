@@ -10,6 +10,7 @@ newBoard.placeUnit(zelda, [2,3]);
 newBoard.placeUnit(boko, [12,2]);
 newBoard.placeUnit(bokoTwo, [13,2]);
 newBoard.placeUnit(roy, [0, 3]);
+debugger;
 new Wall(newBoard, [10, 1]);
 new Wall(newBoard, [10, 2]);
 new Wall(newBoard, [10, 3]);

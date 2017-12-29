@@ -12,7 +12,7 @@ Unit.prototype.attackPlayerUnitInRange = function() {
   let playerUnitPositionsInRange = [];
 
   this.board.boardIterator(function(row, col){
-    if (this.board.grid[row][col][0] instanceof(PlayerUnit) &&
+    if (this.board.grid[row][col].unit instanceof(PlayerUnit) &&
         this.inventory.stats['range'].includes(distance(this.position, [row, col]))) {
       playerUnitPositionsInRange.push([row, col]);
     }
@@ -21,7 +21,7 @@ Unit.prototype.attackPlayerUnitInRange = function() {
   if (playerUnitPositionsInRange.length > 0) {
     let attackIndex = Math.floor(Math.random() * playerUnitPositionsInRange.length);
     let pos = playerUnitPositionsInRange[attackIndex];
-    this.fight(this.board.grid[pos[0]][pos[1]][0]);
+    this.fight(this.board.grid[pos[0]][pos[1]].unit);
   }
 
 }
@@ -32,7 +32,7 @@ Unit.prototype.possibleAttackSetupSpace = function() {
   let playerUnitPositions = [];
 
   this.board.boardIterator(function(row, col){
-    if (this.board.grid[row][col][0] instanceof(PlayerUnit)) {
+    if (this.board.grid[row][col].unit instanceof(PlayerUnit)) {
       playerUnitPositions.push([row, col]);
     }
   }.bind(this));
@@ -67,8 +67,8 @@ Unit.prototype.isOppInRange = function() {
   let oppUnitsPosInRange = [];
 
   this.board.boardIterator(function(row, col){
-    if (this.board.grid[row][col][0] &&
-      this.board.grid[row][col][0] instanceof(EnemyUnit)) {
+    if (this.board.grid[row][col].unit &&
+      this.board.grid[row][col].unit instanceof(EnemyUnit)) {
       oppUnitPositions.push([row, col]);
     }
   }.bind(this));
@@ -97,8 +97,8 @@ Unit.prototype.stationaryUnitAttackSpaces = function() {
   let attackPositions = [];
 
   this.board.boardIterator(function(row, col){
-    if ((this.board.grid[row][col][0] === null ||
-      this.board.grid[row][col][0] instanceof(EnemyUnit)) &&
+    if ((this.board.grid[row][col].unit === null ||
+      this.board.grid[row][col].unit instanceof(EnemyUnit)) &&
       ranges.includes(distance([row, col], this.position))) {
       attackPositions.push([row, col]);
     }

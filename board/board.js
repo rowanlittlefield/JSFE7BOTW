@@ -5,20 +5,25 @@ function Board(dimensions){
     for(var rows = 0; rows < dimensions[0]; rows ++){
       new_grid[rows] = new Array(dimensions[1])
       for(var cols = 0; cols < dimensions[1]; cols ++){
-        new_grid[rows][cols] = new Array(2);
-        new_grid[rows][cols][0] = null;
-        new_grid[rows][cols][1] = null;
+        new_grid[rows][cols] = new Space([rows, cols]);
       }
     }
-
+debugger;
   this.grid = new_grid;
 }
 
 //
 
+Board.prototype.render = function(sF) {
+}
+
+Board.prototype.space = function(pos) {
+  return this.grid[pos[0]][pos[1]];
+}
+
 Board.prototype.placeUnit = function(unit, pos) {
   unit.position = pos;
-  this.grid[pos[0]][pos[1]][0] = unit;
+  this.grid[pos[0]][pos[1]].unit = unit;
 }
 
 Board.prototype.inBounds = function(pos) {
@@ -30,8 +35,8 @@ Board.prototype.list_of_units = function(type) {
 
   for(let idx = 0; idx < this.grid.length; idx++) {
     for(let idx2 = 0; idx2 < this.grid[idx].length; idx2++) {
-      if (this.grid[idx][idx2][0] instanceof(type)) {
-        units.set(this.grid[idx][idx2][0], true);
+      if (this.grid[idx][idx2].unit instanceof(type)) {
+        units.set(this.grid[idx][idx2].unit, true);
       }
     }
   }
@@ -41,15 +46,15 @@ Board.prototype.list_of_units = function(type) {
 // NEED UNIT DEATH METHOD
 
 Board.prototype.unitDeath = function(unit) {
-  this.grid[unit.position[0]][unit.position[1]][0] = null;
+  this.grid[unit.position[0]][unit.position[1]].unit = null;
 }
 
 Board.prototype.listOfUnits = function(type) {
   let units = new Map();
 
   this.boardIterator(function(row, col) {
-    if (this.grid[row][col][0] instanceof(type)) {
-      units.set(this.grid[row][col][0], true);
+    if (this.grid[row][col].unit instanceof(type)) {
+      units.set(this.grid[row][col].unit, true);
     }
   }.bind(this));
 

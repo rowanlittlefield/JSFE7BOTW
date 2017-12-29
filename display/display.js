@@ -12,59 +12,31 @@ Display.prototype.render = function(sF) {
 
     this.selectAttackRender(sF);
   }
-  if(this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0] != null &&
+  if(this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit != null &&
     this.cursor.selectedUnit === null && this.cursor.selectedUnitPrevPos === null) {
-      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0];
+      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
       newUnitMapWindow = new UnitMapWindow(unit);
       newUnitMapWindow.render(sF);
     }
   if (this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos != null &&
     this.cursor.fightOptions === null) {
-      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]][0];
+      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
       newUnitPostMovePhaseWindow = new UnitPostMovePhaseWindow(unit, this.cursor.windowCursorPos);
       newUnitPostMovePhaseWindow.render(sF);
   }
 }
 
 Display.prototype.renderBoard = function(sF) {
-  this.boardIterator(this.renderSpot.bind(this), sF);
+  this.boardIterator(this.renderSpace.bind(this), sF);
 }
 
-Display.prototype.renderSpot = function(row, col, sF) {
-    c.beginPath();
-    c.lineWidth="1";
-    c.strokeStyle="black"; // Green path
-    c.moveTo(row * sF, col * sF);
-    c.lineTo(row * sF + sF, col * sF);
-    c.stroke();
-    c.lineTo(row * sF + sF, col * sF + sF);
-    c.stroke();
-    c.lineTo(row * sF, col * sF + sF);
-    c.stroke();
-    c.lineTo(row * sF, col * sF);
-    c.stroke();
+Display.prototype.renderSpace = function(row, col, sF) {
+  this.board.space([row, col]).render(row, col, sF);
 
-    if (this.board.grid[row][col][1] != null) {
-      this.board.grid[row][col][1].render(row, col, sF);
-    }
-
-    if(this.board.grid[row][col][0] != null){
-      this.board.grid[row][col][0].mapSprite.render(
-        row * sF +(sF * 0.1),
-        col * sF + (sF * 0.01),
-        0.8 * sF,
-        1   * sF
-      );
-      if(this.board.grid[row][col][0].actionTaken) {
-        c.fillStyle = "rgba(128, 128, 128, 0.2)";
-        c.fill();
-      }
-    }
-
-    if(row === this.cursor.cursorPos[0] &&  col === this.cursor.cursorPos[1]) {
-      c.fillStyle = "rgba(255, 255, 0, 0.5)";
-      c.fill();
-    }
+  if(row === this.cursor.cursorPos[0] &&  col === this.cursor.cursorPos[1]) {
+    c.fillStyle = "rgba(255, 255, 0, 0.5)";
+    c.fill();
+  }
 }
 
 Display.prototype.possibleMovesRender = function(selectedUnit, moveSpaces, attackSpaces, sF) {
@@ -77,18 +49,18 @@ Display.prototype.moveSelectionRender = function(row, col, sF) {
   } if (this.cursor.attackSpaces[[row, col]]) {
     this.possibleAttackSpaceRender(row, col, sF);
   } else {
-    this.renderSpot(row, col, sF);
+    this.renderSpace(row, col, sF);
   }
 }
 
 Display.prototype.possibleMoveSpaceRender = function(row, col, sF) {
-  this.renderSpot(row, col, sF);
+  this.renderSpace(row, col, sF);
   c.fillStyle = "rgba(0, 0, 255, 0.2)";
   c.fillRect(row * sF, col * sF, sF, sF);
 }
 
 Display.prototype.possibleAttackSpaceRender = function(row, col, sF) {
-  this.renderSpot(row, col, sF);
+  this.renderSpace(row, col, sF);
   c.fillStyle = "rgba(255, 0, 0, 0.2)";
   c.fillRect(row * sF, col * sF, sF, sF);
 }
@@ -104,19 +76,19 @@ Display.prototype.boardIterator = function(callBack, sF) {
 Display.prototype.selectAttackRender = function(sF) {
   this.boardIterator(this.attackSelectionRender.bind(this), sF);
   let oppPos = [this.cursor.fightOptions[this.cursor.windowCursorPos][0], this.cursor.fightOptions[this.cursor.windowCursorPos][1]];
-  let ciw = new CombatInformationWindow(this.cursor.selectedUnit, this.board.grid[oppPos[0]][oppPos[1]][0]);
+  let ciw = new CombatInformationWindow(this.cursor.selectedUnit, this.board.grid[oppPos[0]][oppPos[1]].unit);
   ciw.render(this.cursor.fightOptions[this.cursor.windowCursorPos], sF);
 }
 
 Display.prototype.attackSelectionRender = function(row, col, sF) {
   if (this.cursor.fightOptions[this.cursor.windowCursorPos][0] === row &&
     this.cursor.fightOptions[this.cursor.windowCursorPos][1] === col) {
-      this.renderSpot(row, col, sF);
+      this.renderSpace(row, col, sF);
       c.fillStyle = "rgba(255, 0, 255, 0.2)";
       c.fillRect(row * sF, col * sF, sF, sF);
   } else if (includePosition(this.cursor.fightOptions, [row, col])) {
     this.possibleAttackSpaceRender(row, col, sF);
   } else {
-    this.renderSpot(row, col, sF);
+    this.renderSpace(row, col, sF);
   }
 }
