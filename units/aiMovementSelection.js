@@ -43,8 +43,7 @@ Unit.prototype.possibleAttackSetupSpace = function() {
 
   for(let i = 0; i < playerUnitPositions.length; i++) {
     for(const space in validSpaces) {
-      splitSpace = space.split(',');
-      spaceArr = [parseInt(splitSpace[0]), parseInt(splitSpace[1])];
+      let spaceArr = stringToPos(space);
       if(weaponRange.includes(distance(playerUnitPositions[i], spaceArr))) {
         setupSpaces.push(spaceArr);
       }

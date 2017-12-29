@@ -44,9 +44,8 @@ Unit.prototype.possibleSpacesCanMoveThrough = function() {
     let keys = Object.keys(spaces);
 
     for(let idx3 = 0; idx3 < keys.length; idx3++) {
-      let arrayString = keys[idx3];
-      let splitString = arrayString.split(',');
-      let adSpaces = this.adjacentSpacesCanMoveThrough([parseInt(splitString[0]), parseInt(splitString[1])]);
+      let pos = stringToPos(keys[idx3]);
+      let adSpaces = this.adjacentSpacesCanMoveThrough(pos);
       for(let idx4 = 0; idx4 < adSpaces.length; idx4++) {
         spaces[adSpaces[idx4]] = true;
       }
@@ -61,10 +60,10 @@ Unit.prototype.validMoveSpaces = function() {
   let possibleSpaces = this.possibleSpacesCanMoveThrough();
 
   for(const pos in possibleSpaces) {
-    let position = pos.split(',');
+    let position = stringToPos(pos);
 
-    if (this.isValidMove([parseInt(position[0]), parseInt(position[1])])) {
-      validMoveSpaces[[parseInt(position[0]), parseInt(position[1])]] = true;
+    if (this.isValidMove(position)) {
+      validMoveSpaces[position] = true;
     }
   }
 
@@ -86,7 +85,6 @@ Unit.prototype.isValidMove = function(endPos) {
 }
 
 Unit.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpaces) {
-  //
   let adjSpaces = this.adjacentSpaceList(space);
   let attackableAdjSpaces = [];
 
@@ -102,7 +100,6 @@ Unit.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpaces) {
 }
 
 Unit.prototype.possibleAttackSpaces = function() {
-  //debugger;
   let moveSpaces = this.validMoveSpaces();
   let range = this.inventory.stats['range'];
   let maxRange = Math.max.apply(null, range);
@@ -112,9 +109,7 @@ Unit.prototype.possibleAttackSpaces = function() {
     if(idx === 0) {
 
       for(let space in moveSpaces) {
-        let splitSpace = space.split(',');
-        let spaceArray = [parseInt(splitSpace[0]), parseInt(splitSpace[1])];
-        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(spaceArray, moveSpaces);
+        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), moveSpaces);
         for(let idx2 = 0; idx2 < adjAttackSpaces.length; idx2 ++) {
           listOfAttackSpaces[adjAttackSpaces[idx2]] = true;
         }
@@ -123,9 +118,7 @@ Unit.prototype.possibleAttackSpaces = function() {
     } else {
 
       for(let space in listOfAttackSpaces) {
-        let splitSpace = space.split(',');
-        let spaceArray = [parseInt(splitSpace[0]), parseInt(splitSpace[1])];
-        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(spaceArray, moveSpaces);
+        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), moveSpaces);
         for(let idx2 = 0; idx2 < adjAttackSpaces.length; idx2 ++) {
           listOfAttackSpaces[adjAttackSpaces[idx2]] = true;
         }
@@ -134,7 +127,7 @@ Unit.prototype.possibleAttackSpaces = function() {
     }
 
   }
-//debugger;
+
   for(let space in listOfAttackSpaces) {
     if(this.isCorrectDistance(space, moveSpaces, range)) {
       delete listOfAttackSpaces[space];
@@ -143,13 +136,10 @@ Unit.prototype.possibleAttackSpaces = function() {
   return listOfAttackSpaces;
 }
 
-Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange){
-  let keyArrayString = key.split(',');
-  let keyArray = [parseInt(keyArrayString[0]), parseInt(keyArrayString[1])]
+Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange) {
+  let keyArray = stringToPos(key);
   for(let mSpace in moveSpaces) {
-
-    let mSpaceArrayString = key.split(',');
-    let mSpaceArray = [parseInt(mSpaceArrayString[0]), parseInt(mSpaceArrayString[1])]
+    let mSpaceArray = stringToPos(key);
     if(weaponRange.includes(distance(keyArray, mSpaceArray))) {
       return true;
     }

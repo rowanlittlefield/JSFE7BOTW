@@ -4,6 +4,11 @@ function distance(pos1, pos2) {
   return (dr + dc);
 }
 
+function stringToPos(stringPos) {
+let stringArr = stringPos.split(',');
+return [parseInt(stringArr[0]), parseInt(stringArr[1])]
+}
+
 function includePosition(array, pos) {
   for(let i = 0; i < array.length; i++) {
     if (array[i][0] === pos[0] && array[i][1] === pos[1]) {
