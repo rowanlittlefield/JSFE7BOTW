@@ -47,33 +47,9 @@ Cursor.prototype.enterKeyAction = function() {
 
 Cursor.prototype.postMovePhase = function(key) {
   if (this.phaseStage === 'post movement options') {
-    if (key.keyCode == '83' && this.windowCursorPos < this.selectedUnit.windowOptions.length - 1) {
-      this.windowCursorPos += 1;
-    } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
-      this.windowCursorPos -= 1;
-    } else if(key.keyCode == '13') {
-    if (this.selectedUnit.windowOptions[this.windowCursorPos] === 'End') {
-      this.windowCursorPos = 0;
-      this.selectedUnit.actionTaken = true;
-      this.deselectUnit();
-    } else if (this.selectedUnit.windowOptions[this.windowCursorPos] === 'Fight') {
-      this.windowCursorPos = 0;
-      this.selectedUnit.fightOptions = this.selectedUnit.isOppInRange();
-      this.phaseStage = 'select unit to fight';
-      }
-    }
+    this.selectPostMoveOption(key);
   } else if(this.phaseStage === 'select unit to fight') {
-    if (key.keyCode == '83' && this.windowCursorPos < this.selectedUnit.fightOptions.length - 1) {
-      this.windowCursorPos += 1;
-    } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
-      this.windowCursorPos -= 1;
-    } else if(key.keyCode == '13') {
-      let pos = this.windowCursorPos;
-      this.selectedUnit.fight(this.board.grid[this.selectedUnit.fightOptions[pos][0]][this.selectedUnit.fightOptions[pos][1]].unit);
-      this.windowCursorPos = 0;
-      this.selectedUnit.actionTaken = true;
-      this.deselectUnit();
-    }
+    this.selectUnitToFight(key);
   }
 
   if(newChapter.isPhaseOver()) {
@@ -88,11 +64,38 @@ Cursor.prototype.selectUnit = function(unit) {
 }
 
 Cursor.prototype.moveSelectedUnit = function() {
-  this.selectedUnitPrevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.prevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
   this.selectedUnit.windowOptions = this.selectedUnit.postMoveWindowOptions();
   this.phaseStage = 'post movement options';
+}
+
+Cursor.prototype.selectPostMoveOption = function(key) {
+  if (key.keyCode == '83' || key.keyCode == '87') {
+    this.scrollWindowCursor(key, this.selectedUnit.windowOptions.length);
+  } else if(key.keyCode == '13') {
+  if (this.selectedUnit.windowOptions[this.windowCursorPos] === 'End') {
+    this.windowCursorPos = 0;
+    this.selectedUnit.actionTaken = true;
+    this.deselectUnit();
+  } else if (this.selectedUnit.windowOptions[this.windowCursorPos] === 'Fight') {
+    this.windowCursorPos = 0;
+    this.selectedUnit.fightOptions = this.selectedUnit.isOppInRange();
+    this.phaseStage = 'select unit to fight';
+    }
+  }
+}
+
+Cursor.prototype.selectUnitToFight = function(key) {
+  if (key.keyCode == '83' || key.keyCode == '87') {
+    this.scrollWindowCursor(key, this.selectedUnit.fightOptions.length);
+  } else if(key.keyCode == '13') {
+    let pos = this.windowCursorPos;
+    this.selectedUnit.fight(this.board.grid[this.selectedUnit.fightOptions[pos][0]][this.selectedUnit.fightOptions[pos][1]].unit);
+    this.windowCursorPos = 0;
+    this.selectedUnit.actionTaken = true;
+    this.deselectUnit();
+  }
 }
 
 Cursor.prototype.deselectUnit = function() {
@@ -105,7 +108,12 @@ Cursor.prototype.renderBoardCursor = function(sF) {
   highlight(this.cursorPos, 'rgba(255, 255, 0, 0.5)', sF); //yellow
 }
 
-Cursor.prototype.scrollWindowCursor = function(key) {
+Cursor.prototype.scrollWindowCursor = function(key, windowLength) {
+  if (key.keyCode == '83' && this.windowCursorPos < windowLength - 1) {
+    this.windowCursorPos += 1;
+  } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
+    this.windowCursorPos -= 1;
+  }
 }
 
 Cursor.prototype.removeEventListener = function() {
