@@ -1,4 +1,12 @@
 function Link(board, inventory) {
+
+//playerUnit keys
+this.moveSpaces = null;
+this.attackSpaces = null;
+this.prevPos = null;
+this.windowOptions = null;
+this.fightOptions = null;
+
   this.stats = {
     level: 1,
     experience: 0,

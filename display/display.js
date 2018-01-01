@@ -9,7 +9,6 @@ Display.prototype.render = function(sF) {
   } else if(this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos === null) {
     this.possibleMovesRender(this.cursor.selectedUnit, this.cursor.moveSpaces, this.cursor.attackSpaces, sF);
   } else if(this.cursor.fightOptions != null) {
-
     this.selectAttackRender(sF);
   }
   if(this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit != null &&
@@ -28,29 +27,26 @@ Display.prototype.render = function(sF) {
 
 Display.prototype.renderBoard = function(sF) {
   this.boardIterator(this.renderSpace.bind(this), sF);
-}
-
-Display.prototype.renderSpace = function(row, col, sF) {
-  this.board.space([row, col]).render(row, col, sF);
-
-  if(row === this.cursor.cursorPos[0] &&  col === this.cursor.cursorPos[1]) {
-    c.fillStyle = "rgba(255, 255, 0, 0.5)";
-    c.fill();
-  }
+  this.cursor.renderBoardCursor(sF);
 }
 
 Display.prototype.possibleMovesRender = function(selectedUnit, moveSpaces, attackSpaces, sF) {
   this.boardIterator(this.moveSelectionRender.bind(this), sF);
+  this.cursor.renderBoardCursor(sF);
 }
 
 Display.prototype.moveSelectionRender = function(row, col, sF) {
-  if(this.cursor.moveSpaces[[row, col]]) {
+  if(this.cursor.selectedUnit.moveSpaces[[row, col]]) {
     this.possibleMoveSpaceRender(row, col, sF);
-  } if (this.cursor.attackSpaces[[row, col]]) {
+  } if (this.cursor.selectedUnit.attackSpaces[[row, col]]) {
     this.possibleAttackSpaceRender(row, col, sF);
   } else {
     this.renderSpace(row, col, sF);
   }
+}
+
+Display.prototype.renderSpace = function(row, col, sF) {
+  this.board.space([row, col]).render(row, col, sF);
 }
 
 Display.prototype.possibleMoveSpaceRender = function(row, col, sF) {
@@ -64,6 +60,8 @@ Display.prototype.possibleAttackSpaceRender = function(row, col, sF) {
   c.fillStyle = "rgba(255, 0, 0, 0.2)";
   c.fillRect(row * sF, col * sF, sF, sF);
 }
+
+//
 
 Display.prototype.boardIterator = function(callBack, sF) {
   for(let row = 0; row < this.board.grid.length; row++){

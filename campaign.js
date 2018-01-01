@@ -1,5 +1,5 @@
 let newBoard = new Board([16, 5]);
-
+debugger;
 let link = new Link(newBoard, new RustedSword());
 let zelda = new Zelda(newBoard, new Light());
 let boko = new Bokoblin(newBoard, new RustedSword(), 'TWBS');

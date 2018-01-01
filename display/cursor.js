@@ -3,12 +3,12 @@ function Cursor(board) {
   this.board = board;
   this.cursorPos = [0, 0];
   this.windowCursorPos = 0;
+
   this.windowOptions = null;
   this.fightOptions = null;
-  this.selectedUnit = null;
-  this.moveSpaces = null;
-  this.attackSpaces = null;
   this.selectedUnitPrevPos = null;
+
+  this.selectedUnit = null;
 
   this.checkKeyPress = function(key) {
       //board cursor handling
@@ -88,22 +88,28 @@ Cursor.prototype.postMovePhase = function(key) {
 
 Cursor.prototype.selectUnit = function(unit) {
   this.selectedUnit = unit;
-  this.moveSpaces = unit.possibleSpacesCanMoveThrough();
-  this.attackSpaces = unit.possibleAttackSpaces();
+  this.selectedUnit.setMoveForecast();
 }
 
 Cursor.prototype.moveSelectedUnit = function() {
   this.selectedUnitPrevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
+  this.selectedUnit.prevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
 }
 
 Cursor.prototype.deselectUnit = function() {
+  this.selectedUnit.nullifyOptions();
   this.selectedUnit = null;
-  this.moveSpaces = null;
-  this.attackSpaces = null;
+  //need to be able to remove three lines below
   this.selectedUnitPrevPos = null;
   this.windowOptions = null;
   this.fightOptions = null;
+
+}
+
+Cursor.prototype.renderBoardCursor = function(sF) {
+  c.fillStyle = "rgba(255, 255, 0, 0.5)";
+  c.fillRect(this.cursorPos[0] * sF, this.cursorPos[1] * sF, sF, sF);
 }
 
 Cursor.prototype.scrollWindowCursor = function(key) {

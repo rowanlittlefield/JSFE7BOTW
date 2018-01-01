@@ -8,7 +8,7 @@ function Board(dimensions){
         new_grid[rows][cols] = new Space([rows, cols]);
       }
     }
-debugger;
+    
   this.grid = new_grid;
 }
 
