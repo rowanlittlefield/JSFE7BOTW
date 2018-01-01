@@ -3,24 +3,18 @@ function Cursor(board) {
   this.board = board;
   this.cursorPos = [0, 0];
   this.windowCursorPos = 0;
-
-  this.phaseStage = 'select unit';
-
-  this.windowOptions = null;
-  this.fightOptions = null;
-  this.selectedUnitPrevPos = null;
-
   this.selectedUnit = null;
+  this.phaseStage = 'select unit';
 
   this.checkKeyPress = function(key) {
       //board cursor handling
-      if (that.selectedUnitPrevPos === null) {
+      if (that.selectedUnit === null || that.selectedUnit.prevPos === null) {
         if(key.keyCode == "13") {
           that.enterKeyAction();
         } else {
           that.moveCursorPosition(key);
         }
-      } else if(that.selectedUnitPrevPos != null) {
+      } else if(that.selectedUnit.prevPos != null) {
         that.postMovePhase(key);
       }
   }
@@ -48,30 +42,27 @@ Cursor.prototype.enterKeyAction = function() {
   } else if(this.selectedUnit != null &&
     this.selectedUnit.validMoveSpaces()[[this.cursorPos[0], this.cursorPos[1]]]) {
     this.moveSelectedUnit();
-    this.windowOptions = this.selectedUnit.postMoveWindowOptions();
   }
 }
 
 Cursor.prototype.postMovePhase = function(key) {
-
-  if (this.selectedUnit.fightOptions === null) {
-    if (key.keyCode == '83' && this.windowCursorPos < this.windowOptions.length - 1) {
+  if (this.phaseStage === 'post movement options') {
+    if (key.keyCode == '83' && this.windowCursorPos < this.selectedUnit.windowOptions.length - 1) {
       this.windowCursorPos += 1;
     } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
       this.windowCursorPos -= 1;
     } else if(key.keyCode == '13') {
-    if (this.windowOptions[this.windowCursorPos] === 'End') {
+    if (this.selectedUnit.windowOptions[this.windowCursorPos] === 'End') {
       this.windowCursorPos = 0;
       this.selectedUnit.actionTaken = true;
       this.deselectUnit();
-    } else if (this.windowOptions[this.windowCursorPos] === 'Fight') {
+    } else if (this.selectedUnit.windowOptions[this.windowCursorPos] === 'Fight') {
       this.windowCursorPos = 0;
-      this.fightOptions = this.selectedUnit.isOppInRange();
       this.selectedUnit.fightOptions = this.selectedUnit.isOppInRange();
       this.phaseStage = 'select unit to fight';
       }
     }
-  } else if(/*this.fightOptions != null*/ this.phaseStage === 'select unit to fight') {
+  } else if(this.phaseStage === 'select unit to fight') {
     if (key.keyCode == '83' && this.windowCursorPos < this.selectedUnit.fightOptions.length - 1) {
       this.windowCursorPos += 1;
     } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
@@ -100,26 +91,21 @@ Cursor.prototype.moveSelectedUnit = function() {
   this.selectedUnitPrevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.prevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
+  this.selectedUnit.windowOptions = this.selectedUnit.postMoveWindowOptions();
   this.phaseStage = 'post movement options';
 }
 
 Cursor.prototype.deselectUnit = function() {
   this.selectedUnit.nullifyOptions();
   this.selectedUnit = null;
-  //need to be able to remove three lines below
-  this.selectedUnitPrevPos = null;
-  this.windowOptions = null;
-  //this.fightOptions = null;
   this.phaseStage = 'select unit';
 }
 
 Cursor.prototype.renderBoardCursor = function(sF) {
-  c.fillStyle = "rgba(255, 255, 0, 0.5)";
-  c.fillRect(this.cursorPos[0] * sF, this.cursorPos[1] * sF, sF, sF);
+  highlight(this.cursorPos, 'rgba(255, 255, 0, 0.5)', sF); //yellow
 }
 
 Cursor.prototype.scrollWindowCursor = function(key) {
-
 }
 
 Cursor.prototype.removeEventListener = function() {

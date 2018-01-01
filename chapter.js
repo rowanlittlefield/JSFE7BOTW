@@ -9,6 +9,8 @@ function Chapter(board, objective) {
   this.players = {'0': this.player, '1': this.enemyPlayer};
   this.currentPlayer = this.players[0]
   this.phase = 0;
+
+  this.stage = 'select unit';
 }
 
 Chapter.prototype.gameOver = function() {

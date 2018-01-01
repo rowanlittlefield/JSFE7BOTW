@@ -9,15 +9,6 @@ Space.prototype.render = function(row, col, sF) {
   renderSquare(row, col, sF);
   this.renderSpaceSprite(row, col, sF);
   this.renderUnit(row, col, sF);
-
-  //need new render cursor method in board render method
-
-  /*
-  if(row === this.cursor.cursorPos[0] &&  col === this.cursor.cursorPos[1]) {
-    c.fillStyle = "rgba(255, 255, 0, 0.5)";
-    c.fill();
-  }
-  */
 }
 
 Space.prototype.renderSpaceSprite = function(row, col, sF) {

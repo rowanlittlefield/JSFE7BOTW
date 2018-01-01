@@ -1,6 +1,7 @@
 function Display(board, cursor) {
   this.board = board;
   this.cursor = cursor;
+  this.window = null;
 }
 
 Display.prototype.render = function(sF) {
@@ -18,13 +19,13 @@ Display.prototype.renderBoard = function(sF) {
 }
 
 Display.prototype.spaceHighlighting = function(sF) {
-  if (this.cursor.phaseStage != 'select unit to fight') {
-    this.cursor.renderBoardCursor(sF);
-  }
  if (this.cursor.phaseStage === 'player unit moving') {
     this.renderMoveAndAttackSpaces(this.cursor.selectedUnit, sF);
   } else if (this.cursor.phaseStage === 'select unit to fight') {
     this.renderAttackSpaces(this.cursor.selectUnit, sF);
+  }
+  if (this.cursor.phaseStage != 'select unit to fight') {
+    this.cursor.renderBoardCursor(sF);
   }
 }
 
