@@ -4,61 +4,66 @@ function Display(board, cursor) {
 }
 
 Display.prototype.render = function(sF) {
-  if((this.cursor.selectedUnit === null || this.cursor.selectedUnitPrevPos != null) && this.cursor.fightOptions === null) {
-    this.renderBoard(sF);
-  } else if(this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos === null) {
-    this.possibleMovesRender(this.cursor.selectedUnit, this.cursor.moveSpaces, this.cursor.attackSpaces, sF);
-  } else if(this.cursor.fightOptions != null) {
-    this.selectAttackRender(sF);
-  }
-  if(this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit != null &&
-    this.cursor.selectedUnit === null && this.cursor.selectedUnitPrevPos === null) {
-      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
-      newUnitMapWindow = new UnitMapWindow(unit);
-      newUnitMapWindow.render(sF);
-    }
-  if (this.cursor.selectedUnit != null && this.cursor.selectedUnitPrevPos != null &&
-    this.cursor.fightOptions === null) {
-      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
-      newUnitPostMovePhaseWindow = new UnitPostMovePhaseWindow(unit, this.cursor.windowCursorPos);
-      newUnitPostMovePhaseWindow.render(sF);
-  }
+  this.renderBoard(sF);
+  this.renderWindows(sF);
+//render phase stage
+  c.font = "15px Arial";
+  c.fillStyle = 'rgba(0, 0, 0, 1)';
+  c.fillText(`${this.cursor.phaseStage}`, 0, 400);
 }
 
 Display.prototype.renderBoard = function(sF) {
   this.boardIterator(this.renderSpace.bind(this), sF);
-  this.cursor.renderBoardCursor(sF);
+  this.spaceHighlighting(sF);
 }
 
-Display.prototype.possibleMovesRender = function(selectedUnit, moveSpaces, attackSpaces, sF) {
-  this.boardIterator(this.moveSelectionRender.bind(this), sF);
-  this.cursor.renderBoardCursor(sF);
+Display.prototype.spaceHighlighting = function(sF) {
+  if (this.cursor.phaseStage != 'select unit to fight') {
+    this.cursor.renderBoardCursor(sF);
+  }
+ if (this.cursor.phaseStage === 'player unit moving') {
+    this.renderMoveAndAttackSpaces(this.cursor.selectedUnit, sF);
+  } else if (this.cursor.phaseStage === 'select unit to fight') {
+    this.renderAttackSpaces(this.cursor.selectUnit, sF);
+  }
 }
 
-Display.prototype.moveSelectionRender = function(row, col, sF) {
-  if(this.cursor.selectedUnit.moveSpaces[[row, col]]) {
-    this.possibleMoveSpaceRender(row, col, sF);
-  } if (this.cursor.selectedUnit.attackSpaces[[row, col]]) {
-    this.possibleAttackSpaceRender(row, col, sF);
-  } else {
-    this.renderSpace(row, col, sF);
+Display.prototype.renderMoveAndAttackSpaces = function(unit, sF) {
+  let moveSpaces = unit.moveSpaces;
+  let attackSpaces = unit.attackSpaces;
+
+  for(const space in moveSpaces) {
+    highlight(stringToPos(space), 'rgba(0, 0, 255, 0.2)', sF); //blue
+  }
+  for(const space in attackSpaces) {
+    highlight(stringToPos(space), 'rgba(255, 0, 0, 0.2)', sF) //red
+  }
+}
+
+Display.prototype.renderAttackSpaces = function(unit, sF) {
+  let pos = this.cursor.selectedUnit.fightOptions[this.cursor.windowCursorPos];
+  highlight(pos, "rgba(255, 0, 255, 0.2)", sF); //purple
+}
+
+Display.prototype.renderWindows = function(sF) {
+  if (this.cursor.phaseStage === 'select unit' &&
+  this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit != null) {
+    let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
+    newUnitMapWindow = new UnitMapWindow(unit);
+    newUnitMapWindow.render(sF);
+  } else if (this.cursor.phaseStage === 'select unit to fight') {
+    let oppPos = [this.cursor.selectedUnit.fightOptions[this.cursor.windowCursorPos][0], this.cursor.selectedUnit.fightOptions[this.cursor.windowCursorPos][1]];
+    let ciw = new CombatInformationWindow(this.cursor.selectedUnit, this.board.grid[oppPos[0]][oppPos[1]].unit);
+    ciw.render(this.cursor.selectedUnit.fightOptions[this.cursor.windowCursorPos], sF);
+  } else if (this.cursor.phaseStage === 'post movement options') {
+    let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
+    newUnitPostMovePhaseWindow = new UnitPostMovePhaseWindow(unit, this.cursor.windowCursorPos);
+    newUnitPostMovePhaseWindow.render(sF);
   }
 }
 
 Display.prototype.renderSpace = function(row, col, sF) {
   this.board.space([row, col]).render(row, col, sF);
-}
-
-Display.prototype.possibleMoveSpaceRender = function(row, col, sF) {
-  this.renderSpace(row, col, sF);
-  c.fillStyle = "rgba(0, 0, 255, 0.2)";
-  c.fillRect(row * sF, col * sF, sF, sF);
-}
-
-Display.prototype.possibleAttackSpaceRender = function(row, col, sF) {
-  this.renderSpace(row, col, sF);
-  c.fillStyle = "rgba(255, 0, 0, 0.2)";
-  c.fillRect(row * sF, col * sF, sF, sF);
 }
 
 //
@@ -68,25 +73,5 @@ Display.prototype.boardIterator = function(callBack, sF) {
     for(let col = 0; col < this.board.grid[row].length; col++){
       callBack(row, col, sF);
     }
-  }
-}
-
-Display.prototype.selectAttackRender = function(sF) {
-  this.boardIterator(this.attackSelectionRender.bind(this), sF);
-  let oppPos = [this.cursor.fightOptions[this.cursor.windowCursorPos][0], this.cursor.fightOptions[this.cursor.windowCursorPos][1]];
-  let ciw = new CombatInformationWindow(this.cursor.selectedUnit, this.board.grid[oppPos[0]][oppPos[1]].unit);
-  ciw.render(this.cursor.fightOptions[this.cursor.windowCursorPos], sF);
-}
-
-Display.prototype.attackSelectionRender = function(row, col, sF) {
-  if (this.cursor.fightOptions[this.cursor.windowCursorPos][0] === row &&
-    this.cursor.fightOptions[this.cursor.windowCursorPos][1] === col) {
-      this.renderSpace(row, col, sF);
-      c.fillStyle = "rgba(255, 0, 255, 0.2)";
-      c.fillRect(row * sF, col * sF, sF, sF);
-  } else if (includePosition(this.cursor.fightOptions, [row, col])) {
-    this.possibleAttackSpaceRender(row, col, sF);
-  } else {
-    this.renderSpace(row, col, sF);
   }
 }

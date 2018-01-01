@@ -4,6 +4,8 @@ function Cursor(board) {
   this.cursorPos = [0, 0];
   this.windowCursorPos = 0;
 
+  this.phaseStage = 'select unit';
+
   this.windowOptions = null;
   this.fightOptions = null;
   this.selectedUnitPrevPos = null;
@@ -52,7 +54,7 @@ Cursor.prototype.enterKeyAction = function() {
 
 Cursor.prototype.postMovePhase = function(key) {
 
-  if (this.fightOptions === null) {
+  if (this.selectedUnit.fightOptions === null) {
     if (key.keyCode == '83' && this.windowCursorPos < this.windowOptions.length - 1) {
       this.windowCursorPos += 1;
     } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
@@ -65,16 +67,18 @@ Cursor.prototype.postMovePhase = function(key) {
     } else if (this.windowOptions[this.windowCursorPos] === 'Fight') {
       this.windowCursorPos = 0;
       this.fightOptions = this.selectedUnit.isOppInRange();
+      this.selectedUnit.fightOptions = this.selectedUnit.isOppInRange();
+      this.phaseStage = 'select unit to fight';
       }
     }
-  } else if(this.fightOptions != null) {
-    if (key.keyCode == '83' && this.windowCursorPos < this.fightOptions.length - 1) {
+  } else if(/*this.fightOptions != null*/ this.phaseStage === 'select unit to fight') {
+    if (key.keyCode == '83' && this.windowCursorPos < this.selectedUnit.fightOptions.length - 1) {
       this.windowCursorPos += 1;
     } else if(key.keyCode =='87' && this.windowCursorPos > 0) {
       this.windowCursorPos -= 1;
     } else if(key.keyCode == '13') {
       let pos = this.windowCursorPos;
-      this.selectedUnit.fight(this.board.grid[this.fightOptions[pos][0]][this.fightOptions[pos][1]].unit);
+      this.selectedUnit.fight(this.board.grid[this.selectedUnit.fightOptions[pos][0]][this.selectedUnit.fightOptions[pos][1]].unit);
       this.windowCursorPos = 0;
       this.selectedUnit.actionTaken = true;
       this.deselectUnit();
@@ -89,12 +93,14 @@ Cursor.prototype.postMovePhase = function(key) {
 Cursor.prototype.selectUnit = function(unit) {
   this.selectedUnit = unit;
   this.selectedUnit.setMoveForecast();
+  this.phaseStage = 'player unit moving';
 }
 
 Cursor.prototype.moveSelectedUnit = function() {
   this.selectedUnitPrevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.prevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
+  this.phaseStage = 'post movement options';
 }
 
 Cursor.prototype.deselectUnit = function() {
@@ -103,8 +109,8 @@ Cursor.prototype.deselectUnit = function() {
   //need to be able to remove three lines below
   this.selectedUnitPrevPos = null;
   this.windowOptions = null;
-  this.fightOptions = null;
-
+  //this.fightOptions = null;
+  this.phaseStage = 'select unit';
 }
 
 Cursor.prototype.renderBoardCursor = function(sF) {

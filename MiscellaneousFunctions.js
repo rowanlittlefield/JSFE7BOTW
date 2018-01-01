@@ -32,3 +32,8 @@ function renderSquare(row, col, sF) {
   c.lineTo(row * sF, col * sF);
   c.stroke();
 }
+
+function highlight(pos, color, sF) {
+  c.fillStyle = color;
+  c.fillRect(pos[0] * sF, pos[1] * sF, sF, sF);
+}
