@@ -33,6 +33,13 @@ function renderSquare(row, col, sF) {
   c.stroke();
 }
 
+function renderText(text, alignment, centerX, y) {
+  c.font = "15px Arial";
+  c.textAlign = alignment;
+  c.fillStyle = 'rgba(255, 255, 225, 1)';
+  c.fillText(text, centerX, y);
+}
+
 function highlight(pos, color, sF) {
   c.fillStyle = color;
   c.fillRect(pos[0] * sF, pos[1] * sF, sF, sF);

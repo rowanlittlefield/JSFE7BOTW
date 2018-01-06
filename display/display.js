@@ -4,13 +4,16 @@ function Display(board, cursor) {
   this.window = null;
 }
 
+
 Display.prototype.render = function(sF) {
   this.renderBoard(sF);
   this.renderWindows(sF);
 //render phase stage
+  
   c.font = "15px Arial";
   c.fillStyle = 'rgba(0, 0, 0, 1)';
   c.fillText(`${this.cursor.phaseStage}`, 0, 400);
+
 }
 
 Display.prototype.renderBoard = function(sF) {
