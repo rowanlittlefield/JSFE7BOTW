@@ -96,7 +96,7 @@ Unit.prototype.optimalRoutePositions = function(viablePath, steps, start, endPos
 }
 
 Unit.prototype.siftRoute = function(optimalRoutePositions, start, endPos) {
-  debugger;
+//  debugger;
   let positions = [start];
   let directions = [[1, 0], [0, 1], [-1, 0], [0, -1]];
   let dirIndex = 0;

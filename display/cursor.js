@@ -13,6 +13,12 @@ function Cursor(board) {
           that.enterKeyAction();
         } else {
           that.moveCursorPosition(key);
+          if (that.selectedUnit != null) {
+            //debugger;
+            let pathAndSteps = that.selectedUnit.viablePathToUnit(that.selectedUnit.position, that.cursorPos);
+            let optRPositions = that.selectedUnit.optimalRoutePositions(pathAndSteps[0], pathAndSteps[1], that.selectedUnit.position, that.cursorPos);
+            that.selectedUnit.routeSpaces = that.selectedUnit.siftRoute(optRPositions, that.selectedUnit.position, that.cursorPos);
+          }
         }
       } else if(that.selectedUnit.prevPos != null) {
         that.postMovePhase(key);

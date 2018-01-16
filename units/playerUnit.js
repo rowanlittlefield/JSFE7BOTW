@@ -12,6 +12,7 @@ PlayerUnit.prototype.constructor = PlayerUnit;
 PlayerUnit.prototype.setMoveForecast = function() {
   this.moveSpaces = this.possibleSpacesCanMoveThrough();
   this.attackSpaces = this.possibleAttackSpaces();
+  this.routeSpaces = [this.position];
 }
 
 PlayerUnit.prototype.nullifyOptions = function() {

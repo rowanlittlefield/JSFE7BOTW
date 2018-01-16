@@ -9,7 +9,7 @@ Display.prototype.render = function(sF) {
   this.renderBoard(sF);
   this.renderWindows(sF);
 //render phase stage
-  
+
   c.font = "15px Arial";
   c.fillStyle = 'rgba(0, 0, 0, 1)';
   c.fillText(`${this.cursor.phaseStage}`, 0, 400);
@@ -24,6 +24,7 @@ Display.prototype.renderBoard = function(sF) {
 Display.prototype.spaceHighlighting = function(sF) {
  if (this.cursor.phaseStage === 'player unit moving') {
     this.renderMoveAndAttackSpaces(this.cursor.selectedUnit, sF);
+
   } else if (this.cursor.phaseStage === 'select unit to fight') {
     this.renderAttackSpaces(this.cursor.selectUnit, sF);
   }
@@ -35,12 +36,17 @@ Display.prototype.spaceHighlighting = function(sF) {
 Display.prototype.renderMoveAndAttackSpaces = function(unit, sF) {
   let moveSpaces = unit.moveSpaces;
   let attackSpaces = unit.attackSpaces;
+  let routeSpaces = unit.routeSpaces;
 
   for(const space in moveSpaces) {
     highlight(stringToPos(space), 'rgba(0, 0, 255, 0.2)', sF); //blue
   }
   for(const space in attackSpaces) {
-    highlight(stringToPos(space), 'rgba(255, 0, 0, 0.2)', sF) //red
+    highlight(stringToPos(space), 'rgba(255, 0, 0, 0.2)', sF); //red
+  }
+
+  for(let i = 0; i < routeSpaces.length; i++) {
+    highlight(routeSpaces[i], 'rgba(123, 104, 238, 0.2)', sF);
   }
 }
 
@@ -69,6 +75,8 @@ Display.prototype.renderWindows = function(sF) {
 Display.prototype.renderSpace = function(row, col, sF) {
   this.board.space([row, col]).render(row, col, sF);
 }
+
+
 
 //
 
