@@ -18,6 +18,10 @@ function includePosition(array, pos) {
   return false;
 }
 
+function equivalentPositions(posOne, posTwo) {
+  return posOne[0] === posTwo[0] && posOne[1] === posTwo[1];
+}
+
 function renderSquare(row, col, sF) {
   c.beginPath();
   c.lineWidth="1";
@@ -43,4 +47,14 @@ function renderText(text, alignment, centerX, y) {
 function highlight(pos, color, sF) {
   c.fillStyle = color;
   c.fillRect(pos[0] * sF, pos[1] * sF, sF, sF);
+}
+
+function identicalSets(setOne, setTwo) {
+  for(element in setOne) {
+    if (setTwo[element] === null) { return false; }
+  }
+  for(element in setTwo) {
+    if (setOne[element] === null) { return false; }
+  }
+  return true;
 }

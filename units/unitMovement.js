@@ -23,12 +23,13 @@ Unit.prototype.adjacentSpacesCanMoveThrough = function(space, targetSpace) {
   let moveableAdjSpaces = [];
 
   for (let i = 0; i < adjSpaces.length; i++) {
-    let space = adjSpaces[i];
-
-    if((this.board.grid[space[0]][space[1]].unit === null ||
-      this.board.grid[space[0]][space[1]].unit instanceof(PlayerUnit) === this instanceof(PlayerUnit)) &&
-      this.board.grid[space[0]][space[1]].terrain === null) {
-      moveableAdjSpaces.push(space);
+    let pos = adjSpaces[i];
+    let secondCondition = targetSpace != null && equivalentPositions(pos, targetSpace);
+    if(((this.board.grid[pos[0]][pos[1]].unit === null ||
+      this.board.grid[pos[0]][pos[1]].unit instanceof(PlayerUnit) === this instanceof(PlayerUnit)) &&
+      this.board.grid[pos[0]][pos[1]].terrain === null) ||
+      (targetSpace != null && equivalentPositions(pos, targetSpace))) {
+      moveableAdjSpaces.push(pos);
     }
   }
 
