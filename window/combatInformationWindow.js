@@ -1,9 +1,11 @@
-function CombatInformationWindow(unit, opponent) {
+function CombatInformationWindow(unit, options) {
   this.unit = unit;
-  this.opponent = opponent;
+  this.options = options;
 }
 
-CombatInformationWindow.prototype.render = function(pos, sF) {
+CombatInformationWindow.prototype.render = function(sF, windowCursorPos) {
+  let pos = this.options[windowCursorPos];
+  let opponent = this.unit.board.grid[pos[0]][pos[1]].unit;
   let x = (pos[0] * sF) + (sF * 2);
   let y = (pos[1] * sF) - (sF * 1.5);
   let width = 150;
@@ -35,33 +37,33 @@ if ((pos[1] * sF) - (sF * 1.5) >= 0) {
 
   renderText(this.unit.name, 'center', centerX, y + 15);
   renderText(this.unit.inventory.stats['name'], 'center', centerX, y + 30);
-  this.renderStatRow(this.unit.current_hp, this.opponent.current_hp, 'HP', centerX, y + 50, width);
+  this.renderStatRow(this.unit.current_hp, opponent.current_hp, 'HP', centerX, y + 50, width);
 
-  if (this.opponent.inventory.stats['range'].includes(distance(this.opponent.position, this.unit.position))) {
-    this.renderStatRow(this.unit.damage(this.opponent),
-    this.opponent.damage(this.unit), 'MT', centerX, y + 65, width);
-    this.renderStatRow(this.unit.accuracy(this.opponent),
-    this.opponent.accuracy(this.unit), 'HT', centerX, y + 80, width);
-    this.renderStatRow(this.unit.criticalChance(this.opponent),
-    this.opponent.criticalChance(this.unit), 'CT', centerX, y + 95, width);
+  if (opponent.inventory.stats['range'].includes(distance(opponent.position, this.unit.position))) {
+    this.renderStatRow(this.unit.damage(opponent),
+    opponent.damage(this.unit), 'MT', centerX, y + 65, width);
+    this.renderStatRow(this.unit.accuracy(opponent),
+    opponent.accuracy(this.unit), 'HT', centerX, y + 80, width);
+    this.renderStatRow(this.unit.criticalChance(opponent),
+    opponent.criticalChance(this.unit), 'CT', centerX, y + 95, width);
 
   } else {
-    this.renderStatRow(this.unit.damage(this.opponent),
+    this.renderStatRow(this.unit.damage(opponent),
     '--', 'MT', centerX, y + 65, width);
-    this.renderStatRow(this.unit.accuracy(this.opponent),
+    this.renderStatRow(this.unit.accuracy(opponent),
     '--', 'HT', centerX, y + 80, width);
-    this.renderStatRow(this.unit.criticalChance(this.opponent),
+    this.renderStatRow(this.unit.criticalChance(opponent),
     '--', 'CT', centerX, y + 95, width);
-    renderText(this.opponent.inventory.stats['name'], 'center', centerX, y + 115);
-    renderText(this.opponent.name, 'center', centerX, y + 130);
+    renderText(opponent.inventory.stats['name'], 'center', centerX, y + 115);
+    renderText(opponent.name, 'center', centerX, y + 130);
   }
-  renderText(this.opponent.inventory.stats['name'], 'center', centerX, y + 115);
-  renderText(this.opponent.name, 'center', centerX, y + 130);
+  renderText(opponent.inventory.stats['name'], 'center', centerX, y + 115);
+  renderText(opponent.name, 'center', centerX, y + 130);
 
-  if (this.unit.isRepeatedAttack(this.opponent)) {
+  if (this.unit.isRepeatedAttack(opponent)) {
     renderText('x2', 'right', x + width, y + 30);
   }
-  if (this.opponent.isRepeatedAttack(this.unit)) {
+  if (opponent.isRepeatedAttack(this.unit)) {
     renderText('x2', 'right', x + width, y + 115);
   }
 }

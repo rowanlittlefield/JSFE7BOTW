@@ -1,6 +1,7 @@
 function Display(board, cursor) {
   this.board = board;
   this.cursor = cursor;
+  this.phaseStage = 'select unit';
   this.window = null;
 }
 
@@ -9,11 +10,11 @@ Display.prototype.render = function(sF) {
   this.renderBoard(sF);
   this.renderWindows(sF);
 //render phase stage
-
+/*
   c.font = "15px Arial";
   c.fillStyle = 'rgba(0, 0, 0, 1)';
   c.fillText(`${this.cursor.phaseStage}`, 0, 400);
-
+*/
 }
 
 Display.prototype.renderBoard = function(sF) {
@@ -22,13 +23,12 @@ Display.prototype.renderBoard = function(sF) {
 }
 
 Display.prototype.spaceHighlighting = function(sF) {
- if (this.cursor.phaseStage === 'player unit moving') {
+ if (this.phaseStage === 'player unit moving') {
     this.renderMoveAndAttackSpaces(this.cursor.selectedUnit, sF);
-
-  } else if (this.cursor.phaseStage === 'select unit to fight') {
+  } else if (this.window instanceof CombatInformationWindow) {
     this.renderAttackSpaces(this.cursor.selectUnit, sF);
   }
-  if (this.cursor.phaseStage != 'select unit to fight') {
+  if (this.phaseStage != 'select unit to fight') {
     this.cursor.renderBoardCursor(sF);
   }
 }
@@ -51,11 +51,14 @@ Display.prototype.renderMoveAndAttackSpaces = function(unit, sF) {
 }
 
 Display.prototype.renderAttackSpaces = function(unit, sF) {
-  let pos = this.cursor.selectedUnit.fightOptions[this.cursor.windowCursorPos];
+  let pos = this.window.options[this.cursor.windowCursorPos];
   highlight(pos, "rgba(255, 0, 255, 0.2)", sF); //purple
 }
 
 Display.prototype.renderWindows = function(sF) {
+
+  if(this.window != null) this.window.render(sF, this.cursor.windowCursorPos);
+  /*
   if (this.cursor.phaseStage === 'select unit' &&
   this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit != null) {
     let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
@@ -70,6 +73,7 @@ Display.prototype.renderWindows = function(sF) {
     newUnitPostMovePhaseWindow = new UnitPostMovePhaseWindow(unit, this.cursor.windowCursorPos);
     newUnitPostMovePhaseWindow.render(sF);
   }
+  */
 }
 
 Display.prototype.renderSpace = function(row, col, sF) {
