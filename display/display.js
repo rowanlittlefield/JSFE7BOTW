@@ -1,7 +1,7 @@
-function Display(board, cursor) {
+function Display(board, cursor, phaseStage) {
   this.board = board;
   this.cursor = cursor;
-  this.phaseStage = 'select unit';
+  this.phaseStage = phaseStage;
   this.window = null;
 }
 
@@ -9,12 +9,7 @@ function Display(board, cursor) {
 Display.prototype.render = function(sF) {
   this.renderBoard(sF);
   this.renderWindows(sF);
-//render phase stage
-/*
-  c.font = "15px Arial";
-  c.fillStyle = 'rgba(0, 0, 0, 1)';
-  c.fillText(`${this.cursor.phaseStage}`, 0, 400);
-*/
+  this.phaseStage.render(sF);
 }
 
 Display.prototype.renderBoard = function(sF) {
@@ -23,12 +18,12 @@ Display.prototype.renderBoard = function(sF) {
 }
 
 Display.prototype.spaceHighlighting = function(sF) {
- if (this.phaseStage === 'player unit moving') {
+ if (this.phaseStage.stage === 'player unit moving') {
     this.renderMoveAndAttackSpaces(this.cursor.selectedUnit, sF);
   } else if (this.window instanceof CombatInformationWindow) {
     this.renderAttackSpaces(this.cursor.selectUnit, sF);
   }
-  if (this.phaseStage != 'select unit to fight') {
+  if (this.phaseStage.stage != 'select unit to fight') {
     this.cursor.renderBoardCursor(sF);
   }
 }
