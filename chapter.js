@@ -7,7 +7,7 @@ function Chapter(board, objective) {
   this.board = board;
   this.controller = new Controller(this);
   this.display = new Display(this.board, new Cursor(board), this.phaseStage);
-  this.cursor = this.display.cursor;
+  //this.cursor = this.display.cursor;
 
   this.player = new Player(this.board, this.display, this.phaseStage);
   this.enemyPlayer = new EnemyPlayer(this.board, this.display);
@@ -20,7 +20,6 @@ Chapter.prototype.gameOver = function() {
 }
 
 Chapter.prototype.receiveInput = function(button) {
-  //debugger;
   this.currentPlayer.receiveControllerInput(button);
 
   this.postPlayerActionUpdate();

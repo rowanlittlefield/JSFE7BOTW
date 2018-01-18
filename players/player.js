@@ -51,7 +51,19 @@ Player.prototype.playPlayerUnitMoving = function(button) {
       this.display.window = new UnitPostMovePhaseWindow(unit);
     }
   } else {
-    this.cursor.moveCursorPosition(button);
+      this.cursor.moveCursorPosition(button);
+      //
+      if (this.cursor.selectedUnit.moveSpaces[this.cursor.cursorPos] === true) {
+        let selectedUnit = this.cursor.selectedUnit;
+        let cursorPos = this.cursor.cursorPos;
+        let pathAndSteps = selectedUnit.viablePathToUnit(selectedUnit.position, cursorPos);
+        let optRPositions = selectedUnit.optimalRoutePositions(pathAndSteps[0], pathAndSteps[1], selectedUnit.position, cursorPos);
+        selectedUnit.routeSpaces = selectedUnit.siftRoute(optRPositions, selectedUnit.position, cursorPos);
+      } else {
+        this.cursor.selectedUnit.routeSpaces = [this.cursor.selectedUnit.position];
+      }
+
+      //
   }
 }
 
@@ -70,11 +82,7 @@ Player.prototype.postMovementDecision = function() {
     this.cursor.selectedUnit.actionTaken = true;
     this.display.window = null;
     this.cursor.deselectUnit();
-/*
-    if(newChapter.isPhaseOver()) {
-      newChapter.changePhase();
-    }
-    */
+
       this.phaseStage.nextStage('select unit');
   } else if (option === 'Fight') {
     this.cursor.windowCursorPos = 0;
@@ -93,12 +101,8 @@ Player.prototype.playSelectUnitToFight = function(button) {
     this.cursor.selectedUnit.actionTaken = true;
     this.cursor.deselectUnit();
     this.display.window = null;
-/*
-    if(newChapter.isPhaseOver()) {
-      newChapter.changePhase();
-    }
-    */
-      this.phaseStage.nextStage('select unit');
+
+    this.phaseStage.nextStage('select unit');
   } else {
     this.cursor.scrollWindowCursor(button, this.display.windowLength);
   }

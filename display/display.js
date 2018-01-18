@@ -41,7 +41,7 @@ Display.prototype.renderMoveAndAttackSpaces = function(unit, sF) {
   }
 
   for(let i = 0; i < routeSpaces.length; i++) {
-    highlight(routeSpaces[i], 'rgba(123, 104, 238, 0.2)', sF);
+    highlight(routeSpaces[i], 'rgba(123, 104, 238, 0.4)', sF);
   }
 }
 

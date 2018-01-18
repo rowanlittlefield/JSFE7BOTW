@@ -98,7 +98,28 @@ Unit.prototype.optimalRoutePositions = function(viablePath, steps, start, endPos
 Unit.prototype.siftRoute = function(optimalRoutePositions, start, endPos) {
 //  debugger;
   let positions = [start];
-  let directions = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+  let optRPos = optimalRoutePositions;
+  delete optRPos[start];
+
+  while (true) {
+    if(equivalentPositions(endPos, positions[0])) return positions.reverse();
+    let nextAdjacentPositions = [];
+    for(const pos in optRPos) {
+      if (distance(positions[0], stringToPos(pos)) === 1) {
+        nextAdjacentPositions.unshift(stringToPos(pos));
+      }
+    }
+    if (includePosition(nextAdjacentPositions, endPos)) {
+      positions.unshift(endPos);
+    } else {
+      positions.unshift(nextAdjacentPositions[0]);
+    }
+
+    for(let i = 0; i < nextAdjacentPositions.length; i++) {
+      delete optRPos[nextAdjacentPositions[i]];
+    }
+  }
+/*  let directions = [[1, 0], [0, 1], [-1, 0], [0, -1]];
   let dirIndex = 0;
 
   while (true) {
@@ -111,7 +132,7 @@ Unit.prototype.siftRoute = function(optimalRoutePositions, start, endPos) {
       dirIndex = (dirIndex + 1) % 4;
     }
   }
-
+*/
 }
 
 Unit.prototype.optimalRoutePosition = function(pos, steps, start, endPos) {
