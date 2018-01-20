@@ -37,6 +37,7 @@ function Zelda(board, inventory) {
   this.position = null;
   this.actionTaken = false;
   this.mapSprite = new Sprite(c, 173, 344, "units/playerUnits/zelda/zelda_sprite.png", 6, 1);
+  this.forwardWalkSprite = new Sprite(c, 24, 20, "units/playerUnits/roy/royForwardWalkSpriteSheet.png", 8, 4);
   this.hpWindowSprite = new Sprite(c, 568, 560, "units/playerUnits/zelda/zeldaHPWindowSprite.png", 6, 1);
 }
 

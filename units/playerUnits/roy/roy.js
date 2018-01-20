@@ -37,8 +37,11 @@ function Roy(board, inventory) {
   this.name = 'Roy';
   this.position = null;
   this.actionTaken = false;
+  this.inTransit = false;
   this.mapSprite = new Sprite(c, 18, 18, "units/playerUnits/roy/royMapSpriteSheet.png", 6, 12);
+  this.forwardWalkSprite = new Sprite(c, 24, 20, "units/playerUnits/roy/royForwardWalkSpriteSheet.png", 8, 4);
   this.hpWindowSprite = new Sprite(c, 217, 210, "units/playerUnits/roy/royHPWindowSprite.png", 6, 1);
+  this.movingAnimation = null;
 }
 
 Roy.prototype = Object.create(PlayerUnit.prototype);

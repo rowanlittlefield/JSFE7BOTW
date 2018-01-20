@@ -13,6 +13,7 @@ PlayerUnit.prototype.setMoveForecast = function() {
   this.moveSpaces = this.possibleSpacesCanMoveThrough();
   this.attackSpaces = this.possibleAttackSpaces();
   this.routeSpaces = [this.position];
+  this.inTransit = true;
 }
 
 PlayerUnit.prototype.nullifyOptions = function() {
@@ -21,4 +22,5 @@ PlayerUnit.prototype.nullifyOptions = function() {
   this.prevPos = null;
   this.windowOptions = null;
   this.fightOptions = null;
+  this.inTransit = false;
 }

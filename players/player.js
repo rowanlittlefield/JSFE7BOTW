@@ -45,6 +45,16 @@ Player.prototype.playPlayerUnitMoving = function(button) {
   if (button === 'A') {
 
     if (this.cursor.selectedUnit.validMoveSpaces()[[this.cursor.cursorPos[0], this.cursor.cursorPos[1]]]) {
+      // insert unit moving animation method
+      // debugger;
+      this.cursor.selectedUnit.moving = true;
+      let selectedUnit = this.cursor.selectedUnit;
+      let cursorPos = this.cursor.cursorPos;
+      let pathAndSteps = selectedUnit.viablePathToUnit(selectedUnit.position, cursorPos);
+      let optRPositions = selectedUnit.optimalRoutePositions(pathAndSteps[0], pathAndSteps[1], selectedUnit.position, cursorPos);
+      let siftedRoute = selectedUnit.siftRoute(optRPositions, selectedUnit.position, cursorPos);
+      this.cursor.selectedUnit.movingAnimation = new MovingAnimation(this.cursor.selectedUnit, siftedRoute, 5);
+      //
       this.cursor.moveSelectedUnit();
       this.phaseStage.nextStage('post movement options');
       let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
