@@ -36,11 +36,11 @@ function Zelda(board, inventory) {
   this.name = 'Zelda';
   this.position = null;
   this.actionTaken = false;
-  this.mapSprite = new Sprite(c, 173, 344, "units/playerUnits/zelda/zelda_sprite.png", 6, 1);
-  this.forwardWalkSprite = new Sprite(c, 24, 20, "units/playerUnits/roy/royForwardWalkSpriteSheet.png", 8, 4);
-  this.backwardWalkSprite = new Sprite(c, 21, 18, "units/playerUnits/roy/royBackwardsWalkSpriteSheet.png", 8, 4);
-  this.sideWalkSprite = new Sprite(c, 26, 18, "units/playerUnits/roy/royRightWalkSpriteSheet.png", 8, 4);
-  this.hpWindowSprite = new Sprite(c, 568, 560, "units/playerUnits/zelda/zeldaHPWindowSprite.png", 6, 1);
+  this.mapSprite = new Sprite(c, 173, 344, 18, 18, "units/playerUnits/zelda/zelda_sprite.png", 6, 1);
+  this.forwardWalkSprite = new Sprite(c, 22, 20, 22, 20, "units/playerUnits/roy/royForwardWalkSpriteSheetRevise.png", 6, 6);
+  this.backwardWalkSprite = new Sprite(c, 21, 18, 21, 18, "units/playerUnits/roy/royBackwardsWalkSpriteSheet.png", 8, 4);
+  this.sideWalkSprite = new Sprite(c, 26, 18, 26, 18, "units/playerUnits/roy/royRightWalkSpriteSheet.png", 8, 4);
+  this.hpWindowSprite = new Sprite(c, 568, 560, 18, 18, "units/playerUnits/zelda/zeldaHPWindowSprite.png", 6, 1);
 }
 
 Zelda.prototype = Object.create(PlayerUnit.prototype);

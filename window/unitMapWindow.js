@@ -8,7 +8,8 @@ UnitMapWindow.prototype.render = function(sF) {
 
   this.unit instanceof(PlayerUnit) ? c.fillStyle = "rgba(0, 255, 255, 0.7)": c.fillStyle = "rgba(255, 0, 0, 0.7)";
   c.fillRect(windowx, 0, width, 2 * sF);
-  this.unit.hpWindowSprite.render(
+  // debugger;
+  this.unit.hpWindowSprite.renderFromCoordinates(
     windowx,
     0,
     2 * sF,

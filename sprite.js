@@ -47,3 +47,18 @@ Sprite.prototype.render = function(row, col, sF) {
   );
   this.update();
 }
+
+Sprite.prototype.renderFromCoordinates = function(cx, cy, cWidth, cHeight) {
+  this.context.drawImage(
+    this.spriteSheet,
+    this.frameIndex * this.width,
+    0,
+    this.width,
+    this.height,
+    cx,
+    cy,
+    cWidth,
+    cHeight
+  );
+  this.update();
+}
