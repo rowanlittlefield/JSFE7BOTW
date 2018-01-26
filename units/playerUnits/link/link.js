@@ -39,6 +39,8 @@ this.fightOptions = null;
   this.actionTaken = false;
   this.mapSprite = new Sprite(c, 288, 368, "units/playerUnits/link/link_sprite_two.png", 6, 1);
   this.forwardWalkSprite = new Sprite(c, 24, 20, "units/playerUnits/roy/royForwardWalkSpriteSheet.png", 8, 4);
+  this.backwardWalkSprite = new Sprite(c, 21, 18, "units/playerUnits/roy/royBackwardsWalkSpriteSheet.png", 8, 4);
+  this.sideWalkSprite = new Sprite(c, 26, 18, "units/playerUnits/roy/royRightWalkSpriteSheet.png", 8, 4);
   this.hpWindowSprite = new Sprite(c, 800, 774, "units/playerUnits/link/botwLinkChibiHead.jpg", 6, 1);
 }
 

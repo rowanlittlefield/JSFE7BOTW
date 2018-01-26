@@ -22,12 +22,14 @@ MovingAnimation.prototype.calculateRouteDifferentials = function() {
 
 MovingAnimation.prototype.render = function(sF) {
   // debugger;
-  let x = this.x * sF + (sF * 0.1);
-  let dx = 0.8 * sF;
-  let y = this.y * sF + (sF * 0.01);
-  let dy = 1 * sF;
 
-  this.unit.forwardWalkSprite.render(x, y, dx, dy);
+  if (this.differentials[this.difIndex][0] === 0 && this.differentials[this.difIndex][1] === -1) {
+    this.unit.backwardWalkSprite.render(this.x, this.y, sF);
+  } else if(this.differentials[this.difIndex][0] === 1 && this.differentials[this.difIndex][1] === 0) {
+    this.unit.sideWalkSprite.render(this.x, this.y, sF);
+  } else {
+    this.unit.forwardWalkSprite.render(this.x, this.y, sF);
+  }
 
   //update
   if (this.tick >= this.ticksPerTranslation || this.differentials.length === 0) {

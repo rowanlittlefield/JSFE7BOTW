@@ -3,5 +3,5 @@ function animate() {
   c.clearRect(0, 0, innerWidth, innerHeight);
   //newDisplay.render();
   //newDisplay.render(50);
-  newChapter.display.render(50, newChapter.phase);
+  newChapter.display.render(52, newChapter.phase);
 }
