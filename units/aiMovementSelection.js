@@ -119,20 +119,20 @@ Unit.prototype.siftRoute = function(optimalRoutePositions, start, endPos) {
       delete optRPos[nextAdjacentPositions[i]];
     }
   }
-/*  let directions = [[1, 0], [0, 1], [-1, 0], [0, -1]];
-  let dirIndex = 0;
+}
 
-  while (true) {
-    if(equivalentPositions(endPos, positions[0])) return positions.reverse();
+Unit.prototype.findAnOptimalRoute = function(destination) {
+  let pathAndSteps = this.viablePathToUnit(
+    this.position,
+    destination);
 
-    let nextPosition = [positions[0][0] - directions[dirIndex][0], positions[0][1] - directions[dirIndex][1]];
-    if (optimalRoutePositions[nextPosition] === true && !includePosition(positions, nextPosition)) {
-      positions.unshift(nextPosition);
-    } else {
-      dirIndex = (dirIndex + 1) % 4;
-    }
-  }
-*/
+  let optRPositions = this.optimalRoutePositions(
+    pathAndSteps[0],
+    pathAndSteps[1],
+    this.position,
+    destination);
+
+   return this.siftRoute(optRPositions, this.position, destination);
 }
 
 Unit.prototype.optimalRoutePosition = function(pos, steps, start, endPos) {
