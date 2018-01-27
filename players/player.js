@@ -62,19 +62,15 @@ Player.prototype.playPlayerUnitMoving = function(button) {
     }
   } else {
       this.cursor.moveCursorPosition(button);
-      //
+
       if (this.cursor.selectedUnit.moveSpaces[this.cursor.cursorPos] === true) {
         let selectedUnit = this.cursor.selectedUnit;
         let cursorPos = this.cursor.cursorPos;
-        // let pathAndSteps = selectedUnit.viablePathToUnit(selectedUnit.position, cursorPos);
-        // let optRPositions = selectedUnit.optimalRoutePositions(pathAndSteps[0], pathAndSteps[1], selectedUnit.position, cursorPos);
-        // selectedUnit.routeSpaces = selectedUnit.siftRoute(optRPositions, selectedUnit.position, cursorPos);
         selectedUnit.routeSpaces = selectedUnit.findAnOptimalRoute(cursorPos);
       } else {
         this.cursor.selectedUnit.routeSpaces = [this.cursor.selectedUnit.position];
       }
 
-      //
   }
 }
 
