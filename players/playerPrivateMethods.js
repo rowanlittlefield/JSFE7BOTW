@@ -28,7 +28,7 @@ Player.prototype.updateUnitMapWindow = function() {
     this.display.window = null;
   }
 }
-//first play methods followed by sub-methods
+//play player unit moving
 Player.prototype.playPlayerUnitMoving = function(button) {
   if (button === 'A') {
     if (this.selectedUnit().validMoveSpaces()[this.cursorPos()]) {
@@ -45,7 +45,6 @@ Player.prototype.moveSelectedUnit = function() {
   if (!equivalentPositions(this.cursorPos(), selectedUnit.position)) {
     this.setMovingAnimation();
   }
-  //
   this.cursor.moveSelectedUnit();
   this.phaseStage.nextStage('post movement options');
   this.display.window = new UnitPostMovePhaseWindow(selectedUnit);
@@ -66,7 +65,44 @@ Player.prototype.updateSelectedUnitRouteSpaces = function() {
   }
 }
 
+//play post movement options
+
+Player.prototype.playPostMovementOptions = function(button) {
+  if (button === 'A') {
+    this.postMovementDecision();
+  } else {
+    this.cursor.scrollWindowCursor(
+      button, this.display.window.options.length);
+  }
+}
+
+Player.prototype.postMovementDecision = function() {
+  let option = this.display.window.options[this.cursor.windowCursorPos];
+  if (option === 'End') {
+    this.endUnitTurn();
+  } else if (option === 'Fight') {
+    this.fightPreparations();
+  }
+}
+
+Player.prototype.endUnitTurn = function() {
+  this.cursor.windowCursorPos = 0;
+  this.selectedUnit().actionTaken = true;
+  this.updateUnitMapWindow();
+  this.cursor.deselectUnit();
+
+  this.phaseStage.nextStage('select unit');
+}
+
+Player.prototype.fightPreparations = function() {
+  this.cursor.windowCursorPos = 0;
+  let fightOptions = this.cursor.selectedUnit.isOppInRange();
+  this.display.window = new CombatInformationWindow(this.cursor.selectedUnit, fightOptions);
+  this.phaseStage.nextStage('select unit to fight');
+}
+
 //next play method followed by sub-methods
+
 
 // lower level methods
 Player.prototype.selectedUnit = function() {

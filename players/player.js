@@ -23,24 +23,6 @@ Player.prototype.receiveControllerInput = function(button) {
   }
 }
 
-Player.prototype.playSelectUnit = function(button) {
-  if (button === 'A') {
-    this.cursor.identifySpaceOccupant();
-    if(this.cursor.selectedUnit != null) {
-      this.phaseStage.nextStage('player unit moving');
-    }
-  } else {
-    this.cursor.moveCursorPosition(button);
-    if (this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit != null) {
-      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
-      this.display.window = new UnitMapWindow(unit);
-    } else {
-      this.display.window = null;
-    }
-
-  }
-}
-
 Player.prototype.playPostMovementOptions = function(button) {
   if (button === 'A') {
     this.postMovementDecision();
