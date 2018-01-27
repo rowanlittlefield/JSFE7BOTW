@@ -101,6 +101,28 @@ Player.prototype.fightPreparations = function() {
   this.phaseStage.nextStage('select unit to fight');
 }
 
+// play select unit to fight
+
+Player.prototype.playSelectUnitToFight = function(button) {
+  if (button === 'A') {
+    this.initiateFight();
+  } else {
+    this.cursor.scrollWindowCursor(button, this.display.windowLength);
+  }
+}
+
+Player.prototype.initiateFight = function() {
+  let pos = this.display.window.options[this.cursor.windowCursorPos];
+  this.selectedUnit().fight(this.board.space(pos).unit);
+  this.cursor.selectedUnit.actionTaken = true;
+  this.cursor.deselectUnit();
+
+  this.windowCursorPos = 0;
+  this.updateUnitMapWindow();
+
+  this.phaseStage.nextStage('select unit');
+}
+
 //next play method followed by sub-methods
 
 
