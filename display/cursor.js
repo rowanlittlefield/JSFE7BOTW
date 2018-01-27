@@ -53,5 +53,5 @@ Cursor.prototype.identifySpaceOccupant = function() {
 Cursor.prototype.moveSelectedUnit = function() {
   this.selectedUnit.prevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
-  this.selectedUnit.windowOptions = this.selectedUnit.postMoveWindowOptions();
+  // this.selectedUnit.windowOptions = this.selectedUnit.postMoveWindowOptions();
 }

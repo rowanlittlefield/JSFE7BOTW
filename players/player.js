@@ -41,39 +41,6 @@ Player.prototype.playSelectUnit = function(button) {
   }
 }
 
-Player.prototype.playPlayerUnitMoving = function(button) {
-  if (button === 'A') {
-
-    if (this.cursor.selectedUnit.validMoveSpaces()[[this.cursor.cursorPos[0], this.cursor.cursorPos[1]]]) {
-      // insert unit moving animation method
-      // debugger;
-      let selectedUnit = this.cursor.selectedUnit;
-      let cursorPos = this.cursor.cursorPos;
-      if (!(cursorPos[0] === selectedUnit.position[0] && cursorPos[1] === selectedUnit.position[1])) {
-        selectedUnit.moving = true;
-        let siftedRoute = selectedUnit.findAnOptimalRoute(cursorPos);
-        selectedUnit.movingAnimation = new MovingAnimation(this.cursor.selectedUnit, siftedRoute, 8);
-      }
-      //
-      this.cursor.moveSelectedUnit();
-      this.phaseStage.nextStage('post movement options');
-      let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
-      this.display.window = new UnitPostMovePhaseWindow(unit);
-    }
-  } else {
-      this.cursor.moveCursorPosition(button);
-
-      if (this.cursor.selectedUnit.moveSpaces[this.cursor.cursorPos] === true) {
-        let selectedUnit = this.cursor.selectedUnit;
-        let cursorPos = this.cursor.cursorPos;
-        selectedUnit.routeSpaces = selectedUnit.findAnOptimalRoute(cursorPos);
-      } else {
-        this.cursor.selectedUnit.routeSpaces = [this.cursor.selectedUnit.position];
-      }
-
-  }
-}
-
 Player.prototype.playPostMovementOptions = function(button) {
   if (button === 'A') {
     this.postMovementDecision();

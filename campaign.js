@@ -16,6 +16,5 @@ console.log('Boko to Zelda opt route');
 newChapter = new Chapter(newBoard, 'Destroy Enemy');
 newObject = {'0': 1234};
 console.log(newObject[0]);
-// debugger;
 // fightSprite = new CombatSprite(c, 46, 32, 46, 32, 'units/playerUnits/roy/royCombatSprite.png', 6, 6);
 animate();
