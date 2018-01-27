@@ -12,16 +12,10 @@ newBoard.placeUnit(roy, [0, 3]);
 new Wall(newBoard, [10, 1]);
 new Wall(newBoard, [10, 2]);
 new Wall(newBoard, [10, 3]);
-//let pathAndSteps = boko.viablePathToUnit(boko.position, zelda.position);
 console.log('Boko to Zelda opt route');
-//let optRPositions = boko.optimalRoutePositions(pathAndSteps[0], pathAndSteps[1], boko.position, zelda.position);
-//console.log(optRPositions);
-//console.log(boko.siftRoute(optRPositions, boko.position, zelda.position));
-//boko.toNearestOppUnit();
-/*
-let player = new Player(newBoard, newDisplay);
-*/
 newChapter = new Chapter(newBoard, 'Destroy Enemy');
 newObject = {'0': 1234};
 console.log(newObject[0]);
+// debugger;
+// fightSprite = new CombatSprite(c, 46, 32, 46, 32, 'units/playerUnits/roy/royCombatSprite.png', 6, 6);
 animate();
