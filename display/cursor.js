@@ -42,16 +42,10 @@ Cursor.prototype.deselectUnit = function() {
 }
 
 //METHODS THAT WILL POTENTIALLY BE REMOVED
-Cursor.prototype.identifySpaceOccupant = function() {
-  let spaceOccupant = this.board.grid[this.cursorPos[0]][this.cursorPos[1]].unit
-  if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
-  spaceOccupant.actionTaken === false && this.selectedUnit === null) {
-    this.selectUnit(spaceOccupant);
-  }
-}
 
 Cursor.prototype.moveSelectedUnit = function() {
   this.selectedUnit.prevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
-  // this.selectedUnit.windowOptions = this.selectedUnit.postMoveWindowOptions();
+
+// this.selectedUnit.windowOptions = this.selectedUnit.postMoveWindowOptions();
 }

@@ -8,7 +8,7 @@ function Board(dimensions){
         new_grid[rows][cols] = new Space([rows, cols]);
       }
     }
-    
+
   this.grid = new_grid;
 }
 
@@ -67,4 +67,8 @@ Board.prototype.boardIterator = function(callBack) {
       callBack(row, col);
     }
   }
+}
+
+Board.prototype.space = function(pos) {
+  return this.grid[pos[0]][pos[1]];
 }

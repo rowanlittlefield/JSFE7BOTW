@@ -1,3 +1,33 @@
+// play select unit
+
+Player.prototype.playSelectUnit = function(button) {
+  if (button === 'A') {
+    this.identifyAndSelectUnit();
+  } else {
+    this.cursor.moveCursorPosition(button);
+    this.updateUnitMapWindow();
+  }
+}
+
+// helper methods
+Player.prototype.identifyAndSelectUnit = function() {
+  let spaceOccupant = this.board.space(this.cursorPos()).unit;
+  if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
+  spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
+    this.cursor.selectUnit(spaceOccupant);
+    this.phaseStage.nextStage('player unit moving');
+
+  }
+}
+
+Player.prototype.updateUnitMapWindow = function() {
+  let unit = this.board.space(this.cursorPos()).unit;
+  if (unit != null) {
+    this.display.window = new UnitMapWindow(unit);
+  } else {
+    this.display.window = null;
+  }
+}
 //first play methods followed by sub-methods
 Player.prototype.playPlayerUnitMoving = function(button) {
   if (button === 'A') {
