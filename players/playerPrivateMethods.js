@@ -34,10 +34,18 @@ Player.prototype.playPlayerUnitMoving = function(button) {
     if (this.selectedUnit().validMoveSpaces()[this.cursorPos()]) {
       this.moveSelectedUnit();
     }
+  } else if (button === 'B') {
+    // debugger;
+    this.undoSelection();
   } else {
       this.cursor.moveCursorPosition(button);
       this.updateSelectedUnitRouteSpaces();
   }
+}
+
+Player.prototype.undoSelection = function() {
+  this.deselectUnit();
+  this.phaseStage.nextStage('select unit');
 }
 
 Player.prototype.moveSelectedUnit = function() {
@@ -94,7 +102,7 @@ Player.prototype.endUnitTurn = function() {
   this.cursor.windowCursorPos = 0;
   this.selectedUnit().actionTaken = true;
   this.updateUnitMapWindow();
-  this.cursor.deselectUnit();
+  this.deselectUnit();
 
   this.phaseStage.nextStage('select unit');
 }
@@ -120,8 +128,7 @@ Player.prototype.initiateFight = function() {
   let pos = this.display.window.options[this.cursor.windowCursorPos];
   this.selectedUnit().fight(this.board.space(pos).unit);
   this.cursor.selectedUnit.actionTaken = true;
-  this.cursor.deselectUnit();
-
+  this.deselectUnit()
   this.windowCursorPos = 0;
   this.updateUnitMapWindow();
 
@@ -138,4 +145,9 @@ Player.prototype.selectedUnit = function() {
 
 Player.prototype.cursorPos = function() {
   return this.cursor.cursorPos;
+}
+
+Player.prototype.deselectUnit = function() {
+  this.selectedUnit().nullifyOptions();
+  this.cursor.deselectUnit();
 }

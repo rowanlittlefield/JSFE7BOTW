@@ -37,7 +37,7 @@ Cursor.prototype.selectUnit = function(unit) {
 }
 
 Cursor.prototype.deselectUnit = function() {
-  this.selectedUnit.nullifyOptions();
+  // this.selectedUnit.nullifyOptions();
   this.selectedUnit = null;
 }
 
