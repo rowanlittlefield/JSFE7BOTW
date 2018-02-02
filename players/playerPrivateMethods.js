@@ -42,18 +42,23 @@ Player.prototype.playPlayerUnitMoving = function(button) {
 
 Player.prototype.moveSelectedUnit = function() {
   let selectedUnit = this.selectedUnit();
-  if (!equivalentPositions(this.cursorPos(), selectedUnit.position)) {
+  // if (!equivalentPositions(this.cursorPos(), selectedUnit.position)) {
     this.setMovingAnimation();
-  }
+  // }
   this.cursor.moveSelectedUnit();
-  this.phaseStage.nextStage('post movement options');
-  this.display.window = new UnitPostMovePhaseWindow(selectedUnit);
+  this.phaseStage.nextStage('unit moving animation');
+  // this.display.window = new UnitPostMovePhaseWindow(selectedUnit);
 }
 
 Player.prototype.setMovingAnimation = function() {
   this.selectedUnit().moving = true;
   let siftedRoute = this.selectedUnit().findAnOptimalRoute(this.cursorPos());
-  this.selectedUnit().movingAnimation = new MovingAnimation(this.selectedUnit(), siftedRoute, 8);
+  this.selectedUnit().movingAnimation = new MovingAnimation(
+    this.selectedUnit(),
+    siftedRoute,
+    8,
+    this.phaseStage,
+    this.display);
 }
 
 Player.prototype.updateSelectedUnitRouteSpaces = function() {
