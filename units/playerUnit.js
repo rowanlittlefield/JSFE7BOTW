@@ -1,5 +1,7 @@
-function PlayerUnit(stats, board, inventory, name) {
-  Unit.call(this, stats, board, inventory, name);
+function PlayerUnit(stats, board, inventory, name, mapSprite,
+forwardWalkSprite, backwardWalkSprite, sideWalkSprite, hpWindowSprite) {
+  Unit.call(this, stats, board, inventory, name, mapSprite,
+  forwardWalkSprite, backwardWalkSprite, sideWalkSprite, hpWindowSprite);
   this.moveSpaces = null;
   this.attackSpaces = null;
   this.prevPos = null;
