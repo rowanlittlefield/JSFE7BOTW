@@ -1,9 +1,10 @@
-function EnemyUnit(stats, board, inventory, name, mapSprite, behavior) {
-this.stats = stats;
-this.board = board;
-this.inventory = inventory;
-this.name = name;
-this.mapSprite = mapSprite;
+function EnemyUnit(stats, board, inventory, name, mapSprite,
+  forwardWalkSprite,backwardWalkSprite, sideWalkSprite, hpWindowSprite,
+  behavior) {
+    debugger;
+  Unit.call(this, stats, board, inventory, name, mapSprite,
+    forwardWalkSprite, backwardWalkSprite, sideWalkSprite,
+    hpWindowSprite);
 this.behavior = behavior;
 }
 
