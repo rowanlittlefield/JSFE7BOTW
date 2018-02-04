@@ -1,4 +1,5 @@
-function PlayerUnit() {
+function PlayerUnit(stats, board, inventory, name) {
+  Unit.call(this, stats, board, inventory, name);
   this.moveSpaces = null;
   this.attackSpaces = null;
   this.prevPos = null;

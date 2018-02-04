@@ -14,7 +14,6 @@ Player.prototype.identifyAndSelectUnit = function() {
   let spaceOccupant = this.board.space(this.cursorPos()).unit;
   if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
   spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
-    // debugger;
     this.cursor.selectUnit(spaceOccupant);
     this.phaseStage.nextStage('player unit moving');
 
