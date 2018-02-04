@@ -14,6 +14,7 @@ Player.prototype.identifyAndSelectUnit = function() {
   let spaceOccupant = this.board.space(this.cursorPos()).unit;
   if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
   spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
+    // debugger;
     this.cursor.selectUnit(spaceOccupant);
     this.phaseStage.nextStage('player unit moving');
 
@@ -83,10 +84,23 @@ Player.prototype.updateSelectedUnitRouteSpaces = function() {
 Player.prototype.playPostMovementOptions = function(button) {
   if (button === 'A') {
     this.postMovementDecision();
+  } else if(button === 'B') {
+    this.undoMove();
   } else {
     this.cursor.scrollWindowCursor(
       button, this.display.window.options.length);
   }
+}
+
+Player.prototype.undoMove = function() {
+  // this.cursor.moveSelectedUnit();
+  let prevPos = this.selectedUnit().prevPos;
+  this.selectedUnit().move(prevPos);
+  this.selectedUnit().setMoveForecast();
+  this.updateSelectedUnitRouteSpaces();
+  this.display.window = null;
+  this.cursor.selectUnit(this.selectedUnit());
+  this.phaseStage.nextStage('player unit moving');
 }
 
 Player.prototype.postMovementDecision = function() {
