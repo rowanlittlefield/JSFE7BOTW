@@ -13,6 +13,7 @@ UnitPostMovePhaseWindow.prototype.render = function(sF, windowCursorPos) {
 
   for(let i = 0; i < this.options.length; i++) {
     c.font = "20px Arial";
+    c.textAlign = 'left';
     c.fillStyle = 'rgba(255, 255, 225, 1)';
     c.fillText(`${this.options[i]}`, windowx, windowy + sF * 0.5 + sF * i * 0.5);
 

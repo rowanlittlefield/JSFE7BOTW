@@ -133,9 +133,16 @@ Player.prototype.fightPreparations = function() {
 Player.prototype.playSelectUnitToFight = function(button) {
   if (button === 'A') {
     this.initiateFight();
+  } else if(button === 'B') {
+    this.returnToPostMovementOptions();
   } else {
     this.cursor.scrollWindowCursor(button, this.display.windowLength);
   }
+}
+
+Player.prototype.returnToPostMovementOptions = function() {
+  this.phaseStage.nextStage('post movement options');
+  this.display.window = new UnitPostMovePhaseWindow(this.selectedUnit());
 }
 
 Player.prototype.initiateFight = function() {
