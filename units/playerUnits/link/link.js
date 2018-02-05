@@ -1,28 +1,9 @@
-function Link(board, inventory) {
-  PlayerUnit.call(this,
-    {
-      level: 1,
-      experience: 0,
-      hp: 18,
-      strength: 5,
-      skill: 5,
-      speed: 7,
-      luck: 7,
-      defense: 5,
-      resistance: 0,
-      move: 4,
-      constitution: 7,
-      aid: 0,
-      hp_growth_rate: 80,
-      strength_growth_rate: 45,
-      skill_growth_rate: 50,
-      speed_growth_rate: 40,
-      luck_growth_rate: 45,
-      defense_growth_rate: 30,
-      resistance_growth_rate: 35,
-      affinity: "wind",
-      condition: null
-    },
+function Link(board, inventory, stats) {
+  if (!stats) stats = this.defaultStats();
+
+  PlayerUnit.call(
+    this,
+    stats,
     board,
     inventory,
     'Link',
@@ -36,3 +17,9 @@ function Link(board, inventory) {
 
 Link.prototype = Object.create(PlayerUnit.prototype);
 Link.prototype.constructor = Link;
+
+Link.prototype.defaultStats = function() {
+  return new UnitStats(
+    1, 0, 18, 5, 5, 7, 7, 5, 0, 4, 7, 80, 45, 50, 40, 45, 30, 35, "wind"
+  );
+}

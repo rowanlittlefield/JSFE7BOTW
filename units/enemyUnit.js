@@ -1,11 +1,10 @@
 function EnemyUnit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite,backwardWalkSprite, sideWalkSprite, hpWindowSprite,
   behavior) {
-    debugger;
   Unit.call(this, stats, board, inventory, name, mapSprite,
     forwardWalkSprite, backwardWalkSprite, sideWalkSprite,
     hpWindowSprite);
-this.behavior = behavior;
+  this.behavior = behavior;
 }
 
 EnemyUnit.prototype = Object.create(Unit.prototype);
