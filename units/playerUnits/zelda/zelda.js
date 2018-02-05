@@ -1,30 +1,8 @@
-function Zelda(board, inventory) {
+function Zelda(board, inventory, stats) {
 
   PlayerUnit.call(
     this,
-    {
-      level: 1,
-      experience: 0,
-      hp: 15,
-      strength: 7,
-      skill: 8,
-      speed: 7,
-      luck: 10,
-      defense: 2,
-      resistance: 4,
-      move: 5,
-      constitution: 5,
-      aid: 0,
-      hp_growth_rate: 40,
-      strength_growth_rate: 80,
-      skill_growth_rate: 40,
-      speed_growth_rate: 35,
-      luck_growth_rate: 80,
-      defense_growth_rate: 20,
-      resistance_growth_rate: 90,
-      affinity: "wind",
-      condition: null
-    },
+    stats,
     board,
     inventory,
     'Zelda',
@@ -38,3 +16,9 @@ function Zelda(board, inventory) {
 
 Zelda.prototype = Object.create(PlayerUnit.prototype);
 Zelda.prototype.constructor = Zelda;
+
+Zelda.prototype.defaultStats = function() {
+  return new UnitStats(
+    1, 0, 15, 7, 8, 7, 10, 2, 4, 5, 5, 40, 80, 40, 35, 80, 20, 90, "wind"
+  );
+}
