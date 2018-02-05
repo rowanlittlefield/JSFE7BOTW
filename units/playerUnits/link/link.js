@@ -1,6 +1,4 @@
 function Link(board, inventory, stats) {
-  if (!stats) stats = this.defaultStats();
-
   PlayerUnit.call(
     this,
     stats,

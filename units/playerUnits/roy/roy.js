@@ -1,29 +1,7 @@
-function Roy(board, inventory) {
+function Roy(board, inventory, stats) {
   PlayerUnit.call(
     this,
-    {
-      level: 1,
-      experience: 0,
-      hp: 42,
-      strength: 16,
-      skill: 19,
-      speed: 22,
-      luck: 17,
-      defense: 14,
-      resistance: 7,
-      move: 6,
-      constitution: 8,
-      aid: 0,
-      hp_growth_rate: 80,
-      strength_growth_rate: 40,
-      skill_growth_rate: 50,
-      speed_growth_rate: 40,
-      luck_growth_rate: 60,
-      defense_growth_rate: 25,
-      resistance_growth_rate: 30,
-      affinity: "wind",
-      condition: null
-    },
+    stats,
     board,
     inventory,
     'Roy',
@@ -37,3 +15,9 @@ function Roy(board, inventory) {
 
 Roy.prototype = Object.create(PlayerUnit.prototype);
 Roy.prototype.constructor = Roy;
+
+Roy.prototype.defaultStats = function() {
+  return new UnitStats(
+    1, 0, 42, 16, 19, 22, 17, 14, 7, 6, 8, 80, 40, 50, 40, 60, 25, 30, "wind"
+  );
+}

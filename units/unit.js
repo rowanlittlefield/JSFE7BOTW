@@ -1,5 +1,6 @@
 function Unit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, sideWalkSprite, hpWindowSprite) {
+  if (!stats) stats = this.defaultStats();
   this.stats = stats;
   this.board = board;
   this.current_hp = this.stats['hp'];
