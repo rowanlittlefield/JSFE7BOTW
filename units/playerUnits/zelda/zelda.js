@@ -1,5 +1,4 @@
 function Zelda(board, inventory, stats) {
-
   PlayerUnit.call(
     this,
     stats,
