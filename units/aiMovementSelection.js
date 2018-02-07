@@ -11,14 +11,13 @@ Unit.prototype.moveSelection = function() {
 
 Unit.prototype.seekAndDestoryPosition = function() {
   if (this.possibleAttackSetupSpace() != this.position) {
-    return this.possibleAttackSpaces();
+    return this.possibleAttackSetupSpace();
   } else {
     return this.toNearestOppUnit();
   }
 }
 
 Unit.prototype.toNearestOppUnit = function() {
-  debugger;
   let start = this.position;
   let oppUnits = this.board.listOfUnits(PlayerUnit);
   let distances = {};
@@ -30,17 +29,74 @@ Unit.prototype.toNearestOppUnit = function() {
     distances[key.position] = distance(start, key.position);
     distancesArr.push(distance(start, key.position));
   });
-debugger;
   distancesArr.sort();
 
   for(let i = 0; i < distancesArr.length; i++) {
-    distances.forEach(function(value, key, map) {
-      if (value === distancesArr[i]) {
-        crudePathArray = viablePathToUnit(start, stringToPos(key));
+
+    for(const pos in distances) {
+      if (distances[pos] === distancesArr[i]) {
+        crudePathArray = this.viablePathToUnit(start, stringToPos(pos));
       }
-    });
+      if(crudePathArray) {
+        let crudePath = crudePathArray[0];
+        let steps = crudePathArray[1];
+        let optPaths = this.optimalRoutePositions(crudePath, steps, this.position, stringToPos(pos));
+        return this.pickOptPos(optPaths);
+      }
+    }
+
   }
   return this.position;
+}
+
+Unit.prototype.pickOptPos = function(optPaths) {
+  let positions = [];
+  for(const pos in optPaths) {
+    positions.push(stringToPos(pos));
+  }
+  let sortedPositions = positions.sort(function(posOne, posTwo) {
+    if (this.stepsToPosition(posTwo, this.position) > this.stepsToPosition(posOne, this.position)) {
+      return 1;
+    } else if (this.stepsToPosition(posTwo, this.position) < this.stepsToPosition(posOne, this.position)) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }.bind(this));
+
+  for(let i = 0; i < sortedPositions.length; i ++) {
+    if (this.isValidMove(sortedPositions[i]) && distance(sortedPositions[i], this.position) <= this.stats['move']) {
+      return sortedPositions[i];
+    }
+  }
+}
+
+Unit.prototype.stepsToPosition = function(start, pos) {
+  let stepsToS = 0;
+  let viableSpaceHash = {};
+  viableSpaceHash[pos] = true;
+  let dupViableSpaceHash = {};
+  dupViableSpaceHash[pos] = true;
+  let loopCondition = true;
+
+  while (loopCondition) {
+    if (!viableSpaceHash[start]) { stepsToS += 1; }
+
+    for(const position in dupViableSpaceHash) {
+      let adjacentPositions = this.adjacentSpacesCanMoveThrough(stringToPos(position), start);
+
+      for(let i = 0; i < adjacentPositions.length; i++) {
+        viableSpaceHash[adjacentPositions[i]] = true;
+      }
+    }
+    for(const position in viableSpaceHash) {
+      dupViableSpaceHash[position] = true;
+    }
+
+    loopCondition = viableSpaceHash[start] === undefined;
+  }
+
+  return stepsToS;
 }
 
 Unit.prototype.viablePathToUnit = function(start, pos) {
