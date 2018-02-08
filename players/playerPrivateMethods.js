@@ -137,6 +137,7 @@ Player.prototype.playSelectUnitToFight = function(button) {
     this.returnToPostMovementOptions();
   } else {
     this.cursor.scrollWindowCursor(button, this.display.window.options.length);
+    this.display.window.updateCoordinates(this.cursor.windowCursorPos);
   }
 }
 
