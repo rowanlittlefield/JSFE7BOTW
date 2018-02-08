@@ -1,5 +1,4 @@
 function UnitMapWindow(unit) {
-  // debugger;
   PassiveWindow.call(this, unit.position[0], unit.position[1], 2, 1.5, 6, 2);
   this.unit = unit;
   this.name = unit.name;

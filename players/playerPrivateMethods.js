@@ -15,6 +15,7 @@ Player.prototype.identifyAndSelectUnit = function() {
   if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
   spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
     this.cursor.selectUnit(spaceOccupant);
+    this.display.window = null;
     this.phaseStage.nextStage('player unit moving');
 
   }
