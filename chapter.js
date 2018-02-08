@@ -1,4 +1,4 @@
-function Chapter(board, objective) {
+function Chapter(board, objective, sF) {
   this.phase = 0;
   this.phaseStage = new PhaseStage();
   this.objective = objective;
@@ -7,6 +7,7 @@ function Chapter(board, objective) {
   this.board = board;
   this.controller = new Controller(this);
   this.display = new Display(this.board, new Cursor(board), this.phaseStage);
+  this.sF = sF;
   //this.cursor = this.display.cursor;
 
   this.player = new Player(this.board, this.display, this.phaseStage);

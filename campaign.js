@@ -41,7 +41,7 @@ new Wall(newBoard, [9,1]);
 new Wall(newBoard, [9,0]);
 
 // console.log('Boko to Zelda opt route');
-newChapter = new Chapter(newBoard, 'Destroy Enemy');
+newChapter = new Chapter(newBoard, 'Destroy Enemy', 52);
 // newObject = {'0': 1234};
 // console.log(newObject[0]);
 

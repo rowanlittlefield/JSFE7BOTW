@@ -44,9 +44,21 @@ function renderText(text, alignment, centerX, y) {
   c.fillText(text, centerX, y);
 }
 
+function renderTextWithFont(font, alignment, fill, text, centerX, y) {
+  c.font = font;
+  c.textAlign = alignment;
+  c.fillStyle = fill;
+  c.fillText(text, centerX, y);
+}
+
 function highlight(pos, color, sF) {
   c.fillStyle = color;
   c.fillRect(pos[0] * sF, pos[1] * sF, sF, sF);
+}
+
+function preScaledHighlight(x, y, dx, dy, color) {
+  c.fillStyle = color;
+  c.fillRect(x, y, dx, dy);
 }
 
 function identicalSets(setOne, setTwo) {
