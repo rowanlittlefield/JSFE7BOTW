@@ -136,7 +136,7 @@ Player.prototype.playSelectUnitToFight = function(button) {
   } else if(button === 'B') {
     this.returnToPostMovementOptions();
   } else {
-    this.cursor.scrollWindowCursor(button, this.display.windowLength);
+    this.cursor.scrollWindowCursor(button, this.display.window.options.length);
   }
 }
 
