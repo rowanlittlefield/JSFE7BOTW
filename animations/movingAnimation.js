@@ -59,6 +59,10 @@ MovingAnimation.prototype.update = function() {
 MovingAnimation.prototype.endAnimation = function() {
   // debugger;
   this.unit.moving = false;
-  this.phaseStage.nextStage('post movement options');
-  this.display.window = new UnitPostMovePhaseWindow(this.unit);
+  if (this.phaseStage.stage === 'unit moving animation') {
+    this.phaseStage.nextStage('post movement options');
+    this.display.window = new UnitPostMovePhaseWindow(this.unit);
+  }
+  // this.phaseStage.nextStage('post movement options');
+  // this.display.window = new UnitPostMovePhaseWindow(this.unit);
 }

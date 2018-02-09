@@ -8,10 +8,9 @@ function Chapter(board, objective, sF) {
   this.controller = new Controller(this);
   this.display = new Display(this.board, new Cursor(board), this.phaseStage);
   this.sF = sF;
-  //this.cursor = this.display.cursor;
 
   this.player = new Player(this.board, this.display, this.phaseStage);
-  this.enemyPlayer = new EnemyPlayer(this.board, this.display);
+  this.enemyPlayer = new EnemyPlayer(this.board, this.display, this.phaseStage);
   this.players = {'0': this.player, '1': this.enemyPlayer};
   this.currentPlayer = this.players[0]
 }
@@ -60,7 +59,8 @@ Chapter.prototype.changePhase = function() {
     this.phase = (this.phase + 1) % 2;
     this.currentPlayer = this.players[this.phase];
   }
-
+  this.phaseStage.nextStage('Wait for opponent');
+  this.display.window = null;
   if(this.phase === 0) {
     this.numberOfTurns += 1;
   }
