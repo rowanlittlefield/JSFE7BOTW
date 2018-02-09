@@ -37,7 +37,6 @@ Cursor.prototype.selectUnit = function(unit) {
 }
 
 Cursor.prototype.deselectUnit = function() {
-  // this.selectedUnit.nullifyOptions();
   this.selectedUnit = null;
 }
 
@@ -47,5 +46,4 @@ Cursor.prototype.moveSelectedUnit = function() {
   this.selectedUnit.prevPos = [this.selectedUnit.position[0], this.selectedUnit.position[1]];
   this.selectedUnit.move([this.cursorPos[0], this.cursorPos[1]]);
 
-// this.selectedUnit.windowOptions = this.selectedUnit.postMoveWindowOptions();
 }
