@@ -12,7 +12,7 @@ EnemyPlayer.prototype.constructor = EnemyPlayer;
 EnemyPlayer.prototype.playPhase = function() {
   listOfUnits = this.units;
   let that = this;
-
+  let start = new Date;
   listOfUnits.forEach(function(item, key, map) {
     key.playUnitTurn();
     that.postUnitActionCheck(key);
@@ -20,4 +20,6 @@ EnemyPlayer.prototype.playPhase = function() {
     //make sure to incorporate board unit death and units death in a post
     //unit action check
   });
+  let endPoint = new Date;
+  console.log(endPoint - start);
 }

@@ -54,10 +54,11 @@ Unit.prototype.pickOptPos = function(optPaths) {
   for(const pos in optPaths) {
     positions.push(stringToPos(pos));
   }
+
   let sortedPositions = positions.sort(function(posOne, posTwo) {
-    if (this.stepsToPosition(posTwo, this.position) > this.stepsToPosition(posOne, this.position)) {
+    if (optPaths[posTwo] > optPaths[posOne]) {
       return 1;
-    } else if (this.stepsToPosition(posTwo, this.position) < this.stepsToPosition(posOne, this.position)) {
+    } else if (optPaths[posTwo] < optPaths[posOne]) {
       return -1;
     } else {
       return 0;
@@ -65,25 +66,25 @@ Unit.prototype.pickOptPos = function(optPaths) {
   }.bind(this));
 
   for(let i = 0; i < sortedPositions.length; i ++) {
-    if (this.isValidMove(sortedPositions[i]) && distance(sortedPositions[i], this.position) <= this.stats['move']) {
+    if (this.isValidMove(sortedPositions[i]) && optPaths[sortedPositions[i]] <= this.stats['move']) {
       return sortedPositions[i];
     }
   }
 }
 
 Unit.prototype.stepsToPosition = function(start, pos) {
-  let stepsToS = 0;
+  let steps = 0;
   let viableSpaceHash = {};
-  viableSpaceHash[pos] = true;
+  viableSpaceHash[start] = true;
   let dupViableSpaceHash = {};
-  dupViableSpaceHash[pos] = true;
+  dupViableSpaceHash[start] = true;
   let loopCondition = true;
 
   while (loopCondition) {
-    if (!viableSpaceHash[start]) { stepsToS += 1; }
+    if (!viableSpaceHash[pos]) { steps += 1; }
 
     for(const position in dupViableSpaceHash) {
-      let adjacentPositions = this.adjacentSpacesCanMoveThrough(stringToPos(position), start);
+      let adjacentPositions = this.adjacentSpacesCanMoveThrough(stringToPos(position), pos);
 
       for(let i = 0; i < adjacentPositions.length; i++) {
         viableSpaceHash[adjacentPositions[i]] = true;
@@ -93,25 +94,29 @@ Unit.prototype.stepsToPosition = function(start, pos) {
       dupViableSpaceHash[position] = true;
     }
 
-    loopCondition = viableSpaceHash[start] === undefined;
+    loopCondition = viableSpaceHash[pos] === undefined;
   }
 
-  return stepsToS;
+  return steps;
 }
 
 Unit.prototype.viablePathToUnit = function(start, pos) {
   let moveHash = {};
-  moveHash[[start[0], start[1]]] = true;
+  moveHash[[start[0], start[1]]] = 0;
   let dupMoveHash = {};
-  dupMoveHash[[start[0], start[1]]] = true;
+  dupMoveHash[[start[0], start[1]]] = 0;
   let moveHashPosNumber = 0;
   let dupMoveHashPosNumber = 1;
-  let moves = 0;
+  let moves = 1;
 
   while (true) {
     for(const position in dupMoveHash) {
       this.adjacentSpacesCanMoveThrough(stringToPos(position), pos).forEach(function(el) {
-        moveHash[el] = true;
+        if (dupMoveHash[el] != undefined) {
+          moveHash[el] = dupMoveHash[el]
+        } else {
+          moveHash[el] = moves;
+        }
       }.bind(this))
     }
 
@@ -121,14 +126,14 @@ Unit.prototype.viablePathToUnit = function(start, pos) {
       return false;
     } else {
       for(const position in moveHash) {
-        dupMoveHash[position] = true;
+        dupMoveHash[position] = moveHash[position];
       }
       dupMoveHashPosNumber = moveHashPosNumber;
       moveHashPosNumber = 0;
     }
     moves += 1;
 
-    if (moveHash[pos] === true) {
+    if (moveHash[pos] != undefined) {
       return [moveHash, moves];
     }
   }
@@ -140,19 +145,22 @@ Unit.prototype.optimalRoutePositions = function(viablePath, steps, start, endPos
 
   for(const position in viablePath) {
     if (steps >= distance(stringToPos(position), start) + distance(stringToPos(position), endPos)) {
-      updatedViablePath[position] = true;
+      updatedViablePath[position] = viablePath[position];
     }
   }
   for(const position in updatedViablePath) {
-    if (this.optimalRoutePosition(position, steps, start, endPos)) {
-      optimalRoutePositions[position] = true;
+    if (this.optimalRoutePosition(position, steps, updatedViablePath[position], endPos)) {
+      optimalRoutePositions[position] = updatedViablePath[position];
     }
   }
   return optimalRoutePositions;
 }
 
+Unit.prototype.optimalRoutePosition = function(pos, steps, preSteps, endPos) {
+  return preSteps + this.stepsToPosition(pos, endPos) <= steps;
+}
+
 Unit.prototype.siftRoute = function(optimalRoutePositions, start, endPos) {
-//  debugger;
   let positions = [start];
   let optRPos = optimalRoutePositions;
   delete optRPos[start];
@@ -189,36 +197,6 @@ Unit.prototype.findAnOptimalRoute = function(destination) {
     destination);
 
    return this.siftRoute(optRPositions, this.position, destination);
-}
-
-Unit.prototype.optimalRoutePosition = function(pos, steps, start, endPos) {
-  let stepsToS = 0;
-  let stepsToE = 0;
-  let viableSpaceHash = {};
-  viableSpaceHash[pos] = true;
-  let dupViableSpaceHash = {};
-  dupViableSpaceHash[pos] = true;
-  let loopCondition = true;
-
-  while (loopCondition) {
-    if (!viableSpaceHash[start]) { stepsToS += 1; }
-    if (!viableSpaceHash[endPos]) { stepsToE += 1; }
-
-    for(const position in dupViableSpaceHash) {
-      let adjacentPositions = this.adjacentSpacesCanMoveThrough(stringToPos(position), endPos);
-
-      for(let i = 0; i < adjacentPositions.length; i++) {
-        viableSpaceHash[adjacentPositions[i]] = true;
-      }
-    }
-    for(const position in viableSpaceHash) {
-      dupViableSpaceHash[position] = true;
-    }
-
-    loopCondition = viableSpaceHash[start] === undefined || viableSpaceHash[endPos] === undefined;
-  }
-
-  return stepsToS + stepsToE <= steps;
 }
 
 Unit.prototype.attackPlayerUnitInRange = function() {
@@ -270,8 +248,6 @@ Unit.prototype.possibleAttackSetupSpace = function() {
   let pos = setupSpaces[moveSpaceIndex];
   return pos;
 }
-
-
 
 // Possibly non-AI methods that may need to be sorted into their own
 // methods later
