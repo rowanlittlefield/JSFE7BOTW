@@ -53,13 +53,12 @@ Chapter.prototype.changePhase = function() {
 
   //temporary hard coded enemy phase
 
-  this.currentPlayer.playPhase();
+  this.currentPlayer.initiatePhase();
 
   if(this.phase === 1) {
     this.phase = (this.phase + 1) % 2;
     this.currentPlayer = this.players[this.phase];
   }
-  this.phaseStage.nextStage('Wait for opponent');
   this.display.window = null;
   if(this.phase === 0) {
     this.numberOfTurns += 1;

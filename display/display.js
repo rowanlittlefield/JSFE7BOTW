@@ -3,7 +3,8 @@ function Display(board, cursor, phaseStage) {
   this.cursor = cursor;
   this.phaseStage = phaseStage;
   this.window = null;
-  this.aiPhase = null;
+  this.aiPhase = false;
+  this.aiPlayer = null;
 }
 
 
@@ -11,36 +12,17 @@ Display.prototype.render = function(sF) {
   this.renderBoard(sF);
   this.renderWindows(sF);
   this.phaseStage.render(sF);
-  if(this.aiPhase) this.carryOutAIPhase();
+  if(this.aiPhase) this.aiPlayer.phaseFrameUpdate();
 }
 
-Display.prototype.carryOutAIPhase = function() {
-  if (this.aiPhase.length === 0) {
-    this.phaseStage.nextStage('select unit');
-    this.aiPhase = null;
-    return;
-  }
-if (this.aiPhase[0].movingAnimation === undefined || this.aiPhase[0].movingAnimation === null) {
-  let moveSelection = this.aiPhase[0].moveSelection();
-  let siftedRoute = this.aiPhase[0].findAnOptimalRoute(moveSelection);
-  let movementAnimation = new MovingAnimation(
-    this.aiPhase[0],
-    siftedRoute,
-    8,
-    this.phaseStage,
-    this
-  );
-  this.aiPhase[0].movingAnimation = movementAnimation;
-  this.aiPhase[0].moving = true;
-  this.aiPhase[0].move(this.aiPhase[0].moveSelection());
-} else if (this.aiPhase[0].movingAnimation && this.aiPhase[0].moving) {
-
-} else if (this.aiPhase[0].moving === false) {
-  this.aiPhase[0].attackPlayerUnitInRange();
-  this.aiPhase[0].movingAnimation = null;
-  this.enemyPlayer.postUnitActionCheck();
-  this.aiPhase.shift();
+Display.prototype.beginAIPhase = function(aiPlayer) {
+  this.aiPhase = true;
+  this.aiPlayer = aiPlayer;
 }
+
+Display.prototype.endAIPhase = function() {
+  this.aiPhase = false;
+  this.aiPlayer = null;
 }
 
 Display.prototype.renderBoard = function(sF) {

@@ -40,22 +40,7 @@ new Wall(newBoard, [8,1]);
 new Wall(newBoard, [9,1]);
 new Wall(newBoard, [9,0]);
 
-// console.log('Boko to Zelda opt route');
 newChapter = new Chapter(newBoard, 'Destroy Enemy', 52);
-// newObject = {'0': 1234};
-// console.log(newObject[0]);
-
-// function SillyUnit(name, stats) {
-//   this.name = name;
-//   this.stats = stats;
-// }
-//
-// function Stats(level) {
-// this.level = level;
-// }
-//
-// sillyUnit = new SillyUnit('Theodore', new Stats(3));
-// console.log(sillyUnit.stats['level']);
 
 // fightSprite = new CombatSprite(c, 46, 32, 46, 32, 'units/playerUnits/roy/royCombatSprite.png', 6, 6);
 animate();
