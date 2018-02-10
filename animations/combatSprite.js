@@ -1,50 +1,45 @@
-function CombatSprite(context, width, height, renderWidth, renderHeight, image, ticksPerFrame, numberOfFrames) {
+function CombatSprite(context, spriteQueue) {
   this.context = context;
-  this.width = width;
-  this.height = height;
-  this.renderWidth = renderWidth;
-  this.renderHeight = renderHeight;
-
-  let spriteSheet = new Image();
-  spriteSheet.src = image;
-  this.spriteSheet = spriteSheet;
-
-  this.frameIndex = 0;
-  this.tickCount = 0;
-  this.ticksPerFrame = ticksPerFrame;
-  this.numberOfFrames = numberOfFrames;
+  this.queueIndex = 0;
+  this.spriteQueue = spriteQueue;
 }
 
 CombatSprite.prototype.update = function() {
-  this.tickCount += 1;
-
-  if(this.tickCount > this.ticksPerFrame) {
-    this.tickCount = 0;
-    if(this.frameIndex < this.numberOfFrames - 1) {
-      this.frameIndex += 1;
-    } else if(this.frameIndex === this.numberOfFrames - 1) {
-      this.frameIndex = 0;
-    }
+  // debugger;
+  let sprite = this.spriteQueue[this.queueIndex];
+  let checkOne = this.spriteQueue[this.queueIndex].frameIndex;
+  let checkTwo = this.spriteQueue[this.queueIndex].numberOfFrames;
+  if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
+    sprite.tickCount === sprite.ticksPerFrame) {
+    // debugger;
+    this.updateQueueIndexAndSprite();
   }
 }
 
+CombatSprite.prototype.updateQueueIndexAndSprite = function() {
+  let sprite = this.spriteQueue[this.queueIndex].update();
+  this.queueIndex = (this.queueIndex + 1) % this.spriteQueue.length;
+}
+
 CombatSprite.prototype.render = function(row, col, sF) {
-  let scale = sF / 18;
-  let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));
-  let cWidth = scale * this.renderWidth;
-  let cHeight = scale *  this.renderHeight;
-  this.context.drawImage(
-    this.spriteSheet,
-    this.frameIndex * this.width,
-    0,
-    this.width,
-    this.height,
-    cx,
-    cy,
-    cWidth,
-    cHeight
-  );
+  // let scale = sF / 18;
+  // let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  // let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));
+  // let cWidth = scale * this.renderWidth;
+  // let cHeight = scale *  this.renderHeight;
+  // this.context.drawImage(
+  //   this.spriteSheet,
+  //   this.frameIndex * this.width,
+  //   0,
+  //   this.width,
+  //   this.height,
+  //   cx,
+  //   cy,
+  //   cWidth,
+  //   cHeight
+  // );
+  // this.update();
+  this.spriteQueue[this.queueIndex].render(row, col, sF);
   this.update();
 }
 
