@@ -22,6 +22,10 @@ function equivalentPositions(posOne, posTwo) {
   return posOne[0] === posTwo[0] && posOne[1] === posTwo[1];
 }
 
+function randomNumberFromOneTo(upperLimit) {
+  return Math.floor((Math.random() * upperLimit) + 1)
+}
+
 function renderSquare(row, col, sF) {
   c.beginPath();
   c.lineWidth="1";
