@@ -14,11 +14,12 @@ function Bokoblin(board, inventory, behavior, stats) {
     );
 }
 
+
 Bokoblin.prototype = Object.create(EnemyUnit.prototype);
 Bokoblin.prototype.constructor = Bokoblin;
 
 Bokoblin.prototype.defaultStats = function() {
   return new UnitStats(
-    1, 0, 18, 5, 5, 7, 7, 5, 0, 4, 7, 80, 45, 50, 40, 45, 30, 35, "wind"
+    1, 0, 20, 5, 1, 5, 0, 3, 0, 5, 12, 82, 50, 30, 20, 15, 10, 13, "wind"
   );
 }
