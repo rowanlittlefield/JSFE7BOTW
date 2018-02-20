@@ -15,20 +15,22 @@ Player.prototype.identifyAndSelectUnit = function() {
   if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
   spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
     this.cursor.selectUnit(spaceOccupant);
+    if(this.display.window) this.display.window.clearRendering(52, this.board);
     this.display.window = null;
     this.phaseStage.nextStage('player unit moving');
-
   }
 }
 
 Player.prototype.updateUnitMapWindow = function() {
   let unit = this.board.space(this.cursorPos()).unit;
+  if(this.display.window) this.display.window.clearRendering(52, this.board);
   if (unit != null) {
     this.display.window = new UnitMapWindow(unit);
   } else {
     this.display.window = null;
   }
 }
+
 //play player unit moving
 Player.prototype.playPlayerUnitMoving = function(button) {
   if (button === 'A') {
@@ -36,7 +38,6 @@ Player.prototype.playPlayerUnitMoving = function(button) {
       this.moveSelectedUnit();
     }
   } else if (button === 'B') {
-    // debugger;
     this.undoSelection();
   } else {
       this.cursor.moveCursorPosition(button);
@@ -50,7 +51,8 @@ Player.prototype.undoSelection = function() {
 }
 
 Player.prototype.moveSelectedUnit = function() {
-  let selectedUnit = this.selectedUnit();
+  this.selectedUnit().clearMoveSpaceRendering(52, this.display);
+  // let selectedUnit = this.selectedUnit();
   // if (!equivalentPositions(this.cursorPos(), selectedUnit.position)) {
     this.setMovingAnimation();
   // }
@@ -93,7 +95,6 @@ Player.prototype.playPostMovementOptions = function(button) {
 }
 
 Player.prototype.undoMove = function() {
-  // this.cursor.moveSelectedUnit();
   let prevPos = this.selectedUnit().prevPos;
   this.selectedUnit().move(prevPos);
   this.selectedUnit().setMoveForecast();
@@ -142,6 +143,7 @@ Player.prototype.playSelectUnitToFight = function(button) {
 }
 
 Player.prototype.returnToPostMovementOptions = function() {
+  this.display.window.clearRendering(52, this.board);
   this.phaseStage.nextStage('post movement options');
   this.display.window = new UnitPostMovePhaseWindow(this.selectedUnit());
 }
@@ -170,6 +172,6 @@ Player.prototype.cursorPos = function() {
 }
 
 Player.prototype.deselectUnit = function() {
-  this.selectedUnit().nullifyOptions();
+  this.selectedUnit().nullifyOptions(this.display);
   this.cursor.deselectUnit();
 }

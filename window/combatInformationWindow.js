@@ -14,6 +14,7 @@ CombatInformationWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, d
 }
 
 CombatInformationWindow.prototype.updateCoordinates = function(windowCursorPos) {
+  this.clearRendering(52);
   let pos = this.options[windowCursorPos];
   let coord = this.setDimensions(pos[0], pos[1], 2, 1.5, 150, 135, 52);
   this.x = coord[0];
@@ -67,6 +68,8 @@ CombatInformationWindow.prototype.render = function(sF, windowCursorPos) {
   if (opponent.isRepeatedAttack(this.unit)) {
     renderText('x2', 'right', this.x + this.dx, this.y + 115);
   }
+
+  highlight(opponent.position, 'rgba(255, 0, 255, 0.2)', sF); //blue
 }
 
 CombatInformationWindow.prototype.renderStatRow = function(unitStat, oppStat, statName, centerX, y, width) {

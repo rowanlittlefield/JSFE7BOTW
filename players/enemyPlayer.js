@@ -36,7 +36,7 @@ EnemyPlayer.prototype.phaseFrameUpdate = function() {
 EnemyPlayer.prototype.finishUnitTurn = function() {
   this.unitQueue[0].attackPlayerUnitInRange();
   this.unitQueue[0].movingAnimation = null;
-  this.postUnitActionCheck();
+  this.postUnitActionCheck(this.unitQueue[0]);
   this.unitQueue.shift();
 }
 

@@ -1,6 +1,8 @@
 function UnitPostMovePhaseWindow(unit) {
+  this.unit = unit;
   let options = unit.postMoveWindowOptions();
-  InteractiveWindow.call(this, unit.position[0], unit.position[1], 2, unit.position[1], 2, options.length * 0.5 + 0.2, options);
+  InteractiveWindow.call(this, unit.position[0], unit.position[1], 2,
+    unit.position[1], 2, (options.length * 0.5) + 0.2, options);
   this.color = "rgba(65, 105, 225, 1)";
 }
 

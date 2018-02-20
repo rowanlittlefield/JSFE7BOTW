@@ -5,13 +5,20 @@ function Display(board, cursor, phaseStage) {
   this.window = null;
   this.aiPhase = false;
   this.aiPlayer = null;
+  this.unitIndex = 0;
+  this.units = {};
 }
 
 
 Display.prototype.render = function(sF) {
-  this.renderBoard(sF);
-  this.renderWindows(sF);
-  this.phaseStage.render(sF);
+  if (isEmpty(this.units)) {
+    this.renderBoard(sF);
+    this.setupUnitHash(sF);
+  } else {
+    this.renderObjects(sF);
+  }
+
+  // this.phaseStage.render(sF);
   if(this.aiPhase) this.aiPlayer.phaseFrameUpdate();
 }
 
@@ -26,35 +33,44 @@ Display.prototype.endAIPhase = function() {
 }
 
 Display.prototype.renderBoard = function(sF) {
+  c.clearRect(0, 0, innerWidth, 20 * sF);
   this.boardIterator(this.renderSpace.bind(this), sF);
-  this.spaceHighlighting(sF);
 }
 
-Display.prototype.spaceHighlighting = function(sF) {
- if (this.phaseStage.stage === 'player unit moving') {
-    this.renderMoveAndAttackSpaces(this.cursor.selectedUnit, sF);
-  } else if (this.window instanceof CombatInformationWindow) {
-    this.renderAttackSpaces(this.cursor.selectUnit, sF);
-  }
-  if (this.phaseStage.stage != 'select unit to fight') {
-    this.cursor.renderBoardCursor(sF);
+Display.prototype.setupUnitHash = function(sF) {
+  this.boardIterator(this.addUnitToList.bind(this), sF);
+}
+
+Display.prototype.addUnitToList = function(row, col, sF) {
+  if (this.board.space([row, col]).unit) {
+    let unit = this.board.space([row, col]).unit;
+    this.units[this.unitIndex] = unit;
+    this.unitIndex += 1;
   }
 }
 
-Display.prototype.renderMoveAndAttackSpaces = function(unit, sF) {
-  let moveSpaces = unit.moveSpaces;
-  let attackSpaces = unit.attackSpaces;
-  let routeSpaces = unit.routeSpaces;
+Display.prototype.renderObjects = function(sF) {
+  this.renderUnits(sF);
+  this.renderWindows(sF);
+  if(this.phaseStage.stage === 'player unit moving') this.renderMoveSpaces(sF);
+  this.renderCursor(sF);
+}
 
-  for(const space in moveSpaces) {
-    highlight(stringToPos(space), 'rgba(0, 0, 255, 0.2)', sF); //blue
-  }
-  for(const space in attackSpaces) {
-    highlight(stringToPos(space), 'rgba(255, 0, 0, 0.2)', sF); //red
+Display.prototype.renderUnits = function(sF) {
+  for(const unitIndex in this.units) {
+    let pos = this.units[unitIndex].position;
+    if (this.units[unitIndex].current_hp > 0 &&
+      !(this.cursor.selectedUnit && this.cursor.selectedUnit === this.units[unitIndex])) {
+      this.renderSpace(pos[0], pos[1], sF);
+    } else if(this.units[unitIndex] === 0){
+      let units = this.units;
+      delete units[unitIndex];
+    }
   }
 
-  for(let i = 0; i < routeSpaces.length; i++) {
-    highlight(routeSpaces[i], 'rgba(123, 104, 238, 0.4)', sF);
+  if(this.cursor.selectedUnit) {
+    let pos = this.cursor.selectedUnit.position
+    this.renderSpace(pos[0], pos[1], sF);
   }
 }
 
@@ -64,31 +80,12 @@ Display.prototype.renderAttackSpaces = function(unit, sF) {
 }
 
 Display.prototype.renderWindows = function(sF) {
-
   if(this.window != null) this.window.render(sF, this.cursor.windowCursorPos);
-  /*
-  if (this.cursor.phaseStage === 'select unit' &&
-  this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit != null) {
-    let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
-    newUnitMapWindow = new UnitMapWindow(unit);
-    newUnitMapWindow.render(sF);
-  } else if (this.cursor.phaseStage === 'select unit to fight') {
-    let oppPos = [this.cursor.selectedUnit.fightOptions[this.cursor.windowCursorPos][0], this.cursor.selectedUnit.fightOptions[this.cursor.windowCursorPos][1]];
-    let ciw = new CombatInformationWindow(this.cursor.selectedUnit, this.board.grid[oppPos[0]][oppPos[1]].unit);
-    ciw.render(this.cursor.selectedUnit.fightOptions[this.cursor.windowCursorPos], sF);
-  } else if (this.cursor.phaseStage === 'post movement options') {
-    let unit = this.board.grid[this.cursor.cursorPos[0]][this.cursor.cursorPos[1]].unit;
-    newUnitPostMovePhaseWindow = new UnitPostMovePhaseWindow(unit, this.cursor.windowCursorPos);
-    newUnitPostMovePhaseWindow.render(sF);
-  }
-  */
 }
 
 Display.prototype.renderSpace = function(row, col, sF) {
   this.board.space([row, col]).render(row, col, sF);
 }
-
-
 
 //
 
@@ -98,4 +95,11 @@ Display.prototype.boardIterator = function(callBack, sF) {
       callBack(row, col, sF);
     }
   }
+}
+Display.prototype.renderMoveSpaces = function(sF) {
+  this.cursor.selectedUnit.renderMoveSpaces(sF);
+}
+
+Display.prototype.renderCursor = function(sF) {
+  this.cursor.renderBoardCursor(sF, true);
 }
