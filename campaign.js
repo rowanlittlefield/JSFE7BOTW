@@ -1,9 +1,9 @@
-let newBoard = new Board([13, 5]);
+let newBoard = new Board([13, 7]);
 
 let roy = new Roy(newBoard, new RustedSword());
-
+let lyn = new Lyn(newBoard, new RustedSword());
 newBoard.placeUnit(roy, [0, 0]);
-
+newBoard.placeUnit(lyn, [2, 6]);
 newBoard.placeUnit(new Bokoblin(newBoard, new RustedSword(), 'seekAndDestroy'), [11, 0]);
 
 new Wall(newBoard, [1, 2]);
