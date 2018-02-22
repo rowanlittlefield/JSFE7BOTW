@@ -278,7 +278,7 @@ Unit.prototype.postMoveWindowOptions = function() {
   if (this.isOppInRange().length > 0) {
     options.push('Fight');
   }
-  options.push('End');
+  options.push('Wait');
 
   return options;
 }

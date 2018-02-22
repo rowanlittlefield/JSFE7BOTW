@@ -106,7 +106,7 @@ Player.prototype.undoMove = function() {
 
 Player.prototype.postMovementDecision = function() {
   let option = this.display.window.options[this.cursor.windowCursorPos];
-  if (option === 'End') {
+  if (option === 'Wait') {
     this.endUnitTurn();
   } else if (option === 'Fight') {
     this.fightPreparations();
