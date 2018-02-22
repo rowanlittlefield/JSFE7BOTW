@@ -1,10 +1,10 @@
 let newBoard = new Board([13, 7]);
 
-let roy = new Roy(newBoard, new RustedSword());
-let lyn = new Lyn(newBoard, new RustedSword());
+let roy = new Roy(newBoard, new SwordOfSeals());
+let lyn = new Lyn(newBoard, new ManiKatti());
 newBoard.placeUnit(roy, [0, 0]);
 newBoard.placeUnit(lyn, [2, 6]);
-newBoard.placeUnit(new Bokoblin(newBoard, new RustedSword(), 'seekAndDestroy'), [11, 0]);
+newBoard.placeUnit(new Brigand(newBoard, new IronAxe(), 'seekAndDestroy'), [11, 1]);
 
 new Wall(newBoard, [1, 2]);
 
