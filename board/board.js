@@ -1,4 +1,4 @@
-function Board(dimensions){
+function Board(dimensions, sprite){
   this.dimensions = dimensions;
     new_grid = new Array(dimensions[0]);
 
@@ -10,11 +10,14 @@ function Board(dimensions){
     }
 
   this.grid = new_grid;
+
+  this.sprite = sprite;
 }
 
 //
 
 Board.prototype.render = function(sF) {
+  this.sprite.boardSpriteRender(sF);
 }
 
 Board.prototype.space = function(pos) {

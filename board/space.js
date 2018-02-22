@@ -6,8 +6,9 @@ function Space(position) {
 }
 
 Space.prototype.render = function(row, col, sF) {
-  renderSquare(row, col, sF);
-  this.renderSpaceSprite(row, col, sF);
+  // c.clearRect(row * sF, col * sF, sF, sF);
+  // renderSquare(row, col, sF);
+  // this.renderSpaceSprite(row, col, sF);
   this.renderUnit(row, col, sF);
 }
 

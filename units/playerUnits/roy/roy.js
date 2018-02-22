@@ -5,10 +5,10 @@ function Roy(board, inventory, stats) {
     board,
     inventory,
     'Roy',
-    new Sprite(c, 18, 18, 18, 18, "units/playerUnits/roy/royMapSpriteSheet.png", 6, 12),
+    new Sprite(c, 18, 18, 18, 18, "units/playerUnits/roy/royMapSpriteSheetBlankBackground.png", 6, 12),
     new Sprite(c, 22, 20, 22, 20, "units/playerUnits/roy/royForwardWalkSpriteSheetRevise.png", 6, 6),
     new Sprite(c, 21, 18, 21, 18, "units/playerUnits/roy/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new Sprite(c, 26, 18, 26, 18, "units/playerUnits/roy/royRightWalkSpriteSheet.png", 8, 4),
+    new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/royRightWalkSpriteSheet.png", 8, 4),
     new Sprite(c, 217, 210, 18, 18, "units/playerUnits/roy/royHPWindowSprite.png", 6, 1)
   );
 }

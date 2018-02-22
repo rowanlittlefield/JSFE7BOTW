@@ -11,14 +11,10 @@ function Display(board, cursor, phaseStage) {
 
 
 Display.prototype.render = function(sF) {
-  if (isEmpty(this.units)) {
-    this.renderBoard(sF);
-    this.setupUnitHash(sF);
-  } else {
-    this.renderObjects(sF);
-  }
-
-  // this.phaseStage.render(sF);
+  if (isEmpty(this.units)) this.setupUnitHash(sF);
+  this.renderBoard(sF);
+  this.renderObjects(sF);
+  // // this.phaseStage.render(sF);
   if(this.aiPhase) this.aiPlayer.phaseFrameUpdate();
 }
 
@@ -33,8 +29,9 @@ Display.prototype.endAIPhase = function() {
 }
 
 Display.prototype.renderBoard = function(sF) {
-  c.clearRect(0, 0, innerWidth, 20 * sF);
-  this.boardIterator(this.renderSpace.bind(this), sF);
+  // c.clearRect(0, 0, innerWidth, 20 * sF);
+  this.board.render(sF);
+  // this.boardIterator(this.renderSpace.bind(this), sF);
 }
 
 Display.prototype.setupUnitHash = function(sF) {
@@ -102,4 +99,8 @@ Display.prototype.renderMoveSpaces = function(sF) {
 
 Display.prototype.renderCursor = function(sF) {
   this.cursor.renderBoardCursor(sF, true);
+}
+
+Display.prototype.nullifyWindow = function() {
+
 }

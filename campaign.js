@@ -1,8 +1,8 @@
-let newBoard = new Board([13, 7]);
+let newBoard = new Board([22, 28], new Sprite(c, 352, 448, 396, 504, 'Chapter29MapSample.png', 1, 1));
 
 let roy = new Roy(newBoard, new SwordOfSeals());
 let lyn = new Lyn(newBoard, new ManiKatti());
-newBoard.placeUnit(roy, [0, 0]);
+newBoard.placeUnit(roy, [2, 2]);
 newBoard.placeUnit(lyn, [2, 6]);
 newBoard.placeUnit(new Brigand(newBoard, new IronAxe(), 'seekAndDestroy'), [11, 1]);
 
