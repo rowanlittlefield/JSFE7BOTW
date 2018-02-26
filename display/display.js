@@ -29,9 +29,7 @@ Display.prototype.endAIPhase = function() {
 }
 
 Display.prototype.renderBoard = function(sF) {
-  // c.clearRect(0, 0, innerWidth, 20 * sF);
   this.board.render(sF);
-  // this.boardIterator(this.renderSpace.bind(this), sF);
 }
 
 Display.prototype.setupUnitHash = function(sF) {

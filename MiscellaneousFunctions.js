@@ -88,6 +88,21 @@ function highlight(pos, color, sF) {
   c.fillRect(pos[0] * sF, pos[1] * sF, sF, sF);
 }
 
+function spaceHighlight(pos, color, sF) {
+  c.fillStyle = color;
+  c.fillRect((pos[0] + 0.05) * sF, (pos[1] + 0.05) * sF, (1 - 0.05) * sF, (1 - 0.05) * sF);
+}
+
+function highlightSpaces(spaces, board, color, sF) {
+  for(const space in spaces) {
+    let pos = stringToPos(space);
+    if(!board.grid[pos[0]][pos[1]].unit) {
+      board.grid[pos[0]][pos[1]].render(pos[0], pos[1], sF);
+    }
+    spaceHighlight(pos, color, sF);
+  }
+}
+
 function preScaledHighlight(x, y, dx, dy, color) {
   c.fillStyle = color;
   c.fillRect(x, y, dx, dy);

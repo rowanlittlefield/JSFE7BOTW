@@ -1,7 +1,6 @@
 function MovingAnimation(unit, route, ticksPerTranslation, phaseStage, display) {
   this.unit = unit;
   this.differentials = this.calculateRouteDifferentials(route);
-  this.renderSpaces = this.setRerenderSpaces(route);
   this.difIndex = 0;
   this.tick = 0;
   this.ticksPerTranslation = ticksPerTranslation;
@@ -22,32 +21,9 @@ MovingAnimation.prototype.calculateRouteDifferentials = function(route) {
   return routeDifferentials;
 }
 
-MovingAnimation.prototype.setRerenderSpaces = function(route) {
-  let rerenderSpaces = {};
-  for(let i = 0; i < route.length; i++) {
-    let adjSpaces = this.unit.adjacentSpaceList(route[i]);
-    for(let j = 0; j < adjSpaces.length; j++) {
-      rerenderSpaces[adjSpaces[j]] = true;
-    }
-  }
-
-  return rerenderSpaces;
-}
-
 MovingAnimation.prototype.render = function(sF) {
-  this.rerenderSpacesCoveredBySprite(sF);
   this.selectSprite().render(this.x, this.y, sF);
   this.update();
-}
-
-MovingAnimation.prototype.rerenderSpacesCoveredBySprite = function(sF) {
-  for(const space in this.renderSpaces) {
-    let pos = stringToPos(space);
-    if(!this.unit.board.grid[pos[0]][pos[1]].unit) {
-      clearPosition(pos[0], pos[1], sF);
-      this.unit.board.grid[pos[0]][pos[1]].render(pos[0], pos[1], sF);
-    }
-  }
 }
 
 MovingAnimation.prototype.selectSprite = function() {
@@ -81,13 +57,9 @@ MovingAnimation.prototype.update = function() {
 }
 
 MovingAnimation.prototype.endAnimation = function() {
-  // debugger;
-  this.rerenderSpacesCoveredBySprite(52);
   this.unit.moving = false;
   if (this.phaseStage.stage === 'unit moving animation') {
     this.phaseStage.nextStage('post movement options');
     this.display.window = new UnitPostMovePhaseWindow(this.unit);
   }
-  // this.phaseStage.nextStage('post movement options');
-  // this.display.window = new UnitPostMovePhaseWindow(this.unit);
 }

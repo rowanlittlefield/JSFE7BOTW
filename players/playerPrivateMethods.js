@@ -51,14 +51,9 @@ Player.prototype.undoSelection = function() {
 }
 
 Player.prototype.moveSelectedUnit = function() {
-  this.selectedUnit().clearMoveSpaceRendering(52, this.display);
-  // let selectedUnit = this.selectedUnit();
-  // if (!equivalentPositions(this.cursorPos(), selectedUnit.position)) {
-    this.setMovingAnimation();
-  // }
+  this.setMovingAnimation();
   this.cursor.moveSelectedUnit();
   this.phaseStage.nextStage('unit moving animation');
-  // this.display.window = new UnitPostMovePhaseWindow(selectedUnit);
 }
 
 Player.prototype.setMovingAnimation = function() {
