@@ -55,7 +55,6 @@ Display.prototype.renderUnits = function(sF) {
     let pos = this.units[unitIndex].position;
     if (this.units[unitIndex].current_hp > 0 &&
       !(this.cursor.selectedUnit && this.cursor.selectedUnit === this.units[unitIndex])) {
-      // this.renderSpace(pos[0], pos[1], sF);
       this.units[unitIndex].render(pos[0], pos[1], sF);
     } else if(this.units[unitIndex].current_hp === 0){
       let units = this.units;

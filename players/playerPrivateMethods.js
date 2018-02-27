@@ -15,7 +15,6 @@ Player.prototype.identifyAndSelectUnit = function() {
   if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
   spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
     this.cursor.selectUnit(spaceOccupant);
-    // if(this.display.window) this.display.window.clearRendering(52, this.board);
     this.display.window = null;
     this.phaseStage.nextStage('player unit moving');
   }
@@ -23,7 +22,6 @@ Player.prototype.identifyAndSelectUnit = function() {
 
 Player.prototype.updateUnitMapWindow = function() {
   let unit = this.board.space(this.cursorPos()).unit;
-  // if(this.display.window) this.display.window.clearRendering(52, this.board);
   if (unit != null) {
     this.display.window = new UnitMapWindow(unit);
   } else {
