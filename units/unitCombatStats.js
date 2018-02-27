@@ -1,9 +1,9 @@
 Unit.prototype.attackSpeed = function() {
-  if(this.stats['constitution'] >= this.inventory.stats['weight']) {
+  if(this.stats['constitution'] >= this.equippedWeapon.stats['weight']) {
     return this.stats['speed'];
   }
 
-  return this.stats['speed'] - (this.inventory.stats['weight'] - this.stats['constitution']);
+  return this.stats['speed'] - (this.equippedWeapon.stats['weight'] - this.stats['constitution']);
 }
 
 Unit.prototype.isRepeatedAttack = function(opposingUnit) {
@@ -11,7 +11,7 @@ Unit.prototype.isRepeatedAttack = function(opposingUnit) {
 }
 
 Unit.prototype.hitRate = function() {
-  return (this.inventory.stats['ht'] + (this.stats['skill'] * 2) + Math.floor(this.stats['luck'] / 2));
+  return (this.equippedWeapon.stats['ht'] + (this.stats['skill'] * 2) + Math.floor(this.stats['luck'] / 2));
 }
 
 Unit.prototype.avoid = function() {
@@ -31,13 +31,13 @@ Unit.prototype.accuracy = function(opposingUnit) {
 }
 
 Unit.prototype.attack = function() {
-  return this.stats['strength'] + this.inventory.stats['mt'];
+  return this.stats['strength'] + this.equippedWeapon.stats['mt'];
 }
 
 Unit.prototype.defensePower = function(opposingUnit) {
-  if(opposingUnit.inventory instanceof(PhysicalWeapon)) {
+  if(opposingUnit.equippedWeapon instanceof(PhysicalWeapon)) {
     return this.stats['defense'];
-  } else if(opposingUnit.inventory.prototype instanceof(MagicalWeapon)) {
+  } else if(opposingUnit.equippedWeapon.prototype instanceof(MagicalWeapon)) {
     return this.stats['resistance'];
   }
 }
@@ -52,7 +52,7 @@ Unit.prototype.damage = function(opposingUnit) {
 }
 
 Unit.prototype.criticalRate = function() {
-  return this.inventory.stats['critical'] + Math.floor(this.stats['skill'] / 2);
+  return this.equippedWeapon.stats['critical'] + Math.floor(this.stats['skill'] / 2);
 }
 
 Unit.prototype.criticalEvade = function() {

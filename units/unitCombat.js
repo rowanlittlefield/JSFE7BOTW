@@ -57,5 +57,5 @@ Unit.prototype.determineUnitClasses = function(opposingUnit) {
 Unit.prototype.isInRange = function(opposingUnit) {
   let sep = distance(this.position, opposingUnit.position);
 
-  return this.inventory.stats['range'].includes(sep);
+  return this.equippedWeapon.stats['range'].includes(sep);
 }

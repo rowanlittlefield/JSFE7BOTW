@@ -5,6 +5,7 @@ function Unit(stats, board, inventory, name, mapSprite,
   this.board = board;
   this.current_hp = this.stats['hp'];
   this.inventory = inventory;
+  this.equippedWeapon = inventory.autoEquipWeapon();
   this.name = name;
   this.mapSprite = mapSprite;
   this.forwardWalkSprite = forwardWalkSprite;

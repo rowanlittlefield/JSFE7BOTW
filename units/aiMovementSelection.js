@@ -204,7 +204,7 @@ Unit.prototype.attackPlayerUnitInRange = function() {
 
   this.board.boardIterator(function(row, col){
     if (this.board.grid[row][col].unit instanceof(PlayerUnit) &&
-        this.inventory.stats['range'].includes(distance(this.position, [row, col]))) {
+        this.equippedWeapon.stats['range'].includes(distance(this.position, [row, col]))) {
       playerUnitPositionsInRange.push([row, col]);
     }
   }.bind(this));
@@ -218,7 +218,7 @@ Unit.prototype.attackPlayerUnitInRange = function() {
 }
 
 Unit.prototype.possibleAttackSetupSpace = function() {
-  let weaponRange = this.inventory.stats['range'];
+  let weaponRange = this.equippedWeapon.stats['range'];
 
   let playerUnitPositions = [];
 
@@ -253,7 +253,7 @@ Unit.prototype.possibleAttackSetupSpace = function() {
 // methods later
 
 Unit.prototype.isOppInRange = function() {
-  let ranges = this.inventory.stats['range'];
+  let ranges = this.equippedWeapon.stats['range'];
   let oppUnitPositions = [];
   let oppUnitsPosInRange = [];
 

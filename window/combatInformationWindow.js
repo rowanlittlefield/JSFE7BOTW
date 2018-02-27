@@ -38,10 +38,10 @@ CombatInformationWindow.prototype.render = function(sF, windowCursorPos) {
   c.fillRect(this.x, this.y + 100, this.dx, 35);
 
   renderText(this.unit.name, 'center', this.centerX, this.y + 15);
-  renderText(this.unit.inventory.stats['name'], 'center', this.centerX, this.y + 30);
+  renderText(this.unit.equippedWeapon.stats['name'], 'center', this.centerX, this.y + 30);
   this.renderStatRow(this.unit.current_hp, opponent.current_hp, 'HP', this.centerX, this.y + 50, this.dx);
 
-  if (opponent.inventory.stats['range'].includes(distance(opponent.position, this.unit.position))) {
+  if (opponent.equippedWeapon.stats['range'].includes(distance(opponent.position, this.unit.position))) {
     this.renderStatRow(this.unit.damage(opponent),
     opponent.damage(this.unit), 'MT', this.centerX, this.y + 65, this.dx);
     this.renderStatRow(this.unit.accuracy(opponent),
@@ -56,10 +56,10 @@ CombatInformationWindow.prototype.render = function(sF, windowCursorPos) {
     '--', 'HT', this.centerX, this.y + 80, this.dx);
     this.renderStatRow(this.unit.criticalChance(opponent),
     '--', 'CT', this.centerX, this.y + 95, this.dx);
-    renderText(opponent.inventory.stats['name'], 'center', this.centerX, this.y + 115);
+    renderText(opponent.equippedWeapon.stats['name'], 'center', this.centerX, this.y + 115);
     renderText(opponent.name, 'center', this.centerX, this.y + 130);
   }
-  renderText(opponent.inventory.stats['name'], 'center', this.centerX, this.y + 115);
+  renderText(opponent.equippedWeapon.stats['name'], 'center', this.centerX, this.y + 115);
   renderText(opponent.name, 'center', this.centerX, this.y + 130);
 
   if (this.unit.isRepeatedAttack(opponent)) {

@@ -99,7 +99,7 @@ Unit.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpaces) {
 
 Unit.prototype.possibleAttackSpaces = function() {
   let moveSpaces = this.validMoveSpaces();
-  let range = this.inventory.stats['range'];
+  let range = this.equippedWeapon.stats['range'];
   let maxRange = Math.max.apply(null, range);
   let listOfAttackSpaces = {};
 
