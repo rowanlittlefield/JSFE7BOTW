@@ -23,20 +23,3 @@ GameWindow.prototype.setDimensions = function(sF) {
 
 GameWindow.prototype.render = function(sF) {
 }
-
-GameWindow.prototype.identifySpacesCoveredByWindow = function(board, sF) {
-  let spaces = [];
-
-  let r0 = Math.floor(this.x / sF);
-  let rf = Math.min(Math.ceil((this.x + this.dx) / sF)  , board.grid.length);
-  let c0 = Math.floor(this.y / sF);
-  let cf = Math.min(Math.ceil((this.y + this.dy) / sF), board.grid[0].length);
-
-  for(let row = r0; row < rf; row++) {
-    for(let col = c0; col < cf; col++) {
-      spaces.push([row, col]);
-    }
-  }
-
-  return spaces;
-}
