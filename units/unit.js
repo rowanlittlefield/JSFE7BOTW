@@ -15,3 +15,19 @@ function Unit(stats, board, inventory, name, mapSprite,
   this.position = null;
   this.actionTaken = false;
 }
+
+Unit.prototype.render = function(row, col, sF) {
+  if (this.moving) {
+    this.movingAnimation.render(sF);
+    this.mapSprite.update();
+  } else if (this.inTransit) {
+    this.forwardWalkSprite.render(row, col, sF);
+    this.mapSprite.update();
+  } else {
+      this.mapSprite.render(row, col, sF);
+    if(this.actionTaken) {
+      c.fillStyle = "rgba(128, 128, 128, 0.2)";
+      c.fill();
+    }
+  }
+}

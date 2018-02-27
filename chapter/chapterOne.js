@@ -23,6 +23,10 @@ ChapterOne.prototype.setupBoard = function() {
     new Wall(newBoard, [i, 0]);
   }
 
+  for(let i = 5; i < 8; i++) {
+    new Wall(newBoard, [i, 1]);
+  }
+
   for(let i = 1; i < 8; i++) {
     new Wall(newBoard, [13, i]);
   }

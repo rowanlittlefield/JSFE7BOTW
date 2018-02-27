@@ -38,23 +38,5 @@ GameWindow.prototype.identifySpacesCoveredByWindow = function(board, sF) {
     }
   }
 
-  // for(let row = 0; row < board.grid.length; row++) {
-  //   for (let col = 0; col < board.grid[row].length; col++) {
-  //     if (areOverlapping(this.x, this.y, this.dx, Math.ceil(this.dy), row, col, sF)) {
-  //       spaces.push([row, col])
-  //     }
-  //   }
-  // }
-
   return spaces;
-}
-
-GameWindow.prototype.clearRendering = function(sF, board) {
-  c.clearRect(this.x, this.y, this.dx, Math.ceil(this.dy));
-  if (board) {
-    let spaces = this.identifySpacesCoveredByWindow(board, sF);
-    for(let i = 0; i < spaces.length; i++) {
-      board.grid[spaces[i][0]][spaces[i][1]].render(spaces[i][0], spaces[i][1], sF);
-    }
-  }
 }

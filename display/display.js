@@ -9,7 +9,6 @@ function Display(board, cursor, phaseStage) {
   this.units = {};
 }
 
-
 Display.prototype.render = function(sF) {
   if (isEmpty(this.units)) this.setupUnitHash(sF);
   this.renderBoard(sF);
@@ -56,8 +55,9 @@ Display.prototype.renderUnits = function(sF) {
     let pos = this.units[unitIndex].position;
     if (this.units[unitIndex].current_hp > 0 &&
       !(this.cursor.selectedUnit && this.cursor.selectedUnit === this.units[unitIndex])) {
-      this.renderSpace(pos[0], pos[1], sF);
-    } else if(this.units[unitIndex] === 0){
+      // this.renderSpace(pos[0], pos[1], sF);
+      this.units[unitIndex].render(pos[0], pos[1], sF);
+    } else if(this.units[unitIndex].current_hp === 0){
       let units = this.units;
       delete units[unitIndex];
     }
@@ -65,7 +65,7 @@ Display.prototype.renderUnits = function(sF) {
 
   if(this.cursor.selectedUnit) {
     let pos = this.cursor.selectedUnit.position
-    this.renderSpace(pos[0], pos[1], sF);
+    this.cursor.selectedUnit.render(pos[0], pos[1], sF);
   }
 }
 
