@@ -19,6 +19,8 @@ ChapterOne.prototype.setupBoard = function() {
   newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [11, 1]);
   newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [15, 2]);
 
+  
+
   for(let i = 0; i < 14; i++) {
     new Wall(newBoard, [i, 0]);
   }
