@@ -22,11 +22,17 @@ CombatSprite.prototype.updateQueueIndexAndSprite = function() {
 }
 
 CombatSprite.prototype.render = function(row, col, sF) {
+  this.spriteQueue[this.queueIndex].render(row, col, sF);
+  this.update();
+}
+
+CombatSprite.prototype.renderFromCoordinates = function(x, y, sF) {
   // let scale = sF / 18;
-  // let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  // let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));
+  // let cx = x + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  // let cy = y + ((scale * 18) - (scale * this.renderHeight));
   // let cWidth = scale * this.renderWidth;
   // let cHeight = scale *  this.renderHeight;
+  //
   // this.context.drawImage(
   //   this.spriteSheet,
   //   this.frameIndex * this.width,
@@ -39,27 +45,11 @@ CombatSprite.prototype.render = function(row, col, sF) {
   //   cHeight
   // );
   // this.update();
-  this.spriteQueue[this.queueIndex].render(row, col, sF);
+
+  this.spriteQueue[this.queueIndex].renderFromCoordinatesSpecial(x, y, sF);
   this.update();
 }
 
-CombatSprite.prototype.renderFromCoordinates = function(x, y, sF) {
-  let scale = sF / 18;
-  let cx = x + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  let cy = y + ((scale * 18) - (scale * this.renderHeight));
-  let cWidth = scale * this.renderWidth;
-  let cHeight = scale *  this.renderHeight;
-
-  this.context.drawImage(
-    this.spriteSheet,
-    this.frameIndex * this.width,
-    0,
-    this.width,
-    this.height,
-    cx,
-    cy,
-    cWidth,
-    cHeight
-  );
-  this.update();
+CombatSprite.prototype.renderStationaryFrame = function(x, y, sF) {
+  this.spriteQueue[this.queueIndex].renderStationaryFrame(x, y, sF);
 }

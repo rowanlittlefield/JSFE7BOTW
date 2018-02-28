@@ -63,6 +63,7 @@ Sprite.prototype.renderFromCoordinates = function(cx, cy, cWidth, cHeight) {
   this.update();
 }
 
+
 Sprite.prototype.boardSpriteRender = function(sF) {
   this.context.drawImage(
     this.spriteSheet,
@@ -75,4 +76,46 @@ Sprite.prototype.boardSpriteRender = function(sF) {
     this.renderWidth * sF / 18,
     this.renderHeight * sF / 18
   );
+}
+
+//combatAnimationMethods
+
+
+Sprite.prototype.renderStationaryFrame = function(row, col, sF) {
+  let scale = sF / 18;
+  let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,
+    this.frameIndex * this.width,
+    0,
+    this.width,
+    this.height,
+    cx,
+    cy,
+    cWidth,
+    cHeight
+  );
+}
+
+Sprite.prototype.renderFromCoordinatesSpecial = function(row, col, sF) {
+  let scale = sF / 18;
+  let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,
+    this.frameIndex * this.width,
+    0,
+    this.width,
+    this.height,
+    cx,
+    cy,
+    cWidth,
+    cHeight
+  );
+  this.update();
 }
