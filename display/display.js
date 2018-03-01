@@ -3,6 +3,8 @@ function Display(board, cursor, phaseStage) {
   this.cursor = cursor;
   this.phaseStage = phaseStage;
   this.window = null;
+  this.combatAnimation = null;
+
   this.aiPhase = false;
   this.aiPlayer = null;
   this.unitIndex = 0;
@@ -12,9 +14,17 @@ function Display(board, cursor, phaseStage) {
 Display.prototype.render = function(sF) {
   if (isEmpty(this.units)) this.setupUnitHash(sF);
   this.renderBoard(sF);
-  this.renderObjects(sF);
+  if (!this.combatAnimation) {
+    this.renderObjects(sF);
+  } else {
+    this.combatAnimation.render(sF);
+    if (this.combatAnimation.combatIndex >= 150) {
+      this.combatAnimation = null;
+    }
+  }
+
   // // this.phaseStage.render(sF);
-  if(this.aiPhase) this.aiPlayer.phaseFrameUpdate();
+  if(this.aiPhase && !this.combatAnimation) this.aiPlayer.phaseFrameUpdate();
 }
 
 Display.prototype.beginAIPhase = function(aiPlayer) {

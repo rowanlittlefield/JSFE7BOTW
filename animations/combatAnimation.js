@@ -1,23 +1,39 @@
-function CombatAnimation(combat) {
-  // this.combat = combat;
-  // let check = combat.initiator instanceof(PlayerUnit);
-  // this.playerUnit = check ? combat.initiator : combat.defender;
-  // this.enemyUnit = !check ? combat.initiator : combat.defender;
+function CombatAnimation(combat, phaseStage) {
+  // debugger;
+  this.combat = combat;
+  let check = combat.initiator instanceof(PlayerUnit);
+  this.playerUnit = check ? combat.initiator : combat.recipient;
+  this.enemyUnit = !check ? combat.initiator : combat.recipient;
   this.playerCombatSprite = fightSprite;
-  this.enemyCombatSprite = baddieSprite
+  this.enemyCombatSprite = baddieSprite;
+  this.phaseStage = phaseStage;
   this.combatIndex = 0;
 }
 
-CombatAnimation.prototype.render = function() {
+CombatAnimation.prototype.render = function(sF) {
+  let halfWidth = innerWidth / 2;
+
+  this.renderNameWindows(halfWidth);
+  this.renderWeaponWindows(halfWidth);
+  this.renderStatWindows(halfWidth);
+  this.renderCentralDelineator(halfWidth);
+  this.renderWeaponNames(halfWidth);
+  this.renderHPWindows(halfWidth);
+
+  let scaledHalfInnerWidth = halfWidth / 52
+  let enemyWidth = this.enemyCombatSprite.spriteQueue[this.enemyCombatSprite.queueIndex].renderWidth / 52
+    // combat rendering
   if (this.combatIndex < 100) {
-    this.playerCombatSprite.renderStationaryFrame(13, 7, 52);
-    this.enemyCombatSprite.renderStationaryFrame(9, 7, 52);
+
+    this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
+    // this.playerCombatSprite.renderStationaryFrame(13, 7, 52);
+    this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
     this.combatIndex += 1;
   }
 
   if(this.combatIndex === 100) {
-    this.playerCombatSprite.renderFromCoordinates(13, 7, 52);
-    this.enemyCombatSprite.renderStationaryFrame(9, 7, 52);
+    this.playerCombatSprite.renderFromCoordinates(scaledHalfInnerWidth + 1.5, 7, 52);
+    this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
 
     if(this.playerCombatSprite.queueIndex === 0 &&
       this.playerCombatSprite.spriteQueue[0].frameIndex === 0 &&
@@ -27,8 +43,8 @@ CombatAnimation.prototype.render = function() {
   }
 
   if(this.combatIndex === 101) {
-    this.enemyCombatSprite.renderFromCoordinates(9, 7, 52);
-    this.playerCombatSprite.renderStationaryFrame(13, 7, 52);
+    this.enemyCombatSprite.renderFromCoordinates(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
+    this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
 
     if(this.enemyCombatSprite.queueIndex === 0 &&
       this.enemyCombatSprite.spriteQueue[0].frameIndex === 0 &&
@@ -37,8 +53,79 @@ CombatAnimation.prototype.render = function() {
     }
   }
 
-  if(this.combatIndex === 102) {
-    this.playerCombatSprite.renderStationaryFrame(13, 7, 52);
-    this.enemyCombatSprite.renderStationaryFrame(9, 7, 52);
+  if(this.combatIndex >= 102  && this.combatIndex < 150) {
+    this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
+    this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
+    this.combatIndex += 1;
   }
+
+  if(this.combatIndex >= 150) {
+    this.endAnimation();
+  }
+}
+
+CombatAnimation.prototype.renderNameWindows = function(halfWidth) {
+  c.fillStyle = 'rgba(0, 0, 142, 1)';
+  c.fillRect(halfWidth + 250, 100, 150, 50);
+  renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
+    `${this.playerUnit.name}`, halfWidth + 325, 130);
+
+  c.fillStyle = 'rgba(255, 0, 0, 1)';
+  c.fillRect(halfWidth - 250 - 150, 100, 150, 50);
+  renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
+    `${this.enemyUnit.name}`, halfWidth - 325, 130);
+}
+
+CombatAnimation.prototype.renderStatWindows = function(halfWidth) {
+  c.fillStyle = 'rgba(0, 0, 142, 1)';
+  c.fillRect(halfWidth + 300, 450, 100, 50);
+  renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
+    `HIT        ${this.playerUnit.accuracy(this.enemyUnit)}`, halfWidth + 350, 465);
+  renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
+    `DMG        ${this.playerUnit.damage(this.enemyUnit)}`, halfWidth + 350, 480);
+    renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
+      `CRT        ${this.playerUnit.criticalChance(this.enemyUnit)}`, halfWidth + 350, 495);
+
+  c.fillStyle = 'rgba(255, 0, 0, 1)';
+  c.fillRect(halfWidth - 300 - 100, 450, 100, 50);
+  renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
+    `HIT        ${this.enemyUnit.accuracy(this.playerUnit)}`, halfWidth - 300 - 100, 465);
+  renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
+    `DMG        ${this.enemyUnit.damage(this.playerUnit)}`, halfWidth - 300 - 100, 480);
+  renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
+    `CRT        ${this.enemyUnit.criticalChance(this.playerUnit)}`, halfWidth - 300 - 100, 495);
+}
+
+CombatAnimation.prototype.renderCentralDelineator = function(halfWidth) {
+  c.fillStyle = 'rgba(0, 0, 0, 1)';
+  c.fillRect(halfWidth - 1, 460, 2, 130);
+}
+
+CombatAnimation.prototype.renderWeaponWindows = function(halfWidth) {
+  c.fillStyle = 'rgba(255, 248, 220, 1)';
+  c.fillRect(halfWidth + 1, 460, 400 - 1, 130);
+
+  c.fillStyle = 'rgba(255, 248, 220, 1)';
+  c.fillRect(halfWidth - 300 - 100, 460, 400 - 1, 130);
+}
+
+CombatAnimation.prototype.renderWeaponNames = function(halfWidth) {
+  renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255 1)',
+   `${this.playerUnit.equippedWeapon.stats['name']}`, halfWidth + 50, 475);
+
+   renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255 1)',
+    `${this.enemyUnit.equippedWeapon.stats['name']}`, halfWidth - 50, 475);
+}
+
+CombatAnimation.prototype.renderHPWindows = function(halfWidth) {
+  renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255 1)',
+   'PU HP', halfWidth + 50, 550);
+
+   renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255 1)',
+    'EU HP', halfWidth - 50, 550);
+}
+
+CombatAnimation.prototype.endAnimation = function() {
+  this.combat.initiateFight()
+  this.phaseStage.nextStage('select unit');
 }

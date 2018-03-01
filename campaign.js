@@ -1,3 +1,3 @@
-// let newChapter = new ChapterOne(52);
-let combatAni = new CombatAnimation();
+let newChapter = new ChapterOne(52);
+// let combatAni = new CombatAnimation();
 animate();

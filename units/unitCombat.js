@@ -1,6 +1,7 @@
 Unit.prototype.fight = function(opposingUnit) {
   debugger;
   let newCombat = new Combat(this, opposingUnit);
+  // let newCombatAnimation = new CombatAnimation(newCombat);
   newCombat.initiateFight();
   // let fightingUnits = this.determineUnitClasses(opposingUnit);
   // let playerUnit = fightingUnits[0];
@@ -57,8 +58,8 @@ Unit.prototype.fight = function(opposingUnit) {
 //   return this instanceof(PlayerUnit) ? [this, opposingUnit] : [opposingUnit, this];
 // }
 //
-// Unit.prototype.isInRange = function(opposingUnit) {
-//   let sep = distance(this.position, opposingUnit.position);
-//
-//   return this.equippedWeapon.stats['range'].includes(sep);
-// }
+Unit.prototype.isInRange = function(opposingUnit) {
+  let sep = distance(this.position, opposingUnit.position);
+
+  return this.equippedWeapon.stats['range'].includes(sep);
+}
