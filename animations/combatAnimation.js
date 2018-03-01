@@ -24,44 +24,84 @@ CombatAnimation.prototype.render = function(sF) {
   let enemyWidth = this.enemyCombatSprite.spriteQueue[this.enemyCombatSprite.queueIndex].renderWidth / 52
     // combat rendering
   if (this.combatIndex < 100) {
-
-    this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
-    // this.playerCombatSprite.renderStationaryFrame(13, 7, 52);
-    this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
-    this.combatIndex += 1;
+    this.renderAtEase(scaledHalfInnerWidth, enemyWidth);
   }
 
   if(this.combatIndex === 100) {
-    this.playerCombatSprite.renderFromCoordinates(scaledHalfInnerWidth + 1.5, 7, 52);
-    this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
-
-    if(this.playerCombatSprite.queueIndex === 0 &&
-      this.playerCombatSprite.spriteQueue[0].frameIndex === 0 &&
-      this.playerCombatSprite.spriteQueue[0].tickCount === 0) {
-      this.combatIndex += 1;
-    }
+    this.initialAttack(scaledHalfInnerWidth, enemyWidth);
   }
 
-  if(this.combatIndex === 101) {
-    this.enemyCombatSprite.renderFromCoordinates(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
-    this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
-
-    if(this.enemyCombatSprite.queueIndex === 0 &&
-      this.enemyCombatSprite.spriteQueue[0].frameIndex === 0 &&
-      this.enemyCombatSprite.spriteQueue[0].tickCount === 0) {
-      this.combatIndex += 1;
-    }
+  if(this.combatIndex === 101 && this.combat.queue.length > 1) {
+    this.counterAttack(scaledHalfInnerWidth, enemyWidth);
+  } else if(this.combatIndex === 101) {
+    this.renderAtEase(scaledHalfInnerWidth, enemyWidth);
   }
 
-  if(this.combatIndex >= 102  && this.combatIndex < 150) {
-    this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
-    this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
-    this.combatIndex += 1;
+  if (this.combatIndex === 102 && this.combat.queue.length > 2) {
+    this.repeatAttack(scaledHalfInnerWidth, enemyWidth);
+  } else if(this.combatIndex === 102) {
+    this.renderAtEase(scaledHalfInnerWidth, enemyWidth);
+  }
+
+  if(this.combatIndex >= 103 && this.combatIndex < 150) {
+    this.renderAtEase(scaledHalfInnerWidth, enemyWidth);
   }
 
   if(this.combatIndex >= 150) {
     this.endAnimation();
   }
+}
+
+CombatAnimation.prototype.initialAttack = function(scaledHalfInnerWidth, enemyWidth) {
+  if (this.combat.initiator === this.playerUnit) {
+    this.playerAttack(scaledHalfInnerWidth, enemyWidth);
+  } else {
+    this.enemyAttack(scaledHalfInnerWidth, enemyWidth);
+  }
+}
+
+CombatAnimation.prototype.counterAttack = function(scaledHalfInnerWidth, enemyWidth) {
+  if(this.combat.recipient === this.playerUnit) {
+    this.playerAttack(scaledHalfInnerWidth, enemyWidth);
+  } else {
+    this.enemyAttack(scaledHalfInnerWidth, enemyWidth);
+  }
+}
+
+CombatAnimation.prototype.repeatAttack = function(scaledHalfInnerWidth, enemyWidth) {
+  if (this.combat.queue[0].attacker === this.playerUnit) {
+    this.playerAttack(scaledHalfInnerWidth, enemyWidth);
+  } else {
+    this.enemyAttack(scaledHalfInnerWidth, enemyWidth);
+  }
+}
+
+CombatAnimation.prototype.playerAttack = function(scaledHalfInnerWidth, enemyWidth) {
+  this.playerCombatSprite.renderFromCoordinates(scaledHalfInnerWidth + 1.5, 7, 52);
+  this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
+
+  if(this.playerCombatSprite.queueIndex === 0 &&
+    this.playerCombatSprite.spriteQueue[0].frameIndex === 0 &&
+    this.playerCombatSprite.spriteQueue[0].tickCount === 0) {
+      this.combatIndex += 1;
+    }
+}
+
+CombatAnimation.prototype.enemyAttack = function(scaledHalfInnerWidth, enemyWidth) {
+  this.enemyCombatSprite.renderFromCoordinates(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
+  this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
+
+  if(this.enemyCombatSprite.queueIndex === 0 &&
+    this.enemyCombatSprite.spriteQueue[0].frameIndex === 0 &&
+    this.enemyCombatSprite.spriteQueue[0].tickCount === 0) {
+    this.combatIndex += 1;
+  }
+}
+
+CombatAnimation.prototype.renderAtEase = function(scaledHalfInnerWidth, enemyWidth) {
+  this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
+  this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
+  this.combatIndex += 1;
 }
 
 CombatAnimation.prototype.renderNameWindows = function(halfWidth) {
