@@ -7,13 +7,9 @@ function CombatSprite(context, spriteQueue, positionAdjustment, damageFrame) {
 }
 
 CombatSprite.prototype.update = function() {
-  // debugger;
   let sprite = this.spriteQueue[this.queueIndex];
-  let checkOne = this.spriteQueue[this.queueIndex].frameIndex;
-  let checkTwo = this.spriteQueue[this.queueIndex].numberOfFrames;
   if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
     sprite.tickCount === sprite.ticksPerFrame) {
-    // debugger;
     this.updateQueueIndexAndSprite();
   }
 }
@@ -29,31 +25,11 @@ CombatSprite.prototype.render = function(row, col, sF) {
 }
 
 CombatSprite.prototype.renderFromCoordinates = function(x, y, sF) {
-  // let scale = sF / 18;
-  // let cx = x + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  // let cy = y + ((scale * 18) - (scale * this.renderHeight));
-  // let cWidth = scale * this.renderWidth;
-  // let cHeight = scale *  this.renderHeight;
-  //
-  // this.context.drawImage(
-  //   this.spriteSheet,
-  //   this.frameIndex * this.width,
-  //   0,
-  //   this.width,
-  //   this.height,
-  //   cx,
-  //   cy,
-  //   cWidth,
-  //   cHeight
-  // );
-  // this.update();
-  // debugger;
   let deltaX = 0;
   let deltaY = 0;
   let queueI = this.queueIndex;
   let spriteI = this.spriteQueue[this.queueIndex].frameIndex;
   if (this.positionAdjustment[[queueI,spriteI]]) {
-    // debugger;
     deltaX = this.positionAdjustment[[queueI,spriteI]][0];
     deltaY = this.positionAdjustment[[queueI,spriteI]][1];
   }
