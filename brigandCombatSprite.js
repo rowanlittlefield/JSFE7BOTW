@@ -5,4 +5,4 @@ let sprites3 = new Sprite(c, 90, 35, 90, 35, 'units/enemyUnits/brigand/brigandCo
 let sprites4 = new Sprite(c, 90, 48, 90, 48, 'units/enemyUnits/brigand/brigandCombatSprite4.png', 9, 2);
 
 
-let baddieSprite = new CombatSprite(c, [sprites0, sprites1, sprites2, sprites3, sprites4]);
+let baddieSprite = new CombatSprite(c, [sprites0, sprites1, sprites2, sprites3, sprites4], {}, []);

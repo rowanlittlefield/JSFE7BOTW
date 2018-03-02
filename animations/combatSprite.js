@@ -1,7 +1,9 @@
-function CombatSprite(context, spriteQueue) {
+function CombatSprite(context, spriteQueue, positionAdjustment, damageFrame) {
   this.context = context;
   this.queueIndex = 0;
   this.spriteQueue = spriteQueue;
+  this.positionAdjustment = positionAdjustment;
+  this.damageFrame = damageFrame;
 }
 
 CombatSprite.prototype.update = function() {
@@ -45,8 +47,18 @@ CombatSprite.prototype.renderFromCoordinates = function(x, y, sF) {
   //   cHeight
   // );
   // this.update();
+  // debugger;
+  let deltaX = 0;
+  let deltaY = 0;
+  let queueI = this.queueIndex;
+  let spriteI = this.spriteQueue[this.queueIndex].frameIndex;
+  if (this.positionAdjustment[[queueI,spriteI]]) {
+    // debugger;
+    deltaX = this.positionAdjustment[[queueI,spriteI]][0];
+    deltaY = this.positionAdjustment[[queueI,spriteI]][1];
+  }
 
-  this.spriteQueue[this.queueIndex].renderFromCoordinatesSpecial(x, y, sF);
+  this.spriteQueue[this.queueIndex].renderFromCoordinatesSpecial(x + deltaX, y + deltaY, sF);
   this.update();
 }
 

@@ -77,8 +77,8 @@ CombatAnimation.prototype.repeatAttack = function(scaledHalfInnerWidth, enemyWid
 }
 
 CombatAnimation.prototype.playerAttack = function(scaledHalfInnerWidth, enemyWidth) {
-  this.playerCombatSprite.renderFromCoordinates(scaledHalfInnerWidth + 1.5, 7, 52);
   this.enemyCombatSprite.renderStationaryFrame(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
+  this.playerCombatSprite.renderFromCoordinates(scaledHalfInnerWidth + 1.5, 7, 52);
 
   if(this.playerCombatSprite.queueIndex === 0 &&
     this.playerCombatSprite.spriteQueue[0].frameIndex === 0 &&
@@ -88,8 +88,8 @@ CombatAnimation.prototype.playerAttack = function(scaledHalfInnerWidth, enemyWid
 }
 
 CombatAnimation.prototype.enemyAttack = function(scaledHalfInnerWidth, enemyWidth) {
-  this.enemyCombatSprite.renderFromCoordinates(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
   this.playerCombatSprite.renderStationaryFrame(scaledHalfInnerWidth + 1.5, 7, 52);
+  this.enemyCombatSprite.renderFromCoordinates(scaledHalfInnerWidth - 1.5 - enemyWidth, 7, 52);
 
   if(this.enemyCombatSprite.queueIndex === 0 &&
     this.enemyCombatSprite.spriteQueue[0].frameIndex === 0 &&
