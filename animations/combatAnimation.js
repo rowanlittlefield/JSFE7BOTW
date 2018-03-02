@@ -8,8 +8,9 @@ function CombatAnimation(combat, phaseStage) {
   this.enemyUnit = !check ? combat.initiator : combat.recipient;
   this.playerHP = this.playerUnit.current_hp;
   this.enemyHP = this.enemyUnit.current_hp;
-  this.playerCombatSprite = fightSprite;
-  this.enemyCombatSprite = baddieSprite;
+  this.playerCombatSprite = this.playerUnit.combatAnimation;
+  // this.enemyCombatSprite = baddieSprite;
+  this.enemyCombatSprite = this.enemyUnit.combatAnimation;
   this.phaseStage = phaseStage;
   this.combatIndex = 0;
 }

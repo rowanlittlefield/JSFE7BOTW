@@ -1,9 +1,9 @@
 function EnemyUnit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite,backwardWalkSprite, sideWalkSprite, hpWindowSprite,
-  behavior) {
+  combatAnimation, behavior) {
   Unit.call(this, stats, board, inventory, name, mapSprite,
     forwardWalkSprite, backwardWalkSprite, sideWalkSprite,
-    hpWindowSprite);
+    hpWindowSprite, combatAnimation);
   this.behavior = behavior;
 }
 
