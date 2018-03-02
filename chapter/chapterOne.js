@@ -16,10 +16,10 @@ ChapterOne.prototype.setupBoard = function() {
   let lyn = new Lyn(newBoard, new Inventory([new ManiKatti()]));
   newBoard.placeUnit(roy, [2, 2]);
   newBoard.placeUnit(lyn, [2, 6]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [11, 1]);
+  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [2, 3]);
   newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [15, 2]);
 
-  
+
 
   for(let i = 0; i < 14; i++) {
     new Wall(newBoard, [i, 0]);
