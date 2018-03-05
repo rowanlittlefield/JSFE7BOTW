@@ -42,15 +42,7 @@ Display.prototype.renderBoard = function(sF) {
 }
 
 Display.prototype.setupUnitHash = function(sF) {
-  this.boardIterator(this.addUnitToList.bind(this), sF);
-}
-
-Display.prototype.addUnitToList = function(row, col, sF) {
-  if (this.board.space([row, col]).unit) {
-    let unit = this.board.space([row, col]).unit;
-    this.units[this.unitIndex] = unit;
-    this.unitIndex += 1;
-  }
+  this.units = this.board.setUpUnitHash();
 }
 
 Display.prototype.renderObjects = function(sF) {
@@ -78,36 +70,16 @@ Display.prototype.renderUnits = function(sF) {
   }
 }
 
-// Display.prototype.renderAttackSpaces = function(unit, sF) {
-//   let pos = this.window.options[this.cursor.windowCursorPos];
-//   highlight(pos, "rgba(255, 0, 255, 0.2)", sF); //purple
-// }
-
 Display.prototype.renderWindows = function(sF) {
   this.window.render(sF, this.cursor.windowCursorPos);
 }
 
-Display.prototype.renderSpace = function(row, col, sF) {
-  this.board.space([row, col]).render(row, col, sF);
-}
-
 //
 
-Display.prototype.boardIterator = function(callBack, sF) {
-  for(let row = 0; row < this.board.grid.length; row++){
-    for(let col = 0; col < this.board.grid[row].length; col++){
-      callBack(row, col, sF);
-    }
-  }
-}
 Display.prototype.renderMoveSpaces = function(sF) {
   this.cursor.selectedUnit.renderMoveSpaces(sF);
 }
 
 Display.prototype.renderCursor = function(sF) {
   this.cursor.renderBoardCursor(sF, true);
-}
-
-Display.prototype.nullifyWindow = function() {
-
 }

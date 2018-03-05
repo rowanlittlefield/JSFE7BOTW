@@ -12,7 +12,8 @@ function Chapter(board, objective, sF) {
   this.player = new Player(this.board, this.display, this.phaseStage);
   this.enemyPlayer = new EnemyPlayer(this.board, this.display, this.phaseStage);
   this.players = {'0': this.player, '1': this.enemyPlayer};
-  this.currentPlayer = this.players[0]
+  this.currentPlayer = this.players[0];
+
 }
 
 Chapter.prototype.gameOver = function() {

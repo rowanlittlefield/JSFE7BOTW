@@ -14,7 +14,6 @@ CombatInformationWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, d
 }
 
 CombatInformationWindow.prototype.updateCoordinates = function(windowCursorPos) {
-  this.clearRendering(52);
   let pos = this.options[windowCursorPos];
   let coord = this.setDimensions(pos[0], pos[1], 2, 1.5, 150, 135, 52);
   this.x = coord[0];

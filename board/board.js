@@ -70,6 +70,20 @@ Board.prototype.boardIterator = function(callBack) {
   }
 }
 
+Board.prototype.setUpUnitHash = function() {
+  let index = 0;
+  let units = {};
+    this.boardIterator(function(row, col) {
+      if(this.space([row, col]).unit) {
+        let unit = this.space([row, col]).unit;
+        units[index] = unit;
+        index += 1;
+      }
+    }.bind(this));
+
+  return units;
+}
+
 Board.prototype.space = function(pos) {
   return this.grid[pos[0]][pos[1]];
 }
