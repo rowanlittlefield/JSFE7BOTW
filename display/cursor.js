@@ -3,7 +3,6 @@ function Cursor(board) {
   this.cursorPos = [0, 0];
   this.windowCursorPos = 0;
   this.selectedUnit = null;
-  // this.prevPos = null;
 }
 //NECESSARY METHODS
 

@@ -230,7 +230,6 @@ Unit.prototype.selectPlayerUnitInRange = function() {
   if (playerUnitPositionsInRange.length > 0) {
     let attackIndex = Math.floor(Math.random() * playerUnitPositionsInRange.length);
     let pos = playerUnitPositionsInRange[attackIndex];
-    // this.fight(this.board.grid[pos[0]][pos[1]].unit);
     return this.board.grid[pos[0]][pos[1]].unit;
   }
 

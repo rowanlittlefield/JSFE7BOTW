@@ -1,5 +1,4 @@
 function CombatAnimation(combat, phaseStage) {
-  // debugger;
   this.combat = combat;
   this.combatQueueIndex = combat.queue.length - 1;
 
@@ -9,7 +8,6 @@ function CombatAnimation(combat, phaseStage) {
   this.playerHP = this.playerUnit.current_hp;
   this.enemyHP = this.enemyUnit.current_hp;
   this.playerCombatSprite = this.playerUnit.combatAnimation;
-  // this.enemyCombatSprite = baddieSprite;
   this.enemyCombatSprite = this.enemyUnit.combatAnimation;
   this.phaseStage = phaseStage;
   this.combatIndex = 0;

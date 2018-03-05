@@ -143,13 +143,9 @@ Player.prototype.returnToPostMovementOptions = function() {
 
 Player.prototype.initiateFight = function() {
   let pos = this.display.window.options[this.cursor.windowCursorPos];
-// debugger;
   let newCombat = new Combat(this.selectedUnit(), this.board.space(pos).unit);
   this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
 
-  // newCombat.initiateFight();
-
-  // this.selectedUnit().fight(this.board.space(pos).unit);
   this.cursor.selectedUnit.actionTaken = true;
   this.deselectUnit()
   this.windowCursorPos = 0;

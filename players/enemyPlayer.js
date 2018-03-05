@@ -34,7 +34,6 @@ EnemyPlayer.prototype.phaseFrameUpdate = function() {
 // 'Private' EnemyPlayer methods
 
 EnemyPlayer.prototype.finishUnitTurn = function() {
-  // this.unitQueue[0].attackPlayerUnitInRange();
   let playerUnit = this.unitQueue[0].selectPlayerUnitInRange();
 
   if (playerUnit) {

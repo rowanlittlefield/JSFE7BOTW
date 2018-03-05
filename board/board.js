@@ -14,8 +14,6 @@ function Board(dimensions, sprite){
   this.sprite = sprite;
 }
 
-//
-
 Board.prototype.render = function(sF) {
   this.sprite.boardSpriteRender(sF);
 }

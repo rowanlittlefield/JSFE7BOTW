@@ -46,8 +46,6 @@ function LynCombatAnimation() {
 
   let damageFrame = [1, 3];
 
-  // let fightSprite = new CombatSprite(c, theSpriteQueue);
-
   CombatSprite.call(
     this,
     c,

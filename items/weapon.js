@@ -49,7 +49,7 @@ function SwordOfSeals() {
     mt: 18,
     ht: 95,
     critical: 10,
-    range: [1, 2],
+    range: [1],
     wex: 1,
     cost: 0
   };
