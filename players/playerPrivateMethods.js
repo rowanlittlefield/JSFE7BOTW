@@ -15,7 +15,7 @@ Player.prototype.identifyAndSelectUnit = function() {
   if(spaceOccupant != null && spaceOccupant instanceof(PlayerUnit) &&
   spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
     this.cursor.selectUnit(spaceOccupant);
-    this.display.window = null;
+    this.display.window = new NullWindow();
     this.phaseStage.nextStage('player unit moving');
   }
 }
@@ -25,7 +25,7 @@ Player.prototype.updateUnitMapWindow = function() {
   if (unit != null) {
     this.display.window = new UnitMapWindow(unit);
   } else {
-    this.display.window = null;
+    this.display.window = new NullWindow();
   }
 }
 
@@ -92,7 +92,7 @@ Player.prototype.undoMove = function() {
   this.selectedUnit().move(prevPos);
   this.selectedUnit().setMoveForecast();
   this.updateSelectedUnitRouteSpaces();
-  this.display.window = null;
+  this.display.window = new NullWindow();
   this.cursor.selectUnit(this.selectedUnit());
   this.phaseStage.nextStage('player unit moving');
 }

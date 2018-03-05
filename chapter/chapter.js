@@ -59,7 +59,7 @@ Chapter.prototype.changePhase = function() {
     this.phase = (this.phase + 1) % 2;
     this.currentPlayer = this.players[this.phase];
   }
-  this.display.window = null;
+  this.display.window = new NullWindow();
   if(this.phase === 0) {
     this.numberOfTurns += 1;
   }

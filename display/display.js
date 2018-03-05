@@ -2,7 +2,7 @@ function Display(board, cursor, phaseStage) {
   this.board = board;
   this.cursor = cursor;
   this.phaseStage = phaseStage;
-  this.window = null;
+  this.window = new NullWindow();
   this.combatAnimation = null;
 
   this.aiPhase = false;
@@ -78,13 +78,13 @@ Display.prototype.renderUnits = function(sF) {
   }
 }
 
-Display.prototype.renderAttackSpaces = function(unit, sF) {
-  let pos = this.window.options[this.cursor.windowCursorPos];
-  highlight(pos, "rgba(255, 0, 255, 0.2)", sF); //purple
-}
+// Display.prototype.renderAttackSpaces = function(unit, sF) {
+//   let pos = this.window.options[this.cursor.windowCursorPos];
+//   highlight(pos, "rgba(255, 0, 255, 0.2)", sF); //purple
+// }
 
 Display.prototype.renderWindows = function(sF) {
-  if(this.window != null) this.window.render(sF, this.cursor.windowCursorPos);
+  this.window.render(sF, this.cursor.windowCursorPos);
 }
 
 Display.prototype.renderSpace = function(row, col, sF) {
