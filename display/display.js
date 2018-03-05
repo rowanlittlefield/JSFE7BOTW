@@ -7,23 +7,13 @@ function Display(board, cursor, phaseStage) {
 
   this.aiPhase = false;
   this.aiPlayer = null;
-  this.unitIndex = 0;
-  this.units = {};
+  this.units = board.setUpUnitHash();
 }
 
 Display.prototype.render = function(sF) {
-  if (isEmpty(this.units)) this.setupUnitHash(sF);
   this.renderBoard(sF);
-  if (!this.combatAnimation) {
-    this.renderObjects(sF);
-  } else {
-    this.combatAnimation.render(sF);
-    if (this.combatAnimation.combatIndex >= 150) {
-      this.combatAnimation = null;
-    }
-  }
+  this.renderObjects(sF);
 
-  // // this.phaseStage.render(sF);
   if(this.aiPhase && !this.combatAnimation) this.aiPlayer.phaseFrameUpdate();
 }
 
@@ -46,10 +36,14 @@ Display.prototype.setupUnitHash = function(sF) {
 }
 
 Display.prototype.renderObjects = function(sF) {
-  this.renderUnits(sF);
-  this.renderWindows(sF);
-  if(this.phaseStage.stage === 'player unit moving') this.renderMoveSpaces(sF);
-  this.renderCursor(sF);
+  if (this.combatAnimation) {
+    this.renderCombatAnimation(sF);
+  } else {
+    this.renderUnits(sF);
+    this.renderWindows(sF);
+    if(this.phaseStage.stage === 'player unit moving') this.renderMoveSpaces(sF);
+    this.renderCursor(sF);
+  }
 }
 
 Display.prototype.renderUnits = function(sF) {
@@ -82,4 +76,11 @@ Display.prototype.renderMoveSpaces = function(sF) {
 
 Display.prototype.renderCursor = function(sF) {
   this.cursor.renderBoardCursor(sF, true);
+}
+
+Display.prototype.renderCombatAnimation = function(sF) {
+  this.combatAnimation.render(sF);
+  if (this.combatAnimation.combatIndex >= 150) {
+    this.combatAnimation = null;
+  }
 }
