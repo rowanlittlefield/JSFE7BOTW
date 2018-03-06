@@ -22,7 +22,7 @@ Player.prototype.identifyAndSelectUnit = function() {
 
 Player.prototype.updateUnitMapWindow = function() {
   let unit = this.board.space(this.cursorPos()).unit;
-  if (unit != null) {
+  if (unit != null && !this.display.combatAnimation) {
     this.display.window = new UnitMapWindow(unit);
   } else {
     this.display.window = new NullWindow();
