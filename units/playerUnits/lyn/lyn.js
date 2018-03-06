@@ -19,6 +19,26 @@ Lyn.prototype.constructor = Lyn;
 
 Lyn.prototype.defaultStats = function() {
   return new UnitStats(
-    1, 0, 31, 14, 17, 15, 15, 6, 8, 6, 6, 70, 40, 60, 60, 55, 20, 30, "wind"
+    {
+      level: 1,
+      experience: 0,
+      hp: 31,
+      strength: 14,
+      skill: 17,
+      speed: 15,
+      luck: 15,
+      defense: 6,
+      resistance: 8,
+      move: 6,
+      constitution: 6,
+      hp_growth_rate: 70,
+      strength_growth_rate: 40,
+      skill_growth_rate: 60,
+      speed_growth_rate: 60,
+      luck_growth_rate: 55,
+      defense_growth_rate: 20,
+      resistance_growth_rate: 30,
+      affinity: "wind"
+    }
   );
 }

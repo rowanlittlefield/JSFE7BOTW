@@ -20,6 +20,26 @@ Brigand.prototype.constructor = Brigand;
 
 Brigand.prototype.defaultStats = function() {
   return new UnitStats(
-    1, 0, 20, 5, 1, 5, 0, 3, 0, 5, 12, 82, 50, 30, 20, 15, 10, 13, "wind"
+    {
+      level: 1,
+      experience: 0,
+      hp: 20,
+      strength: 5,
+      skill: 1,
+      speed: 5,
+      luck: 0,
+      defense: 3,
+      resistance: 0,
+      move: 5,
+      constitution: 12,
+      hp_growth_rate: 82,
+      strength_growth_rate: 50,
+      skill_growth_rate: 30,
+      speed_growth_rate: 20,
+      luck_growth_rate: 15,
+      defense_growth_rate: 10,
+      resistance_growth_rate: 13,
+      affinity: "wind"
+    }
   );
 }
