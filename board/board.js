@@ -31,21 +31,6 @@ Board.prototype.inBounds = function(pos) {
   return !(pos[0] < 0 || pos[0] > this.grid.length || pos[1] < 0 || pos[1] > this.grid[0].length);
 }
 
-Board.prototype.list_of_units = function(type) {
-  let units = new Map();
-
-  for(let idx = 0; idx < this.grid.length; idx++) {
-    for(let idx2 = 0; idx2 < this.grid[idx].length; idx2++) {
-      if (this.grid[idx][idx2].unit instanceof(type)) {
-        units.set(this.grid[idx][idx2].unit, true);
-      }
-    }
-  }
-
-  return units;
-}
-// NEED UNIT DEATH METHOD
-
 Board.prototype.unitDeath = function(unit) {
   this.grid[unit.position[0]][unit.position[1]].unit = null;
 }
