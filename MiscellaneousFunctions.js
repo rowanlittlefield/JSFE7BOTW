@@ -1,21 +1,3 @@
-// function clearPosition(row, col, sF) {
-//   c.clearRect(row * sF, col * sF, sF, sF);
-// }
-
-function areOverlapping(x, y, dx, dy, row, col, sF) {
-  let r0 = row * sF;
-  let c0 = col * sF;
-  let rf = r0 + sF;
-  let cf = c0 + sF;
-  let xf = x + dx;
-  let yf = y + dy;
-
-  if ((x > rf || y > cf) ||  (r0 > xf || c0 > yf)) {
-    return false;
-  } else {
-    return true;
-  }
-}
 
 function distance(pos1, pos2) {
   let dr = Math.abs(pos1[0] - pos2[0]);
@@ -35,15 +17,6 @@ function includePosition(array, pos) {
     }
   }
   return false;
-}
-
-function isEmpty(object) {
-  let empty = true;
-  for(const property in object) {
-    empty = false;
-    break;
-  }
-  return empty;
 }
 
 function equivalentPositions(posOne, posTwo) {
@@ -106,14 +79,4 @@ function highlightSpaces(spaces, board, color, sF) {
 function preScaledHighlight(x, y, dx, dy, color) {
   c.fillStyle = color;
   c.fillRect(x, y, dx, dy);
-}
-
-function identicalSets(setOne, setTwo) {
-  for(element in setOne) {
-    if (setTwo[element] === null) { return false; }
-  }
-  for(element in setTwo) {
-    if (setOne[element] === null) { return false; }
-  }
-  return true;
 }

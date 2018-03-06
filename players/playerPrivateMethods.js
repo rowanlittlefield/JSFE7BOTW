@@ -136,7 +136,6 @@ Player.prototype.playSelectUnitToFight = function(button) {
 }
 
 Player.prototype.returnToPostMovementOptions = function() {
-  // this.display.window.clearRendering(52, this.board);
   this.phaseStage.nextStage('post movement options');
   this.display.window = new UnitPostMovePhaseWindow(this.selectedUnit());
 }
