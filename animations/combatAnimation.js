@@ -178,7 +178,6 @@ CombatAnimation.prototype.renderHPWindows = function(halfWidth, playerHP, enemyH
 }
 
 CombatAnimation.prototype.endAnimation = function() {
-  this.combat.initiateFight()
   this.phaseStage.nextStage('select unit');
 }
 

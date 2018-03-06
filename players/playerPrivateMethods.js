@@ -136,7 +136,7 @@ Player.prototype.playSelectUnitToFight = function(button) {
 }
 
 Player.prototype.returnToPostMovementOptions = function() {
-  this.display.window.clearRendering(52, this.board);
+  // this.display.window.clearRendering(52, this.board);
   this.phaseStage.nextStage('post movement options');
   this.display.window = new UnitPostMovePhaseWindow(this.selectedUnit());
 }
@@ -145,13 +145,13 @@ Player.prototype.initiateFight = function() {
   let pos = this.display.window.options[this.cursor.windowCursorPos];
   let newCombat = new Combat(this.selectedUnit(), this.board.space(pos).unit);
   this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
-
+  newCombat.initiateFight();
+  this.phaseStage.nextStage('combat animation');
   this.cursor.selectedUnit.actionTaken = true;
   this.deselectUnit()
   this.windowCursorPos = 0;
   this.updateUnitMapWindow();
 
-  this.phaseStage.nextStage('select unit');
 }
 
 //next play method followed by sub-methods

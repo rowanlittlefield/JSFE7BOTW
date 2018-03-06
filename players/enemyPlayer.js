@@ -13,8 +13,15 @@ EnemyPlayer.prototype.constructor = EnemyPlayer;
 
 EnemyPlayer.prototype.initiatePhase = function() {
   this.phaseStage.nextStage('Enemy Phase');
-  let listOfUnits = this.units;
+  this.units = this.listOfOwnUnits();
 
+  for(const unitIndex in this.units) {
+    if(this.units[unitIndex].current_hp === 0){
+      let units = this.units;
+      delete units[unitIndex];
+    }
+  }
+  let listOfUnits = this.units;
   listOfUnits.forEach(function(value, key, map) {
     this.unitQueue.push(key);
   }.bind(this));
@@ -39,6 +46,7 @@ EnemyPlayer.prototype.finishUnitTurn = function() {
   if (playerUnit) {
     let newCombat = new Combat(this.unitQueue[0], playerUnit);
     this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
+    newCombat.initiateFight();
   }
 
   this.unitQueue[0].movingAnimation = null;

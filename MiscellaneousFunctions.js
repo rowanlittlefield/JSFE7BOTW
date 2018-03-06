@@ -1,6 +1,6 @@
-function clearPosition(row, col, sF) {
-  c.clearRect(row * sF, col * sF, sF, sF);
-}
+// function clearPosition(row, col, sF) {
+//   c.clearRect(row * sF, col * sF, sF, sF);
+// }
 
 function areOverlapping(x, y, dx, dy, row, col, sF) {
   let r0 = row * sF;
