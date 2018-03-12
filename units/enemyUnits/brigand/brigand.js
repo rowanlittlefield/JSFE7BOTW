@@ -9,7 +9,7 @@ function Brigand(board, inventory, behavior, stats) {
     new Sprite(c, 22, 25, 22, 25, "units/enemyUnits/brigand/brigandForwardWalkSpriteSheet.png", 6, 4),
     new Sprite(c, 22, 25, 22, 25, "units/enemyUnits/brigand/brigandBackwardsWalkSprite.png", 8, 4),
     new Sprite(c, 22, 27, 22, 27, "units/enemyUnits/brigand/brigandRightWalkSprite.png", 8, 4),
-    new Sprite(c, 26, 17, 26, 17, "units/playerUnits/lyn/lynLeftWalkSpriteSheet.png", 8, 4),
+    new Sprite(c, 22, 27, 22, 27, "units/enemyUnits/brigand/brigandLeftWalkSprite.png", 8, 4),
     new Sprite(c, 80, 72, 18, 18, "units/enemyUnits/brigand/brigandHPWindowSprite.png", 6, 1),
     new BrigandCombatAnimation(),
     behavior
