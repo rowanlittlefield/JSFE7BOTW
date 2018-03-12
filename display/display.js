@@ -47,21 +47,15 @@ Display.prototype.renderObjects = function(sF) {
 }
 
 Display.prototype.renderUnits = function(sF) {
+
   for(const unitIndex in this.units) {
-    let pos = this.units[unitIndex].position;
-    if (this.units[unitIndex].current_hp > 0 &&
-      !(this.cursor.selectedUnit && this.cursor.selectedUnit === this.units[unitIndex])) {
-      this.units[unitIndex].render(pos[0], pos[1], sF);
-    } else if(this.units[unitIndex].current_hp === 0){
-      let units = this.units;
-      delete units[unitIndex];
+    if (this.units[unitIndex].current_hp > 0 && !(this.cursor.selectedUnit &&
+      this.cursor.selectedUnit === this.units[unitIndex])) {
+      this.units[unitIndex].render(sF);
     }
   }
 
-  if(this.cursor.selectedUnit) {
-    let pos = this.cursor.selectedUnit.position
-    this.cursor.selectedUnit.render(pos[0], pos[1], sF);
-  }
+  if(this.cursor.selectedUnit) this.cursor.selectedUnit.render(sF);
 }
 
 Display.prototype.renderWindows = function(sF) {

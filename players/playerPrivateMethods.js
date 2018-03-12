@@ -110,6 +110,7 @@ Player.prototype.endUnitTurn = function() {
   this.cursor.windowCursorPos = 0;
   this.selectedUnit().actionTaken = true;
   this.updateUnitMapWindow();
+  this.postUnitActionCheck(this.selectedUnit());
   this.deselectUnit();
 
   this.phaseStage.nextStage('select unit');
