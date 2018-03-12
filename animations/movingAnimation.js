@@ -29,9 +29,9 @@ MovingAnimation.prototype.render = function(sF) {
 MovingAnimation.prototype.selectSprite = function() {
   let directionHash = {
     '0,-1' : this.unit.backwardWalkSprite,
-    '1,0' : this.unit.sideWalkSprite,
+    '1,0' : this.unit.rightWalkSprite,
     '0,1' : this.unit.forwardWalkSprite,
-    '-1,0' : this.unit.forwardWalkSprite
+    '-1,0' : this.unit.leftWalkSprite
   };
   if(!directionHash[this.differentials[this.difIndex]]) return this.unit.forwardWalkSprite;
   return directionHash[this.differentials[this.difIndex]];

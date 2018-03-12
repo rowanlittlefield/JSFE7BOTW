@@ -1,6 +1,6 @@
 function Unit(stats, board, inventory, name, mapSprite,
-  forwardWalkSprite, backwardWalkSprite, sideWalkSprite, hpWindowSprite,
-  combatAnimation) {
+  forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
+  leftWalkSprite, hpWindowSprite, combatAnimation) {
   if (!stats) stats = this.defaultStats();
   this.stats = stats;
   this.board = board;
@@ -11,7 +11,8 @@ function Unit(stats, board, inventory, name, mapSprite,
   this.mapSprite = mapSprite;
   this.forwardWalkSprite = forwardWalkSprite;
   this.backwardWalkSprite = backwardWalkSprite;
-  this.sideWalkSprite = sideWalkSprite;
+  this.rightWalkSprite = rightWalkSprite;
+  this.leftWalkSprite = leftWalkSprite;
   this.hpWindowSprite = hpWindowSprite;
   this.combatAnimation = combatAnimation;
   this.position = null;
