@@ -8,7 +8,6 @@ function GeneralPlayer(board, display, unitType, opposingUnitType) {
 
 GeneralPlayer.prototype.postUnitActionCheck = function(unit) {
   console.log('post unit action check carried out');
-  debugger;
   if (unit.current_hp === 0) {
     for(const unitIndex in this.display.units) {
       let units = this.display.units;
