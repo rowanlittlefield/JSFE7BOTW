@@ -16,12 +16,7 @@ function CombatAnimation(combat, phaseStage) {
 CombatAnimation.prototype.render = function(sF) {
   let halfWidth = innerWidth / 2;
 
-  this.renderNameWindows(halfWidth);
-  this.renderWeaponWindows(halfWidth);
-  this.renderStatWindows(halfWidth);
-  this.renderCentralDelineator(halfWidth);
-  this.renderWeaponNames(halfWidth);
-  this.renderHPWindows(halfWidth);
+  this.renderBackgroundElements(halfWidth);
 
   let scaledHalfInnerWidth = halfWidth / 52
   let enemyWidth = this.enemyCombatSprite.spriteQueue[this.enemyCombatSprite.queueIndex].renderWidth / 52
@@ -116,16 +111,31 @@ CombatAnimation.prototype.renderAtEase = function(playerCoordinates, enemyCoordi
   this.combatIndex += 1;
 }
 
-CombatAnimation.prototype.renderNameWindows = function(halfWidth) {
-  c.fillStyle = 'rgba(0, 0, 142, 1)';
-  c.fillRect(halfWidth + 250, 100, 150, 50);
-  renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-    `${this.playerUnit.name}`, halfWidth + 325, 130);
+//backgroudn element rendering
 
-  c.fillStyle = 'rgba(255, 0, 0, 1)';
-  c.fillRect(halfWidth - 250 - 150, 100, 150, 50);
+CombatAnimation.prototype.renderBackgroundElements = function(halfWidth) {
+  this.renderNameWindows(halfWidth);
+  this.renderWeaponWindows(halfWidth);
+  this.renderStatWindows(halfWidth);
+  this.renderCentralDelineator(halfWidth);
+  this.renderWeaponNames(halfWidth);
+  this.renderHPWindows(halfWidth);
+}
+
+CombatAnimation.prototype.renderNameWindows = function(halfWidth) {
+  this.renderNameWindow(halfWidth, 'rgba(0, 0, 142, 1)',
+    this.playerUnit.name, 250, 325);
+
+  this.renderNameWindow(halfWidth, 'rgba(255, 0, 0, 1)',
+    this.enemyUnit.name, -250 - 150, -325);
+}
+
+CombatAnimation.prototype.renderNameWindow = function(halfWidth, color,
+  unitName, xDisplacement, nameXCoord) {
+  c.fillStyle = color;
+  c.fillRect(halfWidth + xDisplacement, 100, 150, 50);
   renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-    `${this.enemyUnit.name}`, halfWidth - 325, 130);
+    unitName, halfWidth + nameXCoord, 130);
 }
 
 CombatAnimation.prototype.renderStatWindows = function(halfWidth) {
