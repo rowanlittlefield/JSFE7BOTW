@@ -1,7 +1,6 @@
 function Cursor(board) {
   this.board = board;
   this.cursorPos = [0, 0];
-  this.windowCursorPos = 0;
   this.selectedUnit = null;
 }
 //NECESSARY METHODS
@@ -13,19 +12,6 @@ Cursor.prototype.moveCursorPosition = function(button) {
   this.manipulateCursor(button, "down", this.cursorPos[1] < this.board.dimensions[1] - 1, 1, 1);
 }
 
-Cursor.prototype.manipulateCursor = function(button, direction, constraint, index, alteration) {
-  if (button == direction && constraint) {
-    this.prevPos = [this.cursorPos[0], this.cursorPos[1]];
-    this.cursorPos[index] = this.cursorPos[index] + alteration;
-  }
-}
-Cursor.prototype.scrollWindowCursor = function(button, windowLength) {
-  if (button == "down" && this.windowCursorPos < windowLength - 1) {
-    this.windowCursorPos += 1;
-  } else if(button == "up" && this.windowCursorPos > 0) {
-    this.windowCursorPos -= 1;
-  }
-}
 
 Cursor.prototype.renderBoardCursor = function(sF, clearPrevPos) {
   highlight(this.cursorPos, 'rgba(255, 255, 0, 0.5)', sF);
@@ -52,9 +38,9 @@ Cursor.prototype.moveSelectedUnit = function() {
 
 // private cursor methods
 
-Cursor.prototype.moveCursorInDirection = function(button, value, constraint, index, delta) {
-  if(button == value && constraint) {
-    this.cursorPrevPos = [this.cursorPos[0], this.cursorPos[1]];
-    this.cursorPos[index] = this.cursorPos[index] + delta;
+Cursor.prototype.manipulateCursor = function(button, direction, constraint, index, alteration) {
+  if (button == direction && constraint) {
+    this.prevPos = [this.cursorPos[0], this.cursorPos[1]];
+    this.cursorPos[index] = this.cursorPos[index] + alteration;
   }
 }

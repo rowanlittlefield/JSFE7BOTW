@@ -20,7 +20,7 @@ UnitPostMovePhaseWindow.prototype.render = function(sF, windowCursorPos) {
     renderTextWithFont("20px Arial", 'left', 'rgba(255, 255, 225, 1)',
     `${this.options[i]}`, this.x, this.y + ((1 + i) * sF * 0.5));
 
-    if (windowCursorPos === i) {
+    if (this.cursorPos === i) {
       c.fillStyle = "rgba(255, 223, 0, 0.5)";
       c.fillRect(this.x, this.y + ((0.1) + (i * 0.5)) * sF , this.dx, sF * 0.5);
     }

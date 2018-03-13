@@ -14,7 +14,7 @@ CombatInformationWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, d
 }
 
 CombatInformationWindow.prototype.updateCoordinates = function(windowCursorPos) {
-  let pos = this.options[windowCursorPos];
+  let pos = this.options[this.cursorPos];
   let coord = this.setDimensions(pos[0], pos[1], 2, 1.5, 150, 135, 52);
   this.x = coord[0];
   this.y = coord[1];
@@ -22,7 +22,7 @@ CombatInformationWindow.prototype.updateCoordinates = function(windowCursorPos) 
 }
 
 CombatInformationWindow.prototype.render = function(sF, windowCursorPos) {
-  let pos = this.options[windowCursorPos];
+  let pos = this.options[this.cursorPos];
   let opponent = this.unit.board.grid[pos[0]][pos[1]].unit;
 
   c.fillStyle = "rgba(0, 255, 255, 1)";

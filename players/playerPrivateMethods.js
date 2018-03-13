@@ -82,8 +82,7 @@ Player.prototype.playPostMovementOptions = function(button) {
   } else if(button === 'B') {
     this.undoMove();
   } else {
-    this.cursor.scrollWindowCursor(
-      button, this.display.window.options.length);
+      this.display.window.scrollCursor(button);
   }
 }
 
@@ -98,7 +97,8 @@ Player.prototype.undoMove = function() {
 }
 
 Player.prototype.postMovementDecision = function() {
-  let option = this.display.window.options[this.cursor.windowCursorPos];
+  let option = this.display.window.returnOption();
+
   if (option === 'Wait') {
     this.endUnitTurn();
   } else if (option === 'Fight') {
@@ -131,7 +131,7 @@ Player.prototype.playSelectUnitToFight = function(button) {
   } else if(button === 'B') {
     this.returnToPostMovementOptions();
   } else {
-    this.cursor.scrollWindowCursor(button, this.display.window.options.length);
+    this.display.window.scrollCursor();
     this.display.window.updateCoordinates(this.cursor.windowCursorPos);
   }
 }
@@ -142,14 +142,14 @@ Player.prototype.returnToPostMovementOptions = function() {
 }
 
 Player.prototype.initiateFight = function() {
-  let pos = this.display.window.options[this.cursor.windowCursorPos];
+  let pos = this.display.window.returnOption();
+
   let newCombat = new Combat(this.selectedUnit(), this.board.space(pos).unit);
   this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
   newCombat.initiateFight();
   this.phaseStage.nextStage('combat animation');
   this.cursor.selectedUnit.actionTaken = true;
   this.deselectUnit()
-  this.windowCursorPos = 0;
   this.updateUnitMapWindow();
 
 }
