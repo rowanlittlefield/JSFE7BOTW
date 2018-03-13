@@ -139,23 +139,25 @@ CombatAnimation.prototype.renderNameWindow = function(halfWidth, color,
 }
 
 CombatAnimation.prototype.renderStatWindows = function(halfWidth) {
-  c.fillStyle = 'rgba(0, 0, 142, 1)';
-  c.fillRect(halfWidth + 300, 450, 100, 50);
-  renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-    `HIT        ${this.playerUnit.accuracy(this.enemyUnit)}`, halfWidth + 350, 465);
-  renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-    `DMG        ${this.playerUnit.damage(this.enemyUnit)}`, halfWidth + 350, 480);
-    renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-      `CRT        ${this.playerUnit.criticalChance(this.enemyUnit)}`, halfWidth + 350, 495);
+  this.renderStatWindow(halfWidth, 'rgba(0, 0, 142, 1)', 350);
+  this.renderStatWindow(halfWidth, 'rgba(255, 0, 0, 1)', -350 - 100);
+}
 
-  c.fillStyle = 'rgba(255, 0, 0, 1)';
-  c.fillRect(halfWidth - 300 - 100, 450, 100, 50);
+CombatAnimation.prototype.renderStatWindow = function(halfWidth, color, deltaX) {
+  c.fillStyle = color;
+  c.fillRect(halfWidth + deltaX, 450, 100, 50);
   renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
-    `HIT        ${this.enemyUnit.accuracy(this.playerUnit)}`, halfWidth - 300 - 100, 465);
+    `HIT`, halfWidth + deltaX, 465);
   renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
-    `DMG        ${this.enemyUnit.damage(this.playerUnit)}`, halfWidth - 300 - 100, 480);
+    `DMG`, halfWidth + deltaX, 480);
   renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
-    `CRT        ${this.enemyUnit.criticalChance(this.playerUnit)}`, halfWidth - 300 - 100, 495);
+    `CRT`, halfWidth + deltaX, 495);
+  renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
+    `${this.playerUnit.accuracy(this.enemyUnit)}`, halfWidth + deltaX + 100, 465);
+  renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
+    `${this.playerUnit.damage(this.enemyUnit)}`, halfWidth + deltaX + 100, 480);
+  renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
+    `${this.playerUnit.criticalChance(this.enemyUnit)}`, halfWidth + deltaX + 100, 495);
 }
 
 CombatAnimation.prototype.renderCentralDelineator = function(halfWidth) {
