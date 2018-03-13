@@ -1,10 +1,6 @@
-function Terrain(board, position, defense, avoid, heal, moveCost) {
+function Terrain(board, position) {
   this.board = board;
   this.position = position;
-  this.defense = defense;
-  this.avoid = avoid;
-  this.heal = heal;
-  this.moveCost = moveCost;
 }
 
 Terrain.prototype.setTerrain = function(pos) {
