@@ -24,6 +24,8 @@ Player.prototype.updateUnitMapWindow = function() {
   let unit = this.board.space(this.cursorPos()).unit;
   if (unit != null && !this.display.combatAnimation) {
     this.display.window = new UnitMapWindow(unit);
+  } else if (this.board.space(this.cursorPos()).terrain != null) {
+    this.display.window = new TerrainWindow(this.board.space(this.cursorPos()));
   } else {
     this.display.window = new NullWindow();
   }

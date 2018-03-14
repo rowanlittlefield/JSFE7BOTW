@@ -5,6 +5,10 @@ function Forest(board, position) {
 Forest.prototype = Object.create(Terrain.prototype);
 Forest.prototype.constructor = Forest;
 
+Forest.prototype.terrainName = function() {
+  return "Forest";
+}
+
 Forest.prototype.defenseBonus = function() {
   return 1;
 }

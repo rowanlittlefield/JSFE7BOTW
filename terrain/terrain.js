@@ -1,6 +1,6 @@
-function Terrain(board, position) {
+function Terrain(board, position, name) {
   this.board = board;
-  this.position = position;
+  this.position = this.setTerrain(position);
 }
 
 Terrain.prototype.setTerrain = function(pos) {
@@ -14,4 +14,24 @@ Terrain.prototype.setTerrain = function(pos) {
 }
 
 Terrain.prototype.render = function() {
+}
+
+Terrain.prototype.terrainName = function() {
+  return "Terrain";
+}
+
+Terrain.prototype.defenseBonus = function() {
+  return 0;
+}
+
+Terrain.prototype.avoidBonus = function() {
+  return 0;
+}
+
+Terrain.prototype.healBonus = function() {
+  return 0;
+}
+
+Terrain.prototype.moveCost = function() {
+  return 1;
 }

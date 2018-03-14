@@ -38,5 +38,7 @@ ChapterOne.prototype.setupBoard = function() {
     new Wall(newBoard, [i, 3]);
   }
 
+  new Forest(newBoard, [17, 0]);
+
   return newBoard;
 }
