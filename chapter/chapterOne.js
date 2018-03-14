@@ -48,5 +48,12 @@ ChapterOne.prototype.setupBoard = function() {
     new Forest(newBoard, [i, 2]);
   }
 
+  for(let i = 3; i < 6; i++) {
+    new Forest(newBoard, [19, i]);
+  }
+  for(let i = 3; i < 13; i++) {
+    new Forest(newBoard, [20, i]);
+  }
+
   return newBoard;
 }
