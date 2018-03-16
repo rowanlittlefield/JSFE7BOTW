@@ -73,7 +73,7 @@ Unit.prototype.possibleSpacesCanMoveThrough = function() {
         if (this.board.space(adSpaces[idx4]).terrain === null) {
           spaces[adSpaces[idx4]] = true;
         } else if (potentialSpaces[adSpaces[idx4]] === undefined) {
-          potentialSpaces[adSpaces[idx4]] = this.board.space(adSpaces[idx4]).terrain.moveCost() - 1;
+          potentialSpaces[adSpaces[idx4]] = this.board.space(adSpaces[idx4]).terrain.moveCost(this.constructor.name) - 1;
         } else if (iterationMoves[adSpaces[idx4]] === undefined && potentialSpaces[adSpaces[idx4]] > 1) {
           potentialSpaces[adSpaces[idx4]] -= 1;
         } else if(iterationMoves[adSpaces[idx4]] === undefined && potentialSpaces[adSpaces[idx4]] <= 1) {

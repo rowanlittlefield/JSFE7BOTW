@@ -55,5 +55,7 @@ ChapterOne.prototype.setupBoard = function() {
     new Forest(newBoard, [20, i]);
   }
 
+  new Mountain(newBoard, [16, 0]);
+
   return newBoard;
 }
