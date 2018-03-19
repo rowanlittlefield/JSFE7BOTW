@@ -21,7 +21,7 @@ ChapterOne.prototype.setupBoard = function() {
   newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [13, 2]);
 
 
-
+//wall
   for(let i = 0; i < 4; i++) {
     new Wall(newBoard, [i, 0]);
   }
@@ -38,6 +38,19 @@ ChapterOne.prototype.setupBoard = function() {
     new Wall(newBoard, [i, 3]);
   }
 
+  for(let i = 1; i < 4; i++) {
+    new Wall(newBoard, [i, 5]);
+  }
+  new Wall(newBoard, [1, 6]);
+  new Wall(newBoard, [3, 6]);
+
+  for(let i = 17; i < 20; i++) {
+    new Wall(newBoard, [i, 13]);
+  }
+  new Wall(newBoard, [17, 14]);
+  new Wall(newBoard, [19, 14]);
+
+//forest
   new Forest(newBoard, [17, 0]);
   new Forest(newBoard, [18, 0]);
   new Forest(newBoard, [17, 1]);
@@ -55,7 +68,70 @@ ChapterOne.prototype.setupBoard = function() {
     new Forest(newBoard, [20, i]);
   }
 
-  new Mountain(newBoard, [16, 0]);
+
+//mountain
+  for(let i = 0; i < 4; i++) {
+    new Mountain(newBoard, [16, i]);
+  }
+
+  new Mountain(newBoard, [15, 3]);
+  new Mountain(newBoard, [15, 4]);
+  new Mountain(newBoard, [14, 4]);
+  new Mountain(newBoard, [14, 5]);
+  new Mountain(newBoard, [13, 6]);
+  new Mountain(newBoard, [12, 7]);
+  new Mountain(newBoard, [12, 8]);
+  new Mountain(newBoard, [11, 8]);
+  new Mountain(newBoard, [10, 9]);
+
+  for(let i = 5; i < 8; i++) {
+    new Mountain(newBoard, [i, 10]);
+  }
+
+  new Mountain(newBoard, [4, 9]);
+  new Mountain(newBoard, [5, 9]);
+  new Mountain(newBoard, [5, 8]);
+  new Mountain(newBoard, [6, 8]);
+  new Mountain(newBoard, [6, 7]);
+  new Mountain(newBoard, [7, 7]);
+  new Mountain(newBoard, [8, 6]);
+  new Mountain(newBoard, [8, 5]);
+  new Mountain(newBoard, [9, 5]);
+  new Mountain(newBoard, [9, 4]);
+  new Mountain(newBoard, [10, 4]);
+  new Mountain(newBoard, [10, 3]);
+  new Mountain(newBoard, [11, 3]);
+
+  new Mountain(newBoard, [11, 1]);
+
+  new Mountain(newBoard, [12, 0]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return newBoard;
 }
