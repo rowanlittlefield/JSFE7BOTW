@@ -82,6 +82,82 @@ ChapterOne.prototype.setupBoard = function() {
     new Forest(newBoard, [20, i]);
   }
 
+  for(let i =  7; i < 11; i++) {
+    new Forest(newBoard, [19, i]);
+  }
+  new Forest(newBoard, [19, 12]);
+
+  new Forest(newBoard, [16, 6]);
+  new Forest(newBoard, [17, 7]);
+  new Forest(newBoard, [17, 9]);
+  new Forest(newBoard, [15, 9]);
+  new Forest(newBoard, [15, 10]);
+  new Forest(newBoard, [14, 11]);
+  new Forest(newBoard, [14, 12]);
+  new Forest(newBoard, [13, 13]);
+  new Forest(newBoard, [16, 13]);
+  new Forest(newBoard, [11, 11]);
+  new Forest(newBoard, [12, 11]);
+  new Forest(newBoard, [12, 10]);
+
+  for(let i = 14; i < 21; i++) {
+    new Forest(newBoard, [i, 16]);
+  }
+  new Forest(newBoard, [20, 15]);
+  new Forest(newBoard, [18, 15]);
+  new Forest(newBoard, [20, 14]);
+
+  for(let i = 10; i < 13; i++) {
+  new Forest(newBoard, [i, 16]);
+  }
+  new Forest(newBoard, [11, 14]);
+  new Forest(newBoard, [9, 13]);
+  new Forest(newBoard, [9, 12]);
+  new Forest(newBoard, [7, 13]);
+  new Forest(newBoard, [7, 15]);
+  new Forest(newBoard, [8, 15]);
+  new Forest(newBoard, [7, 16]);
+  new Forest(newBoard, [6, 16]);
+
+for(let i = 13; i < 17; i++) {
+  new Forest(newBoard, [0, i]);
+}
+for(let i = 13; i < 17; i++) {
+  new Forest(newBoard, [2, i]);
+}
+new Forest(newBoard, [3, 15]);
+new Forest(newBoard, [4, 14]);
+new Forest(newBoard, [4, 16]);
+
+new Forest(newBoard, [1, 13]);
+new Forest(newBoard, [1, 16]);
+new Forest(newBoard, [1, 11]);
+
+new Forest(newBoard, [0, 9]);
+new Forest(newBoard, [0, 6]);
+new Forest(newBoard, [3, 4]);
+
+new Forest(newBoard, [6, 3]);
+new Forest(newBoard, [7, 3]);
+
+for(let i = 6; i < 11; i++) {
+  new Forest(newBoard, [i, 1]);
+}
+
+for(let i = 8; i < 12; i++) {
+  new Forest(newBoard, [i, 0]);
+}
+
+for(let i = 4; i < 7; i++) {
+  new Forest(newBoard, [i, 0]);
+}
+new Forest(newBoard, [4, 1]);
+new Forest(newBoard, [5, 2]);
+
+new Forest(newBoard, [8, 2]);
+new Forest(newBoard, [9, 2]);
+
+
 
 //mountain
   for(let i = 0; i < 4; i++) {
@@ -120,32 +196,9 @@ ChapterOne.prototype.setupBoard = function() {
 
   new Mountain(newBoard, [12, 0]);
 
+//peak
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  new Peak(newBoard, [13, 0])
 
   return newBoard;
 }
