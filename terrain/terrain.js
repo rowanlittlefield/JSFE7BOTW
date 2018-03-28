@@ -4,8 +4,7 @@ function Terrain(board, position, name) {
 }
 
 Terrain.prototype.setTerrain = function(pos) {
-  if (this.board.grid[pos[0]][pos[1]].unit == null &&
-    this.board.grid[pos[0]][pos[1]].terrain == null) {
+  if (this.board.grid[pos[0]][pos[1]].terrain == null) {
     this.position = pos;
     this.board.grid[pos[0]][pos[1]].terrain = this;
   } else {

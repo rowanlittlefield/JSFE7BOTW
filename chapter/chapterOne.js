@@ -197,8 +197,31 @@ new Forest(newBoard, [9, 2]);
   new Mountain(newBoard, [12, 0]);
 
 //peak
+  for(let i = 0; i < 3; i++) {
+    new Peak(newBoard, [15, i])
+  }
+  for(let i = 0; i < 4; i++) {
+    new Peak(newBoard, [14, i])
+  }
+  for(let i = 0; i < 4; i++) {
+    new Peak(newBoard, [13, i])
+  }
+  for(let i = 3; i < 6; i++) {
+    new Peak(newBoard, [12, i])
+  }
+  for(let i = 4; i < 8; i++) {
+    new Peak(newBoard, [11, i])
+  }
+  for(let i = 5; i < 9; i++) {
+    new Peak(newBoard, [10, i])
+  }
+  for(let i = 6; i < 9; i++) {
+    new Peak(newBoard, [9, i])
+  }
+  new Peak(newBoard, [8, 7])
 
-  new Peak(newBoard, [13, 0])
+
+
 
   return newBoard;
 }
