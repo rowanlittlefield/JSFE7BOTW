@@ -219,6 +219,12 @@ new Forest(newBoard, [9, 2]);
     new Peak(newBoard, [9, i])
   }
   new Peak(newBoard, [8, 7])
+//fort
+  new Fort(newBoard, [17, 3])
+  new Fort(newBoard, [18, 3])
+  new Fort(newBoard, [6, 5])
+  new Fort(newBoard, [6, 11])
+  new Fort(newBoard, [6, 12])
 
 
 
