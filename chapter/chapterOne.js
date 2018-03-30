@@ -226,8 +226,10 @@ new Forest(newBoard, [9, 2]);
   new Fort(newBoard, [6, 11])
   new Fort(newBoard, [6, 12])
 
-
-
+//gate
+  new Gate(newBoard, [2, 6]);
+//Village
+  new Village(newBoard, [18, 14]);
 
   return newBoard;
 }
