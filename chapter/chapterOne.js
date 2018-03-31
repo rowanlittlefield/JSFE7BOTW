@@ -35,22 +35,45 @@ ChapterOne.prototype.setupBoard = function() {
 
 
 
-//wall
+//thicket
   for(let i = 0; i < 4; i++) {
-    new Wall(newBoard, [i, 0]);
+    new Thicket(newBoard, [i, 0]);
   }
 
   for(let i = 0; i < 4; i++) {
-    new Wall(newBoard, [i, 1]);
+    new Thicket(newBoard, [i, 1]);
   }
 
   for(let i = 0; i < 3; i++) {
-    new Wall(newBoard, [i, 2]);
+    new Thicket(newBoard, [i, 2]);
   }
 
   for(let i = 0; i < 2; i++) {
-    new Wall(newBoard, [i, 3]);
+    new Thicket(newBoard, [i, 3]);
   }
+
+  new Thicket(newBoard, [11, 2]);
+  new Thicket(newBoard, [12, 2]);
+  new Thicket(newBoard, [12, 1]);
+
+  new Thicket(newBoard, [13, 4]);
+  new Thicket(newBoard, [13, 5]);
+  new Thicket(newBoard, [12, 6]);
+
+  for(let i = 6; i < 10; i++) {
+    new Thicket(newBoard, [i, 9]);
+  }
+
+  new Thicket(newBoard, [7, 8]);
+  new Thicket(newBoard, [8, 8]);
+  new Thicket(newBoard, [8, 10]);
+
+
+
+
+
+
+  //wall
 
   for(let i = 1; i < 4; i++) {
     new Wall(newBoard, [i, 5]);
