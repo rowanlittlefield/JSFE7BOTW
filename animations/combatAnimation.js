@@ -139,11 +139,11 @@ CombatAnimation.prototype.renderNameWindow = function(halfWidth, color,
 }
 
 CombatAnimation.prototype.renderStatWindows = function(halfWidth) {
-  this.renderStatWindow(halfWidth, 'rgba(0, 0, 142, 1)', 350);
-  this.renderStatWindow(halfWidth, 'rgba(255, 0, 0, 1)', -350 - 100);
+  this.renderStatWindow(halfWidth, 'rgba(0, 0, 142, 1)', 350, this.playerUnit, this.enemyUnit);
+  this.renderStatWindow(halfWidth, 'rgba(255, 0, 0, 1)', -350 - 100, this.enemyUnit, this.playerUnit);
 }
 
-CombatAnimation.prototype.renderStatWindow = function(halfWidth, color, deltaX) {
+CombatAnimation.prototype.renderStatWindow = function(halfWidth, color, deltaX, attacker, defender) {
   c.fillStyle = color;
   c.fillRect(halfWidth + deltaX, 450, 100, 50);
   renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
@@ -153,11 +153,11 @@ CombatAnimation.prototype.renderStatWindow = function(halfWidth, color, deltaX) 
   renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
     `CRT`, halfWidth + deltaX, 495);
   renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
-    `${this.playerUnit.accuracy(this.enemyUnit)}`, halfWidth + deltaX + 100, 465);
+    `${attacker.accuracy(defender)}`, halfWidth + deltaX + 100, 465);
   renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
-    `${this.playerUnit.damage(this.enemyUnit)}`, halfWidth + deltaX + 100, 480);
+    `${attacker.damage(defender)}`, halfWidth + deltaX + 100, 480);
   renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
-    `${this.playerUnit.criticalChance(this.enemyUnit)}`, halfWidth + deltaX + 100, 495);
+    `${attacker.criticalChance(defender)}`, halfWidth + deltaX + 100, 495);
 }
 
 CombatAnimation.prototype.renderCentralDelineator = function(halfWidth) {
