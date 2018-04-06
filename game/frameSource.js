@@ -5,7 +5,7 @@ function FrameSource(display) {
 }
 
 FrameSource.prototype.getFrames = function() {
-  requestAnimationFrame(this.getFrames);
+  window.requestAnimationFrame(this.getFrames.bind(this));
   c.clearRect(0, 0, innerWidth, 17 * 52);
   this.display.render(52);
   if(this.AIPlayerPhaseContinue) this.aiPhaseFrameUpdate();
