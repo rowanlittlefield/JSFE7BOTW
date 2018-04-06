@@ -7,7 +7,7 @@ function FrameSource(display) {
 FrameSource.prototype.getFrames = function() {
   requestAnimationFrame(this.getFrames);
   c.clearRect(0, 0, innerWidth, 17 * 52);
-  newChapter.display.render(52, newChapter.phase);
+  this.display.render(52);
   if(this.AIPlayerPhaseContinue) this.aiPhaseFrameUpdate();
 }
 

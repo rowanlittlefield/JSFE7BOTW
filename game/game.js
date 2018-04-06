@@ -1,9 +1,12 @@
-function Game(contoller, display, frameSource, campaign, menu) {
-  this.controller = controller;
+function Game(display, campaign, menu) {
+  this.controller = new Controller(this);
+  this.frameSource = new FrameSource(display);
+
   this.display = display;
-  this.frameSource = frameSource;
   this.campaign = campaign;
   this.menu = menu;
+
+  this.gameStage = null;
 }
 
 Game.prototype.receiveInput = function(button) {
@@ -11,7 +14,9 @@ Game.prototype.receiveInput = function(button) {
 }
 
 Game.prototype.play = function() {
-  // performs initial tasks, calls this.frameSource.getFrames() 
+  // performs initial tasks, calls this.frameSource.getFrames()
+  this.gameStage = 'Main Menu';
+  this.frameSource.getFrames();
 }
 
 Game.prototype.playCampaign = function() {
