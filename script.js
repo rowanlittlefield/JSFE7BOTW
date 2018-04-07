@@ -1,7 +1,8 @@
-debugger;
+// debugger;
+let = display = new GlobalDisplay(null, null, null);
 game = new Game(
-  new GlobalDisplay(null, null, null),
-  null,
+  display,
+  new Campaign(display),
   new MainMenu(new MainMenuWindowOne())
 );
 

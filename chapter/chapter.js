@@ -16,6 +16,10 @@ function Chapter(board, objective, sF) {
 
 }
 
+Chapter.prototype.play = function(display) {
+
+}
+
 Chapter.prototype.gameOver = function() {
   return false;
 }
