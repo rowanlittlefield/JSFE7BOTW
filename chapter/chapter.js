@@ -1,22 +1,26 @@
-function Chapter(board, objective, sF) {
+function Chapter(board, display, frameSource, objective, sF) {
+  debugger;
   this.phase = 0;
   this.phaseStage = new PhaseStage();
   this.objective = objective;
   this.numberOfTurns = 0;
 
   this.board = board;
-  this.controller = new Controller(this);
-  this.display = new Display(this.board, new Cursor(board), this.phaseStage);
+  // this.controller = new Controller(this);
+  this.display = display;//new Display(this.board, new Cursor(board), this.phaseStage);
+  this.frameSource = frameSource;
   this.sF = sF;
 
   this.player = new Player(this.board, this.display, this.phaseStage);
-  this.enemyPlayer = new EnemyPlayer(this.board, this.display, this.phaseStage);
+  this.enemyPlayer = new EnemyPlayer(this.board, this.display, this.phaseStage, frameSource);
   this.players = {'0': this.player, '1': this.enemyPlayer};
   this.currentPlayer = this.players[0];
 
 }
 
 Chapter.prototype.play = function(display) {
+  display.chapterSetup(this.board, new Cursor(this.board), this.phaseStage);
+  this.player.cursor = this.display.cursor;
 
 }
 
@@ -57,7 +61,10 @@ Chapter.prototype.changePhase = function() {
   console.log(this.phase);
 
   //temporary hard coded enemy phase
-
+  debugger;
+  this.frameSource.beginAIPhase(this.currentPlayer);
+  // this.frameSource.aiPlayer = this.currentPlayer;
+  // this.frameSource.aiPlayerphase = true;
   this.currentPlayer.initiatePhase();
 
   if(this.phase === 1) {

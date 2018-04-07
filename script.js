@@ -1,8 +1,11 @@
-// debugger;
-let = display = new GlobalDisplay(null, null, null);
-game = new Game(
+let display = new GlobalDisplay(new NullBoard(), new NullCursor, new nullPhaseStage());
+let frameSource = new FrameSource(display);
+let campaign = new Campaign(display, frameSource);
+
+let game = new Game(
   display,
-  new Campaign(display),
+  frameSource,
+  campaign,
   new MainMenu(new MainMenuWindowOne())
 );
 

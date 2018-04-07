@@ -1,6 +1,6 @@
-function Game(display, campaign, menu) {
+function Game(display, frameSource, campaign, menu) {
   this.controller = new Controller(this);
-  this.frameSource = new FrameSource(display);
+  this.frameSource = frameSource;
 
   this.display = display;
   this.campaign = campaign;
@@ -11,11 +11,15 @@ function Game(display, campaign, menu) {
 
 Game.prototype.receiveInput = function(button) {
   //takes input from controller and takes appropriate action
+  // debugger;
   if (this.gameStage === 'Main Menu') {
     let response = this.menu.receiveControllerInput(button);
     if (response === 'New Game') {
       this.playCampaign();
     }
+  } else if (this.gameStage === 'Play Campaign') {
+    // debugger;
+    this.campaign.receiveControllerInput(button);
   }
 }
 
@@ -28,7 +32,7 @@ Game.prototype.play = function() {
 
 Game.prototype.playCampaign = function() {
   // this.campaign.play();
-  debugger;
+  // debugger;
   this.gameStage = 'Play Campaign';
   this.campaign.play();
 }

@@ -1,7 +1,8 @@
-function EnemyPlayer(board, display, phaseStage) {
+function EnemyPlayer(board, display, phaseStage, frameSource) {
   this.board = board;
   this.display = display;
   this.phaseStage = phaseStage;
+  this.frameSource = frameSource;
   this.unitType = EnemyUnit;
   this.opposingUnitType = PlayerUnit;
   this.units = this.listOfOwnUnits();
@@ -25,7 +26,7 @@ EnemyPlayer.prototype.initiatePhase = function() {
   listOfUnits.forEach(function(value, key, map) {
     this.unitQueue.push(key);
   }.bind(this));
-  this.display.beginAIPhase(this);
+  // this.display.beginAIPhase(this);
 }
 
 EnemyPlayer.prototype.phaseFrameUpdate = function() {
@@ -55,8 +56,9 @@ EnemyPlayer.prototype.finishUnitTurn = function() {
 }
 
 EnemyPlayer.prototype.endPhase = function() {
+  debugger;
   this.phaseStage.nextStage('select unit');
-  this.display.endAIPhase();
+  this.frameSource.endAIPhase();
 }
 
 EnemyPlayer.prototype.moveSelectedUnit = function() {

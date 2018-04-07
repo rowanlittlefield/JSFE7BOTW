@@ -1,6 +1,8 @@
-function ChapterOne(sF) {
+function ChapterOne(display, frameSource, sF) {
   Chapter.call(this,
     this.setupBoard(),
+    display,
+    frameSource,
     'Seize Throne',
     sF
   );

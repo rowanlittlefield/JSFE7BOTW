@@ -1,14 +1,14 @@
 function FrameSource(display) {
   this.display = display;
   this.aiPlayer = null;
-  this.aiPlayerphase = false;
+  this.aiPhase = false;
 }
 
 FrameSource.prototype.getFrames = function() {
   window.requestAnimationFrame(this.getFrames.bind(this));
   c.clearRect(0, 0, innerWidth, 17 * 52);
   this.display.render(52);
-  if(this.AIPlayerPhaseContinue) this.aiPhaseFrameUpdate();
+  if(this.aiPhase && !this.display.combatAnimation) this.aiPhaseFrameUpdate();
 }
 
 FrameSource.prototype.beginAIPhase = function(aiPlayer) {
@@ -16,6 +16,12 @@ FrameSource.prototype.beginAIPhase = function(aiPlayer) {
   this.aiPlayer = aiPlayer;
 }
 
+FrameSource.prototype.endAIPhase = function() {
+  this.aiPhase = false;
+  this.aiPlayer = null;
+}
+
+
 FrameSource.prototype.aiPhaseFrameUpdate = function() {
-  this.activeAIPlayer.phaseFrameUpdate;
+  this.aiPlayer.phaseFrameUpdate();
 }
