@@ -55,7 +55,6 @@ EnemyPlayer.prototype.finishUnitTurn = function() {
 }
 
 EnemyPlayer.prototype.endPhase = function() {
-  debugger;
   this.phaseStage.nextStage('select unit');
   this.frameSource.endAIPhase();
 }

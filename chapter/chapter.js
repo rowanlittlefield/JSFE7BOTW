@@ -1,5 +1,4 @@
 function Chapter(board, display, frameSource, objective, sF) {
-  debugger;
   this.phase = 0;
   this.phaseStage = new PhaseStage();
   this.objective = objective;
@@ -60,7 +59,6 @@ Chapter.prototype.changePhase = function() {
   console.log(this.phase);
 
   //temporary hard coded enemy phase
-  debugger;
   this.frameSource.beginAIPhase(this.currentPlayer);
   this.currentPlayer.initiatePhase();
 

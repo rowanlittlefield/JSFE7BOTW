@@ -26,8 +26,6 @@ GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
 GlobalDisplay.prototype.render = function(sF) {
   this.renderBoard(sF);
   this.renderObjects(sF);
-
-  // if(this.aiPhase && !this.combatAnimation) this.aiPlayer.phaseFrameUpdate();
 }
 
 GlobalDisplay.prototype.beginAIPhase = function(aiPlayer) {
@@ -74,8 +72,6 @@ GlobalDisplay.prototype.renderUnits = function(sF) {
 GlobalDisplay.prototype.renderWindows = function(sF) {
   this.window.render(sF, this.cursor.windowCursorPos);
 }
-
-//
 
 GlobalDisplay.prototype.renderMoveSpaces = function(sF) {
   this.cursor.selectedUnit.renderMoveSpaces(sF);
