@@ -11,14 +11,12 @@ function Game(display, frameSource, campaign, menu) {
 
 Game.prototype.receiveInput = function(button) {
   //takes input from controller and takes appropriate action
-  // debugger;
   if (this.gameStage === 'Main Menu') {
     let response = this.menu.receiveControllerInput(button);
     if (response === 'New Game') {
       this.playCampaign();
     }
   } else if (this.gameStage === 'Play Campaign') {
-    // debugger;
     this.campaign.receiveControllerInput(button);
   }
 }

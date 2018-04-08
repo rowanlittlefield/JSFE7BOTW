@@ -6,8 +6,7 @@ function Chapter(board, display, frameSource, objective, sF) {
   this.numberOfTurns = 0;
 
   this.board = board;
-  // this.controller = new Controller(this);
-  this.display = display;//new Display(this.board, new Cursor(board), this.phaseStage);
+  this.display = display;
   this.frameSource = frameSource;
   this.sF = sF;
 
@@ -63,8 +62,6 @@ Chapter.prototype.changePhase = function() {
   //temporary hard coded enemy phase
   debugger;
   this.frameSource.beginAIPhase(this.currentPlayer);
-  // this.frameSource.aiPlayer = this.currentPlayer;
-  // this.frameSource.aiPlayerphase = true;
   this.currentPlayer.initiatePhase();
 
   if(this.phase === 1) {

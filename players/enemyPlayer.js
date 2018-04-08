@@ -26,7 +26,6 @@ EnemyPlayer.prototype.initiatePhase = function() {
   listOfUnits.forEach(function(value, key, map) {
     this.unitQueue.push(key);
   }.bind(this));
-  // this.display.beginAIPhase(this);
 }
 
 EnemyPlayer.prototype.phaseFrameUpdate = function() {

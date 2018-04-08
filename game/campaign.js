@@ -6,7 +6,6 @@ function Campaign(display, frameSource) {
 }
 
 Campaign.prototype.setupChapterQueue = function(display, frameSource) {
-  debugger;
   return [new ChapterOne(this.display, frameSource, 52)];
 }
 
