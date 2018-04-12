@@ -12,6 +12,8 @@ function LynCritCombatAnimation() {
   let sprite6 = new Sprite(c, 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet3.png', 6, 1);
   let spriteNull5 = new Sprite(c, 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheetNull.png', 7, 1);
   let sprite7 = new Sprite(c, 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet3.png', 7, 1);
+  let sprite8 = new Sprite(c, 50, 87, 50, 87, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet4.png', 180, 2);
+  let sprite9 = new Sprite(c, 110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet5.png', 180, 2);
 
 
   let positionAdjustment = {
@@ -32,7 +34,7 @@ function LynCritCombatAnimation() {
   let damageFrame = [0, 0];
 
   let spriteQueue = [sprite0, sprite1,spriteNull1, sprite2, sprite3, spriteNull2, sprite4,
-  spriteNull3, sprite5, spriteNull4, sprite6, spriteNull5, sprite7];
+  spriteNull3, sprite5, spriteNull4, sprite6, spriteNull5, sprite7, sprite8, sprite9];
 
   CombatSprite.call(
     this,
