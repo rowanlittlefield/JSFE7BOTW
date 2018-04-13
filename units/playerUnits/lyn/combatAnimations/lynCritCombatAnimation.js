@@ -12,8 +12,14 @@ function LynCritCombatAnimation() {
   let sprite6 = new Sprite(c, 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet3.png', 6, 1);
   let spriteNull5 = new Sprite(c, 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheetNull.png', 7, 1);
   let sprite7 = new Sprite(c, 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet3.png', 7, 1);
-  let sprite8 = new Sprite(c, 50, 87, 50, 87, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet4.png', 180, 2);
-  let sprite9 = new Sprite(c, 110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet5.png', 180, 2);
+  let sprite8 = new Sprite(c, 50, 87, 50, 87, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet4.png', 15, 2);
+  let sprite9 = new Sprite(c, 110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet5.png', 15, 2);
+  let sprite10 = new Sprite(c, 110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet6.png', 15, 2);
+  let sprite11 = new Sprite(c, 173, 44, 173, 44, 'units/playerUnits/lyn/combatAnimations/lynCritSpriteSheet7.png', 15, 1);
+  let sprite12 = new Sprite(c, 100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 7, 3);
+  let sprite13 = new Sprite(c, 90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 3, 8);
+  let sprite14 = new Sprite(c, 90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
+
 
 
   let positionAdjustment = {
@@ -29,12 +35,31 @@ function LynCritCombatAnimation() {
 
     "12,0": [-3.6, 2.8],
 
+    "18,0": [-6.5, 0],
+    "18,1": [-6.0, -0.6],
+    "18,2": [-5.9, -1.6],
+    "18,3": [-5.0, -2.4],
+    "18,4": [-4.0, -2.3],
+    "18,5": [-3.1, -1.7],
+    "18,6": [-2.5, -1.2],
+    "18,7": [-2.2, -1.0],
+
+
+    "19,0": [-1.7, 0],
+    "19,1": [-1.4, 0],
+    "19,2": [-1.4, 0],
+    "19,3": [-1.4, 0],
+    "19,4": [-1.4, 0],
+    "19,5": [-1.4, 0]
+
+
   };
 
   let damageFrame = [0, 0];
 
   let spriteQueue = [sprite0, sprite1,spriteNull1, sprite2, sprite3, spriteNull2, sprite4,
-  spriteNull3, sprite5, spriteNull4, sprite6, spriteNull5, sprite7, sprite8, sprite9];
+  spriteNull3, sprite5, spriteNull4, sprite6, spriteNull5, sprite7, sprite8, sprite9, sprite10, sprite11, sprite12,
+  sprite13, sprite14];
 
   CombatSprite.call(
     this,
