@@ -17,7 +17,7 @@ ChapterOne.prototype.setupBoard = function() {
 
   let roy = new Roy(newBoard, new Inventory([new SwordOfSeals()]));
   let lyn = new Lyn(newBoard, new Inventory([new ManiKatti()]));
-  newBoard.placeUnit(roy, [18 -4, 3 -2]);
+  newBoard.placeUnit(roy, [18, 3]);
   newBoard.placeUnit(lyn, [17, 3]);
   //Enemy units
   newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
