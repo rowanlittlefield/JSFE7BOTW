@@ -10,7 +10,7 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   this.isCrit = this.rollCrit();
   this.damage = this.damageDealt();
   this.defenderPostAttackHP = this.postAttackDefHP();
-// debugger;
+  
   this.attackerCS = this.isCrit ? this.attacker.critAnimation : this.attacker.combatAnimation;
   this.defenderCS = this.defender.combatAnimation;
 }

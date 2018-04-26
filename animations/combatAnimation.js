@@ -6,9 +6,6 @@ function CombatAnimation(combat, phaseStage) {
   this.playerUnit = check ? combat.initiator : combat.recipient;
   this.enemyUnit = !check ? combat.initiator : combat.recipient;
 
-  this.initiator = combat.initiator;
-  this.recipient = combat.recipient;
-
   this.playerHP = this.playerUnit.current_hp;
   this.enemyHP = this.enemyUnit.current_hp;
   this.playerCombatSprite = this.playerUnit.combatAnimation;
@@ -32,19 +29,16 @@ CombatAnimation.prototype.render = function(sF) {
   }
 
   if(this.combatIndex === 100) {
-    // this.initialAttack(playerCoordinates, enemyCoordinates);
     this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
   }
 
   if(this.combatIndex === 101 && this.combat.queue.length > 1) {
-    // this.counterAttack(playerCoordinates, enemyCoordinates);
     this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
   } else if(this.combatIndex === 101) {
     this.renderAtEase(playerCoordinates, enemyCoordinates);
   }
 
   if (this.combatIndex === 102 && this.combat.queue.length > 2) {
-    // this.repeatAttack(playerCoordinates, enemyCoordinates);
     this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
   } else if(this.combatIndex === 102) {
     this.renderAtEase(playerCoordinates, enemyCoordinates);
