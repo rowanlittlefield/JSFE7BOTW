@@ -1,9 +1,9 @@
 function PlayerUnit(stats, board, inventory, name, mapSprite,
 forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
- hpWindowSprite, combatAnimation) {
+ hpWindowSprite, combatAnimation, critAnimation) {
   Unit.call(this, stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-   hpWindowSprite, combatAnimation);
+   hpWindowSprite, combatAnimation, critAnimation);
   this.moveSpaces = null;
   this.attackSpaces = null;
   this.prevPos = null;
