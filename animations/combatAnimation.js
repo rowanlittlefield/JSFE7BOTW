@@ -32,17 +32,20 @@ CombatAnimation.prototype.render = function(sF) {
   }
 
   if(this.combatIndex === 100) {
-    this.initialAttack(playerCoordinates, enemyCoordinates);
+    // this.initialAttack(playerCoordinates, enemyCoordinates);
+    this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
   }
 
   if(this.combatIndex === 101 && this.combat.queue.length > 1) {
-    this.counterAttack(playerCoordinates, enemyCoordinates);
+    // this.counterAttack(playerCoordinates, enemyCoordinates);
+    this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
   } else if(this.combatIndex === 101) {
     this.renderAtEase(playerCoordinates, enemyCoordinates);
   }
 
   if (this.combatIndex === 102 && this.combat.queue.length > 2) {
-    this.repeatAttack(playerCoordinates, enemyCoordinates);
+    // this.repeatAttack(playerCoordinates, enemyCoordinates);
+    this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
   } else if(this.combatIndex === 102) {
     this.renderAtEase(playerCoordinates, enemyCoordinates);
   }
@@ -56,41 +59,11 @@ CombatAnimation.prototype.render = function(sF) {
   }
 }
 
-CombatAnimation.prototype.initialAttack = function(playerCoordinates, enemyCoordinates) {
-  if (this.combat.initiator === this.playerUnit) {
-    this.playerAttack(playerCoordinates, enemyCoordinates);
-  } else {
-    this.enemyAttack(playerCoordinates, enemyCoordinates);
-  }
-  // this.renderAttack();
-  // (aCoordinates, dCoordinates, defenderHP)
-}
+CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordinates, defenderHP) {
+  let aCoordinates = this.combat.queue[this.combatQueueIndex].attackerIsPlayerUnit ? playerCoordinates : enemyCoordinates;
+  let dCoordinates = this.combat.queue[this.combatQueueIndex].attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates;
 
-CombatAnimation.prototype.counterAttack = function(playerCoordinates, enemyCoordinates) {
-  if(this.combat.recipient === this.playerUnit) {
-    this.playerAttack(playerCoordinates, enemyCoordinates);
-  } else {
-    this.enemyAttack(playerCoordinates, enemyCoordinates);
-  }
-}
 
-CombatAnimation.prototype.repeatAttack = function(playerCoordinates, enemyCoordinates) {
-  if (this.combat.queue[0].attacker === this.playerUnit) {
-    this.playerAttack(playerCoordinates, enemyCoordinates);
-  } else {
-    this.enemyAttack(playerCoordinates, enemyCoordinates);
-  }
-}
-
-CombatAnimation.prototype.playerAttack = function(playerCoordinates, enemyCoordinates) {
-  this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
-}
-
-CombatAnimation.prototype.enemyAttack = function(playerCoordinates, enemyCoordinates) {
-  this.renderAttack(enemyCoordinates, playerCoordinates, this.enemyHP);
-}
-
-CombatAnimation.prototype.renderAttack = function(aCoordinates, dCoordinates, defenderHP) {
   this.combat.queue[this.combatQueueIndex].render(aCoordinates, dCoordinates);
   let actAttackerCS = this.combat.queue[this.combatQueueIndex].attackerCS;
 
