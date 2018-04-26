@@ -5,6 +5,10 @@ function CombatAnimation(combat, phaseStage) {
   let check = combat.initiator instanceof(PlayerUnit);
   this.playerUnit = check ? combat.initiator : combat.recipient;
   this.enemyUnit = !check ? combat.initiator : combat.recipient;
+
+  this.initiator = combat.initiator;
+  this.recipient = combat.recipient;
+
   this.playerHP = this.playerUnit.current_hp;
   this.enemyHP = this.enemyUnit.current_hp;
   this.playerCombatSprite = this.playerUnit.combatAnimation;
@@ -58,6 +62,8 @@ CombatAnimation.prototype.initialAttack = function(playerCoordinates, enemyCoord
   } else {
     this.enemyAttack(playerCoordinates, enemyCoordinates);
   }
+  // this.renderAttack();
+  // (aCoordinates, dCoordinates, defenderHP)
 }
 
 CombatAnimation.prototype.counterAttack = function(playerCoordinates, enemyCoordinates) {
@@ -77,32 +83,31 @@ CombatAnimation.prototype.repeatAttack = function(playerCoordinates, enemyCoordi
 }
 
 CombatAnimation.prototype.playerAttack = function(playerCoordinates, enemyCoordinates) {
-  this.renderAttack(this.playerCombatSprite, this.enemyCombatSprite,
-     playerCoordinates, enemyCoordinates, this.enemyHP);
+  this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
 }
 
 CombatAnimation.prototype.enemyAttack = function(playerCoordinates, enemyCoordinates) {
-  this.renderAttack(this.enemyCombatSprite, this.playerCombatSprite,
-     enemyCoordinates, playerCoordinates, this.enemyHP);
+  this.renderAttack(enemyCoordinates, playerCoordinates, this.enemyHP);
 }
 
-CombatAnimation.prototype.renderAttack = function(attackerCS, defenderCS, aCoordinates, dCoordinates, defenderHP) {
-  defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
-  attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);
+CombatAnimation.prototype.renderAttack = function(aCoordinates, dCoordinates, defenderHP) {
+  this.combat.queue[this.combatQueueIndex].render(aCoordinates, dCoordinates);
+  let actAttackerCS = this.combat.queue[this.combatQueueIndex].attackerCS;
 
-  let currentFrame = [attackerCS.queueIndex, attackerCS.spriteQueue[attackerCS.queueIndex].frameIndex];
+  let currentFrame = [actAttackerCS.queueIndex, actAttackerCS.spriteQueue[actAttackerCS.queueIndex].frameIndex];
 
-  if (currentFrame[0] === attackerCS.damageFrame[0] &&
-    currentFrame[1] === attackerCS.damageFrame[1]) {
+  if (currentFrame[0] === actAttackerCS.damageFrame[0] &&
+    currentFrame[1] === actAttackerCS.damageFrame[1]) {
       this.modifyHP();
   }
 
-  if(attackerCS.queueIndex === 0 &&
-    attackerCS.spriteQueue[0].frameIndex === 0 &&
-    attackerCS.spriteQueue[0].tickCount === 0) {
+  if(actAttackerCS.queueIndex === 0 &&
+    actAttackerCS.spriteQueue[0].frameIndex === 0 &&
+    actAttackerCS.spriteQueue[0].tickCount === 0) {
       this.combatQueueIndex -= 1;
       this.combatIndex += 1;
     }
+
 }
 
 CombatAnimation.prototype.renderAtEase = function(playerCoordinates, enemyCoordinates) {
