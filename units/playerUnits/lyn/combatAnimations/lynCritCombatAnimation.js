@@ -69,7 +69,7 @@ function LynCritCombatAnimation() {
 
   };
 
-  let damageFrame = [0, 0];
+  let damageFrame = [24, 0];
 
   let spriteQueue = [
     sprite0, sprite1, spriteNull1,
