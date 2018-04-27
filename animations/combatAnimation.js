@@ -12,6 +12,12 @@ function CombatAnimation(combat, phaseStage) {
   this.enemyCombatSprite = this.enemyUnit.combatAnimation;
   this.phaseStage = phaseStage;
   this.combatIndex = 0;
+
+  let halfWidth = innerWidth / 2;
+
+  this.backgroundWindow = new CombatAnimationBackgroundWindow(
+    halfWidth, this.playerUnit.name, this.enemyUnit.name
+  );
 }
 
 CombatAnimation.prototype.render = function(sF) {
@@ -54,12 +60,12 @@ CombatAnimation.prototype.render = function(sF) {
 }
 
 CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordinates, defenderHP) {
-  let aCoordinates = this.combat.queue[this.combatQueueIndex].attackerIsPlayerUnit ? playerCoordinates : enemyCoordinates;
-  let dCoordinates = this.combat.queue[this.combatQueueIndex].attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates;
+  let aCoordinates = this.currentAttack().attackerIsPlayerUnit ? playerCoordinates : enemyCoordinates;
+  let dCoordinates = this.currentAttack().attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates;
 
 
-  this.combat.queue[this.combatQueueIndex].render(aCoordinates, dCoordinates);
-  let actAttackerCS = this.combat.queue[this.combatQueueIndex].attackerCS;
+  this.currentAttack().render(aCoordinates, dCoordinates);
+  let actAttackerCS = this.currentAttack().attackerCS;
 
   let currentFrame = [actAttackerCS.queueIndex, actAttackerCS.spriteQueue[actAttackerCS.queueIndex].frameIndex];
 
@@ -83,32 +89,33 @@ CombatAnimation.prototype.renderAtEase = function(playerCoordinates, enemyCoordi
   this.combatIndex += 1;
 }
 
-//backgroudn element rendering
+//background element rendering
 
 CombatAnimation.prototype.renderBackgroundElements = function(halfWidth) {
-  this.renderNameWindows(halfWidth);
-  this.renderWeaponWindows(halfWidth);
-  this.renderStatWindows(halfWidth);
-  this.renderCentralDelineator(halfWidth);
-  this.renderWeaponNames(halfWidth);
-  this.renderHPWindows(halfWidth);
+  // this.renderNameWindows(halfWidth);
+  // this.renderWeaponWindows(halfWidth);
+  // this.renderStatWindows(halfWidth);
+  // this.renderCentralDelineator(halfWidth);
+  // this.renderWeaponNames(halfWidth);
+  // this.renderHPWindows(halfWidth);
+  this.backgroundWindow.render();
 }
 
-CombatAnimation.prototype.renderNameWindows = function(halfWidth) {
-  this.renderNameWindow(halfWidth, 'rgba(0, 0, 142, 1)',
-    this.playerUnit.name, 250, 325);
-
-  this.renderNameWindow(halfWidth, 'rgba(255, 0, 0, 1)',
-    this.enemyUnit.name, -250 - 150, -325);
-}
-
-CombatAnimation.prototype.renderNameWindow = function(halfWidth, color,
-  unitName, xDisplacement, nameXCoord) {
-  c.fillStyle = color;
-  c.fillRect(halfWidth + xDisplacement, 100, 150, 50);
-  renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-    unitName, halfWidth + nameXCoord, 130);
-}
+// CombatAnimation.prototype.renderNameWindows = function(halfWidth) {
+//   this.renderNameWindow(halfWidth, 'rgba(0, 0, 142, 1)',
+//     this.playerUnit.name, 250, 325);
+//
+//   this.renderNameWindow(halfWidth, 'rgba(255, 0, 0, 1)',
+//     this.enemyUnit.name, -250 - 150, -325);
+// }
+//
+// CombatAnimation.prototype.renderNameWindow = function(halfWidth, color,
+//   unitName, xDisplacement, nameXCoord) {
+//   c.fillStyle = color;
+//   c.fillRect(halfWidth + xDisplacement, 100, 150, 50);
+//   renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
+//     unitName, halfWidth + nameXCoord, 130);
+// }
 
 CombatAnimation.prototype.renderStatWindows = function(halfWidth) {
   this.renderStatWindow(halfWidth, 'rgba(0, 0, 142, 1)', 350, this.playerUnit, this.enemyUnit);
@@ -171,4 +178,9 @@ CombatAnimation.prototype.modifyHP = function() {
   } else {
     this.enemyHP = this.combat.queue[this.combatQueueIndex].defenderPostAttackHP;
   }
+}
+
+// Private methods
+CombatAnimation.prototype.currentAttack = function() {
+  return this.combat.queue[this.combatQueueIndex];
 }
