@@ -19,19 +19,16 @@ CombatAnimationBackgroundWindow.prototype.render = function(sF) {
 }
 
 CombatAnimationBackgroundWindow.prototype.renderNameWindows = function() {
-  this.renderNameWindow(this.halfWidth, 'rgba(0, 0, 142, 1)',
-    this.pu.name, 250, 325);
-
-  this.renderNameWindow(this.halfWidth, 'rgba(255, 0, 0, 1)',
-    this.eu.name, -250 - 150, -325);
+  this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 250, 325);
+  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -250 - 150, -325);
 }
 
-CombatAnimationBackgroundWindow.prototype.renderNameWindow = function(halfWidth, color,
+CombatAnimationBackgroundWindow.prototype.renderNameWindow = function(color,
   unitName, xDisplacement, nameXCoord) {
   c.fillStyle = color;
-  c.fillRect(halfWidth + xDisplacement, 100, 150, 50);
+  c.fillRect(this.halfWidth + xDisplacement, 100, 150, 50);
   renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-    unitName, halfWidth + nameXCoord, 130);
+    unitName, this.halfWidth + nameXCoord, 130);
 }
 
 CombatAnimationBackgroundWindow.prototype.renderStatWindows = function() {

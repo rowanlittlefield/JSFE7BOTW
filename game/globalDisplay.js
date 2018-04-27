@@ -74,7 +74,7 @@ GlobalDisplay.prototype.renderCursor = function(sF) {
 
 GlobalDisplay.prototype.renderCombatAnimation = function(sF) {
   this.combatAnimation.render(sF);
-  if (this.combatAnimation.combatIndex >= 150) {
+  if (this.combatAnimation.nonCombatFrames >= 150) {
     this.combatAnimation = null;
   }
 }

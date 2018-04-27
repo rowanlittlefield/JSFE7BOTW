@@ -57,3 +57,7 @@ Combat.prototype.initiateFight = function() {
   this.setFinalHP();
   this.unitDeath();
 }
+
+Combat.prototype.render = function(combatQueueIndex, sF) {
+
+}

@@ -11,7 +11,7 @@ function CombatAnimation(combat, phaseStage) {
   this.playerCombatSprite = this.playerUnit.combatAnimation;
   this.enemyCombatSprite = this.enemyUnit.combatAnimation;
   this.phaseStage = phaseStage;
-  this.combatIndex = 0;
+  this.nonCombatFrames = 0;
 
   let halfWidth = innerWidth / 2;
 
@@ -30,32 +30,28 @@ CombatAnimation.prototype.render = function(sF) {
   let playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
   let enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
     // combat rendering
-  if (this.combatIndex < 100) {
+  if (this.nonCombatFrames < 100) {
     this.renderAtEase(playerCoordinates, enemyCoordinates);
   }
 
-  if(this.combatIndex === 100) {
-    this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
+  if(this.nonCombatFrames === 100) {
+    this.renderCombat(playerCoordinates, enemyCoordinates);
   }
 
-  if(this.combatIndex === 101 && this.combat.queue.length > 1) {
-    this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
-  } else if(this.combatIndex === 101) {
+  if(this.nonCombatFrames >= 101 && this.nonCombatFrames < 150) {
     this.renderAtEase(playerCoordinates, enemyCoordinates);
   }
 
-  if (this.combatIndex === 102 && this.combat.queue.length > 2) {
-    this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
-  } else if(this.combatIndex === 102) {
-    this.renderAtEase(playerCoordinates, enemyCoordinates);
-  }
-
-  if(this.combatIndex >= 103 && this.combatIndex < 150) {
-    this.renderAtEase(playerCoordinates, enemyCoordinates);
-  }
-
-  if(this.combatIndex >= 150) {
+  if(this.nonCombatFrames >= 150) {
     this.endAnimation();
+  }
+}
+
+CombatAnimation.prototype.renderCombat = function(playerCoordinates, enemyCoordinates) {
+  if(this.combatQueueIndex >= 0) {
+    this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
+  } else  {
+    this.nonCombatFrames += 1;
   }
 }
 
@@ -78,7 +74,6 @@ CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordi
     actAttackerCS.spriteQueue[0].frameIndex === 0 &&
     actAttackerCS.spriteQueue[0].tickCount === 0) {
       this.combatQueueIndex -= 1;
-      this.combatIndex += 1;
     }
 
 }
@@ -86,7 +81,7 @@ CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordi
 CombatAnimation.prototype.renderAtEase = function(playerCoordinates, enemyCoordinates) {
   this.playerCombatSprite.renderStationaryFrame(playerCoordinates[0], 7, 52);
   this.enemyCombatSprite.renderStationaryFrame(enemyCoordinates[0], 7, 52);
-  this.combatIndex += 1;
+  this.nonCombatFrames += 1;
 }
 
 //background element rendering
