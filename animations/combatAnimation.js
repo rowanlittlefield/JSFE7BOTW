@@ -49,13 +49,13 @@ CombatAnimation.prototype.render = function(sF) {
 
 CombatAnimation.prototype.renderCombat = function(playerCoordinates, enemyCoordinates) {
   if(this.combatQueueIndex >= 0) {
-    this.renderAttack(playerCoordinates, enemyCoordinates, this.enemyHP);
+    this.renderAttack(playerCoordinates, enemyCoordinates);
   } else  {
     this.nonCombatFrames += 1;
   }
 }
 
-CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordinates, defenderHP) {
+CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordinates) {
   let aCoordinates = this.currentAttack().attackerIsPlayerUnit ? playerCoordinates : enemyCoordinates;
   let dCoordinates = this.currentAttack().attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates;
 
