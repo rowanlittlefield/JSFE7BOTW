@@ -5,12 +5,12 @@ function Roy(board, inventory, stats) {
     board,
     inventory,
     'Roy',
-    new Sprite(c, 18, 18, 18, 18, "units/playerUnits/roy/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new Sprite(c, 22, 20, 22, 20, "units/playerUnits/roy/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new Sprite(c, 21, 18, 21, 18, "units/playerUnits/roy/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/royRightWalkSpriteSheet.png", 8, 4),
-    new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/royLeftWalkSpriteSheet.png", 8, 4),
-    new Sprite(c, 253, 228, 18, 18, "units/playerUnits/roy/RoyMugshotZoom.jpg", 6, 1),
+    new Sprite(c, 18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackground.png", 6, 12),
+    new Sprite(c, 22, 20, 22, 20, "units/playerUnits/roy/mapSpriteSheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
+    new Sprite(c, 21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
+    new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
+    new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
+    new Sprite(c, 253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
     new RoyCombatAnimation(),
     new RoyCritCombatAnimation()
   );
