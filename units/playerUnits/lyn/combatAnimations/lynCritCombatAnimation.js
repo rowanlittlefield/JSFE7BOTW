@@ -66,7 +66,6 @@ function LynCritCombatAnimation() {
     "25,4": [-1.4, 0],
     "25,5": [-1.4, 0]
 
-
   };
 
   let damageFrame = [24, 0];
