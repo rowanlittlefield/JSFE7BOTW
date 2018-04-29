@@ -10,9 +10,12 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   this.isCrit = this.rollCrit();
   this.damage = this.damageDealt();
   this.defenderPostAttackHP = this.postAttackDefHP();
-  
+
   this.attackerCS = this.isCrit ? this.attacker.critAnimation : this.attacker.combatAnimation;
   this.defenderCS = this.defender.combatAnimation;
+
+  this.playedHitAnimation = false;
+  this.hitAnimation = new NormalDamageAnimation();
 }
 
 Attack.prototype.rollHit = function() {
@@ -47,5 +50,11 @@ Attack.prototype.postAttackDefHP = function() {
 
 Attack.prototype.render = function(aCoordinates, dCoordinates, sF) {
   this.defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
-  this.attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);
+  // this.attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);
+  if (this.attackerCS.queueIndex === this.attackerCS.damageFrame[0] &&
+    this.attackerCS.spriteQueue[this.attackerCS.queueIndex].frameIndex === this.attackerCS.damageFrame[1]) {
+    this.attackerCS.renderCurrentFrame(aCoordinates[0], 7, 52);
+  } else {
+    this.attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);
+  }
 }

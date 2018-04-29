@@ -80,7 +80,6 @@ Sprite.prototype.boardSpriteRender = function(sF) {
 
 //combatAnimationMethods
 
-
 Sprite.prototype.renderStationaryFrame = function(row, col, sF) {
   let scale = sF / 18;
   let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
@@ -100,6 +99,22 @@ Sprite.prototype.renderStationaryFrame = function(row, col, sF) {
   );
 }
 
+// Sprite.prototype.renderCurrentFrame = function(cx, cy, cWidth, cHeight) {
+//   this.context.drawImage(
+//     this.spriteSheet,
+//     this.frameIndex * this.width,
+//     0,
+//     this.width,
+//     this.height,
+//     cx,
+//     cy,
+//     cWidth,
+//     cHeight
+//   );
+//   // this.update();
+// }
+
+
 Sprite.prototype.renderFromCoordinatesSpecial = function(row, col, sF) {
   let scale = sF / 18;
   let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
@@ -118,4 +133,24 @@ Sprite.prototype.renderFromCoordinatesSpecial = function(row, col, sF) {
     cHeight
   );
   this.update();
+}
+
+Sprite.prototype.renderCurrentFrame = function(row, col, sF) {
+  let scale = sF / 18;
+  let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,
+    this.frameIndex * this.width,
+    0,
+    this.width,
+    this.height,
+    cx,
+    cy,
+    cWidth,
+    cHeight
+  );
+  // this.update();
 }

@@ -59,7 +59,6 @@ CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordi
   let aCoordinates = this.currentAttack().attackerIsPlayerUnit ? playerCoordinates : enemyCoordinates;
   let dCoordinates = this.currentAttack().attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates;
 
-
   this.currentAttack().render(aCoordinates, dCoordinates);
   let actAttackerCS = this.currentAttack().attackerCS;
 
@@ -67,8 +66,31 @@ CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordi
 
   if (currentFrame[0] === actAttackerCS.damageFrame[0] &&
     currentFrame[1] === actAttackerCS.damageFrame[1]) {
-      this.modifyHP();
+      if (this.currentAttack().hitAnimation.tickCount === 0 &&
+      this.currentAttack().hitAnimation.frameIndex === 0 &&
+        !this.currentAttack().playedHitAnimation) {
+        this.modifyHP();
+        this.currentAttack().hitAnimation.render(10, 10, 52);
+      } else if (!this.currentAttack().playedHitAnimation) {
+
+        this.currentAttack().hitAnimation.render(10, 10, 52);
+        if (this.currentAttack().hitAnimation.tickCount === 0 &&
+         this.currentAttack().hitAnimation.frameIndex === 0) {
+           // debugger;
+           this.currentAttack().playedHitAnimation = true;
+        }
+      } else if (this.currentAttack().playedHitAnimation &&
+        currentFrame[0] === actAttackerCS.damageFrame[0] &&
+        currentFrame[1] === actAttackerCS.damageFrame[1]) {
+        actAttackerCS.updateQueueIndexAndSprite();
+      }
+
   }
+
+  // if (currentFrame[0] === actAttackerCS.damageFrame[0] &&
+  //   currentFrame[1] === actAttackerCS.damageFrame[1]) {
+  //     this.modifyHP();
+  // }
 
   if(actAttackerCS.queueIndex === 0 &&
     actAttackerCS.spriteQueue[0].frameIndex === 0 &&
