@@ -75,7 +75,7 @@ function RoyCombatAnimation() {
     "12,6": [-0.39, 0]
   };
 
-  let damageFrame = [6, 0];
+  let damageFrame = [6, 1];
 
   CombatSprite.call(
     this,

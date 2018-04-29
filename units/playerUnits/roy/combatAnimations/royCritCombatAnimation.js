@@ -11,8 +11,8 @@ function RoyCritCombatAnimation() {
   let sprite8 = new Sprite(c, 150, 55, 150, 55, 'units/playerUnits/roy/combatAnimations/royCritSprite8.png', 2, 7);
   let sprite9 = new Sprite(c, 150, 42, 150, 42, 'units/playerUnits/roy/combatAnimations/royCritSprite9.png', 2, 3);
   let sprite10 = new Sprite(c, 150, 76, 150, 76, 'units/playerUnits/roy/combatAnimations/royCritSprite10.png', 2, 5);
-  let sprite11 = new Sprite(c, 100, 31, 100, 31, 'units/playerUnits/roy/combatAnimations/royCritSprite11.png', 3, 7);
-  let sprite12 = new Sprite(c, 100, 36, 100, 36, 'units/playerUnits/roy/combatAnimations/royCritSprite12.png', 3, 7);
+  let sprite11 = new Sprite(c, 100, 31, 100, 31, 'units/playerUnits/roy/combatAnimations/royCritSprite11.png', 2, 7);
+  let sprite12 = new Sprite(c, 100, 36, 100, 36, 'units/playerUnits/roy/combatAnimations/royCritSprite12.png', 2, 7);
 
   // let sprite4 = new Sprite(c, 90, 52, 90, 52, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite4.png', 3, 4);
   // let sprite5 = new Sprite(c, 110, 67, 110, 67, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite5.png', 3, 2);
