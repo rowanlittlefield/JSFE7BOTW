@@ -3,8 +3,8 @@ function MainMenuWindowOne() {
   InteractiveWindow.call(this, 0, 0, 0, 0, innerWidth, 100, options);
   this.color = "rgba(65, 105, 225, 1)";
   // this.backgroundSprite = new Sprite(c, 239, 159, 239, 159, "FEtitleScreen.gif", 1, 1);
-  this.roySprite = new Sprite(c, 1766, 1184, 1776, 1184, "FE_Heroes_Intro_Roy_edit_silo.png", 1, 1);
-  this.lynSprite = new Sprite(c, 475, 600, 475, 600, "FE_Heroes_Intro_Lyndis_silo.png", 1, 1);
+  this.roySprite = new Sprite(c, 1766, 1184, 1776, 1184, "game/FE_Heroes_Intro_Roy_edit_silo.png", 1, 1);
+  this.lynSprite = new Sprite(c, 475, 600, 475, 600, "game/FE_Heroes_Intro_Lyndis_silo.png", 1, 1);
 }
 
 MainMenuWindowOne.prototype = Object.create(InteractiveWindow.prototype);
