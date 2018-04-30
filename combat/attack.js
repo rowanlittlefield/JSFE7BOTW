@@ -15,7 +15,6 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   this.defenderCS = this.defender.combatAnimation;
 
   this.playedHitAnimation = false;
-// debugger;
   let scaledHalfInnerWidth = (innerWidth / 2) / 52
   let enemyWidth = 70 / 52
   let playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
@@ -70,6 +69,5 @@ Attack.prototype.renderHitAnimation = function(currentFrame) {
   if (this.hitAnimation.tickCount === 0 &&
     this.hitAnimation.frameIndex === 0) {
     this.playedHitAnimation = true;
-    // this.attackerCS.updateQueueIndexAndSprite();
   }
 }

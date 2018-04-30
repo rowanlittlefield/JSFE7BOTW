@@ -49,7 +49,6 @@ CombatSprite.prototype.renderCurrentFrame = function(x, y, sF) {
   }
 
   this.spriteQueue[this.queueIndex].renderCurrentFrame(x + deltaX, y + deltaY, sF);
-  // this.update();
 }
 
 
