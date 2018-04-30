@@ -39,3 +39,17 @@ CoordinateSprite.prototype.render = function(row, col, sF) {
   // debugger;
   this.update();
 }
+
+// CoordinateSprite.prototype.update = function() {
+//   debugger;
+//   this.tickCount += 1;
+//
+//   if(this.tickCount > this.ticksPerFrame) {
+//     this.tickCount = 0;
+//     if(this.frameIndex < this.numberOfFrames - 1) {
+//       this.frameIndex += 1;
+//     } else if(this.frameIndex === this.numberOfFrames - 1) {
+//       this.frameIndex = 0;
+//     }
+//   }
+// }
