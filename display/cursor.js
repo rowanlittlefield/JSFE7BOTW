@@ -1,6 +1,6 @@
 function Cursor(board) {
   this.board = board;
-  this.cursorPos = [0, 0];
+  this.cursorPos = [13, 2];
   this.selectedUnit = null;
 }
 //NECESSARY METHODS

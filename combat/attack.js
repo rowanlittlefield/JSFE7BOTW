@@ -15,7 +15,13 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   this.defenderCS = this.defender.combatAnimation;
 
   this.playedHitAnimation = false;
-  this.hitAnimation = new NormalDamageAnimation();
+// debugger;
+  let scaledHalfInnerWidth = (innerWidth / 2) / 52
+  let enemyWidth = 70 / 52
+  let playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
+  let enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
+  let hitCoordinates = this.attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates
+  this.hitAnimation = new NormalDamageAnimation([hitCoordinates[0] + 1.7, hitCoordinates[1] + 2.8]);
 }
 
 Attack.prototype.rollHit = function() {

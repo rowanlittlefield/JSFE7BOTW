@@ -20,7 +20,6 @@ CoordinateSprite.prototype = Object.create(Sprite.prototype);
 CoordinateSprite.prototype.constructor = CoordinateSprite;
 
 CoordinateSprite.prototype.render = function(row, col, sF) {
-  // debugger
   let scale = sF / 18;
   let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
   let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));

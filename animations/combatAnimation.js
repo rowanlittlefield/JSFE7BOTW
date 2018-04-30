@@ -70,14 +70,13 @@ CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordi
       this.currentAttack().hitAnimation.frameIndex === 0 &&
         !this.currentAttack().playedHitAnimation) {
         this.modifyHP();
-        this.currentAttack().hitAnimation.render(10, 10, 52);
+        this.currentAttack().hitAnimation.render(13.6, 10, 52);
       } else if (!this.currentAttack().playedHitAnimation) {
 
-        this.currentAttack().hitAnimation.render(10, 10, 52);
+        this.currentAttack().hitAnimation.render(13.6, 10, 52);
         if (this.currentAttack().hitAnimation.tickCount === 0 &&
          this.currentAttack().hitAnimation.frameIndex === 0) {
-           // debugger;
-           this.currentAttack().playedHitAnimation = true;
+          this.currentAttack().playedHitAnimation = true;
         }
       } else if (this.currentAttack().playedHitAnimation &&
         currentFrame[0] === actAttackerCS.damageFrame[0] &&
