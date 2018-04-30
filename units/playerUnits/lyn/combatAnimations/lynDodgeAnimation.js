@@ -18,5 +18,5 @@ function LynDodgeAnimation() {
 
 }
 
-LynDodgeAnimation.prototype = Object.create(DodgeAnimation.prototype);
+LynDodgeAnimation.prototype = Object.create(DodgeSprite.prototype);
 LynDodgeAnimation.prototype.constructor = LynDodgeAnimation;

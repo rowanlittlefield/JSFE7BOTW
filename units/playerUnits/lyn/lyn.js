@@ -12,7 +12,8 @@ function Lyn(board, inventory, stats) {
     new Sprite(c, 26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynLeftWalkSpriteSheet.png", 8, 4),
     new Sprite(c, 165, 158, 18, 18, "units/playerUnits/lyn/HPWindowImage/lynHPWindowSprite3.jpg", 6, 1),
     new LynCombatAnimation(),
-    new LynCritCombatAnimation()
+    new LynCritCombatAnimation(),
+    new LynDodgeAnimation()
   );
 }
 

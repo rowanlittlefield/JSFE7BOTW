@@ -13,6 +13,7 @@ function Brigand(board, inventory, behavior, stats) {
     new Sprite(c, 80, 72, 18, 18, "units/enemyUnits/brigand/HPWindowImage/brigandHPWindowSprite.png", 6, 1),
     new BrigandCombatAnimation(),
     new BrigandCombatAnimation(),
+    new LynDodgeAnimation(),
     behavior
     );
 }
