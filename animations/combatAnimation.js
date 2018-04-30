@@ -65,31 +65,10 @@ CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordi
   let currentFrame = [actAttackerCS.queueIndex, actAttackerCS.spriteQueue[actAttackerCS.queueIndex].frameIndex];
 
   if (currentFrame[0] === actAttackerCS.damageFrame[0] &&
-    currentFrame[1] === actAttackerCS.damageFrame[1]) {
-      if (this.currentAttack().hitAnimation.tickCount === 0 &&
-      this.currentAttack().hitAnimation.frameIndex === 0 &&
-        !this.currentAttack().playedHitAnimation) {
-        this.modifyHP();
-        this.currentAttack().hitAnimation.render(13.6, 10, 52);
-      } else if (!this.currentAttack().playedHitAnimation) {
-
-        this.currentAttack().hitAnimation.render(13.6, 10, 52);
-        if (this.currentAttack().hitAnimation.tickCount === 0 &&
-         this.currentAttack().hitAnimation.frameIndex === 0) {
-          this.currentAttack().playedHitAnimation = true;
-        }
-      } else if (this.currentAttack().playedHitAnimation &&
-        currentFrame[0] === actAttackerCS.damageFrame[0] &&
-        currentFrame[1] === actAttackerCS.damageFrame[1]) {
-        actAttackerCS.updateQueueIndexAndSprite();
-      }
-
+    currentFrame[1] === actAttackerCS.damageFrame[1] &&
+    !this.currentAttack().playedHitAnimation) {
+      this.renderHitAnimation(currentFrame);
   }
-
-  // if (currentFrame[0] === actAttackerCS.damageFrame[0] &&
-  //   currentFrame[1] === actAttackerCS.damageFrame[1]) {
-  //     this.modifyHP();
-  // }
 
   if(actAttackerCS.queueIndex === 0 &&
     actAttackerCS.spriteQueue[0].frameIndex === 0 &&
@@ -97,6 +76,15 @@ CombatAnimation.prototype.renderAttack = function(playerCoordinates, enemyCoordi
       this.combatQueueIndex -= 1;
     }
 
+}
+
+CombatAnimation.prototype.renderHitAnimation = function(currentFrame) {
+  if (this.currentAttack().hitAnimation.tickCount === 0 &&
+  this.currentAttack().hitAnimation.frameIndex === 0 &&
+    !this.playedHitAnimation) {
+    this.modifyHP();
+  }
+  this.currentAttack().renderHitAnimation(currentFrame);
 }
 
 CombatAnimation.prototype.renderAtEase = function(playerCoordinates, enemyCoordinates) {

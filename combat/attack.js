@@ -56,11 +56,20 @@ Attack.prototype.postAttackDefHP = function() {
 
 Attack.prototype.render = function(aCoordinates, dCoordinates, sF) {
   this.defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
-  // this.attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);
   if (this.attackerCS.queueIndex === this.attackerCS.damageFrame[0] &&
-    this.attackerCS.spriteQueue[this.attackerCS.queueIndex].frameIndex === this.attackerCS.damageFrame[1]) {
+    this.attackerCS.spriteQueue[this.attackerCS.queueIndex].frameIndex === this.attackerCS.damageFrame[1] &&
+    !this.playedHitAnimation) {
     this.attackerCS.renderCurrentFrame(aCoordinates[0], 7, 52);
   } else {
     this.attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);
+  }
+}
+
+Attack.prototype.renderHitAnimation = function(currentFrame) {
+  this.hitAnimation.render(52);
+  if (this.hitAnimation.tickCount === 0 &&
+    this.hitAnimation.frameIndex === 0) {
+    this.playedHitAnimation = true;
+    // this.attackerCS.updateQueueIndexAndSprite();
   }
 }
