@@ -84,7 +84,7 @@ CombatAnimation.prototype.renderHitAnimation = function(currentFrame) {
     !this.playedHitAnimation) {
     this.modifyHP();
   }
-  this.currentAttack().renderHitAnimation(currentFrame);
+  this.currentAttack().renderHit();
 }
 
 CombatAnimation.prototype.renderAtEase = function(playerCoordinates, enemyCoordinates) {

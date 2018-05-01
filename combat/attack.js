@@ -19,6 +19,8 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   let enemyWidth = 70 / 52
   let playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
   let enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
+  this.playerCoordinates = playerCoordinates;
+  this.enemyCoordinates = enemyCoordinates;
   let hitCoordinates = this.attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates
   this.hitAnimation = new NormalDamageAnimation([hitCoordinates[0] + 1.7, hitCoordinates[1] + 2.8]);
 }
@@ -54,17 +56,36 @@ Attack.prototype.postAttackDefHP = function() {
 }
 
 Attack.prototype.render = function(aCoordinates, dCoordinates, sF) {
-  this.defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
+  // this.defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
   if (this.attackerCS.queueIndex === this.attackerCS.damageFrame[0] &&
     this.attackerCS.spriteQueue[this.attackerCS.queueIndex].frameIndex === this.attackerCS.damageFrame[1] &&
     !this.playedHitAnimation) {
     this.attackerCS.renderCurrentFrame(aCoordinates[0], 7, 52);
   } else {
+    this.defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
     this.attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);
   }
 }
 
-Attack.prototype.renderHitAnimation = function(currentFrame) {
+Attack.prototype.renderHit = function() {
+  if (this.hit) {
+    this.renderHitAnimation();
+  } else {
+    this.renderDodge();
+  }
+}
+
+Attack.prototype.renderDodge = function() {
+  this.defender.dodgeAnimation.renderFromCoordinates(this.playerCoordinates[0], 7, 52);
+
+  if (this.defender.dodgeAnimation.queueIndex === 0 &&
+    this.defender.dodgeAnimation.spriteQueue[this.defender.dodgeAnimation.queueIndex].frameIndex === 0 &&
+    this.defender.dodgeAnimation.spriteQueue[this.defender.dodgeAnimation.queueIndex].tickCount === 0) {
+    this.playedHitAnimation = true;
+  }
+}
+
+Attack.prototype.renderHitAnimation = function() {
   this.hitAnimation.render(52);
   if (this.hitAnimation.tickCount === 0 &&
     this.hitAnimation.frameIndex === 0) {
