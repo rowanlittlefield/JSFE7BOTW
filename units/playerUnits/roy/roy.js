@@ -13,7 +13,7 @@ function Roy(board, inventory, stats) {
     new Sprite(c, 253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
     new RoyCombatAnimation(),
     new RoyCritCombatAnimation(),
-    new LynDodgeAnimation(),
+    new RoyDodgeAnimation(),
   );
 }
 
