@@ -10,7 +10,7 @@ DodgeSprite.prototype = Object.create(SpriteSequence.prototype);
 DodgeSprite.prototype.constructor = DodgeSprite;
 
 DodgeSprite.prototype.update = function() {
-  let sprite = this.spriteQueue[this.queueIndex];
+  let sprite = this.currentSprite();
   if (this.queueIndex === this.restFrame[0] && sprite.frameIndex === this.restFrame[1]) {
     this.restTickCount += 1;
     if (this.restTickCount >= this.restTicks) {
@@ -27,8 +27,8 @@ DodgeSprite.prototype.update = function() {
 
 DodgeSprite.prototype.renderDecision = function(x, y, deltaX, deltaY, sprite, sF) {
   if (this.queueIndex === this.restFrame[0] && sprite.frameIndex === this.restFrame[1]) {
-    this.spriteQueue[this.queueIndex].renderStationaryFrame(x + deltaX, y + deltaY, sF);
+    this.currentSprite().renderStationaryFrame(x + deltaX, y + deltaY, sF);
   } else {
-    this.spriteQueue[this.queueIndex].renderFromCoordinatesSpecial(x + deltaX, y + deltaY, sF);
+    this.currentSprite().renderFromCoordinatesSpecial(x + deltaX, y + deltaY, sF);
   }
 }

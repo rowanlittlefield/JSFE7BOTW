@@ -8,7 +8,7 @@ CombatSprite.prototype = Object.create(SpriteSequence.prototype);
 CombatSprite.prototype.constructor = CombatSprite;
 
 CombatSprite.prototype.update = function() {
-  let sprite = this.spriteQueue[this.queueIndex];
+  let sprite = this.currentSprite();
   if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
     sprite.tickCount === sprite.ticksPerFrame) {
     this.updateQueueIndexAndSprite();
@@ -16,6 +16,6 @@ CombatSprite.prototype.update = function() {
 }
 
 CombatSprite.prototype.render = function(row, col, sF) {
-  this.spriteQueue[this.queueIndex].render(row, col, sF);
+  this.currentSprite().render(row, col, sF);
   this.update();
 }
