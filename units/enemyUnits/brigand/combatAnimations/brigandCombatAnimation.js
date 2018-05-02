@@ -2,7 +2,7 @@ function BrigandCombatAnimation() {
   let sprites0 = new Sprite(c, 70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite0.png', 6, 4);
   let sprites1 = new Sprite(c, 70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite1.png', 6, 1);
   let sprites2 = new Sprite(c, 70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite2.png', 4, 6);
-  let sprites3 = new Sprite(c, 90, 35, 90, 35, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite3.png', 6, 7);
+  let sprites3 = new Sprite(c, 90, 35, 90, 35, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite3.png', 2, 4);
   let sprites4 = new Sprite(c, 90, 48, 90, 48, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite4.png', 4, 6);
   let sprites5 = new Sprite(c, 70, 33, 70, 33, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite5.png', 6, 2);
 
@@ -22,9 +22,6 @@ function BrigandCombatAnimation() {
     '3,1' : [2.5, 0],
     '3,2' : [2.5, 0],
     '3,3' : [2.5, 0],
-    '3,4' : [2.5, 0],
-    '3,5' : [2.5, 0],
-    '3,6' : [2.5, 0],
 
     '4,0' : [2.5, 0],
     '4,1' : [2.1, -0.2],
@@ -34,7 +31,7 @@ function BrigandCombatAnimation() {
     '4,5' : [0.7, -0.1]
   };
 
-  let damageFrame = [3, 1];
+  let damageFrame = [3, 2];
 
   CombatSprite.call(
     this,
@@ -43,8 +40,6 @@ function BrigandCombatAnimation() {
     positionAdjustment,
     damageFrame
   );
-
-  // let baddieSprite = new CombatSprite(c, spriteQueue, positionAdjustment, damageFrame);
 }
 
 BrigandCombatAnimation.prototype = Object.create(CombatSprite.prototype);
