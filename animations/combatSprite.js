@@ -1,10 +1,11 @@
 function CombatSprite(context, spriteQueue, positionAdjustment, damageFrame) {
-  this.context = context;
-  this.queueIndex = 0;
-  this.spriteQueue = spriteQueue;
-  this.positionAdjustment = positionAdjustment;
+  SpriteSequence.call(this, context, spriteQueue, positionAdjustment);
+
   this.damageFrame = damageFrame;
 }
+
+CombatSprite.prototype = Object.create(SpriteSequence.prototype);
+CombatSprite.prototype.constructor = CombatSprite;
 
 CombatSprite.prototype.update = function() {
   let sprite = this.spriteQueue[this.queueIndex];
@@ -12,11 +13,6 @@ CombatSprite.prototype.update = function() {
     sprite.tickCount === sprite.ticksPerFrame) {
     this.updateQueueIndexAndSprite();
   }
-}
-
-CombatSprite.prototype.updateQueueIndexAndSprite = function() {
-  let sprite = this.spriteQueue[this.queueIndex].update();
-  this.queueIndex = (this.queueIndex + 1) % this.spriteQueue.length;
 }
 
 CombatSprite.prototype.render = function(row, col, sF) {
@@ -36,22 +32,4 @@ CombatSprite.prototype.renderFromCoordinates = function(x, y, sF) {
 
   this.spriteQueue[this.queueIndex].renderFromCoordinatesSpecial(x + deltaX, y + deltaY, sF);
   this.update();
-}
-
-CombatSprite.prototype.renderCurrentFrame = function(x, y, sF) {
-  let deltaX = 0;
-  let deltaY = 0;
-  let queueI = this.queueIndex;
-  let spriteI = this.spriteQueue[this.queueIndex].frameIndex;
-  if (this.positionAdjustment[[queueI,spriteI]]) {
-    deltaX = this.positionAdjustment[[queueI,spriteI]][0];
-    deltaY = this.positionAdjustment[[queueI,spriteI]][1];
-  }
-
-  this.spriteQueue[this.queueIndex].renderCurrentFrame(x + deltaX, y + deltaY, sF);
-}
-
-
-CombatSprite.prototype.renderStationaryFrame = function(x, y, sF) {
-  this.spriteQueue[this.queueIndex].renderStationaryFrame(x, y, sF);
 }
