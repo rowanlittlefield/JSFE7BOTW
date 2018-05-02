@@ -11,16 +11,8 @@ SpriteSequence.prototype.updateQueueIndexAndSprite = function() {
 }
 
 SpriteSequence.prototype.renderCurrentFrame = function(x, y, sF) {
-  let deltaX = 0;
-  let deltaY = 0;
-  let queueI = this.queueIndex;
-  let spriteI = this.currentSprite().frameIndex;
-  if (this.positionAdjustment[[queueI,spriteI]]) {
-    deltaX = this.positionAdjustment[[queueI,spriteI]][0];
-    deltaY = this.positionAdjustment[[queueI,spriteI]][1];
-  }
-
-  this.currentSprite().renderCurrentFrame(x + deltaX, y + deltaY, sF);
+  let dP = this.getPositionAdj();
+  this.currentSprite().renderCurrentFrame(x + dP[0], y + dP[1], sF);
 }
 
 SpriteSequence.prototype.renderStationaryFrame = function(x, y, sF) {
@@ -28,26 +20,26 @@ SpriteSequence.prototype.renderStationaryFrame = function(x, y, sF) {
 }
 
 SpriteSequence.prototype.renderFromCoordinates = function(x, y, sF) {
-  let deltaX = 0;
-  let deltaY = 0;
-  let queueI = this.queueIndex;
-  let spriteI = this.currentSprite().frameIndex;
-  if (this.positionAdjustment[[queueI,spriteI]]) {
-    deltaX = this.positionAdjustment[[queueI,spriteI]][0];
-    deltaY = this.positionAdjustment[[queueI,spriteI]][1];
-  }
-
-  let sprite = this.currentSprite();
-  this.renderDecision(x, y, deltaX, deltaY, sprite, sF);
+  let dP = this.getPositionAdj();
+  this.renderDecision(x, y, dP, sF);
   this.update();
 }
 
-SpriteSequence.prototype.renderDecision = function(x, y, deltaX, deltaY, sprite, sF) {
-  this.currentSprite().renderFromCoordinatesSpecial(x + deltaX, y + deltaY, sF);
+SpriteSequence.prototype.renderDecision = function(x, y, dP, sF) {
+  this.currentSprite().renderFromCoordinatesSpecial(x + dP[0], y + dP[1], sF);
 }
 
 //private methods
 
 SpriteSequence.prototype.currentSprite = function() {
   return this.spriteQueue[this.queueIndex];
+}
+
+SpriteSequence.prototype.getPositionAdj = function() {
+  let spriteI = this.currentSprite().frameIndex;
+  if (this.positionAdjustment[[this.queueIndex,spriteI]]) {
+    return this.positionAdjustment[[this.queueIndex,spriteI]];
+  } else {
+    return [0, 0];
+  }
 }

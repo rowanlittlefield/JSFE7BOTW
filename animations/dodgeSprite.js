@@ -25,10 +25,11 @@ DodgeSprite.prototype.update = function() {
   }
 }
 
-DodgeSprite.prototype.renderDecision = function(x, y, deltaX, deltaY, sprite, sF) {
-  if (this.queueIndex === this.restFrame[0] && sprite.frameIndex === this.restFrame[1]) {
-    this.currentSprite().renderStationaryFrame(x + deltaX, y + deltaY, sF);
+DodgeSprite.prototype.renderDecision = function(x, y, dP, sF) {
+  if (this.queueIndex === this.restFrame[0] &&
+    this.currentSprite().frameIndex === this.restFrame[1]) {
+    this.currentSprite().renderStationaryFrame(x + dP[0], y + dP[1], sF);
   } else {
-    this.currentSprite().renderFromCoordinatesSpecial(x + deltaX, y + deltaY, sF);
+    this.currentSprite().renderFromCoordinatesSpecial(x + dP[0], y + dP[1], sF);
   }
 }
