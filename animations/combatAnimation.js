@@ -13,32 +13,29 @@ function CombatAnimation(combat, phaseStage) {
   this.phaseStage = phaseStage;
   this.nonCombatFrames = 0;
 
-  let halfWidth = innerWidth / 2;
+  this.halfWidth = innerWidth / 2;
+  this.scaledHalfInnerWidth = this.halfWidth / 52;
 
   this.backgroundWindow = new CombatAnimationBackgroundWindow(
-    halfWidth, this.playerUnit, this.enemyUnit
+    this.halfWidth, this.playerUnit, this.enemyUnit
   );
 }
 
 CombatAnimation.prototype.render = function(sF) {
-  let halfWidth = innerWidth / 2;
 
-  this.renderBackgroundElements(halfWidth);
+  this.renderBackgroundElements();
 
-  let scaledHalfInnerWidth = halfWidth / 52
-  let enemyWidth = this.enemyCombatSprite.spriteQueue[this.enemyCombatSprite.queueIndex].renderWidth / 52
-  let playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
-  let enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
+  let enemyWidth = this.enemyCombatSprite.currentSprite().renderWidth / 52;
+  let playerCoordinates = [this.scaledHalfInnerWidth + 1.5, 7];
+  let enemyCoordinates = [this.scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
     // combat rendering
-  if (this.nonCombatFrames < 100) {
-    this.renderAtEase(playerCoordinates, enemyCoordinates);
-  }
 
   if(this.nonCombatFrames === 100) {
     this.renderCombat(playerCoordinates, enemyCoordinates);
   }
 
-  if(this.nonCombatFrames >= 101 && this.nonCombatFrames < 150) {
+  if ((this.nonCombatFrames < 100) ||
+  (this.nonCombatFrames >= 101 && this.nonCombatFrames < 150)) {
     this.renderAtEase(playerCoordinates, enemyCoordinates);
   }
 
@@ -95,7 +92,7 @@ CombatAnimation.prototype.renderAtEase = function(playerCoordinates, enemyCoordi
 
 //background element rendering
 
-CombatAnimation.prototype.renderBackgroundElements = function(halfWidth) {
+CombatAnimation.prototype.renderBackgroundElements = function() {
   this.backgroundWindow.render();
 }
 
