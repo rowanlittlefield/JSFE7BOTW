@@ -5,7 +5,6 @@ function DodgeSprite(context, spriteQueue, positionAdjustment, restFrame) {
   this.positionAdjustment = positionAdjustment;
   this.restFrame = restFrame;
   this.restTicks = 15;
-  // this.restTicks = 1;
   this.restTickCount = 0;
 }
 
