@@ -56,11 +56,11 @@ Attack.prototype.postAttackDefHP = function() {
 }
 
 Attack.prototype.render = function(aCoordinates, dCoordinates, sF) {
-  // this.defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
   if (this.attackerCS.queueIndex === this.attackerCS.damageFrame[0] &&
     this.attackerCS.spriteQueue[this.attackerCS.queueIndex].frameIndex === this.attackerCS.damageFrame[1] &&
     !this.playedHitAnimation) {
     this.attackerCS.renderCurrentFrame(aCoordinates[0], 7, 52);
+    this.renderHit();
   } else {
     this.defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
     this.attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);

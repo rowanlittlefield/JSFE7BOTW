@@ -1,5 +1,5 @@
-function CombatAnimationBackgroundWindow(halfWidth, pu, eu) {
-  this.halfWidth = halfWidth;
+function CombatAnimationBackgroundWindow(pu, eu) {
+  this.halfWidth = innerWidth / 2;
   this.pu = pu;
   this.eu = eu;
   this.playerHP = pu.current_hp;
@@ -80,4 +80,12 @@ CombatAnimationBackgroundWindow.prototype.renderHPWindows = function() {
 
    renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 255 1)',
     `${this.enemyHP}`, this.halfWidth - 50, 550);
+}
+
+CombatAnimationBackgroundWindow.prototype.modifyHP = function(defender, newHP) {
+  if (defender === this.pu) {
+    this.playerHP = newHP;
+  } else {
+    this.enemyHP = newHP;
+  }
 }
