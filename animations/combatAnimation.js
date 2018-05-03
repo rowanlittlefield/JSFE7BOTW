@@ -23,11 +23,8 @@ CombatAnimation.prototype.render = function(sF) {
 CombatAnimation.prototype.renderCombat = function() {
   if(this.combatQueueIndex >= 0) {
     this.combat.render(this.combatQueueIndex, 52);
-
-    if (this.modifyHPCondition()) {
-      this.modifyHP();
-    }
-    this.renderAttack();
+    if (this.modifyHPCondition()) this.modifyHP();
+    this.updateQueueIndex();
   } else  {
     this.nonCombatFrames += 1;
   }
@@ -43,12 +40,10 @@ CombatAnimation.prototype.modifyHPCondition = function() {
     hitAnimation.frameIndex === 0);
 }
 
-CombatAnimation.prototype.renderAttack = function() {
-  let actAttackerCS = this.currentAttack().attackerCS;
-
-  if(actAttackerCS.queueIndex === 0 &&
-    actAttackerCS.spriteQueue[0].frameIndex === 0 &&
-    actAttackerCS.spriteQueue[0].tickCount === 0) {
+CombatAnimation.prototype.updateQueueIndex = function() {
+  let aCS = this.currentAttack().attackerCS;
+  if(aCS.queueIndex === 0 && aCS.spriteQueue[0].frameIndex === 0 &&
+    aCS.spriteQueue[0].tickCount === 0) {
       this.combatQueueIndex -= 1;
     }
 }
