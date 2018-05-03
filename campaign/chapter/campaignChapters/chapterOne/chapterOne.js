@@ -12,7 +12,7 @@ ChapterOne.prototype = Object.create(Chapter.prototype);
 ChapterOne.prototype.constructor = ChapterOne;
 
 ChapterOne.prototype.setupBoard = function() {
-  let newBoard = new Board([21, 17], new Sprite(c, 336, 299, 378, 336.375, 'chapter/Chapter18xMapSample.png', 1, 1));
+  let newBoard = new Board([21, 17], new Sprite(c, 336, 299, 378, 336.375, 'campaign/chapter/campaignChapters/chapterOne//Chapter18xMapSample.png', 1, 1));
 
 
   let roy = new Roy(newBoard, new Inventory([new SwordOfSeals()]));
