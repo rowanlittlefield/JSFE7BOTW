@@ -12,47 +12,45 @@ function CombatAnimation(combat, phaseStage) {
 
 CombatAnimation.prototype.render = function(sF) {
   this.renderBackgroundElements();
-
   if(this.nonCombatFrames === 100) this.renderCombat();
-
   if ((this.nonCombatFrames < 100) ||
   (this.nonCombatFrames >= 101 && this.nonCombatFrames < 150)) {
     this.renderAtEase();
   }
-
   if(this.nonCombatFrames >= 150) this.endAnimation();
 }
 
 CombatAnimation.prototype.renderCombat = function() {
   if(this.combatQueueIndex >= 0) {
     this.combat.render(this.combatQueueIndex, 52);
+
+    if (this.modifyHPCondition()) {
+      this.modifyHP();
+    }
     this.renderAttack();
   } else  {
     this.nonCombatFrames += 1;
   }
 }
 
+CombatAnimation.prototype.modifyHPCondition = function() {
+  let actAttackerCS = this.currentAttack().attackerCS;
+  let currentFrame = [actAttackerCS.queueIndex, actAttackerCS.currentSprite().frameIndex];
+  let hitAnimation = this.currentAttack().hitAnimation;
+  return (currentFrame[0] === actAttackerCS.damageFrame[0] &&
+    currentFrame[1] === actAttackerCS.damageFrame[1] &&
+    !this.currentAttack().playedHitAnimation && hitAnimation.tickCount === 0 &&
+    hitAnimation.frameIndex === 0);
+}
+
 CombatAnimation.prototype.renderAttack = function() {
   let actAttackerCS = this.currentAttack().attackerCS;
-
-  let currentFrame = [actAttackerCS.queueIndex, actAttackerCS.currentSprite().frameIndex];
-
-  if (currentFrame[0] === actAttackerCS.damageFrame[0] &&
-    currentFrame[1] === actAttackerCS.damageFrame[1] &&
-    !this.currentAttack().playedHitAnimation) {
-      if (this.currentAttack().hitAnimation.tickCount === 0 &&
-      this.currentAttack().hitAnimation.frameIndex === 0 &&
-        !this.playedHitAnimation) {
-        this.modifyHP();
-      }
-  }
 
   if(actAttackerCS.queueIndex === 0 &&
     actAttackerCS.spriteQueue[0].frameIndex === 0 &&
     actAttackerCS.spriteQueue[0].tickCount === 0) {
       this.combatQueueIndex -= 1;
     }
-
 }
 
 CombatAnimation.prototype.renderAtEase = function() {

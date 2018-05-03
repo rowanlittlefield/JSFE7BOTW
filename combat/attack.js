@@ -68,11 +68,7 @@ Attack.prototype.render = function(aCoordinates, dCoordinates, sF) {
 }
 
 Attack.prototype.renderHit = function() {
-  if (this.hit) {
-    this.renderHitAnimation();
-  } else {
-    this.renderDodge();
-  }
+  this.hit ? this.renderHitAnimation() : this.renderDodge();
 }
 
 Attack.prototype.renderDodge = function() {

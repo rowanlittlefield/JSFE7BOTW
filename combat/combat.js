@@ -8,8 +8,8 @@ function Combat(initiator, recipient) {
   let check = this.initiator instanceof(PlayerUnit);
   this.pu = check ? this.initiator : this.recipient;
   this.eu = !check ? this.initiator : this.recipient;
-  this.playerCS = (check ? this.initiator : this.recipient).combatAnimation;
-  this.enemyCS = (!check ? this.initiator : this.recipient).combatAnimation;
+  this.playerCS = this.pu.combatAnimation;
+  this.enemyCS = this.eu.combatAnimation;
   this.enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
   let scaledHalfInnerWidth = (innerWidth / 2) / 52;
   this.scaledHalfInnerWidth = scaledHalfInnerWidth;
