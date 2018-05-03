@@ -53,8 +53,6 @@ CombatAnimation.prototype.renderAtEase = function() {
   this.nonCombatFrames += 1;
 }
 
-//background element rendering
-
 CombatAnimation.prototype.renderBackgroundElements = function() {
   this.backgroundWindow.render();
 }
