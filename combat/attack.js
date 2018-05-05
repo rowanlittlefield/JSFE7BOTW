@@ -17,12 +17,8 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   this.playedHitAnimation = false;
   let scaledHalfInnerWidth = (innerWidth / 2) / 52
   let enemyWidth = 70 / 52
-  let playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
-  let enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
-  this.playerCoordinates = playerCoordinates;
-  this.enemyCoordinates = enemyCoordinates;
-  let hitCoordinates = this.attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates
-  this.hitAnimation = new NormalDamageAnimation([hitCoordinates[0] + 1.7, hitCoordinates[1] + 2.8]);
+  this.playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
+  this.enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
 }
 
 Attack.prototype.rollHit = function() {
@@ -55,15 +51,17 @@ Attack.prototype.postAttackDefHP = function() {
   }
 }
 
-Attack.prototype.render = function(aCoordinates, dCoordinates, sF) {
+//rendering methods
+
+Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
   if (this.attackerCS.queueIndex === this.attackerCS.damageFrame[0] &&
     this.attackerCS.spriteQueue[this.attackerCS.queueIndex].frameIndex === this.attackerCS.damageFrame[1] &&
     !this.playedHitAnimation) {
-    this.attackerCS.renderCurrentFrame(aCoordinates[0], 7, 52);
+    this.attackerCS.renderCurrentFrame(attackerC[0], 7, 52);
     this.renderHit();
   } else {
-    this.defenderCS.renderStationaryFrame(dCoordinates[0], 7, 52);
-    this.attackerCS.renderFromCoordinates(aCoordinates[0], 7, 52);
+    this.defenderCS.renderStationaryFrame(defenderC[0], 7, 52);
+    this.attackerCS.renderFromCoordinates(attackerC[0], 7, 52);
   }
 }
 

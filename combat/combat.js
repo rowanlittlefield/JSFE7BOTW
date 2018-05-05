@@ -11,37 +11,43 @@ function Combat(initiator, recipient) {
   this.playerCS = this.pu.combatAnimation;
   this.enemyCS = this.eu.combatAnimation;
   this.enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
-  let scaledHalfInnerWidth = (innerWidth / 2) / 52;
-  this.scaledHalfInnerWidth = scaledHalfInnerWidth;
+  this.scaledHalfInnerWidth = (innerWidth / 2) / 52;
   let enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
 
-  this.playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
-  this.enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
-
+  this.playerCoordinates = [this.scaledHalfInnerWidth + 1.5, 7];
+  this.enemyCoordinates = [this.scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
 }
 
 Combat.prototype.developCombatSequence = function() {
   let queue = [];
 
-  queue.unshift(new Attack(this.initiator, this.recipient,
+  queue.unshift(this.developAttack(this.initiator, this.recipient,
      this.initiator.current_hp, this.recipient.current_hp));
 
   if (this.attackContinue(queue) && this.initiatorInRange) {
-    queue.unshift(new Attack(this.recipient, this.initiator,
+    queue.unshift(this.developAttack(this.recipient, this.initiator,
     queue[0].defenderPostAttackHP, queue[0].attackerCurrentHP));
   }
 
   if (this.attackContinue(queue) && this.isRepeatAttack()) {
     if (this.initiator.isRepeatedAttack(this.recipient)) {
-      queue.unshift(new Attack(this.initiator, this.recipient,
+      queue.unshift(this.developAttack(this.initiator, this.recipient,
       queue[0].defenderPostAttackHP, queue[0].attackerCurrentHP));
     } else if(this.initiatorInRange){
-      queue.unshift(new Attack(this.recipient, this.initiator,
+      queue.unshift(this.developAttack(this.recipient, this.initiator,
       queue[0].attackerCurrentHP, queue[0].defenderPostAttackHP));
     }
   }
 
   return queue;
+}
+
+Combat.prototype.developAttack = function(attacker, defender, attackerHP, defenderHP) {
+  if (attacker instanceof(PlayerUnit)) {
+    return new PUAttack(attacker, defender, attackerHP, defenderHP);
+  } else {
+    return new EUAttack(attacker, defender, attackerHP, defenderHP);
+  }
 }
 
 Combat.prototype.attackContinue = function(queue) {
@@ -72,15 +78,12 @@ Combat.prototype.initiateFight = function() {
   this.unitDeath();
 }
 
+//render methods
+
 Combat.prototype.render = function(combatQueueIndex, sF) {
   let enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
-  let playerCoordinates = [this.scaledHalfInnerWidth + 1.5, 7];
   let enemyCoordinates = [this.scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
-
-  let aCoordinates = this.queue[combatQueueIndex].attackerIsPlayerUnit ? playerCoordinates : enemyCoordinates;
-  let dCoordinates = this.queue[combatQueueIndex].attackerIsPlayerUnit ? enemyCoordinates : playerCoordinates;
-
-  this.queue[combatQueueIndex].render(aCoordinates, dCoordinates);
+  this.queue[combatQueueIndex].render(enemyCoordinates, sF);
 }
 
 Combat.prototype.renderAtEase = function(scaledHalfInnerWidth) {
