@@ -21,6 +21,8 @@ function Unit(stats, board, inventory, name, mapSprite,
   this.actionTaken = false;
 }
 
+//rendering
+
 Unit.prototype.render = function(sF) {
   if (this.moving) {
     this.movingAnimation.render(sF);
@@ -35,4 +37,17 @@ Unit.prototype.render = function(sF) {
       c.fill();
     }
   }
+}
+
+//unit combat
+
+Unit.prototype.fight = function(opposingUnit) {
+  let newCombat = new Combat(this, opposingUnit);
+  newCombat.initiateFight();
+}
+
+Unit.prototype.isInRange = function(opposingUnit) {
+  let sep = distance(this.position, opposingUnit.position);
+
+  return this.equippedWeapon.stats['range'].includes(sep);
 }
