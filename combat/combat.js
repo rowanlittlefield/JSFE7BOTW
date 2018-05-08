@@ -9,6 +9,7 @@ function Combat(initiator, recipient) {
   this.pu = check ? this.initiator : this.recipient;
   this.eu = !check ? this.initiator : this.recipient;
   this.playerCS = this.pu.combatAnimation;
+  this.playerCS = (check ? this.initiator : this.recipient).combatAnimation
   this.enemyCS = this.eu.combatAnimation;
   this.enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
   this.scaledHalfInnerWidth = (innerWidth / 2) / 52;
@@ -16,6 +17,10 @@ function Combat(initiator, recipient) {
 
   this.playerCoordinates = [this.scaledHalfInnerWidth + 1.5, 7];
   this.enemyCoordinates = [this.scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
+}
+
+Combat.prototype.playerUnit = function() {
+  this.initiator instanceof(PlayerUnit) ? this.initiator : this.recipient;
 }
 
 Combat.prototype.developCombatSequence = function() {

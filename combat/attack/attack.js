@@ -2,8 +2,6 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   this.attacker = attacker;
   this.defender = defender;
 
-  this.attackerIsPlayerUnit = attacker instanceof(PlayerUnit);
-
   this.attackerCurrentHP = attackerCurrentHP;
   this.defenderInitialHP = defenderInitialHP;
   this.hit = this.rollHit();
