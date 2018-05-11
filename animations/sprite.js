@@ -48,7 +48,6 @@ Sprite.prototype.renderFromCoordinates = function(cx, cy, cWidth, cHeight) {
   this.update();
 }
 
-
 Sprite.prototype.boardSpriteRender = function(sF) {
   this.context.drawImage(
     this.spriteSheet,

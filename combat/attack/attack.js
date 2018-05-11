@@ -44,7 +44,6 @@ Attack.prototype.postAttackDefHP = function() {
 }
 
 //rendering methods
-
 Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
   if (this.hitAnimationCondition()) {
     this.attackerCS.renderCurrentFrame(attackerC[0], 7, 52);
@@ -76,7 +75,6 @@ Attack.prototype.renderHitAnimation = function() {
 }
 
 //private methods
-
 Attack.prototype.atkDamage = function() {
   return this.attacker.damage(this.defender);
 }
