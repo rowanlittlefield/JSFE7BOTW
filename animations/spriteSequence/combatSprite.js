@@ -19,3 +19,8 @@ CombatSprite.prototype.render = function(row, col, sF) {
   this.currentSprite().render(row, col, sF);
   this.update();
 }
+
+CombatSprite.prototype.onDamageFrame = function() {
+  return (this.queueIndex === this.damageFrame[0] &&
+  this.currentSprite().frameIndex === this.damageFrame[1]);
+}

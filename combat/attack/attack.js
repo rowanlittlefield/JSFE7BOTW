@@ -11,6 +11,7 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
 
   this.attackerCS = this.isCrit ? this.attacker.critAnimation : this.attacker.combatAnimation;
   this.defenderCS = this.defender.combatAnimation;
+  this.dodgeAnimation = this.defender.dodgeAnimation;
 
   this.playedHitAnimation = false;
   let scaledHalfInnerWidth = (innerWidth / 2) / 52
@@ -45,9 +46,7 @@ Attack.prototype.postAttackDefHP = function() {
 //rendering methods
 
 Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
-  if (this.attackerCS.queueIndex === this.attackerCS.damageFrame[0] &&
-    this.attackerCS.spriteQueue[this.attackerCS.queueIndex].frameIndex === this.attackerCS.damageFrame[1] &&
-    !this.playedHitAnimation) {
+  if (this.hitAnimationCondition()) {
     this.attackerCS.renderCurrentFrame(attackerC[0], 7, 52);
     this.renderHit();
   } else {
@@ -63,9 +62,7 @@ Attack.prototype.renderHit = function() {
 Attack.prototype.renderDodge = function() {
   this.defender.dodgeAnimation.renderFromCoordinates(this.playerCoordinates[0], 7, 52);
 
-  if (this.defender.dodgeAnimation.queueIndex === 0 &&
-    this.defender.dodgeAnimation.spriteQueue[this.defender.dodgeAnimation.queueIndex].frameIndex === 0 &&
-    this.defender.dodgeAnimation.spriteQueue[this.defender.dodgeAnimation.queueIndex].tickCount === 0) {
+  if (this.dodgeAnimationPlayedCondition()) {
     this.playedHitAnimation = true;
   }
 }
@@ -85,5 +82,15 @@ Attack.prototype.atkDamage = function() {
 }
 
 Attack.prototype.critDamage = function() {
-  return this.attackerDamage() * 3;
+  return this.atkDamage() * 3;
+}
+
+Attack.prototype.hitAnimationCondition = function() {
+  return (
+    this.attackerCS.onDamageFrame() && !this.playedHitAnimation
+  );
+}
+
+Attack.prototype.dodgeAnimationPlayedCondition = function() {
+  return this.dodgeAnimation.renderedAnimation();
 }

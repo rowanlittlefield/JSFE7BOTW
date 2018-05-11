@@ -43,3 +43,9 @@ SpriteSequence.prototype.getPositionAdj = function() {
     return [0, 0];
   }
 }
+
+SpriteSequence.prototype.renderedAnimation = function() {
+  return (this.queueIndex === 0 &&
+    this.currentSprite().frameIndex === 0 &&
+    this.currentSprite().tickCount === 0);
+}

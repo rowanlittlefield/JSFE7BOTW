@@ -137,3 +137,8 @@ Sprite.prototype.renderCurrentFrame = function(row, col, sF) {
     cHeight
   );
 }
+
+//private methods
+Sprite.prototype.isFirstFrame = function() {
+  return (this.frameIndex === 0 && this.tickCount === 0);
+}
