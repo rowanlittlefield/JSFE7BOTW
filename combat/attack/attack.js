@@ -24,21 +24,14 @@ Attack.prototype.rollHit = function() {
 }
 
 Attack.prototype.rollCrit = function() {
-  if (!this.hit) {
-    return false;
-  }
+  if (!this.hit) return false;
 
   return randomNumberFromOneTo(100) <=
   this.attacker.criticalChance(this.defender);
 }
 
 Attack.prototype.damageDealt = function() {
-  if (!this.hit) {
-    return 0;
-  } else {
-    let damage = this.attacker.damage(this.defender);
-    return this.isCrit ? damage * 3 : damage;
-  }
+  return (this.hit?(this.isCrit?this.critDamage():this.atkDamage()):0);
 }
 
 Attack.prototype.postAttackDefHP = function() {
@@ -83,4 +76,14 @@ Attack.prototype.renderHitAnimation = function() {
     this.hitAnimation.frameIndex === 0) {
     this.playedHitAnimation = true;
   }
+}
+
+//private methods
+
+Attack.prototype.atkDamage = function() {
+  return this.attacker.damage(this.defender);
+}
+
+Attack.prototype.critDamage = function() {
+  return this.attackerDamage() * 3;
 }
