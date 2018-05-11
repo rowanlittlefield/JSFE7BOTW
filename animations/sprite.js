@@ -64,14 +64,12 @@ Sprite.prototype.boardSpriteRender = function(sF) {
 }
 
 //combatAnimationMethods
-
 Sprite.prototype.renderStationaryFrame = function(row, col, sF) {
   this.renderCurrentFrame(row, col, sF);
 }
 
 Sprite.prototype.renderFromCoordinatesSpecial = function(row, col, sF) {
-  this.renderCurrentFrame(row, col, sF);
-  this.update();
+  this.render(row, col, sF);
 }
 
 Sprite.prototype.renderCurrentFrame = function(row, col, sF) {
