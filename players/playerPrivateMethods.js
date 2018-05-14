@@ -133,7 +133,7 @@ Player.prototype.playSelectUnitToFight = function(button) {
   } else if(button === 'B') {
     this.returnToPostMovementOptions();
   } else {
-    this.display.window.scrollCursor();
+    this.display.window.scrollCursor(button);
     this.display.window.updateCoordinates(this.cursor.windowCursorPos);
   }
 }
