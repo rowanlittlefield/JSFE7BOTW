@@ -37,31 +37,11 @@ Unit.prototype.adjacentSpacesCanMoveThrough = function(space, targetSpace) {
 }
 
 Unit.prototype.possibleSpacesCanMoveThrough = function() {
-  // let spaces = {};
-  // spaces[this.position] = true;
-  // let moves = this.stats['move'];
-  //
-  // for(let j = 0; j < moves; j++) {
-  //   let keys = Object.keys(spaces);
-  //
-  //   for(let idx3 = 0; idx3 < keys.length; idx3++) {
-  //     let pos = stringToPos(keys[idx3]);
-  //     let adSpaces = this.adjacentSpacesCanMoveThrough(pos);
-  //     for(let idx4 = 0; idx4 < adSpaces.length; idx4++) {
-  //       spaces[adSpaces[idx4]] = true;
-  //     }
-  //   }
-  //
-  // }
-  // return spaces;
-
-  //newVersion
-
   let spaces = {};
   spaces[this.position] = true;
   let potentialSpaces = {};
   let moves = this.stats['move'];
-// debugger;
+
   for(let j = 0; j < moves; j++) {
     let keys = Object.keys(spaces);
     let iterationMoves = {};

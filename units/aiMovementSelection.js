@@ -186,6 +186,7 @@ Unit.prototype.siftRoute = function(optimalRoutePositions, start, endPos) {
 }
 
 Unit.prototype.findAnOptimalRoute = function(destination) {
+  debugger;
   let pathAndSteps = this.viablePathToUnit(
     this.position,
     destination);
