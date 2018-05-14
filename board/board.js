@@ -10,7 +10,6 @@ function Board(dimensions, sprite){
     }
 
   this.grid = new_grid;
-
   this.sprite = sprite;
 }
 

@@ -1,21 +1,13 @@
-Unit.prototype.adjacentSpaceList = function(space) {
-  let adjacentSpaces = [];
-  let row = space[0];
-  let col = space[1];
-  if (row + 1 <= this.board.dimensions[0] - 1) {
-    adjacentSpaces.push([row + 1, col]);
-  }
-  if(row - 1 >= 0) {
-    adjacentSpaces.push([row - 1, col]);
-  }
-  if (col + 1 <= this.board.dimensions[1] - 1) {
-    adjacentSpaces.push([row, col + 1]);
-  }
-  if (col - 1 >= 0) {
-    adjacentSpaces.push([row, col - 1]);
-  }
+Unit.prototype.adjacentSpaceList = function(pos) {
+  let dimensions = this.board.dimensions;
+  let spaces = [];
 
-  return adjacentSpaces;
+  if(pos[0] + 1 <= dimensions[0] - 1) spaces.push([pos[0] + 1, pos[1]]);
+  if(pos[0] - 1 >= 0) spaces.push([pos[0] - 1, pos[1]]);
+  if(pos[1] + 1 <= dimensions[1] - 1) spaces.push([pos[0], pos[1] + 1]);
+  if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
+
+  return spaces;
 }
 
 Unit.prototype.adjacentSpacesCanMoveThrough = function(space, targetSpace) {
@@ -24,7 +16,6 @@ Unit.prototype.adjacentSpacesCanMoveThrough = function(space, targetSpace) {
 
   for (let i = 0; i < adjSpaces.length; i++) {
     let pos = adjSpaces[i];
-    // let secondCondition = targetSpace != null && equivalentPositions(pos, targetSpace);
     if(((this.board.grid[pos[0]][pos[1]].unit === null ||
       this.board.grid[pos[0]][pos[1]].unit instanceof(PlayerUnit) === this instanceof(PlayerUnit)) &&
       !(this.board.grid[pos[0]][pos[1]].terrain instanceof(Wall))) ||
