@@ -69,9 +69,6 @@ function spaceHighlight(pos, color, sF) {
 function highlightSpaces(spaces, board, color, sF) {
   for(const space in spaces) {
     let pos = stringToPos(space);
-    if(!board.grid[pos[0]][pos[1]].unit) {
-      board.grid[pos[0]][pos[1]].render(pos[0], pos[1], sF);
-    }
     spaceHighlight(pos, color, sF);
   }
 }
