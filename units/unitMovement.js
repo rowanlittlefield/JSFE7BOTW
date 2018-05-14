@@ -16,15 +16,17 @@ Unit.prototype.adjacentSpacesCanMoveThrough = function(space, targetSpace) {
 
   for (let i = 0; i < adjSpaces.length; i++) {
     let pos = adjSpaces[i];
-    if(((this.board.grid[pos[0]][pos[1]].unit === null ||
-      this.board.grid[pos[0]][pos[1]].unit instanceof(PlayerUnit) === this instanceof(PlayerUnit)) &&
-      !(this.board.grid[pos[0]][pos[1]].terrain instanceof(Wall))) ||
+    if(this.isTraversableSpace(pos) ||
       (targetSpace != null && equivalentPositions(pos, targetSpace))) {
       moveableAdjSpaces.push(pos);
     }
   }
 
   return moveableAdjSpaces;
+}
+
+Unit.prototype.isTraversableSpace = function(pos) {
+  return this.board.space(pos).isTraversable(this);
 }
 
 Unit.prototype.possibleSpacesCanMoveThrough = function() {
