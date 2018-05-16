@@ -49,6 +49,39 @@ Unit.prototype.toNearestOppUnit = function() {
   return this.position;
 }
 
+Unit.prototype.toNearestOppUnitMoveSpace = function() {
+  let start = this.position;
+  let oppUnits = this.board.listOfUnits(PlayerUnit);
+  let distances = {};
+  let distancesArr = [];
+  let endPos = null;
+
+  oppUnits.forEach(function(value, key, map) {
+    distances[key.position] = distance(start, key.position);
+    distancesArr.push(distance(start, key.position));
+  });
+  distancesArr.sort();
+
+  for(let i = 0; i < distancesArr.length; i++) {
+
+    for(const pos in distances) {
+      if (distances[pos] === distancesArr[i]) {
+        let crudePath = new MovementSpace(this.board, this.position);
+        let validCrudePathFlag = crudePathArray.setupSpace();
+      }
+      if(validCrudePathFlag) {
+        // let crudePath = crudePathArray[0];
+        // let steps = crudePathArray[1];
+        crudePath.optimalRoutePositions();
+        // let optPaths = this.optimalRoutePositions(crudePath, steps, this.position, stringToPos(pos));
+        return crudePath.pickOptPos();
+      }
+    }
+
+  }
+  return this.position;
+}
+
 Unit.prototype.pickOptPos = function(optPaths) {
   let positions = [];
   for(const pos in optPaths) {
