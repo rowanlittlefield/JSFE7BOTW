@@ -19,16 +19,6 @@ GlobalDisplay.prototype.render = function(sF) {
   this.renderObjects(sF);
 }
 
-GlobalDisplay.prototype.beginAIPhase = function(aiPlayer) {
-  this.aiPhase = true;
-  this.aiPlayer = aiPlayer;
-}
-
-GlobalDisplay.prototype.endAIPhase = function() {
-  this.aiPhase = false;
-  this.aiPlayer = null;
-}
-
 GlobalDisplay.prototype.renderBoard = function(sF) {
   this.board.render(sF);
 }
