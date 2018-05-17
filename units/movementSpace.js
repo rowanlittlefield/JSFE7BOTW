@@ -24,9 +24,10 @@ function MovementSpace(board, startPos) {
 
 MovementSpace.prototype.setupSpace = function(numSteps) {
   if (numSteps instanceof Array) {
-    return this.viablePathToOppUnit(numSteps);
+    this.viablePathToOppUnit(numSteps);
+    this.findOptimalRoutePositions();
   } else {
-    this.setSpaceForSingleTurnMove(numSteps)
+    this.setSpaceForSingleTurnMove(numSteps);
     this.setupFlag = true;
   }
 }
@@ -34,7 +35,6 @@ MovementSpace.prototype.setupSpace = function(numSteps) {
 //private
 
 //PathFinding
-//TODO: test optimalRoutes Positions to see if working as expected
 
 MovementSpace.prototype.viablePathToOppUnit = function(pos) {
   this.steps = 1;
@@ -57,9 +57,8 @@ MovementSpace.prototype.noViablePathToOppUnit = function(previousPositionsCount)
 
 MovementSpace.prototype.findOptimalRoutePositions = function() {
   let updatedViablePath = {};
-
   for(const position in this.positions) {
-    if (this.steps >= distance(stringToPos(position), this.endPos) + distance(stringToPos(position), this.endPos)) {
+    if (this.steps >= distance(stringToPos(position), this.startPos) + distance(stringToPos(position), this.endPos)) {
       updatedViablePath[position] = this.positions[position];
     }
   }
@@ -68,7 +67,7 @@ MovementSpace.prototype.findOptimalRoutePositions = function() {
       this.optimalRoutePositions[position] = updatedViablePath[position];
     }
   }
-  return this.optimalRoutePositions;
+  // return this.optimalRoutePositions;
 }
 
 MovementSpace.prototype.optimalRoutePosition = function(pos, preSteps) {
@@ -79,32 +78,35 @@ MovementSpace.prototype.stepsToPosition = function(start, pos) {
   let moveSpace = new MovementSpace(this.board, start)
   moveSpace.setupSpace(pos);
 
-  // let steps = 0;
-  // let viableSpaceHash = {};
-  // viableSpaceHash[start] = true;
-  // let dupViableSpaceHash = {};
-  // dupViableSpaceHash[start] = true;
-  // let loopCondition = true;
-  //
-  // while (loopCondition) {
-  //   if (!viableSpaceHash[pos]) steps += 1;
-  //
-  //   for(const position in dupViableSpaceHash) {
-  //     let adjacentPositions = this.adjacentSpacesCanMoveThrough(stringToPos(position), pos);
-  //
-  //     for(let i = 0; i < adjacentPositions.length; i++) {
-  //       viableSpaceHash[adjacentPositions[i]] = true;
-  //     }
-  //   }
-  //   for(const position in viableSpaceHash) {
-  //     dupViableSpaceHash[position] = true;
-  //   }
-  //
-  //   loopCondition = viableSpaceHash[pos] === undefined;
-  // }
-
   return moveSpace.steps;
 }
+
+MovementSpace.prototype.siftRoute = function() {
+  let positions = [this.startPos];
+  let optRPos = this.optimalRoutePositions;
+  optRPos[this.endPos] = this.steps;
+  delete optRPos[this.startPos];
+
+  while (true) {
+    if(equivalentPositions(this.endPos, positions[0])) return positions.reverse();
+    let nextAdjacentPositions = [];
+    for(const pos in optRPos) {
+      if (distance(positions[0], stringToPos(pos)) === 1) {
+        nextAdjacentPositions.unshift(stringToPos(pos));
+      }
+    }
+    if (includePosition(nextAdjacentPositions, this.endPos)) {
+      positions.unshift(this.endPos);
+    } else {
+      positions.unshift(nextAdjacentPositions[0]);
+    }
+
+    for(let i = 0; i < nextAdjacentPositions.length; i++) {
+      delete optRPos[nextAdjacentPositions[i]];
+    }
+  }
+}
+
 
 //SingleTurnMoveSpace
 

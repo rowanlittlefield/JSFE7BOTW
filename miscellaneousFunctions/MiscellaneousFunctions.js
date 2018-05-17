@@ -6,6 +6,7 @@ function distance(pos1, pos2) {
 }
 
 function stringToPos(stringPos) {
+  // debugger;
 let stringArr = stringPos.split(',');
 return [parseInt(stringArr[0]), parseInt(stringArr[1])]
 }
