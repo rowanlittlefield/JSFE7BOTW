@@ -20,16 +20,16 @@ ChapterOne.prototype.setupBoard = function() {
   newBoard.placeUnit(roy, [18, 3]);
   newBoard.placeUnit(lyn, [17, 3]);
   //Enemy units
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [9, 6]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [10, 11]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [9, 6]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [10, 11]);
   newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 12]);
 
   newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [9, 14]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [15, 15]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [3, 7]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [1, 7]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [1, 15]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [15, 15]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [3, 7]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [1, 7]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [1, 15]);
 
   newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'idle'), [2, 6]);
 
@@ -258,11 +258,10 @@ new Forest(newBoard, [9, 2]);
 
 //test
 let movementSpace = new MovementSpace(newBoard, [17, 3]);
-  debugger;
   console.log(movementSpace.setupSpace([14, 6]));
-  console.log(movementSpace.siftRoute());
+  // console.log(movementSpace.siftRoute());
   console.log(movementSpace);
-  console.log(Object.keys(roy.validMoveSpaces()).length);
+  // console.log(Object.keys(roy.validMoveSpaces()).length);
 
   return newBoard;
 }

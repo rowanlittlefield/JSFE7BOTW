@@ -61,18 +61,24 @@ Unit.prototype.possibleSpacesCanMoveThrough = function() {
 }
 
 Unit.prototype.validMoveSpaces = function() {
-  let validMoveSpaces = {};
-  let possibleSpaces = this.possibleSpacesCanMoveThrough();
-
-  for(const pos in possibleSpaces) {
-    let position = stringToPos(pos);
-
-    if (this.isValidMove(position)) {
-      validMoveSpaces[position] = true;
-    }
+  // let validMoveSpaces = {};
+  // let possibleSpaces = this.possibleSpacesCanMoveThrough();
+  //
+  // for(const pos in possibleSpaces) {
+  //   let position = stringToPos(pos);
+  //
+  //   if (this.isValidMove(position)) {
+  //     validMoveSpaces[position] = true;
+  //   }
+  // }
+  //
+  // return validMoveSpaces;
+  // debugger;
+  if (this.movementSpace) {
+    return this.movementSpace.validMovePositions;
+  } else {
+    return this.moveSpace.validMovePositions;
   }
-
-  return validMoveSpaces;
 }
 
 Unit.prototype.isValidMove = function(endPos) {

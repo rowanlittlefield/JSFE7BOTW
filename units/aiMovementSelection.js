@@ -1,17 +1,33 @@
 Unit.prototype.moveSelection = function() {
-
+  this.movementSpace = new MovementSpace(this.board, this.position)
    if(this.behavior === 'idle') {
-     return this.position;
+     // return this.position;
+     this.movementSpace.setupSpace(0);
+     this.movementSpace.endPos = this.position;
     } else if(this.behavior === 'TWBS') {
-     return this.possibleAttackSetupSpace();
+     // return this.possibleAttackSetupSpace();
+     if (this.possibleAttackSetupSpace() != this.position) {
+       debugger;
+       let attackSetupPos = this.possibleAttackSetupSpace();
+       this.movementSpace.endPos = attackSetupPos;
+       this.movementSpace.findOptimalRoutePositions();
+     } else {
+       let theEndPos = this.possibleAttackSetupSpace();
+       this.movementSpace.endPos = theEndPos;
+     }
    } else if(this.behavior === 'seekAndDestroy') {
-     return this.seekAndDestoryPosition();
+     // return this.seekAndDestoryPosition();
+    let anEndPos =  this.seekAndDestoryPosition();
+    this.movementSpace.endPos = anEndPos;
    }
 }
 
 Unit.prototype.seekAndDestoryPosition = function() {
   if (this.possibleAttackSetupSpace() != this.position) {
-    return this.possibleAttackSetupSpace();
+    let attackSetupPos = this.possibleAttackSetupSpace();
+    this.movementSpace.endPos = attackSetupPos;
+    this.movementSpace.findOptimalRoutePositions();
+    return attackSetupPos;
   } else {
     return this.toNearestOppUnit();
   }
@@ -23,29 +39,47 @@ Unit.prototype.toNearestOppUnit = function() {
   let distances = {};
   let distancesArr = [];
   let endPos = null;
-  let crudePathArray = false;
-
+  // let crudePathArray = false;
+  //
   oppUnits.forEach(function(value, key, map) {
     distances[key.position] = distance(start, key.position);
     distancesArr.push(distance(start, key.position));
   });
   distancesArr.sort();
-
+  //
+  // for(let i = 0; i < distancesArr.length; i++) {
+  //
+  //   for(const pos in distances) {
+  //     if (distances[pos] === distancesArr[i]) {
+  //       crudePathArray = this.viablePathToUnit(start, stringToPos(pos));
+  //     }
+  //     if(crudePathArray) {
+  //       let crudePath = crudePathArray[0];
+  //       let steps = crudePathArray[1];
+  //       let optPaths = this.optimalRoutePositions(crudePath, steps, this.position, stringToPos(pos));
+  //       return this.pickOptPos(optPaths);
+  //     }
+  //   }
+  //
+  // }
+  // return this.position;
   for(let i = 0; i < distancesArr.length; i++) {
-
     for(const pos in distances) {
       if (distances[pos] === distancesArr[i]) {
-        crudePathArray = this.viablePathToUnit(start, stringToPos(pos));
-      }
-      if(crudePathArray) {
-        let crudePath = crudePathArray[0];
-        let steps = crudePathArray[1];
-        let optPaths = this.optimalRoutePositions(crudePath, steps, this.position, stringToPos(pos));
-        return this.pickOptPos(optPaths);
+        // debugger;
+        this.movementSpace = new MovementSpace(this.board, this.position);
+        let flag = this.movementSpace.setupSpace(stringToPos(pos));
+        if (flag) {
+          this.movementSpace.findOptimalRoutePositions();
+          let optPos = this.movementSpace.pickOptPos();
+          this.movementSpace.endPos = optPos;
+          // this.movementSpace.siftRoute();
+          return optPos;
+        }
       }
     }
-
   }
+
   return this.position;
 }
 
@@ -281,6 +315,11 @@ Unit.prototype.possibleAttackSetupSpace = function() {
     }
   }.bind(this));
 
+  // this.moveSpace = new MovementSpace(this.board, this.position);
+  // this.moveSpace.setupSpace(this.stats['move']);
+  this.movementSpace = new MovementSpace(this.board, this.position);
+  this.movementSpace.setupSpace(this.stats['move']);
+
 
   let validSpaces = this.validMoveSpaces();
   let setupSpaces = [];
@@ -293,6 +332,8 @@ Unit.prototype.possibleAttackSetupSpace = function() {
       }
     }
   }
+  debugger;
+
   if (setupSpaces.length === 0) {
     return this.position;
   }

@@ -32,7 +32,7 @@ Roy.prototype.defaultStats = function() {
       luck: 17,
       defense: 14,
       resistance: 7,
-      move: 2,
+      move: 6,
       constitution: 8,
       hp_growth_rate: 80,
       strength_growth_rate: 40,
