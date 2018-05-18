@@ -22,7 +22,6 @@ function Unit(stats, board, inventory, name, mapSprite,
 }
 
 //rendering
-
 Unit.prototype.render = function(sF) {
   if (this.moving) {
     this.movingAnimation.render(sF);
@@ -40,7 +39,6 @@ Unit.prototype.render = function(sF) {
 }
 
 //unit combat
-
 Unit.prototype.fight = function(opposingUnit) {
   let newCombat = new Combat(this, opposingUnit);
   newCombat.initiateFight();
@@ -50,4 +48,27 @@ Unit.prototype.isInRange = function(opposingUnit) {
   let sep = distance(this.position, opposingUnit.position);
 
   return this.equippedWeapon.stats['range'].includes(sep);
+}
+
+//unit movement
+Unit.prototype.move = function(pos) {
+  this.board.space(this.position).unit = null;
+  this.board.space(pos).unit = this;
+  this.position = pos;
+}
+
+Unit.prototype.validMoveSpaces = function() {
+  return this.movementSpace.validMovePositions;
+}
+
+Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange) {
+  let keyArray = stringToPos(key);
+  for(let mSpace in moveSpaces) {
+    let mSpaceArray = stringToPos(key);
+    if(weaponRange.includes(distance(keyArray, mSpaceArray))) {
+      return true;
+    }
+  }
+
+  return false;
 }

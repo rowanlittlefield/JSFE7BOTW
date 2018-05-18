@@ -88,7 +88,6 @@ MovementSpace.prototype.optimalRoutePosition = function(pos, preSteps) {
 }
 
 MovementSpace.prototype.stepsToPosition = function(start, pos) {
-  // debugger;
   let moveSpace = new MovementSpace(this.board, stringToPos(start), this.unit);
   moveSpace.setupSpace(pos);
 

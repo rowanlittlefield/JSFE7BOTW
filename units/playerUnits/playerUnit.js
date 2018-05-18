@@ -37,12 +37,7 @@ PlayerUnit.prototype.nullifyOptions = function(display ) {
 }
 
 PlayerUnit.prototype.renderMoveSpaces = function(sF) {
-  // highlightSpaces(this.moveSpaces, this.board,
-  //    'rgba(0, 0, 255, 0.3)', sF);
   this.movementSpace.render(sF);
-
-  // highlightSpaces(this.attackSpaces, this.board,
-  //   'rgba(255, 0, 0, 0.2)', sF);
 
   for(let i = 0; i < this.routeSpaces.length; i++) {
     highlight(this.routeSpaces[i], 'rgba(123, 104, 238, 0.4)', sF);
