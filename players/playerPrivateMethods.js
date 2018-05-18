@@ -68,12 +68,12 @@ Player.prototype.setMovingAnimation = function() {
 }
 
 Player.prototype.updateSelectedUnitRouteSpaces = function() {
-  if (this.selectedUnit().moveSpaces[this.cursorPos()] === true) {
-    this.selectedUnit().routeSpaces =
-    this.selectedUnit().findAnOptimalRoute(this.cursorPos());
-  } else {
-    this.selectedUnit().routeSpaces = [this.selectedUnit().position];
-  }
+  // if (this.selectedUnit().moveSpaces[this.cursorPos()] === true) {
+    // this.selectedUnit().routeSpaces =
+    // this.selectedUnit().findAnOptimalRoute(this.cursorPos());
+  // } else {
+    // this.selectedUnit().routeSpaces = [this.selectedUnit().position];
+  // }
 }
 
 //play post movement options

@@ -10,7 +10,7 @@ forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
   this.windowOptions = null;
   this.fightOptions = null;
 
-  this.moveSpace = null;
+  this.movementSpace = null;
 }
 
 PlayerUnit.prototype = Object.create(Unit.prototype);
@@ -23,8 +23,8 @@ PlayerUnit.prototype.setMoveForecast = function() {
   this.inTransit = true;
   this.prevPos = [this.position[0], this.position[1]];
 
-  this.moveSpace = new MovementSpace(this.board, this.position);
-  this.moveSpace.setupSpace(this.stats['move']);
+  this.movementSpace = new MovementSpace(this.board, this.position);
+  this.movementSpace.setupSpace(this.stats['move']);
 }
 
 PlayerUnit.prototype.nullifyOptions = function(display ) {
@@ -39,7 +39,7 @@ PlayerUnit.prototype.nullifyOptions = function(display ) {
 PlayerUnit.prototype.renderMoveSpaces = function(sF) {
   // highlightSpaces(this.moveSpaces, this.board,
   //    'rgba(0, 0, 255, 0.3)', sF);
-  this.moveSpace.render(sF);
+  this.movementSpace.render(sF);
 
   // highlightSpaces(this.attackSpaces, this.board,
   //   'rgba(255, 0, 0, 0.2)', sF);

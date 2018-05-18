@@ -7,7 +7,6 @@ Unit.prototype.moveSelection = function() {
     } else if(this.behavior === 'TWBS') {
      // return this.possibleAttackSetupSpace();
      if (this.possibleAttackSetupSpace() != this.position) {
-       debugger;
        let attackSetupPos = this.possibleAttackSetupSpace();
        this.movementSpace.endPos = attackSetupPos;
        this.movementSpace.findOptimalRoutePositions();
@@ -66,7 +65,6 @@ Unit.prototype.toNearestOppUnit = function() {
   for(let i = 0; i < distancesArr.length; i++) {
     for(const pos in distances) {
       if (distances[pos] === distancesArr[i]) {
-        // debugger;
         this.movementSpace = new MovementSpace(this.board, this.position);
         let flag = this.movementSpace.setupSpace(stringToPos(pos));
         if (flag) {
@@ -253,18 +251,21 @@ Unit.prototype.siftRoute = function(optimalRoutePositions, start, endPos) {
 }
 
 Unit.prototype.findAnOptimalRoute = function(destination) {
-  // debugger;
-  let pathAndSteps = this.viablePathToUnit(
-    this.position,
-    destination);
-
-  let optRPositions = this.optimalRoutePositions(
-    pathAndSteps[0],
-    pathAndSteps[1],
-    this.position,
-    destination);
-
-   return this.siftRoute(optRPositions, this.position, destination);
+  // let pathAndSteps = this.viablePathToUnit(
+  //   this.position,
+  //   destination);
+  //
+  // let optRPositions = this.optimalRoutePositions(
+  //   pathAndSteps[0],
+  //   pathAndSteps[1],
+  //   this.position,
+  //   destination);
+  //
+  //  return this.siftRoute(optRPositions, this.position, destination);
+  this.movementSpace = new MovementSpace(this.board, this.position);
+  this.movementSpace.setupSpace(destination);
+  this.movementSpace.findOptimalRoutePositions();
+  return this.movementSpace.siftRoute();
 }
 
 Unit.prototype.attackPlayerUnitInRange = function() {
@@ -332,7 +333,6 @@ Unit.prototype.possibleAttackSetupSpace = function() {
       }
     }
   }
-  debugger;
 
   if (setupSpaces.length === 0) {
     return this.position;

@@ -33,7 +33,6 @@ EnemyPlayer.prototype.phaseFrameUpdate = function() {
   if (this.unitQueue[0].movingAnimation === undefined || this.unitQueue[0].movingAnimation === null) {
     this.moveSelectedUnit();
   } else if (this.unitQueue[0].movingAnimation && this.unitQueue[0].moving) {
-    // debugger;
   } else if (this.unitQueue[0].moving === false) this.finishUnitTurn();
   if (this.unitQueue.length === 0) this.endPhase();
 
@@ -61,7 +60,6 @@ EnemyPlayer.prototype.endPhase = function() {
 }
 
 EnemyPlayer.prototype.moveSelectedUnit = function() {
-  debugger;
   let unit = this.unitQueue[0];
   unit.moveSelection();
   let siftedRoute = unit.movementSpace.siftRoute();
