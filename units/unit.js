@@ -58,7 +58,7 @@ Unit.prototype.move = function(pos) {
 }
 
 Unit.prototype.validMoveSpaces = function() {
-  return this.movementSpace.validMovePositions;
+  return this.movementSpace.validMovePos();
 }
 
 Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange) {

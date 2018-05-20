@@ -1,5 +1,4 @@
 // play select unit
-
 Player.prototype.playSelectUnit = function(button) {
   if (button === 'A') {
     this.identifyAndSelectUnit();

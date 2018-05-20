@@ -2,26 +2,29 @@ Unit.prototype.moveSelection = function() {
   this.movementSpace = new MovementSpace(this.board, this.position)
    if(this.behavior === 'idle') {
      this.movementSpace.setupSpace(0);
-     this.movementSpace.endPos = this.position;
+     this.movementSpace.moveSpace.endPos = this.position;
+     this.movementSpace.findOptimalRoutePositions();
     } else if(this.behavior === 'TWBS') {
      if (this.possibleAttackSetupSpace() != this.position) {
        let attackSetupPos = this.possibleAttackSetupSpace();
-       this.movementSpace.endPos = attackSetupPos;
+       this.movementSpace.moveSpace.endPos = attackSetupPos;
        this.movementSpace.findOptimalRoutePositions();
      } else {
-       let theEndPos = this.possibleAttackSetupSpace();
-       this.movementSpace.endPos = theEndPos;
+       let theEndPos = this.position;
+       this.movementSpace.moveSpace.endPos = theEndPos;
+       this.movementSpace.findOptimalRoutePositions();
      }
    } else if(this.behavior === 'seekAndDestroy') {
-    let anEndPos =  this.seekAndDestoryPosition();
-    this.movementSpace.endPos = anEndPos;
+     let anEndPos =  this.seekAndDestoryPosition();
+     this.movementSpace.moveSpace.endPos = anEndPos;
+     this.movementSpace.findOptimalRoutePositions();
    }
 }
 
 Unit.prototype.seekAndDestoryPosition = function() {
   if (this.possibleAttackSetupSpace() != this.position) {
     let attackSetupPos = this.possibleAttackSetupSpace();
-    this.movementSpace.endPos = attackSetupPos;
+    this.movementSpace.moveSpace.endPos = attackSetupPos;
     this.movementSpace.findOptimalRoutePositions();
     return attackSetupPos;
   } else {

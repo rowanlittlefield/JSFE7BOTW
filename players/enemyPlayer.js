@@ -69,5 +69,5 @@ EnemyPlayer.prototype.moveSelectedUnit = function() {
   unit.movingAnimation = movementAnimation;
   unit.moving = true;
 
-  unit.move(unit.movementSpace.endPos);
+  unit.move(unit.movementSpace.moveSpace.endPos);
 }

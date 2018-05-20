@@ -257,11 +257,6 @@ new Forest(newBoard, [9, 2]);
   new Village(newBoard, [18, 14]);
 
 //test
-let movementSpace = new MovementSpace(newBoard, [17, 3]);
-  console.log(movementSpace.setupSpace([14, 6]));
-  // console.log(movementSpace.siftRoute());
-  console.log(movementSpace);
-  // console.log(Object.keys(roy.validMoveSpaces()).length);
 
   return newBoard;
 }
