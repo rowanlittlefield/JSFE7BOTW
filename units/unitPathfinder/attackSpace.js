@@ -1,15 +1,15 @@
-function AttackSpace(board, unit, moveThroughPos) {
+function AttackSpace(board, unit, validMovePos) {
   this.board = board;
   this.unit = unit;
-  this.moveThroughSpace = moveThroughPos;
   this.attackRanges = this.unit.inventory.equippedWeapon.stats['range'];
 
   this.attackPos = {};
+  this.setupPossibleAttackSpaces(validMovePos);
 }
 
 //TODO: adjust methods below for new class
 
-MovementSpace.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpaces) {
+AttackSpace.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpaces) {
   let adjSpaces = this.adjacentSpaceList(space);
   let attackableAdjSpaces = [];
 
@@ -24,14 +24,13 @@ MovementSpace.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpa
   return attackableAdjSpaces;
 }
 
-MovementSpace.prototype.setupPossibleAttackSpaces = function() {
-  let range = this.unit.equippedWeapon.stats['range'];
-  let maxRange = Math.max.apply(null, range);
+AttackSpace.prototype.setupPossibleAttackSpaces = function(validMovePos) {
+  let maxRange = Math.max.apply(null, this.attackRanges);
 
   for(let idx = 0; idx < maxRange; idx ++) {
     if(idx === 0) {
 
-      for(let space in this.validMovePositions) {
+      for(let space in this.validMovePos) {
         let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), this.validMovePositions);
         for(let idx2 = 0; idx2 < adjAttackSpaces.length; idx2 ++) {
           this.attackPositions[adjAttackSpaces[idx2]] = true;
@@ -59,7 +58,7 @@ MovementSpace.prototype.setupPossibleAttackSpaces = function() {
   return this.attackSpaces;
 }
 
-MovementSpace.prototype.adjacentSpaceList = function(pos) {
+AttackSpace.prototype.adjacentSpaceList = function(pos) {
   let dimensions = this.board.dimensions;
   let spaces = [];
 
