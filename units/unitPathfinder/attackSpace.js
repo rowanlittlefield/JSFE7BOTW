@@ -1,7 +1,7 @@
 function AttackSpace(board, unit, validMovePos) {
   this.board = board;
   this.unit = unit;
-  this.attackRanges = this.unit.inventory.equippedWeapon.stats['range'];
+  this.attackRanges = this.unit.equippedWeapon.stats['range'];
 
   this.attackPos = {};
   this.setupPossibleAttackSpaces(validMovePos);
@@ -9,14 +9,15 @@ function AttackSpace(board, unit, validMovePos) {
 
 //TODO: adjust methods below for new class
 
-AttackSpace.prototype.adjacentSpacesCanAttackThrough = function(space, moveSpaces) {
+AttackSpace.prototype.adjacentSpacesCanAttackThrough = function(space, validMovePos) {
   let adjSpaces = this.adjacentSpaceList(space);
   let attackableAdjSpaces = [];
 
   for (let i = 0; i < adjSpaces.length; i++) {
     let space = adjSpaces[i];
-    if(this.positions[space] === undefined && (this.board.grid[space[0]][space[1]].unit === null ||
-      this.board.grid[space[0]][space[1]].unit instanceof(PlayerUnit) != this.unit instanceof(PlayerUnit))) {
+    if(validMovePos[space] === undefined &&
+       (this.board.space(space).unit === null ||
+      this.board.space(space).unit instanceof(PlayerUnit) != this.unit instanceof(PlayerUnit))) {
       attackableAdjSpaces.push(space);
     }
   }
@@ -30,19 +31,19 @@ AttackSpace.prototype.setupPossibleAttackSpaces = function(validMovePos) {
   for(let idx = 0; idx < maxRange; idx ++) {
     if(idx === 0) {
 
-      for(let space in this.validMovePos) {
-        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), this.validMovePositions);
+      for(let space in validMovePos) {
+        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), validMovePos);
         for(let idx2 = 0; idx2 < adjAttackSpaces.length; idx2 ++) {
-          this.attackPositions[adjAttackSpaces[idx2]] = true;
+          this.attackPos[adjAttackSpaces[idx2]] = true;
         }
       }
 
     } else {
 
-      for(let space in this.attackPositions) {
-        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), this.validMovePositions);
+      for(let space in this.attackPos) {
+        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), validMovePos);
         for(let idx2 = 0; idx2 < adjAttackSpaces.length; idx2 ++) {
-          this.attackPositions[adjAttackSpaces[idx2]] = true;
+          this.attackPos[adjAttackSpaces[idx2]] = true;
         }
       }
 
@@ -50,12 +51,13 @@ AttackSpace.prototype.setupPossibleAttackSpaces = function(validMovePos) {
 
   }
 
-  for(let space in this.attackPositions) {
-    if(this.unit.isCorrectDistance(space, this.positions, range)) {
-      delete this.attackPositions[space];
+  for(let space in this.attackPos) {
+    if(this.unit.isCorrectDistance(space, validMovePos, this.attackRanges)) {
+      delete this.attackPos[space];
     }
   }
-  return this.attackSpaces;
+  
+  return this.attackPos;
 }
 
 AttackSpace.prototype.adjacentSpaceList = function(pos) {
@@ -71,7 +73,7 @@ AttackSpace.prototype.adjacentSpaceList = function(pos) {
 }
 
 //rendering
-MovementSpace.prototype.render = function(sF) {
+AttackSpace.prototype.render = function(sF) {
   highlightSpaces(this.attackPos, this.board,
     'rgba(255, 0, 0, 0.2)', sF);
 }

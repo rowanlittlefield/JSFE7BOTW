@@ -24,6 +24,9 @@ MovementSpace.prototype.setupSpace = function(numSteps) {
     return this.viablePathToOppUnit(numSteps);
   } else {
     this.moveSpace.setSpaceForSingleTurnMove(numSteps);
+    this.attackSpace = new AttackSpace(
+      this.board, this.unit, this.moveSpace.validMovePos
+    );
   }
 }
 
@@ -58,5 +61,5 @@ MovementSpace.prototype.pickOptPos = function() {
 //rendering
 MovementSpace.prototype.render = function(sF) {
   this.moveSpace.render(sF);
-  // this.attackSpace.render(sF);
+  this.attackSpace.render(sF);
 }
