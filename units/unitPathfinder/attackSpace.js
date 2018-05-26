@@ -8,6 +8,35 @@ function AttackSpace(board, unit, validMovePos) {
 }
 
 //TODO: adjust methods below for new class
+AttackSpace.prototype.setupPossibleAttackSpaces = function(validMovePos) {
+  let maxRange = Math.max.apply(null, this.attackRanges);
+
+  for(let idx = 0; idx < maxRange; idx ++) {
+    if(idx === 0) {
+      this.iterateAttackSpace(validMovePos, validMovePos);
+    } else {
+      this.iterateAttackSpace(validMovePos);
+    }
+  }
+
+  for(let space in this.attackPos) {
+    if(this.unit.isCorrectDistance(space, validMovePos, this.attackRanges)) {
+      delete this.attackPos[space];
+    }
+  }
+
+  return this.attackPos;
+}
+
+AttackSpace.prototype.iterateAttackSpace = function(validMovePos, seedSpace) {
+  seedSpace = (seedSpace ? seedSpace : this.attackPos);
+  for(let space in seedSpace) {
+    let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), validMovePos);
+    for(let idx2 = 0; idx2 < adjAttackSpaces.length; idx2 ++) {
+      this.attackPos[adjAttackSpaces[idx2]] = true;
+    }
+  }
+}
 
 AttackSpace.prototype.adjacentSpacesCanAttackThrough = function(space, validMovePos) {
   let adjSpaces = this.adjacentSpaceList(space);
@@ -23,41 +52,6 @@ AttackSpace.prototype.adjacentSpacesCanAttackThrough = function(space, validMove
   }
 
   return attackableAdjSpaces;
-}
-
-AttackSpace.prototype.setupPossibleAttackSpaces = function(validMovePos) {
-  let maxRange = Math.max.apply(null, this.attackRanges);
-
-  for(let idx = 0; idx < maxRange; idx ++) {
-    if(idx === 0) {
-
-      for(let space in validMovePos) {
-        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), validMovePos);
-        for(let idx2 = 0; idx2 < adjAttackSpaces.length; idx2 ++) {
-          this.attackPos[adjAttackSpaces[idx2]] = true;
-        }
-      }
-
-    } else {
-
-      for(let space in this.attackPos) {
-        let adjAttackSpaces = this.adjacentSpacesCanAttackThrough(stringToPos(space), validMovePos);
-        for(let idx2 = 0; idx2 < adjAttackSpaces.length; idx2 ++) {
-          this.attackPos[adjAttackSpaces[idx2]] = true;
-        }
-      }
-
-    }
-
-  }
-
-  for(let space in this.attackPos) {
-    if(this.unit.isCorrectDistance(space, validMovePos, this.attackRanges)) {
-      delete this.attackPos[space];
-    }
-  }
-  
-  return this.attackPos;
 }
 
 AttackSpace.prototype.adjacentSpaceList = function(pos) {
