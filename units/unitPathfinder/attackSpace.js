@@ -11,7 +11,7 @@ function AttackSpace(board, unit, validMovePos) {
 AttackSpace.prototype.setupPossibleAttackSpaces = function(validMovePos) {
   let maxRange = Math.max.apply(null, this.attackRanges);
 
-  for(let idx = 0; idx < maxRange; idx ++) {
+  for(let idx = 0; idx < maxRange; idx++) {
     if(idx === 0) {
       this.iterateAttackSpace(validMovePos, validMovePos);
     } else {
@@ -25,7 +25,7 @@ AttackSpace.prototype.setupPossibleAttackSpaces = function(validMovePos) {
     }
   }
 
-  return this.attackPos;
+  // return this.attackPos;
 }
 
 AttackSpace.prototype.iterateAttackSpace = function(validMovePos, seedSpace) {
