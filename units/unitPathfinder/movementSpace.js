@@ -62,4 +62,5 @@ MovementSpace.prototype.pickOptPos = function() {
 MovementSpace.prototype.render = function(sF) {
   this.moveSpace.render(sF);
   this.attackSpace.render(sF);
+  // this.routeSpace.render(sF);
 }

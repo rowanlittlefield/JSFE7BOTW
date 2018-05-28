@@ -93,3 +93,9 @@ RouteSpace.prototype.pickOptPos = function() {
 
   }
 }
+
+//rendering
+Route.prototype.render = function(sF) {
+  highlightSpaces(this.optimalRoutePositions, this.board,
+    'rgba(123, 104, 238, 0.4)', sF);
+}
