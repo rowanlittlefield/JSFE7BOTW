@@ -6,8 +6,8 @@ function FrameSource(display) {
 
 FrameSource.prototype.getFrames = function() {
   window.requestAnimationFrame(this.getFrames.bind(this));
-  c.clearRect(0, 0, innerWidth, 17 * 52);
-  this.display.render(52);
+  // c.clearRect(0, 0, innerWidth, 17 * 18);
+  this.display.render();
   if(this.aiPhase && !this.display.combatAnimation) this.aiPhaseFrameUpdate();
 }
 

@@ -13,8 +13,8 @@ function Board(dimensions, sprite){
   this.sprite = sprite;
 }
 
-Board.prototype.render = function(sF) {
-  this.sprite.boardSpriteRender(sF);
+Board.prototype.render = function(sF, x, y, width, height) {
+  this.sprite.boardSpriteRender(sF, x, y, width, height);
 }
 
 Board.prototype.space = function(pos) {

@@ -1,9 +1,15 @@
-function GlobalDisplay(board, cursor, phaseStage) {
+function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.board = board;
   this.cursor = cursor;
   this.phaseStage = phaseStage;
   this.window = new NullWindow();
   this.combatAnimation = null;
+
+  this.sF = sF;
+  this.x = 0*sF;
+  this.y = 0*sF;
+  this.height = 15*sF;
+  this.width = 10*sF;
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
@@ -14,13 +20,20 @@ GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
   this.setupUnitHash();
 }
 
-GlobalDisplay.prototype.render = function(sF) {
-  this.renderBoard(sF);
-  this.renderObjects(sF);
+GlobalDisplay.prototype.render = function() {
+  c.clearRect(
+    this.x * this.sF,
+     this.y * this.sF,
+     this.height,
+     this.width
+   );
+   // debugger;
+  this.renderBoard(this.sF, this.x, this.y, this.height, this.width);
+  this.renderObjects(this.sF);
 }
 
-GlobalDisplay.prototype.renderBoard = function(sF) {
-  this.board.render(sF);
+GlobalDisplay.prototype.renderBoard = function(sF, x, y, height, width) {
+  this.board.render(sF, x, y, height, width);
 }
 
 GlobalDisplay.prototype.setupUnitHash = function(sF) {
