@@ -61,16 +61,21 @@ Sprite.prototype.boardSpriteRender = function(sF, x, y, width, height) {
   //   this.renderHeight * sF / 18
   // );
 // debugger;
+let numHorizSpaces = width / sF;
+let numVerticalSpaces = height / sF
+// debugger;
 this.context.drawImage(
   this.spriteSheet,
-  this.frameIndex + x,
-  0 + y,
-  this.width,
-  this.height,
+  // this.frameIndex + ((x/sF) * this.width),
+  // 0 + ((y/sF) * this.height),
+  0 + (16*x/sF),
+  0 + (16*y/sF),
+  (16)*(numHorizSpaces),
+  (16)*(numVerticalSpaces),
   0,
   0,
-  this.renderWidth * sF / 18,
-  this.renderHeight * sF / 18
+  (sF)*(numHorizSpaces),
+  (sF)*(numVerticalSpaces)
 );
 }
 

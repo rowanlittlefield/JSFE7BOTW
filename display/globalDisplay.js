@@ -7,7 +7,7 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
 
   this.sF = sF;
   this.x = 0*sF;
-  this.y = 0*sF;
+  this.y = 1*sF;
   this.height = 15*sF;
   this.width = 10*sF;
 }
