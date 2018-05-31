@@ -29,7 +29,7 @@ Unit.prototype.render = function(sF, x, y, height, width) {
 
 
   if (this.moving) {
-    this.movingAnimation.render(sF);
+    this.movingAnimation.render(sF, x, y, height, width);
     this.mapSprite.update();
   } else if (this.inTransit) {
     // debugger;
