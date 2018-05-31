@@ -32,7 +32,8 @@ Unit.prototype.render = function(sF, x, y, height, width) {
     this.movingAnimation.render(sF);
     this.mapSprite.update();
   } else if (this.inTransit) {
-    this.forwardWalkSprite.render(this.position[0], this.position[1], sF);
+    // debugger;
+    this.forwardWalkSprite.render(highlightPos[0], highlightPos[1], sF);
     this.mapSprite.update();
   } else {
     // this.mapSprite.render(this.position[0], this.position[1], sF);

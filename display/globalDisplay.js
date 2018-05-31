@@ -60,7 +60,7 @@ GlobalDisplay.prototype.renderUnits = function(sF, x, y, width, height) {
     }
   }
 
-  if(this.cursor.selectedUnit) this.cursor.selectedUnit.render(sF);
+  if(this.cursor.selectedUnit) this.cursor.selectedUnit.render(this.sF, this.x, this.y, this.width, this.height);
 }
 
 GlobalDisplay.prototype.renderWindows = function(sF) {
