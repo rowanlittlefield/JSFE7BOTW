@@ -22,7 +22,12 @@ function Unit(stats, board, inventory, name, mapSprite,
 }
 
 //rendering
-Unit.prototype.render = function(sF) {
+Unit.prototype.render = function(sF, x, y, height, width) {
+  let topX = x/sF;
+  let topY = y/sF;
+  let highlightPos = [this.position[0] - topX, this.position[1] - topY];
+
+
   if (this.moving) {
     this.movingAnimation.render(sF);
     this.mapSprite.update();
@@ -30,7 +35,9 @@ Unit.prototype.render = function(sF) {
     this.forwardWalkSprite.render(this.position[0], this.position[1], sF);
     this.mapSprite.update();
   } else {
-      this.mapSprite.render(this.position[0], this.position[1], sF);
+    // this.mapSprite.render(this.position[0], this.position[1], sF);
+    this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
+
     if(this.actionTaken) {
       c.fillStyle = "rgba(128, 128, 128, 0.2)";
       c.fill();

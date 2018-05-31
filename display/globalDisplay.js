@@ -6,8 +6,8 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.combatAnimation = null;
 
   this.sF = sF;
-  this.x = 0*sF;
-  this.y = 1*sF;
+  this.x = 5*sF;
+  this.y = 0*sF;
   this.height = 15*sF;
   this.width = 10*sF;
 }
@@ -44,19 +44,19 @@ GlobalDisplay.prototype.renderObjects = function(sF) {
   if (this.combatAnimation) {
     this.renderCombatAnimation(sF);
   } else {
-    this.renderUnits(sF);
+    this.renderUnits(this.sF, this.x, this.y, this.width, this.height);
     this.renderWindows(sF);
     if(this.phaseStage.stage === 'player unit moving') this.renderMoveSpaces(sF);
     this.renderCursor(this.sF, this.x, this.y, this.height, this.width);
   }
 }
 
-GlobalDisplay.prototype.renderUnits = function(sF) {
+GlobalDisplay.prototype.renderUnits = function(sF, x, y, width, height) {
 
   for(const unitIndex in this.units) {
     if (this.units[unitIndex].current_hp > 0 && !(this.cursor.selectedUnit &&
       this.cursor.selectedUnit === this.units[unitIndex])) {
-      this.units[unitIndex].render(sF);
+      this.units[unitIndex].render(sF, x, y, width, height);
     }
   }
 
