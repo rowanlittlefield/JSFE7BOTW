@@ -47,7 +47,7 @@ GlobalDisplay.prototype.renderObjects = function(sF) {
     this.renderUnits(sF);
     this.renderWindows(sF);
     if(this.phaseStage.stage === 'player unit moving') this.renderMoveSpaces(sF);
-    this.renderCursor(sF);
+    this.renderCursor(this.sF, this.x, this.y, this.height, this.width);
   }
 }
 
@@ -71,8 +71,8 @@ GlobalDisplay.prototype.renderMoveSpaces = function(sF) {
   this.cursor.selectedUnit.renderMoveSpaces(sF);
 }
 
-GlobalDisplay.prototype.renderCursor = function(sF) {
-  this.cursor.renderBoardCursor(sF, true);
+GlobalDisplay.prototype.renderCursor = function(sF, x, y, width, height) {
+  this.cursor.renderBoardCursor(sF, x, y, width, height);
 }
 
 GlobalDisplay.prototype.renderCombatAnimation = function(sF) {
