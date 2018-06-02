@@ -55,8 +55,8 @@ let numVerticalSpaces = displayWindow.height / sF;
 
 this.context.drawImage(
   this.spriteSheet,
-  0 + (16*display.x/sF),
-  0 + (16*display.y/sF),
+  0 + (16*displayWindow.x/sF),
+  0 + (16*displayWindow.y/sF),
   (16)*(numHorizSpaces),
   (16)*(numVerticalSpaces),
   0,

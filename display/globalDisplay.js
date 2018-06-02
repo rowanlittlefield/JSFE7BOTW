@@ -5,13 +5,7 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.window = new NullWindow();
   this.combatAnimation = null;
 
-  this.sF = sF;
-  this.x = 5*sF;
-  this.y = 0*sF;
-  this.width = 15*sF;
-  this.height = 10*sF;
-
-  this.displayWindow = new DisplayWindow(sF, this.x, this.y, this.width, this.height);
+  this.displayWindow = new DisplayWindow(sF, 5*sF, 0*sF, 15*sF, 10*sF);
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
@@ -24,13 +18,14 @@ GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
 
 GlobalDisplay.prototype.render = function() {
   c.clearRect(
-    this.x,
-    this.y,
-    this.height,
-    this.width
+    this.displayWindow.x,
+    this.displayWindow.y,
+    this.displayWindow.width,
+    this.displayWindow.height
    );
+   // debugger;
   this.renderBoard();
-  this.renderObjects(this.sF);
+  this.renderObjects(this.displayWindow.sF);
 }
 
 GlobalDisplay.prototype.renderBoard = function() {
@@ -69,7 +64,7 @@ GlobalDisplay.prototype.renderWindows = function(sF) {
 }
 
 GlobalDisplay.prototype.renderMoveSpaces = function(sF) {
-  this.cursor.selectedUnit.renderMoveSpaces(this.sF, this.x, this.y, this.width, this.height);
+  this.cursor.selectedUnit.renderMoveSpaces(this.displayWindow.sF, this.displayWindow.x, this.displayWindow.y, this.displayWindow.width, this.displayWindow.height);
 }
 
 GlobalDisplay.prototype.renderCursor = function() {
