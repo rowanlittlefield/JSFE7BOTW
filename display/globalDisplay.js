@@ -10,6 +10,8 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.y = 0*sF;
   this.height = 15*sF;
   this.width = 10*sF;
+
+  this.displayWindow = new DisplayWindow(sF, x, y, height, width);
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
