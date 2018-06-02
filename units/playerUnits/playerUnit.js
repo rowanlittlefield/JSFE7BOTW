@@ -36,8 +36,8 @@ PlayerUnit.prototype.nullifyOptions = function(display ) {
   this.inTransit = false;
 }
 
-PlayerUnit.prototype.renderMoveSpaces = function(sF) {
-  this.movementSpace.render(sF);
+PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
+  this.movementSpace.render(sF, x, y, width, height);
 
   // for(let i = 0; i < this.routeSpaces.length; i++) {
   //   highlight(this.routeSpaces[i], 'rgba(123, 104, 238, 0.4)', sF);

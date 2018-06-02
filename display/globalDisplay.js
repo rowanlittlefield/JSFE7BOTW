@@ -64,11 +64,12 @@ GlobalDisplay.prototype.renderUnits = function(sF, x, y, width, height) {
 }
 
 GlobalDisplay.prototype.renderWindows = function(sF) {
-  this.window.render(sF, this.cursor.windowCursorPos);
+  this.window.render(this.sF, this.x, this.y, this.width, this.height);
 }
 
 GlobalDisplay.prototype.renderMoveSpaces = function(sF) {
-  this.cursor.selectedUnit.renderMoveSpaces(sF);
+  // debugger;
+  this.cursor.selectedUnit.renderMoveSpaces(this.sF, this.x, this.y, this.width, this.height);
 }
 
 GlobalDisplay.prototype.renderCursor = function(sF, x, y, width, height) {

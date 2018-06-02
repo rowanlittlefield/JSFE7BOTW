@@ -1,4 +1,3 @@
-
 function distance(pos1, pos2) {
   let dr = Math.abs(pos1[0] - pos2[0]);
   let dc = Math.abs(pos1[1] - pos2[1]);
@@ -71,6 +70,20 @@ function highlightSpaces(spaces, board, color, sF) {
     let pos = stringToPos(space);
     spaceHighlight(pos, color, sF);
   }
+}
+
+function galileoHighlightSpaces(sF, x, y, width, height, spaces, color) {
+  let topX = x/sF;
+  let topY = y/sF;
+  // debugger;
+
+
+  for(const space in spaces) {
+    let pos = stringToPos(space);
+    let highlightPos = [pos[0] - topX, pos[1] - topY];
+    spaceHighlight(highlightPos, color, sF);
+  }
+
 }
 
 function preScaledHighlight(x, y, dx, dy, color) {

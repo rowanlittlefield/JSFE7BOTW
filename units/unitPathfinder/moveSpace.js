@@ -149,7 +149,9 @@ MoveSpace.prototype.adjacentSpaceList = function(pos) {
 }
 
 //rendering
-MoveSpace.prototype.render = function(sF) {
-  highlightSpaces(this.moveThroughPos, this.board,
-    'rgba(0, 0, 255, 0.3)', sF);
+MoveSpace.prototype.render = function(sF, x, y, width, height) {
+  // highlightSpaces(this.moveThroughPos, this.board,
+  //   'rgba(0, 0, 255, 0.3)', sF);
+
+  galileoHighlightSpaces(sF, x, y, width, height, this.moveThroughPos, 'rgba(0, 0, 255, 0.3)');
 }

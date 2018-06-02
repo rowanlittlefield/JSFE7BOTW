@@ -59,8 +59,8 @@ MovementSpace.prototype.pickOptPos = function() {
 }
 
 //rendering
-MovementSpace.prototype.render = function(sF) {
-  this.moveSpace.render(sF);
-  this.attackSpace.render(sF);
+MovementSpace.prototype.render = function(sF, x, y, width, height) {
+  this.moveSpace.render(sF, x, y, width, height);
+  this.attackSpace.render(sF, x, y, width, height);
   // this.routeSpace.render(sF);
 }

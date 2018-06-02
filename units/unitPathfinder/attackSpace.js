@@ -67,7 +67,10 @@ AttackSpace.prototype.adjacentSpaceList = function(pos) {
 }
 
 //rendering
-AttackSpace.prototype.render = function(sF) {
-  highlightSpaces(this.attackPos, this.board,
-    'rgba(255, 0, 0, 0.2)', sF);
+AttackSpace.prototype.render = function(sF, x, y, width, height) {
+  // highlightSpaces(this.attackPos, this.board,
+  //   'rgba(255, 0, 0, 0.2)', sF);
+
+galileoHighlightSpaces(sF, x, y, width, height, this.attackPos, 'rgba(255, 0, 0, 0.2)');
+
 }
