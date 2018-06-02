@@ -14,8 +14,22 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   this.dodgeAnimation = this.defender.dodgeAnimation;
 
   this.playedHitAnimation = false;
-  let scaledHalfInnerWidth = (innerWidth / 2) / 52
+  // let scaledHalfInnerWidth = (innerWidth / 2) / 52
+  // let enemyWidth = 70 / 52
+  // this.playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
+  // this.enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
+
+  let sF = 45;
+  let x = 5*sF;
+  let y = 0*sF;
+  let height = 15*sF;
+  let width = 10*sF;
+
+
+  let scaledHalfInnerWidth = ((x + width) / 2) / sF
   let enemyWidth = 70 / 52
+  // let enemyWidth = this.defenderCS.currentSprite().renderWidth / 45;
+
   this.playerCoordinates = [scaledHalfInnerWidth + 1.5, 7];
   this.enemyCoordinates = [scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
 }
@@ -46,11 +60,11 @@ Attack.prototype.postAttackDefHP = function() {
 //rendering methods
 Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
   if (this.hitAnimationCondition()) {
-    this.attackerCS.renderCurrentFrame(attackerC[0], 7, 52);
+    this.attackerCS.renderCurrentFrame(attackerC[0], 7, 45);
     this.renderHit();
   } else {
-    this.defenderCS.renderStationaryFrame(defenderC[0], 7, 52);
-    this.attackerCS.renderFromCoordinates(attackerC[0], 7, 52);
+    this.defenderCS.renderStationaryFrame(defenderC[0], 7, 45);
+    this.attackerCS.renderFromCoordinates(attackerC[0], 7, 45);
   }
 }
 
@@ -59,7 +73,7 @@ Attack.prototype.renderHit = function() {
 }
 
 Attack.prototype.renderDodge = function() {
-  this.defender.dodgeAnimation.renderFromCoordinates(this.playerCoordinates[0], 7, 52);
+  this.defender.dodgeAnimation.renderFromCoordinates(this.playerCoordinates[0], 7, 45);
 
   if (this.dodgeAnimationPlayedCondition()) {
     this.playedHitAnimation = true;
@@ -67,7 +81,7 @@ Attack.prototype.renderDodge = function() {
 }
 
 Attack.prototype.renderHitAnimation = function() {
-  this.hitAnimation.render(52);
+  this.hitAnimation.render(45);
   if (this.hitAnimation.tickCount === 0 &&
     this.hitAnimation.frameIndex === 0) {
     this.playedHitAnimation = true;

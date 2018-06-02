@@ -64,7 +64,7 @@ GlobalDisplay.prototype.renderUnits = function(sF, x, y, width, height) {
 }
 
 GlobalDisplay.prototype.renderWindows = function(sF) {
-  this.window.render(this.sF, this.x, this.y, this.width, this.height);
+  this.window.render(sF);
 }
 
 GlobalDisplay.prototype.renderMoveSpaces = function(sF) {

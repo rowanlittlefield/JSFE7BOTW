@@ -11,12 +11,28 @@ function Combat(initiator, recipient) {
   this.playerCS = this.pu.combatAnimation;
   this.playerCS = (check ? this.initiator : this.recipient).combatAnimation
   this.enemyCS = this.eu.combatAnimation;
-  this.enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
-  this.scaledHalfInnerWidth = (innerWidth / 2) / 52;
-  let enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
+  // this.enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
+  // this.scaledHalfInnerWidth = (innerWidth / 2) / 52;
+  // let enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
+  //
+  // this.playerCoordinates = [this.scaledHalfInnerWidth + 1.5, 7];
+  // this.enemyCoordinates = [this.scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
+  let sF = 45;
+
+  this.enemyWidth = this.enemyCS.currentSprite().renderWidth / 45;
+
+  let x = 5*sF;
+  let y = 0*sF;
+  let height = 15*sF;
+  let width = 10*sF;
+
+
+  this.scaledHalfInnerWidth = ((x + width) / 2) / sF;
+  let enemyWidth = this.enemyCS.currentSprite().renderWidth / sF;
 
   this.playerCoordinates = [this.scaledHalfInnerWidth + 1.5, 7];
   this.enemyCoordinates = [this.scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
+
 }
 
 Combat.prototype.playerUnit = function() {
@@ -86,12 +102,12 @@ Combat.prototype.initiateFight = function() {
 //render methods
 
 Combat.prototype.render = function(combatQueueIndex, sF) {
-  let enemyWidth = this.enemyCS.currentSprite().renderWidth / 52;
+  let enemyWidth = this.enemyCS.currentSprite().renderWidth / 45;
   let enemyCoordinates = [this.scaledHalfInnerWidth - 1.5 - enemyWidth, 7];
   this.queue[combatQueueIndex].render(enemyCoordinates, sF);
 }
 
 Combat.prototype.renderAtEase = function(scaledHalfInnerWidth) {
-  this.playerCS.renderStationaryFrame(this.playerCoordinates[0], 7, 52);
-  this.enemyCS.renderStationaryFrame(this.enemyCoordinates[0], 7, 52);
+  this.playerCS.renderStationaryFrame(this.playerCoordinates[0], 7, 45);
+  this.enemyCS.renderStationaryFrame(this.enemyCoordinates[0], 7, 45);
 }

@@ -1,9 +1,17 @@
 function CombatAnimationBackgroundWindow(pu, eu) {
-  this.halfWidth = innerWidth / 2;
+  this.sF = sF;
+  this.x = 5*sF;
+  this.y = 0*sF;
+  this.height = 15*sF;
+  this.width = 10*sF;
+
+  // this.halfWidth = innerWidth / 2;
+  this.halfWidth = (this.x + this.width) / 2;
   this.pu = pu;
   this.eu = eu;
   this.playerHP = pu.current_hp;
   this.enemyHP = eu.current_hp;
+
 }
 
 CombatAnimationBackgroundWindow.prototype = Object.create(PassiveWindow.prototype);
@@ -19,16 +27,17 @@ CombatAnimationBackgroundWindow.prototype.render = function(sF) {
 }
 
 CombatAnimationBackgroundWindow.prototype.renderNameWindows = function() {
-  this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 250, 325);
-  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -250 - 150, -325);
+  let midX = (this.x + this.width)/2;
+  this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 200, 275);
+  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -200 - 150, -275);
 }
 
 CombatAnimationBackgroundWindow.prototype.renderNameWindow = function(color,
   unitName, xDisplacement, nameXCoord) {
   c.fillStyle = color;
-  c.fillRect(this.halfWidth + xDisplacement, 100, 150, 50);
+  c.fillRect(this.halfWidth + xDisplacement, this.y + 20, 150, 50);
   renderTextWithFont("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-    unitName, this.halfWidth + nameXCoord, 130);
+    unitName, this.halfWidth + nameXCoord, this.y + 50);
 }
 
 CombatAnimationBackgroundWindow.prototype.renderStatWindows = function() {
