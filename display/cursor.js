@@ -13,14 +13,13 @@ Cursor.prototype.moveCursorPosition = function(button) {
 }
 
 
-Cursor.prototype.renderBoardCursor = function(sF, x, y, height, width) {
-  let topX = x/sF;
-  let topY = y/sF;
-  // debugger;
+Cursor.prototype.renderBoardCursor = function(displayWindow) {
+  let sF = displayWindow.sF;
+  let topX = displayWindow.x/sF;
+  let topY = displayWindow.y/sF;
   let highlightPos = [this.cursorPos[0] - topX, this.cursorPos[1] - topY];
 
-  // highlight(this.cursorPos, 'rgba(255, 255, 0, 0.5)', sF);
-  highlight(highlightPos, 'rgba(255, 255, 0, 0.5)', sF);
+  highlight(highlightPos, 'rgba(255, 255, 0, 0.5)', displayWindow.sF);
 }
 
 //METHODS THAT ARE HIGHLY LIKELY TO BE NECESSARY BUT WILL HOPEFULLY BE

@@ -21,11 +21,11 @@ MovingAnimation.prototype.calculateRouteDifferentials = function(route) {
   return routeDifferentials;
 }
 
-MovingAnimation.prototype.render = function(sF, x, y, width, height) {
-  let topX = x/sF;
-  let topY = y/sF;
+MovingAnimation.prototype.render = function(displayWindow) {
+  let sF = displayWindow.sF;
+  let topX = displayWindow.x/sF;
+  let topY = displayWindow.y/sF;
   let highlightPos = [this.x - topX, this.y - topY];
-// debugger;
 
   this.selectSprite().render(highlightPos[0], highlightPos[1], sF);
   this.update();

@@ -29,7 +29,6 @@ GlobalDisplay.prototype.render = function() {
     this.height,
     this.width
    );
-   // debugger;
   this.renderBoard();
   this.renderObjects(this.sF);
 }
@@ -46,23 +45,23 @@ GlobalDisplay.prototype.renderObjects = function(sF) {
   if (this.combatAnimation) {
     this.renderCombatAnimation();
   } else {
-    this.renderUnits(this.sF, this.x, this.y, this.width, this.height);
+    this.renderUnits();
     this.renderWindows(sF);
     if(this.phaseStage.stage === 'player unit moving') this.renderMoveSpaces(sF);
-    this.renderCursor(this.sF, this.x, this.y, this.height, this.width);
+    this.renderCursor();
   }
 }
 
-GlobalDisplay.prototype.renderUnits = function(sF, x, y, width, height) {
+GlobalDisplay.prototype.renderUnits = function() {
 
   for(const unitIndex in this.units) {
     if (this.units[unitIndex].current_hp > 0 && !(this.cursor.selectedUnit &&
       this.cursor.selectedUnit === this.units[unitIndex])) {
-      this.units[unitIndex].render(sF, x, y, width, height);
+      this.units[unitIndex].render(this.displayWindow);
     }
   }
 
-  if(this.cursor.selectedUnit) this.cursor.selectedUnit.render(this.sF, this.x, this.y, this.width, this.height);
+  if(this.cursor.selectedUnit) this.cursor.selectedUnit.render(this.displayWindow);
 }
 
 GlobalDisplay.prototype.renderWindows = function(sF) {
@@ -70,12 +69,11 @@ GlobalDisplay.prototype.renderWindows = function(sF) {
 }
 
 GlobalDisplay.prototype.renderMoveSpaces = function(sF) {
-  // debugger;
   this.cursor.selectedUnit.renderMoveSpaces(this.sF, this.x, this.y, this.width, this.height);
 }
 
-GlobalDisplay.prototype.renderCursor = function(sF, x, y, width, height) {
-  this.cursor.renderBoardCursor(sF, x, y, width, height);
+GlobalDisplay.prototype.renderCursor = function() {
+  this.cursor.renderBoardCursor(this.displayWindow);
 }
 
 GlobalDisplay.prototype.renderCombatAnimation = function() {

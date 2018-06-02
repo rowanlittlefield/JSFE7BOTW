@@ -22,21 +22,20 @@ function Unit(stats, board, inventory, name, mapSprite,
 }
 
 //rendering
-Unit.prototype.render = function(sF, x, y, height, width) {
-  let topX = x/sF;
-  let topY = y/sF;
+Unit.prototype.render = function(displayWindow) {
+  let sF = displayWindow.sF;
+  let topX = displayWindow.x/sF;
+  let topY = displayWindow.y/sF;
   let highlightPos = [this.position[0] - topX, this.position[1] - topY];
 
 
   if (this.moving) {
-    this.movingAnimation.render(sF, x, y, height, width);
+    this.movingAnimation.render(displayWindow);
     this.mapSprite.update();
   } else if (this.inTransit) {
-    // debugger;
     this.forwardWalkSprite.render(highlightPos[0], highlightPos[1], sF);
     this.mapSprite.update();
   } else {
-    // this.mapSprite.render(this.position[0], this.position[1], sF);
     this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
 
     if(this.actionTaken) {
