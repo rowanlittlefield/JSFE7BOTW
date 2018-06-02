@@ -108,6 +108,6 @@ Combat.prototype.render = function(combatQueueIndex, sF) {
 }
 
 Combat.prototype.renderAtEase = function(scaledHalfInnerWidth) {
-  this.playerCS.renderStationaryFrame(this.playerCoordinates[0], 7, 45);
-  this.enemyCS.renderStationaryFrame(this.enemyCoordinates[0], 7, 45);
+  this.playerCS.renderStationaryFrame(this.playerCoordinates[0], 6, 45);
+  this.enemyCS.renderStationaryFrame(this.enemyCoordinates[0], 6, 45);
 }

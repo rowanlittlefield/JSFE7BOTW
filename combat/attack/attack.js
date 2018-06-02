@@ -60,11 +60,11 @@ Attack.prototype.postAttackDefHP = function() {
 //rendering methods
 Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
   if (this.hitAnimationCondition()) {
-    this.attackerCS.renderCurrentFrame(attackerC[0], 7, 45);
+    this.attackerCS.renderCurrentFrame(attackerC[0], 6, 45);
     this.renderHit();
   } else {
-    this.defenderCS.renderStationaryFrame(defenderC[0], 7, 45);
-    this.attackerCS.renderFromCoordinates(attackerC[0], 7, 45);
+    this.defenderCS.renderStationaryFrame(defenderC[0], 6, 45);
+    this.attackerCS.renderFromCoordinates(attackerC[0], 6, 45);
   }
 }
 
@@ -73,7 +73,7 @@ Attack.prototype.renderHit = function() {
 }
 
 Attack.prototype.renderDodge = function() {
-  this.defender.dodgeAnimation.renderFromCoordinates(this.playerCoordinates[0], 7, 45);
+  this.defender.dodgeAnimation.renderFromCoordinates(this.playerCoordinates[0], 6, 45);
 
   if (this.dodgeAnimationPlayedCondition()) {
     this.playedHitAnimation = true;
