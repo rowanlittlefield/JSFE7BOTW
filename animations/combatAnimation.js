@@ -10,7 +10,7 @@ function CombatAnimation(combat, phaseStage) {
   );
 }
 
-CombatAnimation.prototype.render = function(sF) {
+CombatAnimation.prototype.render = function() {
   this.renderBackgroundElements();
   if(this.nonCombatFrames === 100) this.renderCombat();
   if ((this.nonCombatFrames < 100) ||

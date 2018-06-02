@@ -48,28 +48,15 @@ Sprite.prototype.renderFromCoordinates = function(cx, cy, cWidth, cHeight) {
   this.update();
 }
 
-Sprite.prototype.boardSpriteRender = function(sF, x, y, width, height) {
-  // this.context.drawImage(
-  //   this.spriteSheet,
-  //   this.frameIndex * this.width,
-  //   0,
-  //   this.width,
-  //   this.height,
-  //   0,
-  //   0,
-  //   this.renderWidth * sF / 18,
-  //   this.renderHeight * sF / 18
-  // );
-// debugger;
-let numHorizSpaces = width / sF;
-let numVerticalSpaces = height / sF
-// debugger;
+Sprite.prototype.boardSpriteRender = function(displayWindow) {
+let sF = displayWindow.sF;
+let numHorizSpaces = displayWindow.width / sF;
+let numVerticalSpaces = displayWindow.height / sF;
+
 this.context.drawImage(
   this.spriteSheet,
-  // this.frameIndex + ((x/sF) * this.width),
-  // 0 + ((y/sF) * this.height),
-  0 + (16*x/sF),
-  0 + (16*y/sF),
+  0 + (16*display.x/sF),
+  0 + (16*display.y/sF),
   (16)*(numHorizSpaces),
   (16)*(numVerticalSpaces),
   0,

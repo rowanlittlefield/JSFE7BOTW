@@ -1,9 +1,9 @@
-function DisplayWindow(sF, x, y, height, width) {
+function DisplayWindow(sF, x, y, width, height) {
   this.sF = sF;
-  this.x = 5*sF;
-  this.y = 0*sF;
-  this.height = 15*sF;
-  this.width = 10*sF;
+  this.x = x;
+  this.y = y;
+  this.width = width;
+  this.height = height;
 }
 
 DisplayWindow.prototype.moveWindow = function(dx, dy) {

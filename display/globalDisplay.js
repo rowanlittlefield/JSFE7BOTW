@@ -8,10 +8,10 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.sF = sF;
   this.x = 5*sF;
   this.y = 0*sF;
-  this.height = 15*sF;
-  this.width = 10*sF;
+  this.width = 15*sF;
+  this.height = 10*sF;
 
-  this.displayWindow = new DisplayWindow(sF, x, y, height, width);
+  this.displayWindow = new DisplayWindow(sF, this.x, this.y, this.width, this.height);
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
@@ -24,18 +24,18 @@ GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
 
 GlobalDisplay.prototype.render = function() {
   c.clearRect(
-    this.x * this.sF,
-     this.y * this.sF,
-     this.height,
-     this.width
+    this.x,
+    this.y,
+    this.height,
+    this.width
    );
    // debugger;
-  this.renderBoard(this.sF, this.x, this.y, this.height, this.width);
+  this.renderBoard();
   this.renderObjects(this.sF);
 }
 
-GlobalDisplay.prototype.renderBoard = function(sF, x, y, height, width) {
-  this.board.render(sF, x, y, height, width);
+GlobalDisplay.prototype.renderBoard = function() {
+  this.board.render(this.displayWindow);
 }
 
 GlobalDisplay.prototype.setupUnitHash = function(sF) {
@@ -44,7 +44,7 @@ GlobalDisplay.prototype.setupUnitHash = function(sF) {
 
 GlobalDisplay.prototype.renderObjects = function(sF) {
   if (this.combatAnimation) {
-    this.renderCombatAnimation(sF);
+    this.renderCombatAnimation();
   } else {
     this.renderUnits(this.sF, this.x, this.y, this.width, this.height);
     this.renderWindows(sF);
@@ -78,8 +78,8 @@ GlobalDisplay.prototype.renderCursor = function(sF, x, y, width, height) {
   this.cursor.renderBoardCursor(sF, x, y, width, height);
 }
 
-GlobalDisplay.prototype.renderCombatAnimation = function(sF) {
-  this.combatAnimation.render(sF);
+GlobalDisplay.prototype.renderCombatAnimation = function() {
+  this.combatAnimation.render();
   if (this.combatAnimation.nonCombatFrames >= 150) {
     this.combatAnimation = null;
   }
