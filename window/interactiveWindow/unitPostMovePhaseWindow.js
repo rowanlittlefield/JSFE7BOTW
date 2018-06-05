@@ -13,16 +13,25 @@ UnitPostMovePhaseWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, d
   return [(rx + hd) * sF, ry * sF, dx * sF, dy * sF];
 }
 
-UnitPostMovePhaseWindow.prototype.render = function(sF, windowCursorPos) {
-  preScaledHighlight(this.x, this.y, this.dx, this.dy, this.color);
+UnitPostMovePhaseWindow.prototype.render = function(displayWindow) {
+  debugger;
+  // const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (displayWindow.width/8) : (displayWindow.width *(7/8));
+  const x = (displayWindow.width * 0.4);
+  const sF = displayWindow.sF;
+  let topX = (x) - displayWindow.x;
+  // let topY = ((this.unit.position[1] + 1.5) * sF) - displayWindow.y;
+  let topY = ((displayWindow.height/4)) - displayWindow.y;
+
+
+  preScaledHighlight(topX, topY, this.dx, this.dy, this.color);
 
   for(let i = 0; i < this.options.length; i++) {
     renderTextWithFont("20px Arial", 'left', 'rgba(255, 255, 225, 1)',
-    `${this.options[i]}`, this.x, this.y + ((1 + i) * sF * 0.5));
+    `${this.options[i]}`, topX, topY + ((1 + i) * sF * 0.5));
 
     if (this.cursorPos === i) {
       c.fillStyle = "rgba(255, 223, 0, 0.5)";
-      c.fillRect(this.x, this.y + ((0.1) + (i * 0.5)) * sF , this.dx, sF * 0.5);
+      c.fillRect(topX, topY + ((0.1) + (i * 0.5)) * sF , this.dx, sF * 0.5);
     }
   }
 }

@@ -23,7 +23,6 @@ GlobalDisplay.prototype.render = function() {
     this.displayWindow.width,
     this.displayWindow.height
    );
-   // debugger;
   this.renderBoard();
   this.renderObjects(this.displayWindow.sF);
 }
@@ -60,7 +59,11 @@ GlobalDisplay.prototype.renderUnits = function() {
 }
 
 GlobalDisplay.prototype.renderWindows = function(sF) {
-  this.window.render(sF);
+  if (this.window instanceof UnitPostMovePhaseWindow) {
+    this.window.render(this.displayWindow)
+  } else {
+    this.window.render(sF);
+  }
 }
 
 GlobalDisplay.prototype.renderMoveSpaces = function(sF) {
