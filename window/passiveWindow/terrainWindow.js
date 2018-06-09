@@ -13,11 +13,10 @@ TerrainWindow.prototype.constructor = TerrainWindow;
 
 TerrainWindow.prototype.render = function(displayWindow) {
   const sF = displayWindow.sF;
-  const eastX = (displayWindow.x + (displayWindow.width / 2) -  sF * 7);
-  const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 7) - this.dx);
-  const x = displayWindow.eastOrWest(this.position) === 'east' ? (westX) : (eastX);
-  let topX = (x) - displayWindow.x;
-  let topY = (displayWindow.y + (displayWindow.height / 2) + (sF * 3));
+  const eastX = ((displayWindow.width / 2) -  sF * 7);
+  const westX = ((displayWindow.width / 2) +  (sF * 7) - this.dx);
+  const topX = displayWindow.eastOrWest(this.position) === 'east' ? (westX) : (eastX);
+  const topY = (displayWindow.height / 2) + (sF * 3);
 
 
   preScaledHighlight(topX, topY, this.dx, this.dy, this.color);

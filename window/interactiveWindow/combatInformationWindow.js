@@ -21,54 +21,63 @@ CombatInformationWindow.prototype.updateCoordinates = function(windowCursorPos) 
   this.centerX = this.x + (this.dx / 2);
 }
 
-CombatInformationWindow.prototype.render = function(sF, windowCursorPos) {
+CombatInformationWindow.prototype.render = function(displayWindow) {
+  const sF = displayWindow.sF;
   let pos = this.options[this.cursorPos];
+  const eastX = (displayWindow.x + (displayWindow.width / 2) -  sF * 7.22);
+  const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 7.22) - this.dx);
+  const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (westX) : (eastX);
+  let topX = (x) - displayWindow.x;
+  // let topY = (displayWindow.y + (displayWindow.height / 2) - (sF * 5.5));
+  let topY = (displayWindow.height / 2) - (sF * 4.75);
+  const centerX = topX + (this.dx/2);
+
   let opponent = this.unit.board.grid[pos[0]][pos[1]].unit;
 
   c.fillStyle = "rgba(0, 255, 255, 1)";
-  c.fillRect(this.x, this.y, this.dx, 35);
-  c.fillRect(this.x, this.y + 35, 50, 65);
+  c.fillRect(topX, topY, this.dx, 35);
+  c.fillRect(topX, topY + 35, 50, 65);
 
   c.fillStyle = "rgba(204, 204, 0, 1)";
-  c.fillRect(this.x + 50, this.y + 35, 50, 65);
+  c.fillRect(topX + 50, topY + 35, 50, 65);
 
   c.fillStyle = "rgba(255, 0, 0, 1)";
-  c.fillRect(this.x + 100, this.y + 35, 50, 65);
-  c.fillRect(this.x, this.y + 100, this.dx, 35);
+  c.fillRect(topX + 100, topY + 35, 50, 65);
+  c.fillRect(topX, topY + 100, this.dx, 35);
 
-  renderText(this.unit.name, 'center', this.centerX, this.y + 15);
-  renderText(this.unit.equippedWeapon.stats['name'], 'center', this.centerX, this.y + 30);
-  this.renderStatRow(this.unit.current_hp, opponent.current_hp, 'HP', this.centerX, this.y + 50, this.dx);
+  renderText(this.unit.name, 'center', centerX, topY + 15);
+  renderText(this.unit.equippedWeapon.stats['name'], 'center', centerX, topY + 30);
+  this.renderStatRow(this.unit.current_hp, opponent.current_hp, 'HP', centerX, topY + 50, this.dx);
 
   if (opponent.equippedWeapon.stats['range'].includes(distance(opponent.position, this.unit.position))) {
     this.renderStatRow(this.unit.damage(opponent),
-    opponent.damage(this.unit), 'MT', this.centerX, this.y + 65, this.dx);
+    opponent.damage(this.unit), 'MT', centerX, topY + 65, this.dx);
     this.renderStatRow(this.unit.accuracy(opponent),
-    opponent.accuracy(this.unit), 'HT', this.centerX, this.y + 80, this.dx);
+    opponent.accuracy(this.unit), 'HT', centerX, topY + 80, this.dx);
     this.renderStatRow(this.unit.criticalChance(opponent),
-    opponent.criticalChance(this.unit), 'CT', this.centerX, this.y + 95, this.dx);
+    opponent.criticalChance(this.unit), 'CT', centerX, topY + 95, this.dx);
 
   } else {
     this.renderStatRow(this.unit.damage(opponent),
-    '--', 'MT', this.centerX, this.y + 65, this.dx);
+    '--', 'MT', centerX, topY + 65, this.dx);
     this.renderStatRow(this.unit.accuracy(opponent),
-    '--', 'HT', this.centerX, this.y + 80, this.dx);
+    '--', 'HT', centerX, topY + 80, this.dx);
     this.renderStatRow(this.unit.criticalChance(opponent),
-    '--', 'CT', this.centerX, this.y + 95, this.dx);
-    renderText(opponent.equippedWeapon.stats['name'], 'center', this.centerX, this.y + 115);
-    renderText(opponent.name, 'center', this.centerX, this.y + 130);
+    '--', 'CT', centerX, topY + 95, this.dx);
+    renderText(opponent.equippedWeapon.stats['name'], 'center', centerX, topY + 115);
+    renderText(opponent.name, 'center', centerX, topY + 130);
   }
-  renderText(opponent.equippedWeapon.stats['name'], 'center', this.centerX, this.y + 115);
-  renderText(opponent.name, 'center', this.centerX, this.y + 130);
+  renderText(opponent.equippedWeapon.stats['name'], 'center', centerX, topY + 115);
+  renderText(opponent.name, 'center', centerX, topY + 130);
 
   if (this.unit.isRepeatedAttack(opponent)) {
-    renderText('x2', 'right', this.x + this.dx, this.y + 30);
+    renderText('x2', 'right', topX + this.dx, topY + 30);
   }
   if (opponent.isRepeatedAttack(this.unit)) {
-    renderText('x2', 'right', this.x + this.dx, this.y + 115);
+    renderText('x2', 'right', topX + this.dx, topY + 115);
   }
-
-  highlight(opponent.position, 'rgba(255, 0, 255, 0.2)', sF); //blue
+  const oppPosGalileo = [opponent.position[0] - displayWindow.x/sF, opponent.position[1] - displayWindow.y/sF]
+  highlight(oppPosGalileo, 'rgba(255, 0, 255, 0.2)', sF); //blue
 }
 
 CombatInformationWindow.prototype.renderStatRow = function(unitStat, oppStat, statName, centerX, y, width) {

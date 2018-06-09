@@ -15,7 +15,7 @@ UnitMapWindow.prototype.render = function(displayWindow) {
   const northY = (displayWindow.y + (displayWindow.height / 2) -  sF * 4.75);
   const southY = (displayWindow.y + (displayWindow.height / 2) +  (sF * 4.75) - this.dy);
   const y = (displayWindow.northOrSouth(this.unit.position) === 'north' && displayWindow.eastOrWest(this.unit.position) === 'east') ? (southY) : (northY);
-  let topX = displayWindow.x + (displayWindow.width / 2) -  (sF * 11);
+  let topX = (displayWindow.width / 2) -  (sF * 7.25);
   let topY = (y) - displayWindow.y;
 
   preScaledHighlight(topX, topY, this.dx, this.dy, this.color);
