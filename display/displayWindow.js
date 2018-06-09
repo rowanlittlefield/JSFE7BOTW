@@ -20,3 +20,13 @@ DisplayWindow.prototype.eastOrWest = function(position) {
     return 'west';
   }
 }
+
+DisplayWindow.prototype.northOrSouth = function(position) {
+  const relYCoord = (position[1]*this.sF);// - this.x;
+
+  if (relYCoord < (this.y + (this.height / 2)) ) {
+    return 'north';
+  } else {
+    return 'south';
+  }
+}

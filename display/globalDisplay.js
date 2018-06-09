@@ -5,7 +5,7 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.window = new NullWindow();
   this.combatAnimation = null;
 
-  this.displayWindow = new DisplayWindow(sF, 5*sF, 0*sF, 15*sF, 10*sF);
+  this.displayWindow = new DisplayWindow(sF, 4*sF, 0*sF, 15*sF, 10*sF);
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
@@ -59,7 +59,8 @@ GlobalDisplay.prototype.renderUnits = function() {
 }
 
 GlobalDisplay.prototype.renderWindows = function(sF) {
-  if (this.window instanceof UnitPostMovePhaseWindow) {
+  if (this.window instanceof UnitPostMovePhaseWindow ||
+    this.window instanceof UnitMapWindow) {
     this.window.render(this.displayWindow)
   } else {
     this.window.render(sF);
