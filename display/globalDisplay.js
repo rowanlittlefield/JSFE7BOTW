@@ -60,7 +60,8 @@ GlobalDisplay.prototype.renderUnits = function() {
 
 GlobalDisplay.prototype.renderWindows = function(sF) {
   if (this.window instanceof UnitPostMovePhaseWindow ||
-    this.window instanceof UnitMapWindow) {
+    this.window instanceof UnitMapWindow ||
+    this.window instanceof TerrainWindow) {
     this.window.render(this.displayWindow)
   } else {
     this.window.render(sF);

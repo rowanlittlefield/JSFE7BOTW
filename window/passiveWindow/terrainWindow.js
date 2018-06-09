@@ -1,7 +1,8 @@
 function TerrainWindow(space) {
   let terrain = space.terrain;
-  PassiveWindow.call(this, space.position[0], space.position[1], 2, 2, 2, 2);
+  PassiveWindow.call(this, space.position[0], space.position[1], 2, 2, 2, 1.4);
   this.name = terrain.terrainName();
+  this.position = space.position;
   this.defenseBonus = terrain.defenseBonus();
   this.avoidBonus = terrain.avoidBonus();
   this.color = "rgba(0, 255, 255, 0.7)";
@@ -10,16 +11,24 @@ function TerrainWindow(space) {
 TerrainWindow.prototype = Object.create(PassiveWindow.prototype);
 TerrainWindow.prototype.constructor = TerrainWindow;
 
-TerrainWindow.prototype.render = function(sF) {
-  preScaledHighlight(this.x, this.y, this.dx, this.dy, this.color);
+TerrainWindow.prototype.render = function(displayWindow) {
+  const sF = displayWindow.sF;
+  const eastX = (displayWindow.x + (displayWindow.width / 2) -  sF * 7);
+  const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 7) - this.dx);
+  const x = displayWindow.eastOrWest(this.position) === 'east' ? (westX) : (eastX);
+  let topX = (x) - displayWindow.x;
+  let topY = (displayWindow.y + (displayWindow.height / 2) + (sF * 3));
+
+
+  preScaledHighlight(topX, topY, this.dx, this.dy, this.color);
   renderTextWithFont("20px Arial", 'center', 'rgba(255, 255, 225, 1)',
-  this.name, this.x + (this.dx / 2), this.y + (0.5 * sF));
+  this.name, topX + (this.dx / 2), topY + (0.5 * sF));
   renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 225, 1)',
-  'DEF', this.x, this.y + (1 * sF));
+  'DEF', topX, topY + (1 * sF));
   renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 225, 1)',
-  this.defenseBonus, this.x + (this.dx), this.y + (1 * sF));
+  this.defenseBonus, topX + (this.dx), topY + (1 * sF));
   renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 225, 1)',
-  'AVO', this.x, this.y + (1.5 * sF));
+  'AVO', topX, topY + (1.5 * sF));
   renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 225, 1)',
-  this.avoidBonus, this.x + (this.dx), this.y + (1.5 * sF));
+  this.avoidBonus, topX + (this.dx), topY + (1.5 * sF));
 }
