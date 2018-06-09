@@ -18,9 +18,6 @@ UnitMapWindow.prototype.render = function(displayWindow) {
   let topX = displayWindow.x + (displayWindow.width / 2) -  (sF * 11);
   let topY = (y) - displayWindow.y;
 
-
-
-  // preScaledHighlight(this.x, this.y, this.dx, this.dy, this.color);
   preScaledHighlight(topX, topY, this.dx, this.dy, this.color);
 
   this.unit.hpWindowSprite.renderFromCoordinates(
