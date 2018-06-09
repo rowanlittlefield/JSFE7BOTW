@@ -14,12 +14,11 @@ UnitPostMovePhaseWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, d
 }
 
 UnitPostMovePhaseWindow.prototype.render = function(displayWindow) {
-  debugger;
-  // const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (displayWindow.width/8) : (displayWindow.width *(7/8));
-  const x = (displayWindow.width * 0.4);
   const sF = displayWindow.sF;
+  const eastX = (displayWindow.x + (displayWindow.width / 2) -  sF * 6.5);
+  const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 6.5) - this.dx);
+  const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (westX) : (eastX);
   let topX = (x) - displayWindow.x;
-  // let topY = ((this.unit.position[1] + 1.5) * sF) - displayWindow.y;
   let topY = ((displayWindow.height/4)) - displayWindow.y;
 
 
