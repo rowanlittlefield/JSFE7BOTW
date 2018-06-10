@@ -19,7 +19,8 @@ UnitPostMovePhaseWindow.prototype.render = function(displayWindow) {
   const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 6.5) - this.dx);
   const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (westX) : (eastX);
   let topX = (x) - displayWindow.x;
-  let topY = ((displayWindow.height/4)) - displayWindow.y;
+  // let topY = ((displayWindow.height/4)) - displayWindow.y;
+  let topY = ((displayWindow.height/4));
 
 
   preScaledHighlight(topX, topY, this.dx, this.dy, this.color);
