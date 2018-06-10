@@ -25,6 +25,7 @@ GlobalDisplay.prototype.render = function() {
    );
   this.renderBoard();
   this.renderObjects(this.displayWindow.sF);
+  this.displayWindow.updatePosition();
 }
 
 GlobalDisplay.prototype.renderBoard = function() {

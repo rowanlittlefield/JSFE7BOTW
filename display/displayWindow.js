@@ -4,6 +4,7 @@ function DisplayWindow(sF, x, y, width, height) {
   this.y = y;
   this.width = width;
   this.height = height;
+  this.movementDirection = null;
 }
 
 DisplayWindow.prototype.moveWindow = function(dx, dy) {
@@ -28,5 +29,22 @@ DisplayWindow.prototype.northOrSouth = function(position) {
     return 'north';
   } else {
     return 'south';
+  }
+}
+
+DisplayWindow.prototype.updatePosition = function() {
+  if (this.movementDirection) {
+    if (this.movementDirection == 'left') {
+      this.x -= (0.5*this.sF);
+    } else if (this.movementDirection == 'right') {
+      this.x += (0.5*this.sF);
+    } else if (this.movementDirection == 'up') {
+      this.y -= (0.5*this.sF);
+    } else if (this.movementDirection == 'down') {
+      this.y += (0.5*this.sF);
+    }
+    // if (this.x % 1 === 0 && this.y % 1 === 0) {
+      this.movementDirection = null;
+    // }
   }
 }

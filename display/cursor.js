@@ -66,15 +66,20 @@ Cursor.prototype.updateDisplayWindowScreen = function(button) {
   if (button == 'left' && this.cursorPos[0] < (this.displayWindow.x/sF) + 4 &&
   this.displayWindow.x > 0) {
     // debugger;
-    this.displayWindow.x -= sF;
+    this.displayWindow.x -= 0.5*sF;
+    this.displayWindow.movementDirection = 'left';
   } else if (button == 'right' && this.cursorPos[0] > ((this.displayWindow.x/sF) + (this.displayWindow.width/sF)) - 4 &&
   ((this.displayWindow.x/sF) + (this.displayWindow.width/sF)) < this.board.dimensions[0]) {
-    this.displayWindow.x += sF;
+    this.displayWindow.x += 0.5*sF;
+    this.displayWindow.movementDirection = 'right';
   } else if (button == 'up' && this.cursorPos[1] < (this.displayWindow.y/sF) + 4 &&
   this.displayWindow.y > 0) {
-    this.displayWindow.y -= sF;
+    this.displayWindow.y -= 0.5*sF;
+    this.displayWindow.movementDirection = 'up';
   } else if (button == 'down' && this.cursorPos[1] > ((this.displayWindow.y/sF) + (this.displayWindow.height/sF)) - 4 &&
   ((this.displayWindow.y/sF) + (this.displayWindow.height/sF)) < this.board.dimensions[1]) {
-    this.displayWindow.y += sF;
+    this.displayWindow.y += 0.5*sF;
+    this.displayWindow.movementDirection = 'down';
+
   }
 }
