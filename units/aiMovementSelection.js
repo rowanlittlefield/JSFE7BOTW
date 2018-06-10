@@ -185,6 +185,9 @@ Unit.prototype.postMoveWindowOptions = function() {
   if (this.isOppInRange().length > 0) {
     options.push('Fight');
   }
+  if (this.board.space(this.position).terrain instanceof Gate) {
+    options.push('Seize')
+  }
   options.push('Wait');
 
   return options;

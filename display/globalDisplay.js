@@ -5,7 +5,7 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.phaseStage = phaseStage;
   this.window = new NullWindow();
   this.combatAnimation = null;
-
+  this.gameIsFinished = false;
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
@@ -23,9 +23,9 @@ GlobalDisplay.prototype.render = function() {
     this.displayWindow.width,
     this.displayWindow.height
    );
-  this.renderBoard();
-  this.renderObjects(this.displayWindow.sF);
-  this.displayWindow.updatePosition();
+    this.renderBoard();
+    this.renderObjects(this.displayWindow.sF);
+    this.displayWindow.updatePosition();
 }
 
 GlobalDisplay.prototype.renderBoard = function() {
@@ -63,7 +63,8 @@ GlobalDisplay.prototype.renderWindows = function(sF) {
   if (this.window instanceof UnitPostMovePhaseWindow ||
     this.window instanceof UnitMapWindow ||
     this.window instanceof TerrainWindow ||
-    this.window instanceof CombatInformationWindow) {
+    this.window instanceof CombatInformationWindow ||
+    this.window instanceof GameFinishedWindow) {
     this.window.render(this.displayWindow)
   } else {
     this.window.render(sF);
