@@ -1,15 +1,26 @@
-function Cursor(board) {
+function Cursor(board, displayWindow) {
   this.board = board;
+  this.displayWindow = displayWindow
   this.cursorPos = [18, 3];
   this.selectedUnit = null;
 }
 //NECESSARY METHODS
 
 Cursor.prototype.moveCursorPosition = function(button) {
-  this.manipulateCursor(button, "left", this.cursorPos[0] > 0, 0, -1);
-  this.manipulateCursor(button, "right", this.cursorPos[0] < this.board.dimensions[0] - 1, 0, 1);
-  this.manipulateCursor(button, "up", this.cursorPos[1] > 0, 1, -1);
-  this.manipulateCursor(button, "down", this.cursorPos[1] < this.board.dimensions[1] - 1, 1, 1);
+  this.manipulateCursor(
+    button, "left", this.cursorPos[0] > 0, 0, -1
+  );
+  this.manipulateCursor(
+    button, "right", this.cursorPos[0] < this.board.dimensions[0] - 1, 0, 1
+  );
+  this.manipulateCursor(
+    button, "up", this.cursorPos[1] > 0, 1, -1
+  );
+  this.manipulateCursor(
+    button, "down", this.cursorPos[1] < this.board.dimensions[1] - 1, 1, 1
+  );
+
+  this.updateDisplayWindowScreen(button);
 }
 
 
@@ -47,5 +58,23 @@ Cursor.prototype.manipulateCursor = function(button, direction, constraint, inde
   if (button == direction && constraint) {
     this.prevPos = [this.cursorPos[0], this.cursorPos[1]];
     this.cursorPos[index] = this.cursorPos[index] + alteration;
+  }
+}
+
+Cursor.prototype.updateDisplayWindowScreen = function(button) {
+  const sF = this.displayWindow.sF
+  if (button == 'left' && this.cursorPos[0] < (this.displayWindow.x/sF) + 4 &&
+  this.displayWindow.x > 0) {
+    // debugger;
+    this.displayWindow.x -= sF;
+  } else if (button == 'right' && this.cursorPos[0] > ((this.displayWindow.x/sF) + (this.displayWindow.width/sF)) - 4 &&
+  ((this.displayWindow.x/sF) + (this.displayWindow.width/sF)) < this.board.dimensions[0]) {
+    this.displayWindow.x += sF;
+  } else if (button == 'up' && this.cursorPos[1] < (this.displayWindow.y/sF) + 4 &&
+  this.displayWindow.y > 0) {
+    this.displayWindow.y -= sF;
+  } else if (button == 'down' && this.cursorPos[1] > ((this.displayWindow.y/sF) + (this.displayWindow.height/sF)) - 4 &&
+  ((this.displayWindow.y/sF) + (this.displayWindow.height/sF)) < this.board.dimensions[1]) {
+    this.displayWindow.y += sF;
   }
 }

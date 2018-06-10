@@ -17,7 +17,9 @@ function Chapter(board, display, frameSource, objective, sF) {
 }
 
 Chapter.prototype.play = function(display) {
-  display.chapterSetup(this.board, new Cursor(this.board), this.phaseStage);
+  let cursor = new Cursor(this.board, display.displayWindow)
+  // display.chapterSetup(this.board, new Cursor(this.board), this.phaseStage);
+  display.chapterSetup(this.board, cursor, this.phaseStage);
   this.player.cursor = this.display.cursor;
 
 }

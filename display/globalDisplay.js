@@ -1,11 +1,11 @@
 function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.board = board;
+  this.displayWindow = new DisplayWindow(sF, 5*sF, 1*sF, 15*sF, 10*sF);
   this.cursor = cursor;
   this.phaseStage = phaseStage;
   this.window = new NullWindow();
   this.combatAnimation = null;
 
-  this.displayWindow = new DisplayWindow(sF, 5*sF, 1*sF, 15*sF, 10*sF);
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
