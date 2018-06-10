@@ -8,9 +8,9 @@
         border: 1px solid black;
         padding-left: 0;
         padding-right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
+        /* margin-left: 100px;
+        margin-right: 100px; */
+        /* display: block; */
       }
 
       body {
@@ -22,14 +22,37 @@
       .above-canvas {
         height: 50px;
       }
+
+      .middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin: auto; */
+        /* position: absolute;
+        left: 470px;
+        z-index: 1;
+        top: 350px; */
+      }
+      .gameboy {
+        /* margin: auto; */
+        /* z-index: 0;
+        position: relative; */
+      }
+
     </style>
   </head>
   <body>
     <div class="above-canvas">
-
     </div>
-    <canvas>
-    </canvas>
+    <div class="middle">
+      <img src="HTMLAssets/dpad.jpg" width='225' height='225'>
+      <canvas>
+      </canvas>
+      <img src="HTMLAssets/a_b_buttons.jpg">
+    </div>
+    <!-- 1024*768 -->
+    <!-- <img src="HTMLAssets/gameboy_atrist_rendering.png" width="1610" height="1250" class="gameboy"> -->
+
     <script src="miscellaneousFunctions/MiscellaneousFunctions.js"></script>
     <script src="createContext.js"></script>
 
