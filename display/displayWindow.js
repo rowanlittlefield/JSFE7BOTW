@@ -43,8 +43,7 @@ DisplayWindow.prototype.updatePosition = function() {
     } else if (this.movementDirection == 'down') {
       this.y += (0.5*this.sF);
     }
-    // if (this.x % 1 === 0 && this.y % 1 === 0) {
-      this.movementDirection = null;
-    // }
+
+    this.movementDirection = null;
   }
 }

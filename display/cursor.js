@@ -65,7 +65,6 @@ Cursor.prototype.updateDisplayWindowScreen = function(button) {
   const sF = this.displayWindow.sF
   if (button == 'left' && this.cursorPos[0] < (this.displayWindow.x/sF) + 4 &&
   this.displayWindow.x > 0) {
-    // debugger;
     this.displayWindow.x -= 0.5*sF;
     this.displayWindow.movementDirection = 'left';
   } else if (button == 'right' && this.cursorPos[0] > ((this.displayWindow.x/sF) + (this.displayWindow.width/sF)) - 4 &&
