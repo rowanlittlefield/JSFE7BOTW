@@ -4,7 +4,7 @@ function SingleMovePathFinder(board, unit) {
   this.isPlayerUnit = unit instanceof PlayerUnit;
 
   this.moveThroughPositions = new MoveThroughPositions(board, this.isPlayerUnit, unit);
-  // this.validMovePositions = new validMovePositions();
+  this.validMovePositions = new validMovePositions(board, unit);
   // this.routePositions = new RoutePositions();
   // this.attackPositions = new AttackPositions();
 }
