@@ -261,6 +261,7 @@ new Forest(newBoard, [9, 2]);
 
 //test
   const pathFinder = new SingleMovePathFinder(newBoard, lyn);
-  console.log(pathFinder.moveThroughPositions.findPositions());
+  let moveThroughPositionsHash = pathFinder.moveThroughPositions.findPositions();
+  console.log(pathFinder.validMovePositions.findPositions(moveThroughPositionsHash));
   return newBoard;
 }

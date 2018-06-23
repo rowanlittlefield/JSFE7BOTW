@@ -4,15 +4,19 @@ function SingleMovePathFinder(board, unit) {
   this.isPlayerUnit = unit instanceof PlayerUnit;
 
   this.moveThroughPositions = new MoveThroughPositions(board, this.isPlayerUnit, unit);
-  this.validMovePositions = new validMovePositions(board, unit);
-  // this.attackPositions = new AttackPositions();
+  this.validMovePositions = new ValidMovePositions(board, unit);
+  this.attackPositions = new AttackPositions(board, unit);
   // this.routePositions = new RoutePositions();
 }
 
 SingleMovePathFinder.prototype.clearAndUpdate = function() {
-  
+
 }
 
 SingleMovePathFinder.prototype.clear = function() {
 
+}
+
+SingleMovePathFinder.prototype.setupSingleMovePositionSets = function() {
+  
 }

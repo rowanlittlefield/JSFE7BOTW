@@ -1,10 +1,10 @@
 function ValidMovePositions(board, unit) {
   this.board = board;
-  this.unitPosition = unitPosition;
+  this.unitPosition = unit.position;
   this.positions = {};
 }
 
-validMovePositions.prototype.clearAndUpdate = function(unitPosition) {
+ValidMovePositions.prototype.clearAndUpdate = function(unitPosition) {
   this.clear();
   this.unitPosition = unitPosition;
 }
