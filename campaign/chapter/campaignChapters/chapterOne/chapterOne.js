@@ -15,8 +15,8 @@ ChapterOne.prototype.setupBoard = function() {
   let newBoard = new Board([21, 17], new Sprite(c, 336, 299, 378, 336.375, 'campaign/chapter/campaignChapters/chapterOne//Chapter18xMapSample.png', 1, 1));
 
 
-  let roy = new Roy(newBoard, new Inventory([new SwordOfSeals()]));
-  let lyn = new Lyn(newBoard, new Inventory([new ManiKatti()]));
+  const roy = new Roy(newBoard, new Inventory([new SwordOfSeals()]));
+  const lyn = new Lyn(newBoard, new Inventory([new ManiKatti()]));
   newBoard.placeUnit(roy, [18, 3]);
   newBoard.placeUnit(lyn, [17, 3]);
   //Enemy units
@@ -260,6 +260,7 @@ new Forest(newBoard, [9, 2]);
   new Village(newBoard, [18, 14]);
 
 //test
-
+  const pathFinder = new SingleMovePathFinder(newBoard, lyn);
+  console.log(pathFinder.moveThroughPositions.findPositions());
   return newBoard;
 }
