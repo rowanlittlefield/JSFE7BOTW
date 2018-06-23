@@ -4,6 +4,15 @@ function ValidMovePositions(board, unit) {
   this.positions = {};
 }
 
+validMovePositions.prototype.clearAndUpdate = function(unitPosition) {
+  this.clear();
+  this.unitPosition = unitPosition;
+}
+
+ValidMovePositions.prototype.clear = function() {
+  this.positions = {};
+}
+
 ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) {
   for(const positionString in moveThroughPositionsHash) {
     const position = stringToPos(positionString);

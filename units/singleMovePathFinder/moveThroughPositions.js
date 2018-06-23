@@ -12,6 +12,11 @@ function MoveThroughPositions(board, isPlayerUnit, unit) {
   this.steps = 0;
 }
 
+MoveThroughPositions.prototype.clearAndUpdate = function(unitPosition) {
+  this.clear();
+  this.unitPosition = unitPosition;
+}
+
 MoveThroughPositions.prototype.clear = function() {
   this.positions = {};
   this.potentialPositions = {};
@@ -21,7 +26,6 @@ MoveThroughPositions.prototype.clear = function() {
 
 //
 MoveThroughPositions.prototype.findPositions = function() {
-  debugger;
   this.positions[this.unitPosition] = 0;
 
   for(this.steps = 1; this.steps < this.moveStat + 1; this.steps++) {
