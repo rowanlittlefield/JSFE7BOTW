@@ -46,7 +46,13 @@ RouteSpace.prototype.siftRoute = function() {
   delete optRPos[this.startPos];
 
   while (true) {
-    if(equivalentPositions(this.endPos, positions[0])) return positions.reverse();
+    if (positions[0] === undefined) {
+      debugger;
+    }
+    if(equivalentPositions(this.endPos, positions[0])) {
+      // debugger;
+      return positions.reverse();
+    }
     let nextAdjacentPositions = [];
     for(const pos in optRPos) {
       if (distance(positions[0], stringToPos(pos)) === 1) {

@@ -62,6 +62,7 @@ EnemyPlayer.prototype.endPhase = function() {
 EnemyPlayer.prototype.moveSelectedUnit = function() {
   let unit = this.unitQueue[0];
   unit.moveSelection();
+
   let siftedRoute = unit.movementSpace.siftRoute();
 
   let movementAnimation = new MovingAnimation(

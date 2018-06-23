@@ -39,6 +39,7 @@ MovementSpace.prototype.viablePathToOppUnit = function(pos) {
 }
 
 MovementSpace.prototype.findOptimalRoutePositions = function() {
+
   this.routeSpace = new RouteSpace(
     this.board,
     this.unit.position,
