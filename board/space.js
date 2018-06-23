@@ -9,3 +9,8 @@ Space.prototype.isTraversable = function(unit) {
   return (!(this.terrain instanceof(Wall)) && (this.unit === null ||
     this.unit instanceof(PlayerUnit) === unit instanceof(PlayerUnit)));
 }
+
+Space.prototype.isTraversableBoolean = function(isPlayerUnit) {
+  return (!(this.terrain instanceof(Wall)) && (this.unit === null ||
+    this.unit instanceof(PlayerUnit) === isPlayerUnit));
+}
