@@ -33,7 +33,7 @@ SingleMovePathFinder.prototype.setupSingleMovePositionSets = function(unitPositi
 }
 
 SingleMovePathFinder.prototype.setupRoute = function(endPos) {
-
+  return this.bfsMazeSolver.findPath(endPos);
 }
 
 SingleMovePathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function() {
@@ -47,4 +47,5 @@ SingleMovePathFinder.prototype.findSeekAndDestroySingleTurnPosition = function()
 SingleMovePathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, height) {
   this.moveThroughPositions.render(sF, x, y, width, height);
   this.attackPositions.render(sF, x, y, width, height);
+  this.bfsMazeSolver.renderRouteSpaces(sF, x, y, width, height);
 }

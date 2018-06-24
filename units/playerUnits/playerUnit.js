@@ -4,14 +4,10 @@ forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
   Unit.call(this, stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
    hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation);
-  this.moveSpaces = null;
-  this.attackSpaces = null;
   this.prevPos = null;
   this.windowOptions = null;
   this.fightOptions = null;
 
-  this.movementSpace = null;
-// debugger;
   this.singleMovePathFinder =  new SingleMovePathFinder(board, this);
 }
 
@@ -19,24 +15,19 @@ PlayerUnit.prototype = Object.create(Unit.prototype);
 PlayerUnit.prototype.constructor = PlayerUnit;
 
 PlayerUnit.prototype.setMoveForecast = function() {
-  // this.moveSpaces = this.possibleSpacesCanMoveThrough();
-  // this.attackSpaces = this.possibleAttackSpaces();
-  this.routeSpaces = [this.position];
   this.inTransit = true;
   this.prevPos = [this.position[0], this.position[1]];
 
-  this.movementSpace = new MovementSpace(this.board, this.position);
-  this.movementSpace.setupSpace(this.stats['move']);
   this.singleMovePathFinder.setupSingleMovePositionSets(this.position)
 }
 
-PlayerUnit.prototype.nullifyOptions = function(display ) {
-  this.moveSpaces = null;
-  this.attackSpaces = null;
+PlayerUnit.prototype.nullifyOptions = function(display) {
   this.prevPos = null;
   this.windowOptions = null;
   this.fightOptions = null;
   this.inTransit = false;
+
+  this.singleMovePathFinder.clearAndUpdate(this.position);
 }
 
 PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {

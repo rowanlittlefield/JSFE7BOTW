@@ -8,8 +8,8 @@ function BFSMazeSolver(board, unit) {
 //TODO: substitute this and others with clear if works
   this.paths = {};
   this.potentialPositions = {};
+  this.routePositions = null;
   this.foundNewPositionsFlag = false;
-  this.foundPositionFlag = false;
   this.numPositions = 0;
   this.steps = 0;
   this.endPos = null;
@@ -18,21 +18,22 @@ function BFSMazeSolver(board, unit) {
 BFSMazeSolver.prototype.clear = function() {
   this.paths = {};
   this.potentialPositions = {};
+  this.routePositions = null;
   this.foundNewPositionsFlag = false;
-  this.foundPositionFlag = false;
   this.numPositions = 0;
   this.steps = 0;
   this.endPos = null;
 }
 
 BFSMazeSolver.prototype.update = function(unitPosition) {
-
+  this.unitPosition = unitPosition;
 }
 
 BFSMazeSolver.prototype.findPath = function(endPos) {
   this.paths[this.unitPosition] = null;
   this.steps = 1;
   this.endPos = endPos;
+  this.foundNewPositionsFlag = true;
 
   while (true) {
     this.findMovesForOneMoreStep();
@@ -122,14 +123,28 @@ BFSMazeSolver.prototype.adjacentPositionsList = function(pos) {
 
 
 BFSMazeSolver.prototype.routeList = function() {
-  // debugger;
   const routePositionsList = [this.endPos];
 
   while (!equivalentPositions(routePositionsList[routePositionsList.length - 1], this.unitPosition)) {
     const position = this.paths[routePositionsList[routePositionsList.length - 1]];
-    // debugger;
     routePositionsList.push(position);
   }
 
-  return routePositionsList;
+  this.routePositions = routePositionsList;
+  return routePositionsList.reverse();
+}
+
+BFSMazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
+  if(this.routePositions === null) return null;
+  for(let i = 0; i < this.routePositions.length; i++) {
+    let topX = x/sF;
+    let topY = y/sF;
+    // highlight(this.routeSpaces[i], 'rgba(123, 104, 238, 0.4)', sF);
+
+
+    // let pos = stringToPos(space);
+    let highlightPos = [this.routePositions[i][0] - topX, this.routePositions[i][1] - topY];
+    spaceHighlight(highlightPos, 'rgba(123, 104, 238, 0.4)', sF);
+  }
+
 }

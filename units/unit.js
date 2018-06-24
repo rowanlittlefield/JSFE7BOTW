@@ -65,6 +65,9 @@ Unit.prototype.move = function(pos) {
 }
 
 Unit.prototype.validMoveSpaces = function() {
+  if (this.__proto__.constructor === Roy || this.__proto__.constructor === Lyn) {
+    return this.singleMovePathFinder.validMovePositions.positions;
+  }
   return this.movementSpace.validMovePos();
 }
 

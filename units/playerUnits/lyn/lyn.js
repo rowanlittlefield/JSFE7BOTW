@@ -32,7 +32,7 @@ Lyn.prototype.defaultStats = function() {
       luck: 15,
       defense: 6,
       resistance: 8,
-      move: 2,
+      move: 6,
       constitution: 6,
       hp_growth_rate: 70,
       strength_growth_rate: 40,
