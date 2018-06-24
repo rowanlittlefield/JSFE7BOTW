@@ -4,8 +4,7 @@ function ValidMovePositions(board, unit) {
   this.positions = {};
 }
 
-ValidMovePositions.prototype.clearAndUpdate = function(unitPosition) {
-  this.clear();
+ValidMovePositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
 }
 

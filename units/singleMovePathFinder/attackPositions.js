@@ -3,7 +3,16 @@ function AttackPositions(board, unit) {
   this.isPlayerUnit = unit instanceof PlayerUnit;
   this.attackRanges = unit.equippedWeapon.stats['range'];
   this.unit = unit;
+  this.unitPosition = unit.position;
 
+  this.positions = {};
+}
+
+AttackPositions.prototype.update = function(unitPosition) {
+  this.unitPosition = unitPosition;
+}
+
+AttackPositions.prototype.clear = function() {
   this.positions = {};
 }
 
@@ -72,5 +81,5 @@ AttackPositions.prototype.adjacentPositionsList = function(pos) {
 
 AttackPositions.prototype.render = function(sF, x, y, width, height) {
 // Test to verify is working
-// galileoHighlightSpaces(sF, x, y, width, height, this.positions, 'rgba(255, 0, 0, 0.2)');
+galileoHighlightSpaces(sF, x, y, width, height, this.positions, 'rgba(255, 0, 0, 0.2)');
 }

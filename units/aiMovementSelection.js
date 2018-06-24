@@ -19,7 +19,7 @@ Unit.prototype.moveSelection = function() {
      this.movementSpace.moveSpace.endPos = anEndPos;
      // this.movementSpace.moveSpace.steps = this.stats.move;
      this.movementSpace.findOptimalRoutePositions();
-     debugger;
+     // debugger;
 
    }
 }

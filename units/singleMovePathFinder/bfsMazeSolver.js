@@ -5,6 +5,7 @@ function BFSMazeSolver(board, unit) {
   this.unitClass = unit.constructor.name;
   this.unitPosition = unit.position;
 
+//TODO: substitute this and others with clear if works
   this.paths = {};
   this.potentialPositions = {};
   this.foundNewPositionsFlag = false;
@@ -15,11 +16,17 @@ function BFSMazeSolver(board, unit) {
 }
 
 BFSMazeSolver.prototype.clear = function() {
-
+  this.paths = {};
+  this.potentialPositions = {};
+  this.foundNewPositionsFlag = false;
+  this.foundPositionFlag = false;
+  this.numPositions = 0;
+  this.steps = 0;
+  this.endPos = null;
 }
 
-BFSMazeSolver.prototype.update = function() {
-  
+BFSMazeSolver.prototype.update = function(unitPosition) {
+
 }
 
 BFSMazeSolver.prototype.findPath = function(endPos) {

@@ -12,8 +12,7 @@ function MoveThroughPositions(board, isPlayerUnit, unit) {
   this.steps = 0;
 }
 
-MoveThroughPositions.prototype.clearAndUpdate = function(unitPosition) {
-  this.clear();
+MoveThroughPositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
 }
 
@@ -113,5 +112,5 @@ MoveThroughPositions.prototype.adjacentPositionsList = function(pos) {
 
 MoveThroughPositions.prototype.render = function(sF, x, y, width, height) {
   // need to test this!
-  // galileoHighlightSpaces(sF, x, y, width, height, this.positions, 'rgba(0, 0, 255, 0.3)');
+  galileoHighlightSpaces(sF, x, y, width, height, this.positions, 'rgba(0, 0, 255, 0.3)');
 }

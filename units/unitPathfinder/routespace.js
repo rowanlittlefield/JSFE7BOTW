@@ -47,7 +47,7 @@ RouteSpace.prototype.siftRoute = function() {
 
   while (true) {
     if (positions[0] === undefined) {
-      debugger;
+      // debugger;
     }
     if(equivalentPositions(this.endPos, positions[0])) {
       // debugger;
