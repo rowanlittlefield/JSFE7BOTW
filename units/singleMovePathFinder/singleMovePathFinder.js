@@ -6,7 +6,9 @@ function SingleMovePathFinder(board, unit) {
   this.moveThroughPositions = new MoveThroughPositions(board, this.isPlayerUnit, unit);
   this.validMovePositions = new ValidMovePositions(board, unit);
   this.attackPositions = new AttackPositions(board, unit);
+
   this.routePositions = new RoutePositions(board, unit);
+  // this.singleRoutePositionsList = new SingleRoutePositionsList();
 }
 
 SingleMovePathFinder.prototype.clearAndUpdate = function() {
@@ -19,4 +21,8 @@ SingleMovePathFinder.prototype.clear = function() {
 
 SingleMovePathFinder.prototype.setupSingleMovePositionSets = function() {
 
+}
+
+SingleMovePathFinder.prototype.setupRoute = function(endPos, validMovePositionsHash) {
+  
 }
