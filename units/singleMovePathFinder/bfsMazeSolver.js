@@ -1,9 +1,9 @@
-function bfsMazeSolver(board, unit) {
+function BFSMazeSolver(board, unit) {
   this.board = board;
   this.unit = unit;
   this.isPlayerUnit = unit instanceof PlayerUnit;
   this.unitClass = unit.constructor.name;
-  this.unitPosition = unit.positions;
+  this.unitPosition = unit.position;
 
   this.paths = {};
   this.potentialPositions = {};
@@ -11,26 +11,33 @@ function bfsMazeSolver(board, unit) {
   this.foundPositionFlag = false;
   this.numPositions = 0;
   this.steps = 0;
-  this.endPos = endPos;
+  this.endPos = null;
 }
 
-bfsMazeSolver.prototype.createPath(endPos) {
+BFSMazeSolver.prototype.clear = function() {
+
+}
+
+BFSMazeSolver.prototype.update = function() {
+  
+}
+
+BFSMazeSolver.prototype.findPath = function(endPos) {
   this.paths[this.unitPosition] = null;
   this.steps = 1;
   this.endPos = endPos;
 
   while (true) {
-    //
     this.findMovesForOneMoreStep();
 
-    if (!this.foundNewPositionsFlag) return null;
+    if (!this.foundNewPositionsFlag) {return null;}
     this.steps += 1;
-    if (this.paths[endPos] != undefined) return this.routeList();
+    if (this.paths[endPos] != undefined) {return this.routeList();}
   }
 
 }
 
-bfsMazeSolver.prototype.findMovesForOneMoreStep = function() {
+BFSMazeSolver.prototype.findMovesForOneMoreStep = function() {
   this.foundNewPositionsFlag = false;
   const prevPositionStrings = Object.keys(this.paths);
   const iterationMoves = {};
@@ -40,11 +47,11 @@ bfsMazeSolver.prototype.findMovesForOneMoreStep = function() {
   }
 }
 
-bfsMazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, iterationMoves) {
-  const prevPosition = stringToPos(positionString);
+BFSMazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, iterationMoves) {
+  const prevPosition = stringToPos(prevPositionString);
   const adjMoveablePositions = this.adjacentPositionsCanMoveThrough(prevPosition);
   for(let idx = 0; idx < adjMoveablePositions.length; idx++) {
-    if (this.positions[adjMoveablePositions[idx]] === undefined) {
+    if (this.paths[adjMoveablePositions[idx]] === undefined) {
       this.handleTerrainBonus(
         adjMoveablePositions[idx],
         prevPosition,
@@ -55,26 +62,27 @@ bfsMazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, 
   }
 }
 
-bfsMazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, iterationMoves) {
+BFSMazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, iterationMoves) {
   if (space.terrain === null) {
     this.appendPosition(pos, prevPos);
   } else if (this.potentialPositions[pos] === undefined) {
-    this.potentialPositions[pos] = space.terrain.moveCost(this.unitClass) - 1;
-  } else if (iterationMoves[pos] === undefined && this.potentialPositions[pos] > 1) {
-    this.potentialPositions[pos] -= 1;
-  } else if(iterationMoves[pos] === undefined && this.potentialPositions[pos] <= 1) {
-    this.appendPosition(pos, prevPos);
+    this.potentialPositions[pos] = {remainingTerrainBonusCount: space.terrain.moveCost(this.unitClass) - 1, previousPos: prevPos};
+  } else if (iterationMoves[pos] === undefined && this.potentialPositions[pos]['remainingTerrainBonusCount'] > 1) {
+    this.potentialPositions[pos]['remainingTerrainBonusCount'] -= 1;
+  } else if(iterationMoves[pos] === undefined && this.potentialPositions[pos]['remainingTerrainBonusCount'] <= 1) {
+    this.appendPosition(pos);
   }
   this.foundNewPositionsFlag = true;
   iterationMoves[pos] = true;
 }
 
-bfsMazeSolver.prototype.appendPosition = function(position, prevPos) {
-  this.positions[position] = prevPos;
+BFSMazeSolver.prototype.appendPosition = function(position, prevPos = null) {
+  prevPos = (prevPos === null ? this.potentialPositions[position]['previousPos'] : prevPos);
+  this.paths[position] = prevPos;
   this.numPositions += 1;
 }
-//
-bfsMazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
+
+BFSMazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
   let adjPositions = this.adjacentPositionsList(pos);
   let moveableAdjPositions = [];
 
@@ -88,11 +96,11 @@ bfsMazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
   return moveableAdjPositions;
 }
 
-bfsMazeSolver.prototype._isTraversableSpace = function(pos) {
+BFSMazeSolver.prototype._isTraversableSpace = function(pos) {
   return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
 }
 
-bfsMazeSolver.prototype.adjacentPositionsList = function(pos) {
+BFSMazeSolver.prototype.adjacentPositionsList = function(pos) {
   const dimensions = this.board.dimensions;
   const spaces = [];
 
@@ -103,10 +111,18 @@ bfsMazeSolver.prototype.adjacentPositionsList = function(pos) {
 
   return spaces;
 }
-// 
 
 
 
-bfsMazeSolver.prototype.routeList = function() {
+BFSMazeSolver.prototype.routeList = function() {
+  // debugger;
+  const routePositionsList = [this.endPos];
 
+  while (!equivalentPositions(routePositionsList[routePositionsList.length - 1], this.unitPosition)) {
+    const position = this.paths[routePositionsList[routePositionsList.length - 1]];
+    // debugger;
+    routePositionsList.push(position);
+  }
+
+  return routePositionsList;
 }

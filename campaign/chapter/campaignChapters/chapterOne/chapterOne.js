@@ -261,8 +261,9 @@ new Forest(newBoard, [9, 2]);
 
 //test
   const pathFinder = new SingleMovePathFinder(newBoard, lyn);
-  const moveThroughPositionsHash = pathFinder.moveThroughPositions.findPositions();
-  const validMovePositionsHash = pathFinder.validMovePositions.findPositions(moveThroughPositionsHash);
-  console.log(pathFinder.attackPositions.findPositions(validMovePositionsHash));
+  // const moveThroughPositionsHash = pathFinder.moveThroughPositions.findPositions();
+  // const validMovePositionsHash = pathFinder.validMovePositions.findPositions(moveThroughPositionsHash);
+  // console.log(pathFinder.attackPositions.findPositions(validMovePositionsHash));
+  console.log(pathFinder.bfsMazeSolver.findPath([18, 6]));
   return newBoard;
 }

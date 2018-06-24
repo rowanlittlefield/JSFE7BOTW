@@ -7,8 +7,9 @@ function SingleMovePathFinder(board, unit) {
   this.validMovePositions = new ValidMovePositions(board, unit);
   this.attackPositions = new AttackPositions(board, unit);
 
-  this.routePositions = new RoutePositions(board, unit);
+  // this.routePositions = new RoutePositions(board, unit);
   // this.singleRoutePositionsList = new SingleRoutePositionsList();
+  this.bfsMazeSolver = new BFSMazeSolver(board, unit);
 }
 
 SingleMovePathFinder.prototype.clearAndUpdate = function() {
@@ -24,5 +25,5 @@ SingleMovePathFinder.prototype.setupSingleMovePositionSets = function() {
 }
 
 SingleMovePathFinder.prototype.setupRoute = function(endPos, validMovePositionsHash) {
-  
+
 }
