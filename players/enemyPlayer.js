@@ -74,5 +74,4 @@ EnemyPlayer.prototype.moveSelectedUnit = function() {
       unit.moving = true;
       unit.move(moveSelection);
   }
-
 }
