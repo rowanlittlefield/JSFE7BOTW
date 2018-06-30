@@ -5,8 +5,8 @@ function distance(pos1, pos2) {
 }
 
 function stringToPos(stringPos) {
-let stringArr = stringPos.split(',');
-return [parseInt(stringArr[0]), parseInt(stringArr[1])]
+  let stringArr = stringPos.split(',');
+  return [parseInt(stringArr[0]), parseInt(stringArr[1])]
 }
 
 function includePosition(array, pos) {

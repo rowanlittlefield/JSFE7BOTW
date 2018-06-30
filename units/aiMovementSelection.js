@@ -1,26 +1,18 @@
 Unit.prototype.moveSelection = function() {
-  this.movementSpace = new MovementSpace(this.board, this.position)
+  this.movementSpace = new MovementSpace(this.board, this.position)//eleminate this line
    if(this.behavior === 'idle') {
-     this.movementSpace.setupSpace(0);
-     this.movementSpace.moveSpace.endPos = this.position;
-     this.movementSpace.findOptimalRoutePositions();
-    } else if(this.behavior === 'TWBS') {
-     if (this.possibleAttackSetupSpace() != this.position) {
-       let attackSetupPos = this.possibleAttackSetupSpace();
-       this.movementSpace.moveSpace.endPos = attackSetupPos;
-       this.movementSpace.findOptimalRoutePositions();
-     } else {
-       let theEndPos = this.position;
-       this.movementSpace.moveSpace.endPos = theEndPos;
-       this.movementSpace.findOptimalRoutePositions();
-     }
+     return this.position;
+   } else if(this.behavior === 'TWBS') {
+      return this.singleMovePathFinder.findSingleMoveAttackPosition(
+        this.position,
+        this.equippedWeapon.stats['range']
+      );
    } else if(this.behavior === 'seekAndDestroy') {
      let anEndPos =  this.seekAndDestoryPosition();
      this.movementSpace.moveSpace.endPos = anEndPos;
      // this.movementSpace.moveSpace.steps = this.stats.move;
      this.movementSpace.findOptimalRoutePositions();
      // debugger;
-
    }
 }
 

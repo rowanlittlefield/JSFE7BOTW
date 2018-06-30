@@ -32,11 +32,4 @@ PlayerUnit.prototype.nullifyOptions = function(display) {
 
 PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
   this.singleMovePathFinder.renderSingleMovePositionSets(sF, x, y, width, height);
-
-
-  // this.movementSpace.render(sF, x, y, width, height);
-
-  // for(let i = 0; i < this.routeSpaces.length; i++) {
-  //   highlight(this.routeSpaces[i], 'rgba(123, 104, 238, 0.4)', sF);
-  // }
 }

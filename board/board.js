@@ -46,6 +46,19 @@ Board.prototype.listOfUnits = function(type) {
   return units;
 }
 
+Board.prototype.listOfUnitsObject = function(type) {
+  let units = {};
+
+  this.boardIterator(function(row, col) {
+    if (this.grid[row][col].unit instanceof(type)) {
+      units[[row, col]] = true;
+    }
+  }.bind(this));
+
+  return units;
+}
+
+
 Board.prototype.boardIterator = function(callBack) {
   for(let row = 0; row < this.grid.length; row++){
     for(let col = 0; col < this.grid[row].length; col++){

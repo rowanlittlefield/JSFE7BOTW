@@ -36,6 +36,18 @@ SingleMovePathFinder.prototype.setupRoute = function(endPos) {
   return this.bfsMazeSolver.findPath(endPos);
 }
 
+SingleMovePathFinder.prototype.findSingleMoveAttackPosition = function(unitPosition, unitRanges) {
+  this.setupSingleMovePositionSets(unitPosition, unitRanges);
+  let playerUnitPositions = this.board.listOfUnitsObject(PlayerUnit);
+  for(const pos in playerUnitPositions) {
+    if(this.attackPositions.positions[pos]) {
+      // const desiredPosition = this.validMovePositions.selectAttackSetupSpace(pos, unitRanges);
+      return this.validMovePositions.selectAttackSetupSpace(pos, unitRanges);
+    }
+  }
+  return unitPosition;
+}
+
 SingleMovePathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function() {
 
 }

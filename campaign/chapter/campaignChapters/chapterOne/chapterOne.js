@@ -22,8 +22,8 @@ ChapterOne.prototype.setupBoard = function() {
   //Enemy units
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [9, 6]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [10, 11]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 12]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [10, 11]);
+  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 12]);
 
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [18, 4]);
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [8, 4]);
@@ -260,10 +260,5 @@ new Forest(newBoard, [9, 2]);
   new Village(newBoard, [18, 14]);
 
 //test
-  const pathFinder = new SingleMovePathFinder(newBoard, lyn);
-  // const moveThroughPositionsHash = pathFinder.moveThroughPositions.findPositions();
-  // const validMovePositionsHash = pathFinder.validMovePositions.findPositions(moveThroughPositionsHash);
-  // console.log(pathFinder.attackPositions.findPositions(validMovePositionsHash));
-  console.log(pathFinder.bfsMazeSolver.findPath([18, 6]));
   return newBoard;
 }

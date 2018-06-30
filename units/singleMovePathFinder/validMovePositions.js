@@ -32,3 +32,21 @@ ValidMovePositions.prototype.isValidMove = function(position) {
 
   return true;
 }
+
+ValidMovePositions.prototype.selectAttackSetupSpace = function(attackPositionString, ranges) {
+  const viablePositions = [];
+  const attackPosition = stringToPos(attackPositionString);
+  for(const positionString in this.positions) {
+    const position = stringToPos(positionString);
+    const dist = distance(position, attackPosition);
+    if(ranges.includes(dist)) {
+      viablePositions.push(position);
+    }
+  }
+  // debugger;
+
+  let moveSpaceIndex = Math.floor(Math.random() * viablePositions.length);
+  let pos = viablePositions[moveSpaceIndex];
+  return pos;
+
+}
