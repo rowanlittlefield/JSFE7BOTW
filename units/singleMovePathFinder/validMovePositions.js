@@ -43,10 +43,8 @@ ValidMovePositions.prototype.selectAttackSetupSpace = function(attackPositionStr
       viablePositions.push(position);
     }
   }
-  // debugger;
 
-  let moveSpaceIndex = Math.floor(Math.random() * viablePositions.length);
-  let pos = viablePositions[moveSpaceIndex];
+  const moveSpaceIndex = Math.floor(Math.random() * viablePositions.length);
+  const pos = viablePositions[moveSpaceIndex];
   return pos;
-
 }

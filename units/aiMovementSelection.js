@@ -1,5 +1,4 @@
 Unit.prototype.moveSelection = function() {
-  this.movementSpace = new MovementSpace(this.board, this.position)//eleminate this line
    if(this.behavior === 'idle') {
      return this.position;
    } else if(this.behavior === 'TWBS') {
@@ -12,91 +11,7 @@ Unit.prototype.moveSelection = function() {
        this.position,
        this.equippedWeapon.stats['range']
      );
-
-     // let anEndPos =  this.seekAndDestoryPosition();
-     // this.movementSpace.moveSpace.endPos = anEndPos;
-     // // this.movementSpace.moveSpace.steps = this.stats.move;
-     // this.movementSpace.findOptimalRoutePositions();
-     // debugger;
    }
-}
-
-Unit.prototype.seekAndDestoryPosition = function() {
-  if (this.possibleAttackSetupSpace() != this.position) {
-    let attackSetupPos = this.possibleAttackSetupSpace();
-    this.movementSpace.moveSpace.endPos = attackSetupPos;
-    this.movementSpace.findOptimalRoutePositions();
-    return attackSetupPos;
-  } else {
-    return this.toNearestOppUnit();
-  }
-}
-
-Unit.prototype.toNearestOppUnit = function() {
-  let start = this.position;
-  let oppUnits = this.board.listOfUnits(PlayerUnit);
-  let distances = {};
-  let distancesArr = [];
-  let endPos = null;
-
-  oppUnits.forEach(function(value, key, map) {
-    distances[key.position] = distance(start, key.position);
-    distancesArr.push(distance(start, key.position));
-  });
-  distancesArr.sort();
-  for(let i = 0; i < distancesArr.length; i++) {
-    for(const pos in distances) {
-      if (distances[pos] === distancesArr[i]) {
-        this.movementSpace = new MovementSpace(this.board, this.position);
-        let flag = this.movementSpace.setupSpace(stringToPos(pos));
-        if (flag) {
-          this.movementSpace.findOptimalRoutePositions();
-          let optPos = this.movementSpace.pickOptPos();
-          this.movementSpace.endPos = optPos;
-          return optPos;
-        }
-      }
-    }
-  }
-
-  return this.position;
-}
-
-Unit.prototype.toNearestOppUnitMoveSpace = function() {
-  let start = this.position;
-  let oppUnits = this.board.listOfUnits(PlayerUnit);
-  let distances = {};
-  let distancesArr = [];
-  let endPos = null;
-
-  oppUnits.forEach(function(value, key, map) {
-    distances[key.position] = distance(start, key.position);
-    distancesArr.push(distance(start, key.position));
-  });
-  distancesArr.sort();
-
-  for(let i = 0; i < distancesArr.length; i++) {
-
-    for(const pos in distances) {
-      if (distances[pos] === distancesArr[i]) {
-        let crudePath = new MovementSpace(this.board, this.position);
-        let validCrudePathFlag = crudePathArray.setupSpace();
-      }
-      if(validCrudePathFlag) {
-        crudePath.optimalRoutePositions();
-        return crudePath.pickOptPos();
-      }
-    }
-
-  }
-  return this.position;
-}
-
-Unit.prototype.findAnOptimalRoute = function(destination) {
-  this.movementSpace = new MovementSpace(this.board, this.position);
-  this.movementSpace.setupSpace(destination);
-  this.movementSpace.findOptimalRoutePositions();
-  return this.movementSpace.siftRoute();
 }
 
 Unit.prototype.selectPlayerUnitInRange = function() {
@@ -116,44 +31,6 @@ Unit.prototype.selectPlayerUnitInRange = function() {
   }
 
   return null;
-}
-
-Unit.prototype.possibleAttackSetupSpace = function() {
-  let weaponRange = this.equippedWeapon.stats['range'];
-
-  let playerUnitPositions = [];
-
-  this.board.boardIterator(function(row, col){
-    if (this.board.grid[row][col].unit instanceof(PlayerUnit)) {
-      playerUnitPositions.push([row, col]);
-    }
-  }.bind(this));
-
-  // this.moveSpace = new MovementSpace(this.board, this.position);
-  // this.moveSpace.setupSpace(this.stats['move']);
-  this.movementSpace = new MovementSpace(this.board, this.position);
-  this.movementSpace.setupSpace(this.stats['move']);
-
-
-  let validSpaces = this.validMoveSpaces();
-  let setupSpaces = [];
-
-  for(let i = 0; i < playerUnitPositions.length; i++) {
-    for(const space in validSpaces) {
-      let spaceArr = stringToPos(space);
-      if(weaponRange.includes(distance(playerUnitPositions[i], spaceArr))) {
-        setupSpaces.push(spaceArr);
-      }
-    }
-  }
-
-  if (setupSpaces.length === 0) {
-    return this.position;
-  }
-
-  let moveSpaceIndex = Math.floor(Math.random() * setupSpaces.length);
-  let pos = setupSpaces[moveSpaceIndex];
-  return pos;
 }
 
 // Possibly non-AI methods that may need to be sorted into their own
@@ -191,19 +68,4 @@ Unit.prototype.postMoveWindowOptions = function() {
   options.push('Wait');
 
   return options;
-}
-
-Unit.prototype.stationaryUnitAttackSpaces = function() {
-  let ranges = this.inventory.stats['range'];
-  let attackPositions = [];
-
-  this.board.boardIterator(function(row, col){
-    if ((this.board.grid[row][col].unit === null ||
-      this.board.grid[row][col].unit instanceof(EnemyUnit)) &&
-      ranges.includes(distance([row, col], this.position))) {
-      attackPositions.push([row, col]);
-    }
-  }.bind(this));
-
-  return attackPositions;
 }

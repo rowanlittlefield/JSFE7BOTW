@@ -61,43 +61,18 @@ EnemyPlayer.prototype.endPhase = function() {
 
 EnemyPlayer.prototype.moveSelectedUnit = function() {
   const unit = this.unitQueue[0];
-  // if(unit.behavior === 'seekAndDestroy') debugger;
   const moveSelection = unit.moveSelection();
 
   if(equivalentPositions(moveSelection, unit.position)) {
     this.finishUnitTurn();
   } else {
-    if (this.unitQueue[0].behavior === 'TWBS') {
-      const route = unit.singleMovePathFinder.setupRoute(moveSelection);
-      const movementAnimation = new MovingAnimation(
-        unit, route, 8, this.phaseStage, this
-      );
-        unit.movingAnimation = movementAnimation;
-        unit.moving = true;
-
-        unit.move(moveSelection);
-    } else {
-      const route = unit.singleMovePathFinder.setupRoute(moveSelection);
-      const movementAnimation = new MovingAnimation(
-        unit, route, 8, this.phaseStage, this
-      );
+    const route = unit.singleMovePathFinder.setupRoute(moveSelection);
+    const movementAnimation = new MovingAnimation(
+      unit, route, 8, this.phaseStage, this
+    );
       unit.movingAnimation = movementAnimation;
       unit.moving = true;
-
       unit.move(moveSelection);
-
-      // let unit = this.unitQueue[0];
-      // unit.moveSelection();
-      //
-      // let siftedRoute = unit.movementSpace.siftRoute();
-      //
-      // let movementAnimation = new MovingAnimation(
-      //   unit, siftedRoute, 8, this.phaseStage, this);
-      //   unit.movingAnimation = movementAnimation;
-      //   unit.moving = true;
-      //
-      //   unit.move(unit.movementSpace.moveSpace.endPos);
-      }
   }
 
 }

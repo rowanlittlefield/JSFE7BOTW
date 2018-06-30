@@ -54,21 +54,19 @@ SingleMovePathFinder.prototype.findSeekAndDestroySingleTurnPosition = function(u
   if(!equivalentPositions(unitPosition, singleMoveAttackPosition)) {
     return singleMoveAttackPosition;
   }
-  // debugger;
+  
   const multiTurnRoute = this.findSeekAndDestroyMultiTurnRoute(unitPosition, unitRanges);
   if(equivalentPositions(unitPosition, multiTurnRoute)) return unitPosition;
 
   this.clearAndUpdate(unitPosition);
   this.setupSingleMovePositionSets(unitPosition);
-  // debugger
+
   for(let i = multiTurnRoute.length - 1; i >= 0; i--){
     const position = multiTurnRoute[i];
     if(this.validMovePositions.positions[position] != undefined) {
-      // this.bfsMazeSolver.findPath(position);
       return position;
     }
   }
-  // debugger;
 }
 
 SingleMovePathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, unitRanges) {
