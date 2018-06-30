@@ -91,12 +91,12 @@ BFSMazeSolver.prototype.appendPosition = function(position, prevPos = null) {
 }
 
 BFSMazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
-  let adjPositions = this.adjacentPositionsList(pos);
-  let moveableAdjPositions = [];
+  const adjPositions = this.adjacentPositionsList(pos);
+  const moveableAdjPositions = [];
 
   for (let i = 0; i < adjPositions.length; i++) {
-    let adjPos = adjPositions[i];
-    if(this._isTraversableSpace(adjPos)) {
+    const adjPos = adjPositions[i];
+    if(this._isTraversableSpace(adjPos) || equivalentPositions(adjPos, this.endPos)) {
       moveableAdjPositions.push(adjPos);
     }
   }

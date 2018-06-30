@@ -38,23 +38,55 @@ SingleMovePathFinder.prototype.setupRoute = function(endPos) {
 
 SingleMovePathFinder.prototype.findSingleMoveAttackPosition = function(unitPosition, unitRanges) {
   this.setupSingleMovePositionSets(unitPosition, unitRanges);
-  let playerUnitPositions = this.board.listOfUnitsObject(PlayerUnit);
+  const playerUnitPositions = this.board.listOfUnitsObject(PlayerUnit);
   for(const pos in playerUnitPositions) {
     if(this.attackPositions.positions[pos]) {
-      // const desiredPosition = this.validMovePositions.selectAttackSetupSpace(pos, unitRanges);
       return this.validMovePositions.selectAttackSetupSpace(pos, unitRanges);
     }
   }
   return unitPosition;
 }
 
-SingleMovePathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function() {
+SingleMovePathFinder.prototype.findSeekAndDestroySingleTurnPosition = function(unitPosition, unitRanges) {
+  const singleMoveAttackPosition = this.findSingleMoveAttackPosition(
+    unitPosition, unitRanges
+  );
+  if(!equivalentPositions(unitPosition, singleMoveAttackPosition)) {
+    return singleMoveAttackPosition;
+  }
+  // debugger;
+  const multiTurnRoute = this.findSeekAndDestroyMultiTurnRoute(unitPosition, unitRanges);
+  if(equivalentPositions(unitPosition, multiTurnRoute)) return unitPosition;
 
+  this.clearAndUpdate(unitPosition);
+  this.setupSingleMovePositionSets(unitPosition);
+  // debugger
+  for(let i = multiTurnRoute.length - 1; i >= 0; i--){
+    const position = multiTurnRoute[i];
+    if(this.validMovePositions.positions[position] != undefined) {
+      // this.bfsMazeSolver.findPath(position);
+      return position;
+    }
+  }
+  // debugger;
 }
 
-SingleMovePathFinder.prototype.findSeekAndDestroySingleTurnPosition = function() {
+SingleMovePathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, unitRanges) {
+  const playerUnitPositions = this.board.listOfUnitsObject(PlayerUnit);
 
+  for(const positionString in playerUnitPositions) {
+    const position = stringToPos(positionString);
+    this.bfsMazeSolver.clear();
+    this.bfsMazeSolver.update(unitPosition);
+    // debugger;
+    const route = this.bfsMazeSolver.findPath(position);
+    // debugger
+    if(route !== null) return route;
+  }
+
+  return unitPosition;
 }
+
 
 SingleMovePathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, height) {
   this.moveThroughPositions.render(sF, x, y, width, height);

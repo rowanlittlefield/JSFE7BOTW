@@ -58,7 +58,6 @@ Board.prototype.listOfUnitsObject = function(type) {
   return units;
 }
 
-
 Board.prototype.boardIterator = function(callBack) {
   for(let row = 0; row < this.grid.length; row++){
     for(let col = 0; col < this.grid[row].length; col++){

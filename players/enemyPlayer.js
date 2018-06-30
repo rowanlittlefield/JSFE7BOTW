@@ -61,11 +61,10 @@ EnemyPlayer.prototype.endPhase = function() {
 
 EnemyPlayer.prototype.moveSelectedUnit = function() {
   const unit = this.unitQueue[0];
+  // if(unit.behavior === 'seekAndDestroy') debugger;
   const moveSelection = unit.moveSelection();
 
-  if(unit.behavior === 'seekAndDestroy') debugger;
-
-  if(unit.behavior != 'seekAndDestroy' && equivalentPositions(moveSelection, unit.position)) {
+  if(equivalentPositions(moveSelection, unit.position)) {
     this.finishUnitTurn();
   } else {
     if (this.unitQueue[0].behavior === 'TWBS') {
@@ -78,17 +77,26 @@ EnemyPlayer.prototype.moveSelectedUnit = function() {
 
         unit.move(moveSelection);
     } else {
-      let unit = this.unitQueue[0];
-      unit.moveSelection();
+      const route = unit.singleMovePathFinder.setupRoute(moveSelection);
+      const movementAnimation = new MovingAnimation(
+        unit, route, 8, this.phaseStage, this
+      );
+      unit.movingAnimation = movementAnimation;
+      unit.moving = true;
 
-      let siftedRoute = unit.movementSpace.siftRoute();
+      unit.move(moveSelection);
 
-      let movementAnimation = new MovingAnimation(
-        unit, siftedRoute, 8, this.phaseStage, this);
-        unit.movingAnimation = movementAnimation;
-        unit.moving = true;
-
-        unit.move(unit.movementSpace.moveSpace.endPos);
+      // let unit = this.unitQueue[0];
+      // unit.moveSelection();
+      //
+      // let siftedRoute = unit.movementSpace.siftRoute();
+      //
+      // let movementAnimation = new MovingAnimation(
+      //   unit, siftedRoute, 8, this.phaseStage, this);
+      //   unit.movingAnimation = movementAnimation;
+      //   unit.moving = true;
+      //
+      //   unit.move(unit.movementSpace.moveSpace.endPos);
       }
   }
 

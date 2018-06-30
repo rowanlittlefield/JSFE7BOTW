@@ -8,10 +8,15 @@ Unit.prototype.moveSelection = function() {
         this.equippedWeapon.stats['range']
       );
    } else if(this.behavior === 'seekAndDestroy') {
-     let anEndPos =  this.seekAndDestoryPosition();
-     this.movementSpace.moveSpace.endPos = anEndPos;
-     // this.movementSpace.moveSpace.steps = this.stats.move;
-     this.movementSpace.findOptimalRoutePositions();
+     return this.singleMovePathFinder.findSeekAndDestroySingleTurnPosition(
+       this.position,
+       this.equippedWeapon.stats['range']
+     );
+
+     // let anEndPos =  this.seekAndDestoryPosition();
+     // this.movementSpace.moveSpace.endPos = anEndPos;
+     // // this.movementSpace.moveSpace.steps = this.stats.move;
+     // this.movementSpace.findOptimalRoutePositions();
      // debugger;
    }
 }
