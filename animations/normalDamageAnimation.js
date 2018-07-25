@@ -4,12 +4,16 @@ function NormalDamageAnimation(defenderCoordinates) {
     c,
     238,//width
     158,//height
-    238,//renderWidth
-    158,//renderHeight
+    //238,//renderWidth
+    238*1.8,//renderWidth
+
+    //158,//renderHeight
+    158*1.8,//renderHeight
+
     'animations/FE7HitSpriteSheets.png',//image
     2,//ticksPerFrame
     // [10, 21]
-    [[253, 21], [496, 21],
+    [[10, 21], [253, 21], [496, 21],
     [10, 184], [253, 184], [496, 184],
     [10, 347], [253, 347], [496, 347]]//coordinatesList
   );
@@ -22,8 +26,11 @@ NormalDamageAnimation.prototype.constructor = NormalDamageAnimation;
 
 CoordinateSprite.prototype.render = function(sF) {
   let scale = sF / 18;
-  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
+  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.2*sF);
+  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (sF*2.5);
+
   let cWidth = scale * this.renderWidth;
   let cHeight = scale *  this.renderHeight;
   this.context.drawImage(
