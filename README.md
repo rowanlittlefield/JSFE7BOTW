@@ -13,8 +13,31 @@ This project intends to emulate the core mechanics from the series including:
 
 Users will be able to control a cursor that they can move around during their turn to select their units, move them, and fight opposing units. The screen will include a button map to allow users to quickly infere the control scheme
 
-# Wireframes (screenshot)
+### Wireframes (screenshot)
 
 The app will include a single screen surronded by a button map on the left and right sides that communicates the controls to the user. The logo will be featured above the screen while links to my LinkedIn and GitHub accounts will be listed below the screen. 
 
 ![screen shot](https://raw.githubusercontent.com/rowanlittlefield/JSFE7BOTW/master/screen_shot.png)
+
+### Architecture and Technologies
+
+This project will be implemented using the following technologies
+
+* `JavaScript` for game logic
+* `HTML5 canvas` for rendering
+*  `webpack` for bundling files
+
+### Implementation Timeline
+
+**Day 1**
+  Complete combat animations.
+**Day 2**
+  Finish cobat animations if have not already done so. Create and style menu screen, game over window and html surrounding the main canvas element. 
+**Day 3**
+  Implement animations signaling transition between player turn and enemy turn. Refactor brittle sections of code associated with turn transitions. Begin to integrage webpack into the project since this project was originally implemented not using this technology.  
+**Day 4**
+  Finish integrating webpack into the project.
+**Bonus** 
+* Very brief introductory cutscene between main menu and gameplay.
+* Leveling mechanics and animations
+* Refactor code associated with combat animations.
