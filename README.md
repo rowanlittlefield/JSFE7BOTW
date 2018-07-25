@@ -16,3 +16,5 @@ Users will be able to control a cursor that they can move around during their tu
 # Wireframes (screenshot)
 
 The app will include a single screen surronded by a button map on the left and right sides that communicates the controls to the user. The logo will be featured above the screen while links to my LinkedIn and GitHub accounts will be listed below the screen. 
+
+![screen shot](https://raw.githubusercontent.com/rowanlittlefield/JSFE7BOTW/master/screen_shot.png)
