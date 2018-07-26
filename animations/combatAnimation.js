@@ -11,12 +11,12 @@ function CombatAnimation(combat, phaseStage) {
 }
 
 CombatAnimation.prototype.render = function() {
-  this.renderBackgroundElements();
   if(this.nonCombatFrames === 100) this.renderCombat();
   if ((this.nonCombatFrames < 100) ||
   (this.nonCombatFrames >= 101 && this.nonCombatFrames < 150)) {
     this.renderAtEase();
   }
+  this.renderBackgroundElements();
   if(this.nonCombatFrames >= 150) this.endAnimation();
 }
 

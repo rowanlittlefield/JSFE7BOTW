@@ -7,7 +7,7 @@ function NormalDamageAnimation(defenderCoordinates) {
     //238,//renderWidth
     238*1.8,//renderWidth
 
-    //158,//renderHeight
+    // 158,//renderHeight
     158*1.8,//renderHeight
 
     'animations/FE7HitSpriteSheetsTransTest.png',//image
