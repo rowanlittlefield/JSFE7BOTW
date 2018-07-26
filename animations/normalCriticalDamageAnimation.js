@@ -10,11 +10,16 @@ function NormalCriticalDamageAnimation(defenderCoordinates) {
     //158,//renderHeight
     143*1.3,//renderHeight
 
-    'animations/FE7HitSpriteSheets.png',//image
+    'animations/FE7HitSpriteSheetsTransTest.png',//image
     2,//ticksPerFrame
     // [10, 21]
     [
-      [10, 526],
+      // [10, 21],
+      // [253, 1033],
+      // //[10, 1197],
+      // //[253, 1033],
+      // [10,21],
+
       [253, 526], [496, 526],
       [10, 690], [253, 690], [496, 690],
       [10, 853], [253, 853], [496, 853]

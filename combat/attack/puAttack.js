@@ -3,9 +3,13 @@ function PUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
   );
   if (this.isCrit) {
-    this.hitAnimation = new NormalCriticalDamageAnimation([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
+    if (attacker instanceof Roy) {
+      this.hitAnimation = new RoyCriticalHitAnimation([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
+    } else {
+      this.hitAnimation = new NormalCriticalDamageAnimation([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
+    }
   } else {
-    this.hitAnimation = new NormalDamageAnimation([this.enemyCoordinates[0] + 1.7, this.enemyCoordinates[1] + 2.8]);
+      this.hitAnimation = new NormalDamageAnimation([this.enemyCoordinates[0] + 1.7, this.enemyCoordinates[1] + 2.8]);
   }
 }
 

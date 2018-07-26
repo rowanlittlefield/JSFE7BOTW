@@ -10,10 +10,16 @@ function NormalDamageAnimation(defenderCoordinates) {
     //158,//renderHeight
     158*1.8,//renderHeight
 
-    'animations/FE7HitSpriteSheets.png',//image
+    'animations/FE7HitSpriteSheetsTransTest.png',//image
     2,//ticksPerFrame
     // [10, 21]
-    [[10, 21], 
+    [
+      // [10, 21],
+      // [253, 1033],
+      // //[10, 1197],
+      // //[253, 1033],
+      // [10,21],
+
      [253, 21], [496, 21],
     [10, 184], [253, 184], [496, 184],
     [10, 347], [253, 347], [496, 347]]//coordinatesList
