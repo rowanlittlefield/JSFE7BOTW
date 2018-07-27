@@ -3,13 +3,16 @@ function GameFinishedWindow() {
   this.dy = 45 * 1;
 
   this.backgroundSpriteOne = new CoordinateSprite(
-    c, 120, 80, 120, 80, "window/InteractiveWindow/FE_6_story_scenes.png", 1,
-    [[3, 3]]
+    c, 118, 79, 118, 79, "window/InteractiveWindow/FE_6_story_scenes.png", 1,
+    [[4, 3]]
   );
+
+  this.scrollSprite = new Sprite(c, 480, 320, 480*0.5, 320*0.5, "window/InteractiveWindow/fe_6_scroll_you_win.png", 1, 1);
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {
-  this.backgroundSpriteOne.render(5, 5, 45);
+  this.backgroundSpriteOne.render(6.8, 6, 45);
+  this.scrollSprite.render(6.9, 10.5, 45);
 
   const sF = displayWindow.sF;
   const northY = ( (displayWindow.height / 2) -  sF * 1);
