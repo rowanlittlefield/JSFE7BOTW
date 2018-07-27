@@ -61,8 +61,8 @@ Attack.prototype.postAttackDefHP = function() {
 //rendering methods
 Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
   if (this.hitAnimationCondition()) {
-    this.attackerCS.renderCurrentFrame(attackerC[0], 6, 45);
     this.renderHit(defenderC);
+    this.attackerCS.renderCurrentFrame(attackerC[0], 6, 45);
   } else {
     this.defenderCS.renderStationaryFrame(defenderC[0], 6, 45);
     this.attackerCS.renderFromCoordinates(attackerC[0], 6, 45);
