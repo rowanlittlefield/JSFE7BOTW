@@ -24,6 +24,9 @@ GlobalDisplay.prototype.render = function() {
     this.displayWindow.height
    );
     this.renderBoard();
+    if(!this.combatAnimation) {
+      this.phaseStage.render(45, this.cursor.cursorPos);
+    }
     this.renderObjects(this.displayWindow.sF);
     this.displayWindow.updatePosition();
 }
