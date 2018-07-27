@@ -15,6 +15,7 @@ PhaseStage.prototype.nextStage = function(newStage) {
 
 PhaseStage.prototype.render = function(sF, cursorPos) {
   const midX = (15 - ((240*0.4)/52))/2;
+  if(this.stage === 'Game Finished') return null;
   if (this.stage === 'Enemy Phase') {
     this.enemyPhaseSprite.render(7, 0.95, 45);
   } else if(true) {
