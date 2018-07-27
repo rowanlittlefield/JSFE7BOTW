@@ -17,7 +17,7 @@ function NormalDamageAnimation(defenderCoordinates) {
       // [10, 21],
       // [253, 1033],
       [10, 1197],
-      [253, 1033]
+      [253, 1033],
       // [10,21],
 
      [253, 21], [496, 21],
