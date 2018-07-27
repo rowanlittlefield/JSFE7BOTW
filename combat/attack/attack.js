@@ -11,6 +11,7 @@ function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
 
   this.attackerCS = this.isCrit ? this.attacker.critAnimation : this.attacker.combatAnimation;
   this.defenderCS = this.defender.combatAnimation;
+  this.defenderReceiveHitAnimation = this.defender.receiveHitAnimation;
   this.dodgeAnimation = this.defender.dodgeAnimation;
 
   this.playedHitAnimation = false;
@@ -61,15 +62,21 @@ Attack.prototype.postAttackDefHP = function() {
 Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
   if (this.hitAnimationCondition()) {
     this.attackerCS.renderCurrentFrame(attackerC[0], 6, 45);
-    this.renderHit();
+    this.renderHit(defenderC);
   } else {
     this.defenderCS.renderStationaryFrame(defenderC[0], 6, 45);
     this.attackerCS.renderFromCoordinates(attackerC[0], 6, 45);
   }
 }
 
-Attack.prototype.renderHit = function() {
-  this.hit ? this.renderHitAnimation() : this.renderDodge();
+Attack.prototype.renderHit = function(defenderC) {
+  if (this.hit) {
+    this.defenderReceiveHitAnimation.renderCurrentFrame(defenderC[0], 6, 45);
+    this.renderHitAnimation();
+  } else {
+    this.renderDodge();
+  }
+  // this.hit ? this.renderHitAnimation() : this.renderDodge();
 }
 
 Attack.prototype.renderDodge = function() {

@@ -64,7 +64,6 @@ CombatAnimation.prototype.renderBackgroundElements = function() {
 
 CombatAnimation.prototype.endAnimation = function() {
   if(this.phaseStage.stage != "Enemy Phase") {
-    debugger
     this.phaseStage.nextStage('select unit');
   }
 }

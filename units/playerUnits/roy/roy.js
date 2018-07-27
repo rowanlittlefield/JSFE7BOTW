@@ -14,6 +14,7 @@ function Roy(board, inventory, stats) {
     new RoyCombatAnimation(),
     new RoyCritCombatAnimation(),
     new RoyDodgeAnimation(),
+    new RoyReceiveHitAnimation()
   );
 }
 

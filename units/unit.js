@@ -1,6 +1,7 @@
 function Unit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-  leftWalkSprite, hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation) {
+  leftWalkSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation) {
   if (!stats) stats = this.defaultStats();
   this.stats = stats;
   this.board = board;
@@ -17,6 +18,7 @@ function Unit(stats, board, inventory, name, mapSprite,
   this.combatAnimation = combatAnimation;
   this.critAnimation = critAnimation;
   this.dodgeAnimation = dodgeAnimation;
+  this.receiveHitAnimation = receiveHitAnimation
   this.position = null;
   this.actionTaken = false;
 }

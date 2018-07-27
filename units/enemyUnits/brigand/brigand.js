@@ -14,6 +14,7 @@ function Brigand(board, inventory, behavior, stats) {
     new BrigandCombatAnimation(),
     new BrigandCombatAnimation(),
     new LynDodgeAnimation(),
+    new BrigandReceiveHitAnimation,
     behavior
     );
 }

@@ -1,9 +1,10 @@
 function EnemyUnit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-   hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, behavior) {
+   hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation, behavior) {
   Unit.call(this, stats, board, inventory, name, mapSprite,
     forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-    leftWalkSprite, hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation);
+    leftWalkSprite, hpWindowSprite, combatAnimation, critAnimation,
+    dodgeAnimation, receiveHitAnimation);
   this.behavior = behavior;
   this.singleMovePathFinder =  new SingleMovePathFinder(board, this);
 }
