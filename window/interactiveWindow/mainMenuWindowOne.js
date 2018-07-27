@@ -1,5 +1,5 @@
 function MainMenuWindowOne() {
-  let options = ['New Game', 'Credits']
+  let options = ['New Game']//, 'Credits']
   InteractiveWindow.call(this, 0, 0, 0, 0, innerWidth, 100, options);
   this.color = "rgba(65, 105, 225, 1)";
   this.logoSprite = new Sprite(c, 240, 160, 240, 160, "window/InteractiveWindow/FE_titlescreen_logo.png", 1, 1);
@@ -9,6 +9,8 @@ function MainMenuWindowOne() {
     c, 239, 150, 600/2.22, 450/2.5, "window/InteractiveWindow/FE_7_story_scenes.png", 1,
     [[490, 330]]
   );
+
+  this.textOpacity = 0;
 }
 
 MainMenuWindowOne.prototype = Object.create(InteractiveWindow.prototype);
@@ -30,20 +32,21 @@ MainMenuWindowOne.prototype.render = function(sF) {
   this.backgroundSpriteTwo.render(7, 9, 45);
   if (this.backgroundSpriteTwo.coordinatesList[0][1] < 490) {
     this.backgroundSpriteTwo.coordinatesList[0][1] += 0.15;
+  } else if(this.textOpacity < 1) {
+    this.textOpacity = this.textOpacity + 0.01
+    drawStroked(`Press Enter`, 290, 400, this.textOpacity);
+  } else {
+    drawStroked(`Press Enter`, 290, 400, this.textOpacity);
   }
+  this.logoSprite.render(7, 5.2, 45);
 
-  // this.logoSprite.render(7, 6, 45);
+}
 
-  preScaledHighlight(this.x, this.y, this.dx, this.dy, this.color);
-
-  for(let i = 0; i < this.options.length; i++) {
-    renderTextWithFont("20px Arial", 'center', 'rgba(255, 255, 225, 1)',
-    `${this.options[i]}`, this.x + (this.dx / 2), this.y + ((1 + i) * sF * 0.5));
-
-    if (this.cursorPos === i) {
-      c.fillStyle = "rgba(255, 223, 0, 0.5)";
-      c.fillRect(this.x, this.y + ((0.1) + (i * 0.5)) * sF , this.dx, sF * 0.5);
-    }
-  }
-
+function drawStroked(text, x, y, opacity) {
+    c.font = "20px Serif"
+    c.strokeStyle = 'black';
+    c.lineWidth = 7;
+    c.strokeText(text, x, y);
+    c.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    c.fillText(text, x, y);
 }
