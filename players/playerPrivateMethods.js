@@ -110,7 +110,6 @@ Player.prototype.postMovementDecision = function() {
   } else if (option === 'Fight') {
     this.fightPreparations();
   } else if (option === 'Seize') {
-    debugger;
     this.phaseStage.stage = 'Game Finished';
     this.display.window = new GameFinishedWindow();
     this.display.cursor = new NullCursor();

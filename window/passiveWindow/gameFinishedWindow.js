@@ -1,9 +1,16 @@
 function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;
+
+  this.backgroundSpriteOne = new CoordinateSprite(
+    c, 120, 80, 120, 80, "window/InteractiveWindow/FE_6_story_scenes.png", 1,
+    [[3, 3]]
+  );
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {
+  this.backgroundSpriteOne.render(5, 5, 45);
+
   const sF = displayWindow.sF;
   const northY = ( (displayWindow.height / 2) -  sF * 1);
   let topX = (displayWindow.width / 2) -  (sF * 1);
