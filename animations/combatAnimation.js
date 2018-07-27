@@ -60,7 +60,10 @@ CombatAnimation.prototype.renderBackgroundElements = function() {
 //private methods
 
 CombatAnimation.prototype.endAnimation = function() {
-  this.phaseStage.nextStage('select unit');
+  if(this.phaseStage.stage != "Enemy Phase") {
+    debugger
+    this.phaseStage.nextStage('select unit');
+  }
 }
 
 CombatAnimation.prototype.modifyHP = function() {

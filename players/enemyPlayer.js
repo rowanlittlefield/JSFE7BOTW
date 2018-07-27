@@ -29,18 +29,22 @@ EnemyPlayer.prototype.initiatePhase = function() {
 }
 
 EnemyPlayer.prototype.phaseFrameUpdate = function() {
-
-  if (this.unitQueue[0].movingAnimation === undefined || this.unitQueue[0].movingAnimation === null) {
-    this.moveSelectedUnit();
-  } else if (this.unitQueue[0].movingAnimation && this.unitQueue[0].moving) {
-  } else if (this.unitQueue[0].moving === false) this.finishUnitTurn();
-  if (this.unitQueue.length === 0) this.endPhase();
+  if (this.unitQueue.length > 0) {
+    if (this.unitQueue[0].movingAnimation === undefined || this.unitQueue[0].movingAnimation === null) {
+      this.moveSelectedUnit();
+    } else if (this.unitQueue[0].movingAnimation && this.unitQueue[0].moving) {
+    } else if (this.unitQueue[0].moving === false) this.finishUnitTurn();
+  }
+  if (this.unitQueue.length === 0 && this.display.combatAnimation === null) {
+    this.endPhase();
+  }
 
 }
 
 // 'Private' EnemyPlayer methods
 
 EnemyPlayer.prototype.finishUnitTurn = function() {
+
   let playerUnit = this.unitQueue[0].selectPlayerUnitInRange();
 
   if (playerUnit) {
@@ -55,8 +59,8 @@ EnemyPlayer.prototype.finishUnitTurn = function() {
 }
 
 EnemyPlayer.prototype.endPhase = function() {
-  this.phaseStage.nextStage('select unit');
   this.frameSource.endAIPhase();
+  this.phaseStage.nextStage('select unit');
 }
 
 EnemyPlayer.prototype.moveSelectedUnit = function() {
