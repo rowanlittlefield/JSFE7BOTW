@@ -71,7 +71,8 @@ Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
 
 Attack.prototype.renderHit = function(defenderC) {
   if (this.hit) {
-    this.defenderReceiveHitAnimation.renderCurrentFrame(defenderC[0], 6, 45);
+    // this.defenderReceiveHitAnimation.renderCurrentFrame(defenderC[0], 6, 45);
+    this.defenderReceiveHitAnimation.render(defenderC[0], 6, 45);
     this.renderHitAnimation();
   } else {
     this.renderDodge();
