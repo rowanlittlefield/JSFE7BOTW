@@ -50,7 +50,7 @@ function RoyCriticalHitAnimation(defenderCoordinates) {
 RoyCriticalHitAnimation.prototype = Object.create(CoordinateSprite.prototype);
 RoyCriticalHitAnimation.prototype.constructor = RoyCriticalHitAnimation;
 
-CoordinateSprite.prototype.render = function(sF) {
+RoyCriticalHitAnimation.prototype.render = function(sF) {
   let scale = sF / 18;
   // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
   // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));

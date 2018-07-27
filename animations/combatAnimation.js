@@ -8,9 +8,12 @@ function CombatAnimation(combat, phaseStage) {
   this.backgroundWindow = new CombatAnimationBackgroundWindow(
     combat.pu, combat.eu
   );
+
+  this.battlePlatformSprite = new BattlePlatformSprite();
 }
 
 CombatAnimation.prototype.render = function() {
+  this.battlePlatformSprite.render(7.3, 8.4, 45);
   if(this.nonCombatFrames === 100) this.renderCombat();
   if ((this.nonCombatFrames < 100) ||
   (this.nonCombatFrames >= 101 && this.nonCombatFrames < 150)) {

@@ -31,9 +31,9 @@ function NormalCriticalDamageAnimation(defenderCoordinates) {
 }
 
 NormalCriticalDamageAnimation.prototype = Object.create(CoordinateSprite.prototype);
-NormalCriticalDamageAnimation.prototype.constructor = NormalDamageAnimation;
+NormalCriticalDamageAnimation.prototype.constructor = NormalCriticalDamageAnimation;
 
-CoordinateSprite.prototype.render = function(sF) {
+NormalCriticalDamageAnimation.prototype.render = function(sF) {
   let scale = sF / 18;
   // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
   // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));

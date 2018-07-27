@@ -31,7 +31,7 @@ function NormalDamageAnimation(defenderCoordinates) {
 NormalDamageAnimation.prototype = Object.create(CoordinateSprite.prototype);
 NormalDamageAnimation.prototype.constructor = NormalDamageAnimation;
 
-CoordinateSprite.prototype.render = function(sF) {
+NormalDamageAnimation.prototype.render = function(sF) {
   let scale = sF / 18;
   // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
   // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));

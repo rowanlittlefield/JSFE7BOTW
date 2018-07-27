@@ -67,20 +67,18 @@ function spaceHighlight(pos, color, sF) {
 
 function highlightSpaces(spaces, board, color, sF) {
   for(const space in spaces) {
-    let pos = stringToPos(space);
+    const pos = stringToPos(space);
     spaceHighlight(pos, color, sF);
   }
 }
 
 function galileoHighlightSpaces(sF, x, y, width, height, spaces, color) {
-  let topX = x/sF;
-  let topY = y/sF;
-  // debugger;
-
+  const topX = x/sF;
+  const topY = y/sF;
 
   for(const space in spaces) {
-    let pos = stringToPos(space);
-    let highlightPos = [pos[0] - topX, pos[1] - topY];
+    const pos = stringToPos(space);
+    const highlightPos = [pos[0] - topX, pos[1] - topY];
     spaceHighlight(highlightPos, color, sF);
   }
 
