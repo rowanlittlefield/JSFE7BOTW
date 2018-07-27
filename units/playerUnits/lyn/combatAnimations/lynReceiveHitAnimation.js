@@ -1,5 +1,5 @@
 function LynReceiveHitAnimation() {
-  const sprite0 = new Sprite(c, 70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 6, 1);
+  const sprite0 = new Sprite(c, 70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 

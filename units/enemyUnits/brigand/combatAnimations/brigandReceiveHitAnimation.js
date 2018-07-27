@@ -1,5 +1,5 @@
 function BrigandReceiveHitAnimation() {
-  const sprites0 = new Sprite(c, 70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandReceiveHitSprite.png', 6, 1);
+  const sprites0 = new Sprite(c, 70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprites0];
   const positionAdjustment = {};
 
