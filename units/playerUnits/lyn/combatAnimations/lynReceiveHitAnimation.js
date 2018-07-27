@@ -1,5 +1,5 @@
 function LynReceiveHitAnimation() {
-  const sprite0 = new Sprite(c, 70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 2, 1);
+  const sprite0 = new Sprite(c, 70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 
@@ -16,8 +16,13 @@ LynReceiveHitAnimation.prototype = Object.create(SpriteSequence.prototype);
 LynReceiveHitAnimation.prototype.constructor = LynReceiveHitAnimation;
 
 LynReceiveHitAnimation.prototype.render = function(row, col, sF) {
-  this.currentSprite().render(row, col, sF);
+  const currentSprite = this.currentSprite();
+  currentSprite.render(row, col, sF);
   this.update();
+  if(this.queueIndex === 0 && currentSprite.frameIndex === 0 &&
+    currentSprite.tickCount === 0) {
+    this.rendered = true;
+  }
 }
 
 LynReceiveHitAnimation.prototype.update = function() {

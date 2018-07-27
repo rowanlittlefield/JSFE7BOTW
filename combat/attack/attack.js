@@ -72,7 +72,11 @@ Attack.prototype.renderFrame = function(attackerC, defenderC, sF) {
 Attack.prototype.renderHit = function(defenderC) {
   if (this.hit) {
     // this.defenderReceiveHitAnimation.renderCurrentFrame(defenderC[0], 6, 45);
-    this.defenderReceiveHitAnimation.render(defenderC[0], 6, 45);
+    if (!this.defenderReceiveHitAnimation.rendered) {
+      this.defenderReceiveHitAnimation.render(defenderC[0], 6, 45);
+    } else {
+      this.defenderCS.renderStationaryFrame(defenderC[0], 6, 45);
+    }
     this.renderHitAnimation();
   } else {
     this.renderDodge();
@@ -93,6 +97,7 @@ Attack.prototype.renderHitAnimation = function() {
   if (this.hitAnimation.tickCount === 0 &&
     this.hitAnimation.frameIndex === 0) {
     this.playedHitAnimation = true;
+    this.defenderReceiveHitAnimation.rendered = false;
   }
 }
 
