@@ -1,3 +1,8 @@
+import CombatAnimation from  '../../../../animations/combatAnimation';
+import CombatSprite from '../../../../animations/spriteSequence/combatSprite';
+import Sprite from '../../../../animations/sprite';
+import { c } from '../../../../createContext';
+
 function RoyCombatAnimation() {
 
   let sprite0 = new Sprite(c, 70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite0.png', 3, 6);
@@ -88,3 +93,5 @@ function RoyCombatAnimation() {
 
 RoyCombatAnimation.prototype = Object.create(CombatSprite.prototype);
 RoyCombatAnimation.prototype.constructor = RoyCombatAnimation;
+
+export default RoyCombatAnimation;

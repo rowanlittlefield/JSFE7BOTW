@@ -1,3 +1,13 @@
+import PlayerUnit from '../playerUnit';
+import Sprite from '../../../animations/sprite';
+import { c } from '../../../createContext';
+import LynCombatAnimation from './combatAnimations/lynCombatAnimation';
+import LynCritCombatAnimation from './combatAnimations/lynCritCombatAnimation';
+import LynDodgeAnimation from './combatAnimations/lynDodgeAnimation';
+import LynReceiveHitAnimation from './combatAnimations/lynReceiveHitAnimation';
+import UnitStats from '../../unitStats/unitStats';
+
+
 function Lyn(board, inventory, stats) {
   PlayerUnit.call(
     this,
@@ -46,3 +56,5 @@ Lyn.prototype.defaultStats = function() {
     }
   );
 }
+
+export default Lyn;

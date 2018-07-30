@@ -1,3 +1,5 @@
+import Terrain from './terrain';
+
 function Peak(board, position) {
   Terrain.call(this, board, position);
 }
@@ -28,3 +30,5 @@ Peak.prototype.moveCost = function(constructorName) {
     return 10;
   }
 }
+
+export default Peak;

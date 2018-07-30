@@ -1,6 +1,8 @@
+import Space from './space';
+
 function Board(dimensions, sprite){
   this.dimensions = dimensions;
-    new_grid = new Array(dimensions[0]);
+    const new_grid = new Array(dimensions[0]);
 
     for(var rows = 0; rows < dimensions[0]; rows ++){
       new_grid[rows] = new Array(dimensions[1])
@@ -83,3 +85,5 @@ Board.prototype.setUpUnitHash = function() {
 Board.prototype.space = function(pos) {
   return this.grid[pos[0]][pos[1]];
 }
+
+export default Board;

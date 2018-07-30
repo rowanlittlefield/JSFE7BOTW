@@ -28,3 +28,5 @@ function Controller(game) {
 Controller.prototype.removeEventListener = function() {
   window.removeEventListener("keydown", this.checkKeyPress, false);
 }
+
+export default Controller;

@@ -1,3 +1,6 @@
+import PlayerUnit from '../playerUnits/playerUnit';
+import { stringToPos, galileoHighlightSpaces } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+
 function AttackPositions(board, unit) {
   this.board = board;
   this.isPlayerUnit = unit instanceof PlayerUnit;
@@ -83,3 +86,5 @@ AttackPositions.prototype.render = function(sF, x, y, width, height) {
 // Test to verify is working
 galileoHighlightSpaces(sF, x, y, width, height, this.positions, 'rgba(255, 0, 0, 0.2)');
 }
+
+export default AttackPositions;

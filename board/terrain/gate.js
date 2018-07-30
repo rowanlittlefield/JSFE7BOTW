@@ -1,3 +1,5 @@
+import Terrain from './terrain';
+
 function Gate(board, position) {
   Terrain.call(this, board, position);
 }
@@ -24,3 +26,5 @@ Gate.prototype.healBonus = function() {
 Gate.prototype.moveCost = function(constructorName) {
   return 1;
 }
+
+export default Gate;

@@ -1,3 +1,5 @@
+import Controller from './controller';
+
 function Game(display, frameSource, campaign, menu) {
   this.controller = new Controller(this);
   this.frameSource = frameSource;
@@ -34,3 +36,5 @@ Game.prototype.playCampaign = function() {
   this.gameStage = 'Play Campaign';
   this.campaign.play();
 }
+
+export default Game;

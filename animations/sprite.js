@@ -98,3 +98,5 @@ Sprite.prototype.renderCurrentFrame = function(row, col, sF) {
 Sprite.prototype.isFirstFrame = function() {
   return (this.frameIndex === 0 && this.tickCount === 0);
 }
+
+export default Sprite;

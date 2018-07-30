@@ -1,3 +1,6 @@
+import PlayerUnit from '../playerUnits/playerUnit';
+import { stringToPos, equivalentPositions, spaceHighlight } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+
 function BFSMazeSolver(board, unit) {
   this.board = board;
   this.unit = unit;
@@ -147,3 +150,5 @@ BFSMazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
   }
 
 }
+
+export default BFSMazeSolver;

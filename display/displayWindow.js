@@ -47,3 +47,5 @@ DisplayWindow.prototype.updatePosition = function() {
     this.movementDirection = null;
   }
 }
+
+export default DisplayWindow;

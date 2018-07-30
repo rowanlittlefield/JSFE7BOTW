@@ -1,3 +1,6 @@
+import Unit from '../unit';
+import SingleMovePathFinder from '../singleMovePathFinder/singleMovePathFinder';
+
 function PlayerUnit(stats, board, inventory, name, mapSprite,
 forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
  hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation) {
@@ -33,3 +36,5 @@ PlayerUnit.prototype.nullifyOptions = function(display) {
 PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
   this.singleMovePathFinder.renderSingleMovePositionSets(sF, x, y, width, height);
 }
+
+export default PlayerUnit;

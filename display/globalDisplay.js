@@ -1,3 +1,12 @@
+import DisplayWindow from './displayWindow';
+import NullWindow from '../window/nullWindow';
+import { c } from '../createContext';
+import UnitPostMovePhaseWindow from '../window/interactiveWindow/unitPostMovePhaseWindow';
+import UnitMapWindow from '../window/passiveWindow/unitMapWindow';
+import TerrainWindow from '../window/passiveWindow/terrainWindow';
+import CombatInformationWindow from '../window/interactiveWindow/combatInformationWindow';
+import GameFinishedWindow from '../window/passiveWindow/gameFinishedWindow';
+
 function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.board = board;
   this.displayWindow = new DisplayWindow(sF, 5*sF, 1*sF, 15*sF, 10*sF);
@@ -88,3 +97,5 @@ GlobalDisplay.prototype.renderCombatAnimation = function() {
     this.combatAnimation = null;
   }
 }
+
+export default GlobalDisplay;

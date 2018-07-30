@@ -1,3 +1,11 @@
+import EnemyUnit from '../enemyUnit';
+import Sprite from '../../../animations/sprite';
+import { c } from '../../../createContext';
+import BrigandCombatAnimation from './combatAnimations/brigandCombatAnimation';
+import LynDodgeAnimation from '../../playerUnits/lyn/combatAnimations/lynDodgeAnimation';
+import BrigandReceiveHitAnimation from './combatAnimations/brigandReceiveHitAnimation';
+import UnitStats from '../../unitStats/unitStats';
+
 function Brigand(board, inventory, behavior, stats) {
   EnemyUnit.call(
     this,
@@ -47,3 +55,5 @@ Brigand.prototype.defaultStats = function() {
     }
   );
 }
+
+export default Brigand;

@@ -5,4 +5,4 @@ canvas.width = 15 * 45;
 // canvas.height = window.innerHeight;
 // canvas.height = 17 * 52;
 canvas.height = 10 * 45;
-var c = canvas.getContext('2d');
+export const c = canvas.getContext('2d');

@@ -75,3 +75,5 @@ CombatAnimation.prototype.modifyHP = function() {
 CombatAnimation.prototype.currentAttack = function() {
   return this.combat.queue[this.combatQueueIndex];
 }
+
+export default CombatAnimation;

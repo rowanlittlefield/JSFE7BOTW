@@ -8,3 +8,5 @@ nullPhaseStage.prototype.render = function(sF) {
   // c.fillText(`${this.stage}`, 600, 400);
   // this.playerPhaseSprite.render(5, 5, 45);
 }
+
+export default nullPhaseStage;

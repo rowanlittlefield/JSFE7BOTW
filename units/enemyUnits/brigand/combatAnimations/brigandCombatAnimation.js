@@ -1,3 +1,7 @@
+import CombatSprite from '../../../../animations/spriteSequence/combatSprite';
+import Sprite from '../../../../animations/sprite';
+import { c } from '../../../../createContext';
+
 function BrigandCombatAnimation() {
   let sprites0 = new Sprite(c, 70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite0.png', 6, 4);
   let sprites1 = new Sprite(c, 70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite1.png', 6, 1);
@@ -44,3 +48,5 @@ function BrigandCombatAnimation() {
 
 BrigandCombatAnimation.prototype = Object.create(CombatSprite.prototype);
 BrigandCombatAnimation.prototype.constructor = BrigandCombatAnimation;
+
+export default BrigandCombatAnimation;

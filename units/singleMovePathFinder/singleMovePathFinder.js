@@ -1,8 +1,14 @@
+import PlayerUnit from '../playerUnits/playerUnit';
+import MoveThroughPositions from './moveThroughPositions';
+import ValidMovePositions from './validMovePositions';
+import AttackPositions from './attackPositions';
+import BFSMazeSolver from './bfsMazeSolver';
+
 function SingleMovePathFinder(board, unit) {
   this.board = board;
   this.moveStat = unit.stats.move;
   this.isPlayerUnit = unit instanceof PlayerUnit;
-
+  
   this.moveThroughPositions = new MoveThroughPositions(board, this.isPlayerUnit, unit);
   this.validMovePositions = new ValidMovePositions(board, unit);
   this.attackPositions = new AttackPositions(board, unit);
@@ -54,7 +60,7 @@ SingleMovePathFinder.prototype.findSeekAndDestroySingleTurnPosition = function(u
   if(!equivalentPositions(unitPosition, singleMoveAttackPosition)) {
     return singleMoveAttackPosition;
   }
-  
+
   const multiTurnRoute = this.findSeekAndDestroyMultiTurnRoute(unitPosition, unitRanges);
   if(equivalentPositions(unitPosition, multiTurnRoute)) return unitPosition;
 
@@ -91,3 +97,5 @@ SingleMovePathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y,
   this.attackPositions.render(sF, x, y, width, height);
   this.bfsMazeSolver.renderRouteSpaces(sF, x, y, width, height);
 }
+
+export default SingleMovePathFinder;

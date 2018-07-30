@@ -1,3 +1,5 @@
+import SpriteSequence from './spriteSequence';
+
 function CombatSprite(context, spriteQueue, positionAdjustment, damageFrame) {
   SpriteSequence.call(this, context, spriteQueue, positionAdjustment);
 
@@ -24,3 +26,5 @@ CombatSprite.prototype.onDamageFrame = function() {
   return (this.queueIndex === this.damageFrame[0] &&
   this.currentSprite().frameIndex === this.damageFrame[1]);
 }
+
+export default CombatSprite

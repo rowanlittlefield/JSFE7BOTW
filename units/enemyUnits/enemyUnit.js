@@ -1,3 +1,6 @@
+import Unit from '../unit';
+import SingleMovePathFinder from '../singleMovePathFinder/singleMovePathFinder';
+
 function EnemyUnit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
    hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation, behavior) {
@@ -15,3 +18,5 @@ EnemyUnit.prototype.constructor = EnemyUnit;
 EnemyUnit.prototype.waitForAnimationCompletion = function() {
 
 }
+
+export default EnemyUnit;

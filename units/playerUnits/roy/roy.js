@@ -1,3 +1,12 @@
+import PlayerUnit from '../playerUnit';
+import Sprite from '../../../animations/sprite';
+import { c } from '../../../createContext';
+import RoyCombatAnimation from './combatAnimations/royCombatAnimation';
+import RoyCritCombatAnimation from './combatAnimations/royCritCombatAnimation';
+import RoyDodgeAnimation from './combatAnimations/royDodgeAnimation';
+import RoyReceiveHitAnimation from './combatAnimations/royReceiveHitSprite';
+import UnitStats from '../../unitStats/unitStats';
+
 function Roy(board, inventory, stats) {
   PlayerUnit.call(
     this,
@@ -46,3 +55,5 @@ Roy.prototype.defaultStats = function() {
     }
   );
 }
+
+export default Roy;

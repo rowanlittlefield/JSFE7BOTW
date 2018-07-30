@@ -6,3 +6,5 @@ function NullCursor() {
 NullCursor.prototype.renderBoardCursor = function() {
 
 }
+
+export default NullCursor;

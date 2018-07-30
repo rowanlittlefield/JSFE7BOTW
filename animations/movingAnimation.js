@@ -1,3 +1,5 @@
+import UnitPostMovePhaseWindow from '../window/interactiveWindow/unitPostMovePhaseWindow';
+
 function MovingAnimation(unit, route, ticksPerTranslation, phaseStage, display) {
   this.unit = unit;
   this.differentials = this.calculateRouteDifferentials(route);
@@ -68,3 +70,5 @@ MovingAnimation.prototype.endAnimation = function() {
     this.display.window = new UnitPostMovePhaseWindow(this.unit);
   }
 }
+
+export default MovingAnimation;

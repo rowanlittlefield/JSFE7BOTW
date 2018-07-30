@@ -1,3 +1,8 @@
+import PhaseStage from '../../phaseStage/phaseStage';
+import Player from '../../players/player';
+import EnemyPlayer from '../../players/enemyPlayer';
+import Cursor from '../../display/cursor'; 
+
 function Chapter(board, display, frameSource, objective, sF) {
   this.phase = 0;
   this.phaseStage = new PhaseStage();
@@ -76,3 +81,5 @@ Chapter.prototype.changePhase = function() {
   console.log(this.phase);
 
 }
+
+export default Chapter;

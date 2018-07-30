@@ -1,3 +1,7 @@
+import GeneralPlayer from  './generalPlayer';
+import PlayerUnit from '../units/playerUnits/playerUnit';
+import EnemyUnit from '../units/enemyUnits/enemyUnit';
+
 function EnemyPlayer(board, display, phaseStage, frameSource) {
   this.board = board;
   this.display = display;
@@ -78,3 +82,5 @@ EnemyPlayer.prototype.moveSelectedUnit = function() {
       unit.move(moveSelection);
   }
 }
+
+export default EnemyPlayer;

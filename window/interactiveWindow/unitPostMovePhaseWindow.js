@@ -1,3 +1,6 @@
+import InteractiveWindow from './interactiveWindow';
+import Unit from '../../units/unit';
+
 function UnitPostMovePhaseWindow(unit) {
   this.unit = unit;
   let options = unit.postMoveWindowOptions();
@@ -35,3 +38,5 @@ UnitPostMovePhaseWindow.prototype.render = function(displayWindow) {
     }
   }
 }
+
+export default UnitPostMovePhaseWindow;

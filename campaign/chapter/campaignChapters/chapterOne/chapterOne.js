@@ -1,4 +1,26 @@
+import Board from '../../../../board/board';
+import Chapter from '../../chapter';
+import Sprite from '../../../../animations/sprite';
+import { c } from '../../../../createContext';
+import Roy from '../../../../units/playerUnits/roy/roy';
+import Inventory from '../../../../inventory/inventory';
+import { SwordOfSeals } from '../../../../items/weapon';
+import Lyn from '../../../../units/playerUnits/lyn/lyn';
+import { ManiKatti } from '../../../../items/weapon';
+import Brigand from '../../../../units/enemyUnits/brigand/brigand';
+import { IronAxe } from '../../../../items/weapon';
+
+import Thicket from '../../../../board/terrain/thicket';
+import Wall from '../../../../board/terrain/wall';
+import Forest from '../../../../board/terrain/forest';
+import Mountain from '../../../../board/terrain/mountain';
+import Peak from '../../../../board/terrain/peak';
+import Fort from '../../../../board/terrain/fort';
+import Gate from '../../../../board/terrain/gate';
+import Village from '../../../../board/terrain/village';
+
 function ChapterOne(display, frameSource, sF) {
+
   Chapter.call(this,
     this.setupBoard(),
     display,
@@ -262,3 +284,5 @@ new Forest(newBoard, [9, 2]);
 //test
   return newBoard;
 }
+
+export default ChapterOne;

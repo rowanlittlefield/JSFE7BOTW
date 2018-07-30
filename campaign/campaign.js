@@ -1,3 +1,5 @@
+import ChapterOne from './chapter/campaignChapters/chapterOne/chapterOne';
+
 function Campaign(display, frameSource) {
   this.display = display;
   this.frameSource = frameSource;
@@ -11,9 +13,11 @@ Campaign.prototype.setupChapterQueue = function(display, frameSource) {
 
 Campaign.prototype.play = function() {
   this.currentChapter = this.chapterQueue.shift();
-  this.currentChapter.play(display, frameSource);
+  this.currentChapter.play(this.display, this.frameSource);
 }
 
 Campaign.prototype.receiveControllerInput = function(button) {
   this.currentChapter.receiveInput(button);
 }
+
+export default Campaign;
