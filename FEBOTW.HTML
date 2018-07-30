@@ -14,32 +14,45 @@
         width: 100%;
         height: 100%;
         margin: 0;
-      }
 
-      .above-canvas {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
+        /* background: linear-gradient(45deg, red , yellow); */
+
+        /* background-image: url("HTMLAssets/FE_woods_background.jpg") */
       }
 
       .middle {
+        margin-top: 15px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+      }
+
+      .middle-central {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
       }
 
     </style>
   </head>
-  <body>
-    <div class="above-canvas">
-      <img src="HTMLAssets/gameBeingLogo.png">
-    </div>
+  <body id='body'>
     <div class="middle">
       <img src="HTMLAssets/dpad.jpg" width='225' height='225'>
-      <canvas>
-      </canvas>
+      <div class="middle-central">
+        <img width="276px" height="95px" src="HTMLAssets/gameBeingLogo.png">
+        <canvas>
+        </canvas>
+      </div>
       <img src="HTMLAssets/a_b_buttons.jpg">
     </div>
+
+    <script type="text/javascript">
+      const background = document.getElementById('body');
+      // background.setAttribute('style', 'background-color: linear-gradient(red, yellow)');
+      // background.style.color = 'red';
+    </script>
 
     <script src="miscellaneousFunctions/MiscellaneousFunctions.js"></script>
     <script src="createContext.js"></script>
