@@ -8,7 +8,7 @@ function SingleMovePathFinder(board, unit) {
   this.board = board;
   this.moveStat = unit.stats.move;
   this.isPlayerUnit = unit instanceof PlayerUnit;
-  
+
   this.moveThroughPositions = new MoveThroughPositions(board, this.isPlayerUnit, unit);
   this.validMovePositions = new ValidMovePositions(board, unit);
   this.attackPositions = new AttackPositions(board, unit);

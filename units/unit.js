@@ -1,5 +1,6 @@
 import { stringToPos, distance } from '../miscellaneousFunctions/MiscellaneousFunctions';
 import EnemyUnit from './enemyUnits/enemyUnit';
+import PlayerUnit from './playerUnits/playerUnit';
 
 function Unit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite,

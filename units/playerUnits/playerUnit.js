@@ -13,7 +13,7 @@ forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
 
   this.singleMovePathFinder =  new SingleMovePathFinder(board, this);
 }
-
+debugger
 PlayerUnit.prototype = Object.create(Unit.prototype);
 PlayerUnit.prototype.constructor = PlayerUnit;
 
