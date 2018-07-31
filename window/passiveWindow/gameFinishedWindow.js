@@ -1,3 +1,8 @@
+import CoordinateSprite from '../../animations/coordinateSprite';
+import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { c } from '../../createContext';
+import Sprite from '../../animations/sprite';
+
 function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;

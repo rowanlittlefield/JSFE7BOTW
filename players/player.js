@@ -9,6 +9,8 @@ import MovingAnimation from '../animations/movingAnimation';
 import CombatInformationWindow from '../window/interactiveWindow/combatInformationWindow';
 import Combat from '../combat/combat';
 import CombatAnimation from '../animations/combatAnimation';
+import GameFinishedWindow from '../window/passiveWindow/gameFinishedWindow';
+import NullCursor from '../display/nullCursor';
 
 function Player(board, display, phaseStage) {
   this.board = board;

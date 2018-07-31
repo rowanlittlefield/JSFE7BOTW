@@ -3,6 +3,7 @@ import MoveThroughPositions from './moveThroughPositions';
 import ValidMovePositions from './validMovePositions';
 import AttackPositions from './attackPositions';
 import BFSMazeSolver from './bfsMazeSolver';
+import { equivalentPositions, stringToPos } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 
 function SingleMovePathFinder(board, unit) {
   this.board = board;
