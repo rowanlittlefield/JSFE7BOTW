@@ -6,6 +6,9 @@ import NullWindow from '../window/nullWindow';
 import UnitMapWindow from '../window/passiveWindow/unitMapWindow';
 import { equivalentPositions } from '../miscellaneousFunctions/MiscellaneousFunctions';
 import MovingAnimation from '../animations/movingAnimation';
+import CombatInformationWindow from '../window/interactiveWindow/combatInformationWindow';
+import Combat from '../combat/combat';
+import CombatAnimation from '../animations/combatAnimation';
 
 function Player(board, display, phaseStage) {
   this.board = board;

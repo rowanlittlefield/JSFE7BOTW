@@ -2,12 +2,12 @@ export function Weapon() {
   this.stats = {};
 }
 
-function PhysicalWeapon() {
+export function PhysicalWeapon() {
 }
 PhysicalWeapon.prototype = Object.create(Weapon.prototype);
 PhysicalWeapon.prototype.constructor = PhysicalWeapon;
 
-function MagicalWeapon() {
+export function MagicalWeapon() {
 }
 MagicalWeapon.prototype = Object.create(Weapon.prototype);
 MagicalWeapon.prototype.constructor = MagicalWeapon;

@@ -11,7 +11,7 @@ function EnemyUnit(stats, board, inventory, name, mapSprite,
   this.behavior = behavior;
   this.singleMovePathFinder =  new SingleMovePathFinder(board, this);
 }
-debugger
+
 EnemyUnit.prototype = Object.create(Unit.prototype);
 EnemyUnit.prototype.constructor = EnemyUnit;
 

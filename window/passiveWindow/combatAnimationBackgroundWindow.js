@@ -1,4 +1,9 @@
+import PassiveWindow from './passiveWindow';
+import { c } from '../../createContext';
+import { renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+
 function CombatAnimationBackgroundWindow(pu, eu) {
+  const sF = 45;
   this.sF = sF;
   this.x = 5*sF;
   this.y = 0*sF;
@@ -101,3 +106,5 @@ CombatAnimationBackgroundWindow.prototype.modifyHP = function(defender, newHP) {
     this.enemyHP = newHP;
   }
 }
+
+export default CombatAnimationBackgroundWindow;
