@@ -5586,6 +5586,17 @@ GameWindow.prototype.render = function(sF) {
 
 /***/ }),
 
+/***/ "./window/interactiveWindow/FE_titlescreen_logo.png":
+/*!**********************************************************!*\
+  !*** ./window/interactiveWindow/FE_titlescreen_logo.png ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAACgCAMAAAAFBRFXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURQAAAAAYAAgQCFAQCHB4iIAYEJAwGNBoQPDIOPjoYNiYiPj40AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAfqXwAAAEAdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT9wclAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjIx8SBplQAABWtJREFUeF7tl1uW4jAMBRnnCex/vczV03KAbpjho49a9UGEbMuuJMTkdPtllHB2Sjg7JZydEs5OCWenhLNTwtkp4eyUcHZKODslnJ0Szk4JZ6eEs1PC2Snh7JRwdko4OyWcnRLOTglnp4SzU8LZKeHs/F7h9jk+XS/yP7V5rAm3y6eYufAH682zRuCt2nEgkIV14fUjTNOki9LEB5j1CKj2H9Se9PvXhIFAFqbCqLGdR9ZmmQ0WK0fw4SOxocZxzI4O7qs5Z20T998xkBPEELfpIpFOx2D29crR3liYas/nnVPGjtVKp1Bww2nRkJd+ED7vI0uzzNawAI7gy0dmbXdj6NSYMNY0slj/db3ykcCSNKJ5Zm2AuARgm9qqUePiJHyRjLO1ZbfifagtmxiFUWPrbcyGC+yhDQwF8KX3MOIFvl+T9Q++Q0UI67clZg/CVHtYB9FPfmyKZe6E70t4ZuthJPQw4i/4vmCc/xFbO54k4pFwuAGYfjKfMgjz+jZtod8mwB3tmX3zkNB4XbyHDKFHlvvqInUIWBo+QkrCGG+LHEHMjsJUu/9auN+24WYbaj8ofhSeJj3/WJiADCeQmuzicKNdqNVDnGBcW4ZG8qJstNfDalvrKWumFr0b6JxwMPZw4d2E8bSUBI9m8HwKqQfxKHw6newHvi26dHoycwZTeiOZWRoP1ZgWeLsb63kb4ByulIUS9zIehR4QlkiEUTsIUz9BO2FVh5jDg3BrKCKP9UFYYGGJ4DjN0pF2kZ4OtNvp1CBs9WIj50RSm8c4FjT5URi1mz8R48RPhTWOwnScfYHLlUAPzQThGRsHkC9deMYmyPhTK9azNpqec18JS4SCZwyh8ErCkj2TMGgznloMthIt7kVEMsYcHvfh2+myytBtoalwpNkF3vqZS5NGhoQlgpzg+3CvN09yvO5033N0kTU9im2QLgLA17IufFkvkpmbHMNq51BwiJ8K73yQ0y104VkaGb7CEvJlJ9BTfIOwHHhNrwv3eWZ6IEn4QFj74U+ND31X2Et413iF5UDgjPRTovQ7utczaE0vC4d5QvaBsBz4ZGqnt4WVUCIIG/uyYOPoaXsfcd9Qz9po8leFI2f6DUt0J6zQ1bGh7wjLr1vWRz6WYWEJFVwu8rU073fEKMxtZ+rKoP+rD60LTuiiTxsWligKc2KmfiAUUUmOhwfYM2E+W2hseBZKJgiv+o5CD3lC02EfJjOtx02xDXD/r4Q5oEH0r4bZaVuSCMKMv9rZmabStkQuyOF3wrrtLVp1mW37I2HbzPgAxNjGdCl/z/Z6gzDnRNKahzhm7c0s7sP6Tv/WHw+Nvxf2F4ooPBrbmEHqv4Q5oBk9G4TpT6VgwnLeGe30T8JjZhTWJY1r4puGQO44WlvkBuPc98KYBwMkDsIG/m9IIIUJvzk+LuzGHGsPg87CcbRDl5pzrwj3weGvpeEvGQ7UtNPnhSebDF+sh2FVHwmzGudeEA5j74XR7yBMVbTTp4Wpcv8BWQ+FflJPhXl2zn0vHHzwrnucBpmDMNXWToNkjO+FdU+zNfcM/emyiO7LntejoxuljPZuAk2uQ3kd2syxhlCTKEITHtJ4VT8QCvI0MZYQZUZh/BMxXFi/R/D41ugxLhzq/RRGYdmLhPvMy/BQcKKb4afBC+Pl4RhY7jKBpy29JmHffxS8MF7eL6KEs1PC2Snh7JRwdko4OyWcnRLOTglnp4SzU8LZKeHslHB2Sjg7JZydEs5OCWenhLNTwtkp4eyUcHZKODslnJ0Szk4JZ6eEs1PC2Snh7JRwdko4OyWcnRLOTglnp4SzU8LZKeHslHB2Sjg7JZydEs5OCWfnlwnfbn8BqIvpc3jhLiEAAAAASUVORK5CYII="
+
+/***/ }),
+
 /***/ "./window/interactiveWindow/combatInformationWindow.js":
 /*!*************************************************************!*\
   !*** ./window/interactiveWindow/combatInformationWindow.js ***!
@@ -5750,12 +5761,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// require("./FE_titlescreen_logo.png");
+// "window/InteractiveWindow/FE_titlescreen_logo.png"
 
 function MainMenuWindowOne() {
   let options = ['New Game']//, 'Credits']
   _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, 0, 0, 0, 0, innerWidth, 100, options);
   this.color = "rgba(65, 105, 225, 1)";
-  this.logoSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 240, 160, 240, 160, "window/InteractiveWindow/FE_titlescreen_logo.png", 1, 1);
+  this.logoSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 240, 160, 240, 160, __webpack_require__(/*! ./FE_titlescreen_logo.png */ "./window/interactiveWindow/FE_titlescreen_logo.png"), 1, 1);
 
   this.backgroundSpriteTwo = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_3__["default"](
     //238, 319
