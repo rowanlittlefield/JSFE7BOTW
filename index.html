@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <title>Canvas Resize</title>
     <style type="text/css">
       canvas {
@@ -19,11 +20,9 @@
         min-height: 100%;
         margin: 0;
 
-         /*background: linear-gradient(lightgrey, white 15%);*/
-         /*background: rgb(39, 33, 198, 0.7);*/
-         /*background-image: url("HTMLAssets/FE_woods_background.jpg");
-         background-repeat: no-repeat;
-         background-size: cover;*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       #body {
@@ -48,6 +47,11 @@
         align-items: center;
       }
 
+      .credentials-link-img {
+        width: 25px;
+        height: auto;
+      }
+
     </style>
   </head>
   <body id='body'>
@@ -62,12 +66,10 @@
       </div>
       <img src="HTMLAssets/a_b_buttons.png">
     </div>
-
-    <script type="text/javascript">
-      const background = document.getElementById('body');
-      // background.setAttribute('style', 'background-color: linear-gradient(red, yellow)');
-      // background.style.color = 'red';
-    </script>
+    <div>
+      <a class="credentials-link" href="https://github.com/rowanlittlefield/JSFE7BOTW"><img class="credentials-link-img" src="HTMLAssets/github-square-brands.svg" alt=""></a>
+      <a class="credentials-link" href="https://www.linkedin.com/in/rowan-littlefield-14b4b2159/"><img class="credentials-link-img" src="HTMLAssets/linkedin-brands.svg" alt=""></a>
+    </div>
 
     <!-- <script src="miscellaneousFunctions/MiscellaneousFunctions.js"></script>
     <script src="createContext.js"></script>
