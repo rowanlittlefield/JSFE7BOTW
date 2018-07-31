@@ -2,17 +2,21 @@ import CoordinateSprite from '../../animations/coordinateSprite';
 import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 import { c } from '../../createContext';
 import Sprite from '../../animations/sprite';
+require("../interactiveWindow/FE_6_story_scenes.png");
+require("../interactiveWindow/fe_6_scroll_you_win.png");
+// "window/InteractiveWindow/FE_6_story_scenes.png"
+// "window/InteractiveWindow/fe_6_scroll_you_win.png"
 
 function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;
 
   this.backgroundSpriteOne = new CoordinateSprite(
-    c, 118, 79, 118, 79, "window/InteractiveWindow/FE_6_story_scenes.png", 1,
+    c, 118, 79, 118, 79, require("../interactiveWindow/FE_6_story_scenes.png"), 1,
     [[4, 3]]
   );
 
-  this.scrollSprite = new Sprite(c, 480, 320, 480*0.5, 320*0.5, "window/InteractiveWindow/fe_6_scroll_you_win.png", 1, 1);
+  this.scrollSprite = new Sprite(c, 480, 320, 480*0.5, 320*0.5, require("../interactiveWindow/fe_6_scroll_you_win.png"), 1, 1);
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {

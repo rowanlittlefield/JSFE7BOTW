@@ -5586,6 +5586,17 @@ GameWindow.prototype.render = function(sF) {
 
 /***/ }),
 
+/***/ "./window/interactiveWindow/FE_6_story_scenes.png":
+/*!********************************************************!*\
+  !*** ./window/interactiveWindow/FE_6_story_scenes.png ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "af0f731826116b85c52420b84ef8a517.png";
+
+/***/ }),
+
 /***/ "./window/interactiveWindow/FE_7_story_scenes.png":
 /*!********************************************************!*\
   !*** ./window/interactiveWindow/FE_7_story_scenes.png ***!
@@ -5714,6 +5725,17 @@ CombatInformationWindow.prototype.renderStatRow = function(unitStat, oppStat, st
 
 /* harmony default export */ __webpack_exports__["default"] = (CombatInformationWindow);
 
+
+/***/ }),
+
+/***/ "./window/interactiveWindow/fe_6_scroll_you_win.png":
+/*!**********************************************************!*\
+  !*** ./window/interactiveWindow/fe_6_scroll_you_win.png ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAFACAMAAABTFl9JAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURQAAAAgAAIBAEKhQINh4KMhYUMBoSNh4cOWOTuiQUOiUWOiYX+idZ+ikcuioeOisgeC4mOjo6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANkocMUAAAEAdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT9wclAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjIx8SBplQAABklJREFUeF7t2o1y2kYYRuES/kLa1On9X6yrV9+uBdiOcYKodHrODFgIkDT7aBZB8sezoRMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMY3uKBNy+1FYuoHdJQW7HYBP6l2iENtRWLbdHAGcDtdr/f7fb77XYpwzkd1eGwnKN6L4E/3XRUAv9GNYy73Xboy9jh8OXLR4OZd/1ubVPvVLh1RClH+PG7/rsEflXb1DsJfJcKNwO4H8qQZlBrSmwvuWiUGdrt/h778SO33Fd9Keum5dyfTtOr8mi3a5saa5t/6Zw3J15uh0Mht5csLIEFfnwZxpqYaxB7GdrLgWwOm+D8M3S6arc7Hvf74zF/w9fLo3r9biivyX1ueaaey99su+1qbLPJ6XbJu90umfh/DTwuCvzopmmwD2JwD4ca2j6Mo+swJZ9OgRiphr62v1Md7pw372kLQ3m+vypT/On0Z3sm9Sm777W+svWjK95+dEskhgG/TuDFFeBcYE28udTKkKYa7rwmw58pNTyjxSxl2/lJo+12AD4Mhfmct77QCXxTAt+zRQL36fi6DHDBnk65dKrLpzmBAzntoUMHND9xFHH/AJk+PpaUwD9N4FmqSXq/r4HsZV0GORdDE+/xOErM2OjbyuTcUfux1bH6NekTCXy/FglcxPmylEHNz5Q1uCEv1Kyt6Xl+4NpP9lx7r4uswp5Ow2XyCnxDAs9SXVBVRZtbhrQT13JTuG/fv7WFVKxVcANa970cazvsxSXwW3373haSwLO12eQSpiriTIkTby6AmsKM9Uu6nF6Zpqs8znEtd3KuBP4wgWesE+drSBFniDtxHjWFGcveptOrljNJr4FX4BsSeNauiWuarEHPgDeFGcvJdE68Jl6Bb0jgmTsnztDmh48MeBE3hVmrU2qNvALflMAz14lraPvPlTXgzWDG6mfKzlvEa+EV+IYEfkDnxBnifEkKcu6bw2xlL/0DoT4m1sMr8A0J/IACXMQ1Sfd/AHhNnHVt8U5li7nMyqk16g68At+5uYG/vv4f8y8J/JAuJ+n+Y0cmzXPgPFPrc2srp37K2BauyqmUvRVx9r8mXjjw09PTX+2JSuAld32hFcJeYbQHrYDkHfnn+BSW+ntdv2jr1dZSTpQizlJ9QKyJV+AxgRdR0QS4viidEwczzxThZe3tb9ZeclG2k+1lu9lD9lO34hV4pgT+lVYEfE7cCXKfms1dBr5taizbnk6f9fEK/EZtU2PZtsAPLIMe4kzS5xNye/ru1dYLty6v1sUr8AfV1puvwI9pHPOxtmL22u6G2ooVJfANtd0NtRUraoXA9pkEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIYnMDyB4QkMT2B4AsMTGJ7A8ASGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHTPz/8CvXaMx6x3jwgAAAAASUVORK5CYII="
 
 /***/ }),
 
@@ -6067,17 +6089,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+__webpack_require__(/*! ../interactiveWindow/FE_6_story_scenes.png */ "./window/interactiveWindow/FE_6_story_scenes.png");
+__webpack_require__(/*! ../interactiveWindow/fe_6_scroll_you_win.png */ "./window/interactiveWindow/fe_6_scroll_you_win.png");
+// "window/InteractiveWindow/FE_6_story_scenes.png"
+// "window/InteractiveWindow/fe_6_scroll_you_win.png"
 
 function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;
 
   this.backgroundSpriteOne = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 118, 79, 118, 79, "window/InteractiveWindow/FE_6_story_scenes.png", 1,
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 118, 79, 118, 79, __webpack_require__(/*! ../interactiveWindow/FE_6_story_scenes.png */ "./window/interactiveWindow/FE_6_story_scenes.png"), 1,
     [[4, 3]]
   );
 
-  this.scrollSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_3__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 480, 320, 480*0.5, 320*0.5, "window/InteractiveWindow/fe_6_scroll_you_win.png", 1, 1);
+  this.scrollSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_3__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 480, 320, 480*0.5, 320*0.5, __webpack_require__(/*! ../interactiveWindow/fe_6_scroll_you_win.png */ "./window/interactiveWindow/fe_6_scroll_you_win.png"), 1, 1);
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {
