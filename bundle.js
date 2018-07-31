@@ -5586,6 +5586,17 @@ GameWindow.prototype.render = function(sF) {
 
 /***/ }),
 
+/***/ "./window/interactiveWindow/FE_7_story_scenes.png":
+/*!********************************************************!*\
+  !*** ./window/interactiveWindow/FE_7_story_scenes.png ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "60d952fe3c1fc9a3a0c7a0465f00c6cb.png";
+
+/***/ }),
+
 /***/ "./window/interactiveWindow/FE_titlescreen_logo.png":
 /*!**********************************************************!*\
   !*** ./window/interactiveWindow/FE_titlescreen_logo.png ***!
@@ -5762,7 +5773,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // require("./FE_titlescreen_logo.png");
+// require("./FE_titlescreen_logo.png");
 // "window/InteractiveWindow/FE_titlescreen_logo.png"
+// "window/InteractiveWindow/FE_7_story_scenes.png"
 
 function MainMenuWindowOne() {
   let options = ['New Game']//, 'Credits']
@@ -5772,7 +5785,7 @@ function MainMenuWindowOne() {
 
   this.backgroundSpriteTwo = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_3__["default"](
     //238, 319
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 239, 150, 600/2.22, 450/2.5, "window/InteractiveWindow/FE_7_story_scenes.png", 1,
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 239, 150, 600/2.22, 450/2.5, __webpack_require__(/*! ./FE_7_story_scenes.png */ "./window/interactiveWindow/FE_7_story_scenes.png"), 1,
     [[490, 330]]
   );
 

@@ -3,7 +3,9 @@ import Sprite from '../../animations/sprite';
 import { c } from '../../createContext';
 import CoordinateSprite from '../../animations/coordinateSprite';
 // require("./FE_titlescreen_logo.png");
+// require("./FE_titlescreen_logo.png");
 // "window/InteractiveWindow/FE_titlescreen_logo.png"
+// "window/InteractiveWindow/FE_7_story_scenes.png"
 
 function MainMenuWindowOne() {
   let options = ['New Game']//, 'Credits']
@@ -13,7 +15,7 @@ function MainMenuWindowOne() {
 
   this.backgroundSpriteTwo = new CoordinateSprite(
     //238, 319
-    c, 239, 150, 600/2.22, 450/2.5, "window/InteractiveWindow/FE_7_story_scenes.png", 1,
+    c, 239, 150, 600/2.22, 450/2.5, require("./FE_7_story_scenes.png"), 1,
     [[490, 330]]
   );
 
