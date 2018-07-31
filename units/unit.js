@@ -2,7 +2,7 @@ import { stringToPos, distance } from '../miscellaneousFunctions/MiscellaneousFu
 import EnemyUnit from './enemyUnits/enemyUnit';
 import PlayerUnit from './playerUnits/playerUnit';
 
-function Unit(stats, board, inventory, name, mapSprite,
+export default function Unit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
   leftWalkSprite, hpWindowSprite, combatAnimation, critAnimation,
   dodgeAnimation, receiveHitAnimation) {
@@ -164,4 +164,4 @@ Unit.prototype.postMoveWindowOptions = function() {
   return options;
 }
 
-export default Unit;
+// export default Unit;

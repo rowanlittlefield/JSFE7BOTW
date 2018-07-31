@@ -1,5 +1,4 @@
 import { stringToPos, equivalentPositions } from '../../miscellaneousFunctions/MiscellaneousFunctions';
-// import PlayerUnit from '../playerUnits/playerUnit';
 
 function ValidMovePositions(board, unit) {
   this.board = board;
