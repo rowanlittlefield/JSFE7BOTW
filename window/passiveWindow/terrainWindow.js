@@ -1,3 +1,6 @@
+import PassiveWindow from './passiveWindow';
+import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+
 function TerrainWindow(space) {
   let terrain = space.terrain;
   PassiveWindow.call(this, space.position[0], space.position[1], 2, 2, 2, 1.4);
@@ -31,3 +34,5 @@ TerrainWindow.prototype.render = function(displayWindow) {
   renderTextWithFont("15px Arial", 'right', 'rgba(255, 255, 225, 1)',
   this.avoidBonus, topX + (this.dx), topY + (1.5 * sF));
 }
+
+export default TerrainWindow;

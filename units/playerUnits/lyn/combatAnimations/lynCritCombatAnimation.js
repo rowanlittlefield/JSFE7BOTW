@@ -1,3 +1,7 @@
+import CombatSprite from '../../../../animations/spriteSequence/combatSprite';
+import Sprite from '../../../../animations/sprite';
+import { c } from '../../../../createContext';
+
 function LynCritCombatAnimation() {
   let sprite0 = new Sprite(c, 90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 4, 5);
   let sprite1 = new Sprite(c, 140, 35, 140, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet1.png', 4, 8);
@@ -94,3 +98,5 @@ function LynCritCombatAnimation() {
 
 LynCritCombatAnimation.prototype = Object.create(CombatSprite.prototype);
 LynCritCombatAnimation.prototype.constructor = LynCritCombatAnimation;
+
+export default LynCritCombatAnimation;

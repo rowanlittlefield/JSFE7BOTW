@@ -34,3 +34,5 @@ Terrain.prototype.healBonus = function() {
 Terrain.prototype.moveCost = function() {
   return 1;
 }
+
+export default Terrain;

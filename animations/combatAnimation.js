@@ -1,3 +1,6 @@
+import CombatAnimationBackgroundWindow from '../window/passiveWindow/combatAnimationBackgroundWindow';
+import BattlePlatformSprite from './battlePlatformSprite';
+
 function CombatAnimation(combat, phaseStage) {
   this.combat = combat;
   this.combatQueueIndex = combat.queue.length - 1;
@@ -75,3 +78,5 @@ CombatAnimation.prototype.modifyHP = function() {
 CombatAnimation.prototype.currentAttack = function() {
   return this.combat.queue[this.combatQueueIndex];
 }
+
+export default CombatAnimation;

@@ -1,3 +1,5 @@
+import Terrain from './terrain';
+
 function Fort(board, position) {
   Terrain.call(this, board, position);
 }
@@ -24,3 +26,5 @@ Fort.prototype.healBonus = function() {
 Fort.prototype.moveCost = function(constructorName) {
   return 2;
 }
+
+export default Fort;

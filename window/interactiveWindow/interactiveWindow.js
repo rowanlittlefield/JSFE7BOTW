@@ -1,3 +1,5 @@
+import GameWindow from '../gameWindow';
+
 function InteractiveWindow(rx, ry, hd, vd, dx, dy, options) {
   GameWindow.call(this, rx, ry, hd, vd, dx, dy);
   this.options = options;
@@ -18,3 +20,5 @@ InteractiveWindow.prototype.scrollCursor = function(button) {
 InteractiveWindow.prototype.returnOption = function() {
   return this.options[this.cursorPos];
 }
+
+export default InteractiveWindow;

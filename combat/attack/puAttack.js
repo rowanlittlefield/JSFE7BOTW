@@ -1,3 +1,10 @@
+import Attack from './attack';
+import NormalDamageAnimation from '../../animations/normalDamageAnimation';
+import NormalCriticalDamageAnimation from '../../animations/normalCriticalDamageAnimation';
+import RoyCriticalHitAnimation from '../../animations/royCriticalHitAnimation';
+import Roy from '../../units/playerUnits/roy/roy';
+
+
 function PUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   Attack.call(
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
@@ -19,3 +26,5 @@ PUAttack.prototype.constructor = PUAttack;
 PUAttack.prototype.render = function(enemyCoordinates, sF) {
   this.renderFrame(this.playerCoordinates, enemyCoordinates, sF);
 }
+
+export default PUAttack;

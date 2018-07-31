@@ -1,3 +1,5 @@
+import { highlight } from '../miscellaneousFunctions/MiscellaneousFunctions';
+
 function Cursor(board, displayWindow) {
   this.board = board;
   this.displayWindow = displayWindow
@@ -82,3 +84,5 @@ Cursor.prototype.updateDisplayWindowScreen = function(button) {
 
   }
 }
+
+export default Cursor;

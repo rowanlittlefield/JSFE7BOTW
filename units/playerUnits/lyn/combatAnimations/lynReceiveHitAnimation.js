@@ -1,3 +1,7 @@
+import SpriteSequence from '../../../../animations/spriteSequence/spriteSequence';
+import Sprite from '../../../../animations/sprite';
+import { c } from '../../../../createContext';
+
 function LynReceiveHitAnimation() {
   const sprite0 = new Sprite(c, 70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
@@ -32,3 +36,5 @@ LynReceiveHitAnimation.prototype.update = function() {
     this.updateQueueIndexAndSprite();
   }
 }
+
+export default LynReceiveHitAnimation;

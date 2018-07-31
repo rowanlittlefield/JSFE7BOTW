@@ -1,3 +1,5 @@
+import Terrain from './terrain';
+
 function Forest(board, position) {
   Terrain.call(this, board, position);
 }
@@ -24,3 +26,5 @@ Forest.prototype.healBonus = function() {
 Forest.prototype.moveCost = function() {
   return 2;
 }
+
+export default Forest;

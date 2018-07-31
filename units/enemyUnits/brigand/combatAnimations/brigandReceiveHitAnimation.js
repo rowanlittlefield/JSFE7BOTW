@@ -1,3 +1,7 @@
+import SpriteSequence from '../../../../animations/spriteSequence/spriteSequence';
+import Sprite from '../../../../animations/sprite';
+import { c } from '../../../../createContext';
+
 function BrigandReceiveHitAnimation() {
   const sprites0 = new Sprite(c, 70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprites0];
@@ -33,3 +37,5 @@ BrigandReceiveHitAnimation.prototype.update = function() {
     this.updateQueueIndexAndSprite();
   }
 }
+
+export default BrigandReceiveHitAnimation;

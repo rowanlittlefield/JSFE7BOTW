@@ -1,3 +1,5 @@
+import GameWindow from '../gameWindow';
+
 function PassiveWindow(rx, ry, hd, vd, dx, dy) {
   GameWindow.call(this, rx, ry, hd, vd, dx, dy);
 }
@@ -11,3 +13,5 @@ PassiveWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
 
   return [x, y, dx * sF, dy * sF];
 }
+
+export default PassiveWindow;

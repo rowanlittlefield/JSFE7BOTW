@@ -25,3 +25,5 @@ FrameSource.prototype.endAIPhase = function() {
 FrameSource.prototype.aiPhaseFrameUpdate = function() {
   this.aiPlayer.phaseFrameUpdate();
 }
+
+export default FrameSource;

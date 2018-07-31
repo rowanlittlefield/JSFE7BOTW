@@ -23,3 +23,5 @@ GameWindow.prototype.setDimensions = function(sF) {
 
 GameWindow.prototype.render = function(sF) {
 }
+
+export default GameWindow;

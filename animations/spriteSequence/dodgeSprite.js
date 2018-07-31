@@ -1,3 +1,5 @@
+import SpriteSequence from './spriteSequence';
+
 function DodgeSprite(context, spriteQueue, positionAdjustment, restFrame) {
   SpriteSequence.call(this, context, spriteQueue, positionAdjustment);
 
@@ -33,3 +35,5 @@ DodgeSprite.prototype.renderDecision = function(x, y, dP, sF) {
     this.currentSprite().renderFromCoordinatesSpecial(x + dP[0], y + dP[1], sF);
   }
 }
+
+export default DodgeSprite;

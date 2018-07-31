@@ -1,4 +1,8 @@
-function Combat(initiator, recipient) {
+import PlayerUnit from '../units/playerUnits/playerUnit';
+import PUAttack from './attack/puAttack';
+import EUAttack from './attack/euAttack';
+
+export default function Combat(initiator, recipient) {
   this.initiator = initiator;
   this.recipient = recipient;
   this.initiatorInRange = recipient.isInRange(initiator);
@@ -111,3 +115,5 @@ Combat.prototype.renderAtEase = function(scaledHalfInnerWidth) {
   this.playerCS.renderStationaryFrame(this.playerCoordinates[0], 6, 45);
   this.enemyCS.renderStationaryFrame(this.enemyCoordinates[0], 6, 45);
 }
+
+// export default Combat;

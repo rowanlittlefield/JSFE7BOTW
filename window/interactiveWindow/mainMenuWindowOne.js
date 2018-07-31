@@ -1,3 +1,8 @@
+import InteractiveWindow from './interactiveWindow';
+import Sprite from '../../animations/sprite';
+import { c } from '../../createContext';
+import CoordinateSprite from '../../animations/coordinateSprite';
+
 function MainMenuWindowOne() {
   let options = ['New Game']//, 'Credits']
   InteractiveWindow.call(this, 0, 0, 0, 0, innerWidth, 100, options);
@@ -50,3 +55,5 @@ function drawStroked(text, x, y, opacity) {
     c.fillStyle = `rgba(255, 255, 255, ${opacity})`;
     c.fillText(text, x, y);
 }
+
+export default MainMenuWindowOne;

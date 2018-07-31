@@ -19,3 +19,5 @@ function UnitStats(options) {
   this.resistance_growth_rate = options["resistance_growth_rate"];
   this.affinity = options["affinity"];
 }
+
+export default UnitStats;

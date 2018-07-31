@@ -1,3 +1,5 @@
+import { Weapon } from '../items/weapon';
+
 function Inventory(items) {
   this.items = items ? items : [];
 }
@@ -23,3 +25,5 @@ Inventory.prototype.discard = function(index) {
   this.items[index] = null;
   this.items = removeNull(this.items);
 }
+
+export default Inventory;

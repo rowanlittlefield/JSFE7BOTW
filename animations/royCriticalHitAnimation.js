@@ -1,3 +1,6 @@
+import CoordinateSprite from './coordinateSprite';
+import { c } from '../createContext';
+
 function RoyCriticalHitAnimation(defenderCoordinates) {
   CoordinateSprite.call(
     this,
@@ -72,3 +75,5 @@ RoyCriticalHitAnimation.prototype.render = function(sF) {
   );
   this.update();
 }
+
+export default RoyCriticalHitAnimation;

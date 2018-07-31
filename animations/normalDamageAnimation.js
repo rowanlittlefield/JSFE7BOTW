@@ -1,3 +1,6 @@
+import CoordinateSprite from './coordinateSprite';
+import { c } from '../createContext';
+
 function NormalDamageAnimation(defenderCoordinates) {
   CoordinateSprite.call(
     this,
@@ -53,3 +56,5 @@ NormalDamageAnimation.prototype.render = function(sF) {
   );
   this.update();
 }
+
+export default NormalDamageAnimation;

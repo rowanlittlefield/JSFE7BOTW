@@ -1,3 +1,5 @@
+import Terrain from './terrain';
+
 function Mountain(board, position) {
   Terrain.call(this, board, position);
 }
@@ -28,3 +30,5 @@ Mountain.prototype.moveCost = function(constructorName) {
     return 4;
   }
 }
+
+export default Mountain;

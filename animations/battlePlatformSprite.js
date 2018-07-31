@@ -1,3 +1,6 @@
+import CoordinateSprite from './coordinateSprite';
+import { c } from '../createContext';
+
 function BattlePlatformSprite() {
   CoordinateSprite.call(
     this,
@@ -20,3 +23,5 @@ function BattlePlatformSprite() {
 
 BattlePlatformSprite.prototype = Object.create(CoordinateSprite.prototype);
 BattlePlatformSprite.prototype.constructor = BattlePlatformSprite;
+
+export default BattlePlatformSprite;

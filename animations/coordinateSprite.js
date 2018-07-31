@@ -1,3 +1,5 @@
+import Sprite from './sprite';
+
 function CoordinateSprite(context, width, height, renderWidth,
    renderHeight, image, ticksPerFrame, coordinatesList
  ) {
@@ -38,3 +40,5 @@ CoordinateSprite.prototype.render = function(row, col, sF) {
   );
   this.update();
 }
+
+export default CoordinateSprite;

@@ -1,3 +1,8 @@
+import PassiveWindow from  './passiveWindow';
+import PlayerUnit from '../../units/playerUnits/playerUnit';
+import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { c } from '../../createContext';
+
 function UnitMapWindow(unit) {
   PassiveWindow.call(this, unit.position[0], unit.position[1], 2, 1.5, 4.76, 1.73);
   this.unit = unit;
@@ -36,3 +41,5 @@ UnitMapWindow.prototype.render = function(displayWindow) {
   3.5 * sF *(this.current_hp / this.hp), 0.3 * sF,
    "rgba(255, 223, 0, 1)");
 }
+
+export default UnitMapWindow;

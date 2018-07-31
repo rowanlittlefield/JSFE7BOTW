@@ -1,3 +1,5 @@
+import Terrain from './terrain';
+
 function Thicket(board, position) {
   Terrain.call(this, board, position);
 }
@@ -24,3 +26,5 @@ Thicket.prototype.healBonus = function() {
 Thicket.prototype.moveCost = function() {
   return 20;
 }
+
+export default Thicket;

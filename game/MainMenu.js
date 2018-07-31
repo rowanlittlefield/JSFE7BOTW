@@ -11,3 +11,5 @@ MainMenu.prototype.receiveControllerInput = function(button) {
     this.windowOne.scrollCursor(button);
   }
 }
+
+export default MainMenu

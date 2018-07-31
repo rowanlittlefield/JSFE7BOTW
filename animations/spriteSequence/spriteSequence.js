@@ -47,3 +47,5 @@ SpriteSequence.prototype.getPositionAdj = function() {
 SpriteSequence.prototype.renderedAnimation = function() {
   return (this.queueIndex === 0 && this.currentSprite().isFirstFrame());
 }
+
+export default SpriteSequence;

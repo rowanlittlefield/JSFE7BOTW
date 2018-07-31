@@ -1,3 +1,6 @@
+import Wall from './terrain/wall';
+import PlayerUnit from '../units/playerUnits/playerUnit';
+
 function Space(position) {
   this.position = position;
   this.unit = null;
@@ -14,3 +17,5 @@ Space.prototype.isTraversableBoolean = function(isPlayerUnit) {
   return (!(this.terrain instanceof(Wall)) && (this.unit === null ||
     this.unit instanceof(PlayerUnit) === isPlayerUnit));
 }
+
+export default Space;

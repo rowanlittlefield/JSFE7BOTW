@@ -1,0 +1,31 @@
+{
+  "name": "JSFE7BOTW",
+  "version": "1.0.0",
+  "description": "### Background This project is a browser game modeled after the 6th and 7th entries in Nintendo's popular Fire Emblem series. The gameplay features turn-based strategy against an AI player in which the the player moves his/her units across a map to fight units on the opposing team and acheive victory by capturing the opposing team's throne.",
+  "main": "createContext.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rowanlittlefield/JSFE7BOTW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rowanlittlefield/JSFE7BOTW/issues"
+  },
+  "homepage": "https://github.com/rowanlittlefield/JSFE7BOTW#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0"
+  }
+}

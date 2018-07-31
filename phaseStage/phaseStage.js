@@ -1,3 +1,6 @@
+import Sprite from '../animations/sprite';
+import { c } from '../createContext';
+
 function PhaseStage() {
   this.stage = 'select unit';
   this.playerPhaseSprite = new Sprite(
@@ -23,3 +26,5 @@ PhaseStage.prototype.render = function(sF, cursorPos) {
     this.playerPhaseSprite.render(midX, yCoord, 45);
   }
 }
+
+export default PhaseStage;

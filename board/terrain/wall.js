@@ -1,3 +1,5 @@
+import Terrain from './terrain';
+
 function Wall(board, position) {
   Terrain.call(this, board, position);
 }
@@ -24,3 +26,5 @@ Wall.prototype.healBonus = function() {
 Wall.prototype.moveCost = function() {
   return 20;
 }
+
+export default Wall;

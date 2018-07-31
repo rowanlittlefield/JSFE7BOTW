@@ -1,12 +1,13 @@
-function Weapon() {
+export function Weapon() {
+  this.stats = {};
 }
 
-function PhysicalWeapon() {
+export function PhysicalWeapon() {
 }
 PhysicalWeapon.prototype = Object.create(Weapon.prototype);
 PhysicalWeapon.prototype.constructor = PhysicalWeapon;
 
-function MagicalWeapon() {
+export function MagicalWeapon() {
 }
 MagicalWeapon.prototype = Object.create(Weapon.prototype);
 MagicalWeapon.prototype.constructor = MagicalWeapon;
@@ -21,7 +22,7 @@ function Axe() {
 Axe.prototype = Object.create(PhysicalWeapon.prototype);
 Axe.prototype.constructor = Axe;
 
-function ManiKatti() {
+export function ManiKatti() {
   this.stats = {
     name: 'Mani Katti',
     rank: 'Prf',
@@ -40,7 +41,7 @@ function ManiKatti() {
 ManiKatti.prototype = Object.create(Sword.prototype);
 ManiKatti.prototype.constructor = ManiKatti;
 
-function SwordOfSeals() {
+export function SwordOfSeals() {
   this.stats = {
     name: 'Sword of Seals',
     rank: 'Prf',
@@ -59,7 +60,7 @@ function SwordOfSeals() {
 SwordOfSeals.prototype = Object.create(Sword.prototype);
 SwordOfSeals.prototype.constructor = SwordOfSeals;
 
-function IronAxe() {
+export function IronAxe() {
   this.stats = {
     name: 'Iron Axe',
     rank: 'E',

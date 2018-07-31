@@ -1,3 +1,8 @@
+import InteractiveWindow from './interactiveWindow';
+import Unit from '../../units/unit';
+import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { c } from '../../createContext';
+
 function UnitPostMovePhaseWindow(unit) {
   this.unit = unit;
   let options = unit.postMoveWindowOptions();
@@ -35,3 +40,5 @@ UnitPostMovePhaseWindow.prototype.render = function(displayWindow) {
     }
   }
 }
+
+export default UnitPostMovePhaseWindow;

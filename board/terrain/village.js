@@ -1,3 +1,5 @@
+import Terrain from './terrain';
+
 function Village(board, position) {
   Terrain.call(this, board, position);
 }
@@ -24,3 +26,5 @@ Village.prototype.healBonus = function() {
 Village.prototype.moveCost = function() {
   return 1;
 }
+
+export default Village;

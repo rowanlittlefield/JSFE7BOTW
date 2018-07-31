@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 /node_modules
+=======
+node_modules/
+>>>>>>> webpackify
 bundle.js
 bundle.js.map

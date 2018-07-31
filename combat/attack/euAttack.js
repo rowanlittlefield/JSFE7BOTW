@@ -1,3 +1,6 @@
+import Attack from './attack';
+import NormalDamageAnimation from '../../animations/normalDamageAnimation';
+
 function EUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   Attack.call(
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
@@ -12,3 +15,5 @@ EUAttack.prototype.constructor = EUAttack;
 EUAttack.prototype.render = function(enemyCoordinates, sF) {
   this.renderFrame(enemyCoordinates, this.playerCoordinates, sF);
 }
+
+export default EUAttack;

@@ -1,3 +1,5 @@
+import { stringToPos, equivalentPositions, distance } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+
 function ValidMovePositions(board, unit) {
   this.board = board;
   this.unitPosition = unit.position;
@@ -48,3 +50,5 @@ ValidMovePositions.prototype.selectAttackSetupSpace = function(attackPositionStr
   const pos = viablePositions[moveSpaceIndex];
   return pos;
 }
+
+export default ValidMovePositions;

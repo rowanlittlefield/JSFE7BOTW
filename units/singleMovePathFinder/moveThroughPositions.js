@@ -1,3 +1,5 @@
+import { stringToPos, galileoHighlightSpaces } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+
 function MoveThroughPositions(board, isPlayerUnit, unit) {
   this.board = board;
   this.isPlayerUnit = isPlayerUnit;
@@ -114,3 +116,5 @@ MoveThroughPositions.prototype.render = function(sF, x, y, width, height) {
   // need to test this!
   galileoHighlightSpaces(sF, x, y, width, height, this.positions, 'rgba(0, 0, 255, 0.3)');
 }
+
+export default MoveThroughPositions;

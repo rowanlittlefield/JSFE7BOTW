@@ -1,3 +1,7 @@
+import DodgeSprite from  '../../../../animations/spriteSequence/dodgeSprite';
+import Sprite from '../../../../animations/sprite';
+import { c } from '../../../../createContext';
+
 function RoyDodgeAnimation() {
   let desSprites0 = new Sprite(c, 70, 33, 70, 33, 'units/playerUnits/roy/combatAnimations/spriteSheets/royDodgeSpriteSheet.png', 3, 3);
 
@@ -23,3 +27,5 @@ function RoyDodgeAnimation() {
 
 RoyDodgeAnimation.prototype = Object.create(DodgeSprite.prototype);
 RoyDodgeAnimation.prototype.constructor = RoyDodgeAnimation;
+
+export default RoyDodgeAnimation;

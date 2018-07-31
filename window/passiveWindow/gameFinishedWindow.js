@@ -1,3 +1,8 @@
+import CoordinateSprite from '../../animations/coordinateSprite';
+import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { c } from '../../createContext';
+import Sprite from '../../animations/sprite';
+
 function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;
@@ -24,3 +29,5 @@ GameFinishedWindow.prototype.render = function(displayWindow) {
   renderTextWithFont('20px Arial', 'center', 'rgba(0,0,0,1)',
     'You win!!', topX + (1 * sF), topY + 0.5 *sF);
 }
+
+export default GameFinishedWindow;
