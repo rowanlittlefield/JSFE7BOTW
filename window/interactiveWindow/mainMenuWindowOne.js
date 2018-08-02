@@ -38,6 +38,8 @@ MainMenuWindowOne.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF)
 }
 
 MainMenuWindowOne.prototype.render = function(sF) {
+
+
   this.backgroundSpriteTwo.render(7, 9, 45);
   if (this.backgroundSpriteTwo.coordinatesList[0][1] < 490) {
     this.backgroundSpriteTwo.coordinatesList[0][1] += 0.15;
@@ -48,8 +50,17 @@ MainMenuWindowOne.prototype.render = function(sF) {
     drawStroked(`Press Enter`, 290, 400, this.textOpacity);
   }
   this.logoSprite.render(7, 5.2, 45);
-
 }
+
+function drawStrokedSmaller(text, x, y, opacity) {
+    c.font = "15px Serif"
+    c.strokeStyle = 'black';
+    c.lineWidth = 6;
+    c.strokeText(text, x, y);
+    c.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    c.fillText(text, x, y);
+}
+
 
 function drawStroked(text, x, y, opacity) {
     c.font = "20px Serif"

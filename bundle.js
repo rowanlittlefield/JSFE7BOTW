@@ -5739,6 +5739,17 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAFACAMAAABT
 
 /***/ }),
 
+/***/ "./window/interactiveWindow/fe_background_window.png":
+/*!***********************************************************!*\
+  !*** ./window/interactiveWindow/fe_background_window.png ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "8c96f4a461cdaed5a9d369886f718a8e.png";
+
+/***/ }),
+
 /***/ "./window/interactiveWindow/interactiveWindow.js":
 /*!*******************************************************!*\
   !*** ./window/interactiveWindow/interactiveWindow.js ***!
@@ -5830,6 +5841,8 @@ MainMenuWindowOne.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF)
 }
 
 MainMenuWindowOne.prototype.render = function(sF) {
+
+
   this.backgroundSpriteTwo.render(7, 9, 45);
   if (this.backgroundSpriteTwo.coordinatesList[0][1] < 490) {
     this.backgroundSpriteTwo.coordinatesList[0][1] += 0.15;
@@ -5840,8 +5853,17 @@ MainMenuWindowOne.prototype.render = function(sF) {
     drawStroked(`Press Enter`, 290, 400, this.textOpacity);
   }
   this.logoSprite.render(7, 5.2, 45);
-
 }
+
+function drawStrokedSmaller(text, x, y, opacity) {
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].font = "15px Serif"
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeStyle = 'black';
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].lineWidth = 6;
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillText(text, x, y);
+}
+
 
 function drawStroked(text, x, y, opacity) {
     _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].font = "20px Serif"
@@ -6089,36 +6111,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-__webpack_require__(/*! ../interactiveWindow/FE_6_story_scenes.png */ "./window/interactiveWindow/FE_6_story_scenes.png");
-__webpack_require__(/*! ../interactiveWindow/fe_6_scroll_you_win.png */ "./window/interactiveWindow/fe_6_scroll_you_win.png");
-// "window/InteractiveWindow/FE_6_story_scenes.png"
-// "window/InteractiveWindow/fe_6_scroll_you_win.png"
+
+function drawStrokedSmaller(text, x, y, opacity) {
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].font = "15px Serif"
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeStyle = 'black';
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].lineWidth = 6;
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillText(text, x, y);
+}
 
 function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;
 
+  this.backgroundWindow = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 1280, 750, 130, 85, __webpack_require__(/*! ../interactiveWindow/fe_background_window.png */ "./window/interactiveWindow/fe_background_window.png"), 1,
+    [[555, 329]]
+  );
   this.backgroundSpriteOne = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
     _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 118, 79, 118, 79, __webpack_require__(/*! ../interactiveWindow/FE_6_story_scenes.png */ "./window/interactiveWindow/FE_6_story_scenes.png"), 1,
     [[4, 3]]
   );
-
   this.scrollSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_3__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 480, 320, 480*0.5, 320*0.5, __webpack_require__(/*! ../interactiveWindow/fe_6_scroll_you_win.png */ "./window/interactiveWindow/fe_6_scroll_you_win.png"), 1, 1);
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {
+  this.backgroundWindow.render(6.81, 6.18, 45);
   this.backgroundSpriteOne.render(6.8, 6, 45);
   this.scrollSprite.render(6.9, 10.5, 45);
-
-  const sF = displayWindow.sF;
-  const northY = ( (displayWindow.height / 2) -  sF * 1);
-  let topX = (displayWindow.width / 2) -  (sF * 1);
-  let topY = (northY) - displayWindow.y;
-
-  Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["preScaledHighlight"])(topX, topY, this.dx, this.dy, 'rgba(0,255,0,0.9)');
-
-  Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])('20px Arial', 'center', 'rgba(0,0,0,1)',
-    'You win!!', topX + (1 * sF), topY + 0.5 *sF);
+  drawStrokedSmaller('Chapter Complete', 280, 365, 1);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (GameFinishedWindow);
