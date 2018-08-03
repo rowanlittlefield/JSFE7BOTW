@@ -5739,14 +5739,14 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAFACAMAAABT
 
 /***/ }),
 
-/***/ "./window/interactiveWindow/fe_background_window.png":
-/*!***********************************************************!*\
-  !*** ./window/interactiveWindow/fe_background_window.png ***!
-  \***********************************************************/
+/***/ "./window/interactiveWindow/fe_new_background_window.png":
+/*!***************************************************************!*\
+  !*** ./window/interactiveWindow/fe_new_background_window.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "8c96f4a461cdaed5a9d369886f718a8e.png";
+module.exports = __webpack_require__.p + "b630605b02406e38f57dcf8c43ba7e7e.png";
 
 /***/ }),
 
@@ -5822,6 +5822,17 @@ function MainMenuWindowOne() {
     [[490, 330]]
   );
 
+  // this.backgroundWindow = new CoordinateSprite(
+  //   c, 315, 191, 140, 95, "window/interactiveWindow/fe_new_background_window.png", 1,
+  //   [[0, 0]]
+  // );
+  //
+  // this.backgroundSpriteOne = new CoordinateSprite(
+  //   c, 118, 79, 118, 79, "window/interactiveWindow/FE_6_story_scenes.png", 1,
+  //   [[4, 3]]
+  // );
+  // this.scrollSprite = new Sprite(c, 480, 320, 480*0.5, 320*0.5, "window/interactiveWindow/fe_6_scroll_you_win.png", 1, 1);
+
   this.textOpacity = 0;
 }
 
@@ -5853,16 +5864,21 @@ MainMenuWindowOne.prototype.render = function(sF) {
     drawStroked(`Press Enter`, 290, 400, this.textOpacity);
   }
   this.logoSprite.render(7, 5.2, 45);
+
+  // this.backgroundWindow.render(6.83, 6.45, 45);
+  // this.backgroundSpriteOne.render(6.8, 6, 45);
+  // this.scrollSprite.render(6.9, 10.5, 45);
+  // drawStrokedSmaller('Chapter Complete', 280, 365, 1);
 }
 
-function drawStrokedSmaller(text, x, y, opacity) {
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].font = "15px Serif"
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeStyle = 'black';
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].lineWidth = 6;
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeText(text, x, y);
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillText(text, x, y);
-}
+// function drawStrokedSmaller(text, x, y, opacity) {
+//     c.font = "15px Serif"
+//     c.strokeStyle = 'black';
+//     c.lineWidth = 6;
+//     c.strokeText(text, x, y);
+//     c.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+//     c.fillText(text, x, y);
+// }
 
 
 function drawStroked(text, x, y, opacity) {
@@ -6125,10 +6141,16 @@ function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;
 
+  // this.backgroundWindow = new CoordinateSprite(
+  //   c, 1280, 750, 130, 85, require("../interactiveWindow/fe_background_window.png"), 1,
+  //   [[555, 329]]
+  // );
+
   this.backgroundWindow = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 1280, 750, 130, 85, __webpack_require__(/*! ../interactiveWindow/fe_background_window.png */ "./window/interactiveWindow/fe_background_window.png"), 1,
-    [[555, 329]]
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 315, 191, 140, 95, __webpack_require__(/*! ../interactiveWindow/fe_new_background_window.png */ "./window/interactiveWindow/fe_new_background_window.png"), 1,
+    [[0, 0]]
   );
+
   this.backgroundSpriteOne = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
     _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 118, 79, 118, 79, __webpack_require__(/*! ../interactiveWindow/FE_6_story_scenes.png */ "./window/interactiveWindow/FE_6_story_scenes.png"), 1,
     [[4, 3]]
@@ -6137,7 +6159,7 @@ function GameFinishedWindow() {
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {
-  this.backgroundWindow.render(6.81, 6.18, 45);
+  this.backgroundWindow.render(6.83, 6.45, 45);
   this.backgroundSpriteOne.render(6.8, 6, 45);
   this.scrollSprite.render(6.9, 10.5, 45);
   drawStrokedSmaller('Chapter Complete', 280, 365, 1);
