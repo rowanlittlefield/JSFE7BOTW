@@ -3232,12 +3232,20 @@ EnemyPlayer.prototype.finishUnitTurn = function() {
     newCombat.initiateFight();
   }
 
+  if (this.unitQueue[0].movingAnimation) {
+    this.unitQueue[0].actionTaken = true;
+  }
+
   this.unitQueue[0].movingAnimation = null;
   this.postUnitActionCheck(this.unitQueue[0]);
   this.unitQueue.shift();
 }
 
 EnemyPlayer.prototype.endPhase = function() {
+
+  this.units = this.listOfOwnUnits();
+  this.resetUnitsAction();
+
   this.frameSource.endAIPhase();
   this.phaseStage.nextStage('select unit');
 }
@@ -3362,6 +3370,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../animations/combatAnimation */ "./animations/combatAnimation.js");
 /* harmony import */ var _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../window/passiveWindow/gameFinishedWindow */ "./window/passiveWindow/gameFinishedWindow.js");
 /* harmony import */ var _display_nullCursor__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../display/nullCursor */ "./display/nullCursor.js");
+/* harmony import */ var _window_interactiveWindow_unitPostMovePhaseWindow__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../window/interactiveWindow/unitPostMovePhaseWindow */ "./window/interactiveWindow/unitPostMovePhaseWindow.js");
+
 
 
 
@@ -3562,7 +3572,7 @@ Player.prototype.playSelectUnitToFight = function(button) {
 
 Player.prototype.returnToPostMovementOptions = function() {
   this.phaseStage.nextStage('post movement options');
-  this.display.window = new UnitPostMovePhaseWindow(this.selectedUnit());
+  this.display.window = new _window_interactiveWindow_unitPostMovePhaseWindow__WEBPACK_IMPORTED_MODULE_13__["default"](this.selectedUnit());
 }
 
 Player.prototype.initiateFight = function() {
@@ -3637,6 +3647,9 @@ function Brigand(board, inventory, behavior, stats) {
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandBackwardsWalkSprite.png", 8, 4),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandRightWalkSprite.png", 8, 4),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandLeftWalkSprite.png", 8, 4),
+
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSpritePostAction.png", 6, 12),
+
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 80, 72, 18, 18, "units/enemyUnits/brigand/HPWindowImage/brigandHPWindowSprite.png", 6, 1),
     new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
     new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
@@ -3821,11 +3834,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function EnemyUnit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-   hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation, behavior) {
+  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation, behavior) {
   _unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
     forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-    leftWalkSprite, hpWindowSprite, combatAnimation, critAnimation,
-    dodgeAnimation, receiveHitAnimation);
+    leftWalkSprite, postActionMapSprite, hpWindowSprite,
+    combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
   this.behavior = behavior;
   this.singleMovePathFinder =  new _singleMovePathFinder_singleMovePathFinder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
 }
@@ -4181,6 +4195,9 @@ function Lyn(board, inventory, stats) {
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 21, 18, 21, 18, "units/playerUnits/lyn/mapSpriteSheets/lynBackwardWalkSpriteSheet.png", 8, 4),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynRightWalkSpriteSheet.png", 8, 4),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynLeftWalkSpriteSheet.png", 8, 4),
+
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/playerUnits/lyn/mapSpriteSheets/lynMapSpriteSheetPostAction.png", 6, 12),
+
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 165, 158, 18, 18, "units/playerUnits/lyn/HPWindowImage/lynHPWindowSprite3.jpg", 6, 1),
     new _combatAnimations_lynCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
     new _combatAnimations_lynCritCombatAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
@@ -4239,10 +4256,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function PlayerUnit(stats, board, inventory, name, mapSprite,
 forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
- hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation) {
+ postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation) {
   _unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-   hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
+  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation);
   this.prevPos = null;
   this.windowOptions = null;
   this.fightOptions = null;
@@ -4603,6 +4622,9 @@ function Roy(board, inventory, stats) {
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
+
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
+
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
     new _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
     new _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
@@ -5269,8 +5291,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function Unit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-  leftWalkSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation) {
+  leftWalkSprite, postActionMapSprite, hpWindowSprite, combatAnimation,
+  critAnimation, dodgeAnimation, receiveHitAnimation) {
   if (!stats) stats = this.defaultStats();
   this.stats = stats;
   this.board = board;
@@ -5283,6 +5305,7 @@ function Unit(stats, board, inventory, name, mapSprite,
   this.backwardWalkSprite = backwardWalkSprite;
   this.rightWalkSprite = rightWalkSprite;
   this.leftWalkSprite = leftWalkSprite;
+  this.postActionMapSprite = postActionMapSprite;
   this.hpWindowSprite = hpWindowSprite;
   this.combatAnimation = combatAnimation;
   this.critAnimation = critAnimation;
@@ -5294,24 +5317,31 @@ function Unit(stats, board, inventory, name, mapSprite,
 
 //rendering
 Unit.prototype.render = function(displayWindow) {
-  let sF = displayWindow.sF;
-  let topX = displayWindow.x/sF;
-  let topY = displayWindow.y/sF;
-  let highlightPos = [this.position[0] - topX, this.position[1] - topY];
+  const sF = displayWindow.sF;
+  const topX = displayWindow.x/sF;
+  const topY = displayWindow.y/sF;
+  const highlightPos = [this.position[0] - topX, this.position[1] - topY];
 
 
   if (this.moving) {
     this.movingAnimation.render(displayWindow);
     this.mapSprite.update();
+    this.postActionMapSprite.update();
   } else if (this.inTransit) {
     this.forwardWalkSprite.render(highlightPos[0], highlightPos[1], sF);
     this.mapSprite.update();
+    this.postActionMapSprite.update();
   } else {
-    this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
+    // this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
 
     if(this.actionTaken) {
-      _createContext__WEBPACK_IMPORTED_MODULE_5__["c"].fillStyle = "rgba(128, 128, 128, 0.2)";
-      _createContext__WEBPACK_IMPORTED_MODULE_5__["c"].fill();
+      // c.fillStyle = "rgba(128, 128, 128, 0.2)";
+      // c.fill();
+      this.postActionMapSprite.render(highlightPos[0], highlightPos[1], sF);
+      this.mapSprite.update();
+    } else {
+      this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
+      this.postActionMapSprite.update();
     }
   }
 }

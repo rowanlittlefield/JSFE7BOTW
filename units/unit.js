@@ -7,8 +7,8 @@ import { c } from '../createContext';
 
 export default function Unit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-  leftWalkSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation) {
+  leftWalkSprite, postActionMapSprite, hpWindowSprite, combatAnimation,
+  critAnimation, dodgeAnimation, receiveHitAnimation) {
   if (!stats) stats = this.defaultStats();
   this.stats = stats;
   this.board = board;
@@ -21,6 +21,7 @@ export default function Unit(stats, board, inventory, name, mapSprite,
   this.backwardWalkSprite = backwardWalkSprite;
   this.rightWalkSprite = rightWalkSprite;
   this.leftWalkSprite = leftWalkSprite;
+  this.postActionMapSprite = postActionMapSprite;
   this.hpWindowSprite = hpWindowSprite;
   this.combatAnimation = combatAnimation;
   this.critAnimation = critAnimation;
@@ -32,24 +33,31 @@ export default function Unit(stats, board, inventory, name, mapSprite,
 
 //rendering
 Unit.prototype.render = function(displayWindow) {
-  let sF = displayWindow.sF;
-  let topX = displayWindow.x/sF;
-  let topY = displayWindow.y/sF;
-  let highlightPos = [this.position[0] - topX, this.position[1] - topY];
+  const sF = displayWindow.sF;
+  const topX = displayWindow.x/sF;
+  const topY = displayWindow.y/sF;
+  const highlightPos = [this.position[0] - topX, this.position[1] - topY];
 
 
   if (this.moving) {
     this.movingAnimation.render(displayWindow);
     this.mapSprite.update();
+    this.postActionMapSprite.update();
   } else if (this.inTransit) {
     this.forwardWalkSprite.render(highlightPos[0], highlightPos[1], sF);
     this.mapSprite.update();
+    this.postActionMapSprite.update();
   } else {
-    this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
+    // this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
 
     if(this.actionTaken) {
-      c.fillStyle = "rgba(128, 128, 128, 0.2)";
-      c.fill();
+      // c.fillStyle = "rgba(128, 128, 128, 0.2)";
+      // c.fill();
+      this.postActionMapSprite.render(highlightPos[0], highlightPos[1], sF);
+      this.mapSprite.update();
+    } else {
+      this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
+      this.postActionMapSprite.update();
     }
   }
 }

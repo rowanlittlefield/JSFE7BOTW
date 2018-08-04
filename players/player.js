@@ -11,6 +11,7 @@ import Combat from '../combat/combat';
 import CombatAnimation from '../animations/combatAnimation';
 import GameFinishedWindow from '../window/passiveWindow/gameFinishedWindow';
 import NullCursor from '../display/nullCursor';
+import UnitPostMovePhaseWindow from '../window/interactiveWindow/unitPostMovePhaseWindow';
 
 function Player(board, display, phaseStage) {
   this.board = board;

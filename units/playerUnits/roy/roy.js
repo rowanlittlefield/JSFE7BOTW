@@ -19,6 +19,9 @@ function Roy(board, inventory, stats) {
     new Sprite(c, 21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
     new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
     new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
+
+    new Sprite(c, 18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
+
     new Sprite(c, 253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
     new RoyCombatAnimation(),
     new RoyCritCombatAnimation(),

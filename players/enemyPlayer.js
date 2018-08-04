@@ -60,12 +60,20 @@ EnemyPlayer.prototype.finishUnitTurn = function() {
     newCombat.initiateFight();
   }
 
+  if (this.unitQueue[0].movingAnimation) {
+    this.unitQueue[0].actionTaken = true;
+  }
+
   this.unitQueue[0].movingAnimation = null;
   this.postUnitActionCheck(this.unitQueue[0]);
   this.unitQueue.shift();
 }
 
 EnemyPlayer.prototype.endPhase = function() {
+
+  this.units = this.listOfOwnUnits();
+  this.resetUnitsAction();
+
   this.frameSource.endAIPhase();
   this.phaseStage.nextStage('select unit');
 }

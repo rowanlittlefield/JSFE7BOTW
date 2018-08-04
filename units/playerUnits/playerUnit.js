@@ -3,10 +3,12 @@ import SingleMovePathFinder from '../singleMovePathFinder/singleMovePathFinder';
 
 function PlayerUnit(stats, board, inventory, name, mapSprite,
 forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
- hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation) {
+ postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation) {
   Unit.call(this, stats, board, inventory, name, mapSprite,
   forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-   hpWindowSprite, combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
+  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation);
   this.prevPos = null;
   this.windowOptions = null;
   this.fightOptions = null;
