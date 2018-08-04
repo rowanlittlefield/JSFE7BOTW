@@ -64,7 +64,6 @@ Chapter.prototype.changePhase = function() {
   this.currentPlayer.resetUnitsAction();
   this.phase = (this.phase + 1) % 2;
   this.currentPlayer = this.players[this.phase];
-  console.log(this.phase);
 
   //temporary hard coded enemy phase
   this.frameSource.beginAIPhase(this.currentPlayer);
@@ -78,8 +77,6 @@ Chapter.prototype.changePhase = function() {
   if(this.phase === 0) {
     this.numberOfTurns += 1;
   }
-
-  console.log(this.phase);
 
 }
 

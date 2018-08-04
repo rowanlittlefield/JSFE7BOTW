@@ -52,10 +52,10 @@ GlobalDisplay.prototype.renderObjects = function(sF) {
   if (this.combatAnimation) {
     this.renderCombatAnimation();
   } else {
+    if(this.phaseStage.stage === 'player unit moving') this.renderMoveSpaces(sF);
+    if(this.phaseStage.stage !== 'Enemy Phase') this.renderCursor();
     this.renderUnits();
     this.renderWindows(sF);
-    if(this.phaseStage.stage === 'player unit moving') this.renderMoveSpaces(sF);
-    this.renderCursor();
   }
 }
 
