@@ -82,8 +82,12 @@ Player.prototype.updateUnitMapWindow = function() {
 
 //play player unit moving
 Player.prototype.playPlayerUnitMoving = function(button) {
+  // const check = this.selectedUnit().validMoveSpaces()[this.cursorPos()];
+  // debugger
+
   if (button === 'A') {
-    if (this.selectedUnit().validMoveSpaces()[this.cursorPos()]) {
+    const moveCondition = this.selectedUnit().validMoveSpaces()[this.cursorPos()];
+    if (moveCondition || moveCondition === 0) {
       this.moveSelectedUnit();
     }
   } else if (button === 'B') {
@@ -107,7 +111,7 @@ Player.prototype.moveSelectedUnit = function() {
 
 Player.prototype.setMovingAnimation = function() {
   this.selectedUnit().moving = true;
-
+  // debugger
   const siftedRoute = this.selectedUnit().singleMovePathFinder.setupRoute(this.cursorPos());
   this.selectedUnit().movingAnimation = new MovingAnimation(
     this.selectedUnit(),
@@ -118,14 +122,10 @@ Player.prototype.setMovingAnimation = function() {
 }
 
 Player.prototype.updateSelectedUnitRouteSpaces = function() {
-  // if (this.selectedUnit().moveSpaces[this.cursorPos()] === true) {
   if (this.selectedUnit().singleMovePathFinder.moveThroughPositions.positions[this.cursorPos()] != undefined &&
       !equivalentPositions(this.cursorPos(), this.selectedUnit().position)) {
-    // this.selectedUnit().routeSpaces =
-    // this.selectedUnit().findAnOptimalRoute(this.cursorPos());
     this.selectedUnit().singleMovePathFinder.bfsMazeSolver.findPath(this.cursorPos());
   } else {
-    // this.selectedUnit().routeSpaces = [this.selectedUnit().position];
     this.selectedUnit().singleMovePathFinder.bfsMazeSolver.routePositions = [this.selectedUnit().position];
   }
 }

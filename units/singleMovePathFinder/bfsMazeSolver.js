@@ -33,6 +33,8 @@ BFSMazeSolver.prototype.update = function(unitPosition) {
 }
 
 BFSMazeSolver.prototype.findPath = function(endPos) {
+  if(equivalentPositions(endPos, this.unitPosition)) return [this.unitPosition];
+
   this.paths[this.unitPosition] = null;
   this.steps = 1;
   this.endPos = endPos;

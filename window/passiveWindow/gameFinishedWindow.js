@@ -16,11 +16,6 @@ function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;
 
-  // this.backgroundWindow = new CoordinateSprite(
-  //   c, 1280, 750, 130, 85, require("../interactiveWindow/fe_background_window.png"), 1,
-  //   [[555, 329]]
-  // );
-
   this.backgroundWindow = new CoordinateSprite(
     c, 315, 191, 140, 95, require("../interactiveWindow/fe_new_background_window.png"), 1,
     [[0, 0]]

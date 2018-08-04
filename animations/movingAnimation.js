@@ -14,7 +14,6 @@ function MovingAnimation(unit, route, ticksPerTranslation, phaseStage, display) 
 
 MovingAnimation.prototype.calculateRouteDifferentials = function(route) {
   let routeDifferentials = [];
-
   for(let i = 1; i < route.length; i++) {
     routeDifferentials.push([route[i][0] - route[i - 1][0],
        route[i][1] - route[i - 1][1]]);
