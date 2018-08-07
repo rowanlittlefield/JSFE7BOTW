@@ -6208,6 +6208,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+function drawStrokedSmaller(text, x, y, opacity) {
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].font = "15px Serif"
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].strokeStyle = 'black';
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].lineWidth = 6;
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].strokeText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillText(text, x, y);
+}
+
 function CombatAnimationBackgroundWindow(pu, eu) {
   const sF = 45;
   this.sF = sF;
@@ -6235,9 +6244,9 @@ CombatAnimationBackgroundWindow.prototype.render = function(sF) {
   this.renderNameWindows();
   // this.renderWeaponWindows();
   this.renderLowerWindow();
+  this.renderWeaponNames();
   this.renderStatWindows();
   // this.renderCentralDelineator();
-  this.renderWeaponNames();
   this.renderHPWindows();
 }
 
@@ -6300,19 +6309,19 @@ CombatAnimationBackgroundWindow.prototype.renderWeaponWindows = function() {
 }
 
 CombatAnimationBackgroundWindow.prototype.renderWeaponNames = function() {
-  Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255 1)',
-    `${this.pu.equippedWeapon.stats['name']}`, this.halfWidth + 50, 380);
+  Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(0, 0, 0, 1)',
+    `${this.pu.equippedWeapon.stats['name']}`, this.halfWidth + 50, 385);
 
-  Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255 1)',
-    `${this.eu.equippedWeapon.stats['name']}`, this.halfWidth - 50, 380);
+  Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(0, 0, 0, 1)',
+    `${this.eu.equippedWeapon.stats['name']}`, this.halfWidth - 50, 385);
 }
 
 CombatAnimationBackgroundWindow.prototype.renderHPWindows = function() {
   Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255 1)',
-   `${this.playerHP}`, this.halfWidth + 50, 420);
+   `${this.playerHP}`, this.halfWidth + 50, 430);
 
    Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255 1)',
-    `${this.enemyHP}`, this.halfWidth - 50, 420);
+    `${this.enemyHP}`, this.halfWidth - 50, 430);
 }
 
 CombatAnimationBackgroundWindow.prototype.modifyHP = function(defender, newHP) {
