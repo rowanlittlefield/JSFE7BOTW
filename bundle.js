@@ -3394,6 +3394,7 @@ function Player(board, display, phaseStage) {
   this.unitType = _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"];
   this.opposingUnitType = _units_enemyUnits_enemyUnit__WEBPACK_IMPORTED_MODULE_2__["default"];
   this.units = this.listOfOwnUnits();
+  this.gameFinishedWindow = new _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_11__["default"]();
 }
 
 Player.prototype = Object.create(_generalPlayer__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
@@ -3535,7 +3536,8 @@ Player.prototype.postMovementDecision = function() {
     this.fightPreparations();
   } else if (option === 'Seize') {
     this.phaseStage.stage = 'Game Finished';
-    this.display.window = new _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_11__["default"]();
+    this.display.window = this.gameFinishedWindow;
+    // this.display.window = new GameFinishedWindow();
     this.display.cursor = new _display_nullCursor__WEBPACK_IMPORTED_MODULE_12__["default"]();
   }
 }
