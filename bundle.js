@@ -617,6 +617,124 @@ MovingAnimation.prototype.endAnimation = function() {
 
 /***/ }),
 
+/***/ "./animations/preloadedAssetSprite/battleAssetImage.js":
+/*!*************************************************************!*\
+  !*** ./animations/preloadedAssetSprite/battleAssetImage.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const battleAssetImage = new Image();
+battleAssetImage.src = 'animations/preloadedAssetSprite/FEBattleAssets.png';
+/* harmony default export */ __webpack_exports__["default"] = (battleAssetImage);
+
+
+/***/ }),
+
+/***/ "./animations/preloadedAssetSprite/combatPUNameWindow.js":
+/*!***************************************************************!*\
+  !*** ./animations/preloadedAssetSprite/combatPUNameWindow.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
+/* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+
+
+
+
+function CombatPUNameWindow() {
+  //[sx, sy, width, height, renderWidth, renderHeight, numTicks]
+  const renderList = [
+    [384, 1, 69, 32, 69, 32, 1]
+  ];
+
+  _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
+    _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
+    renderList
+  );
+}
+
+CombatPUNameWindow.prototype = Object.create(_preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatPUNameWindow.prototype.constructor = CombatPUNameWindow;
+
+
+/* harmony default export */ __webpack_exports__["default"] = (CombatPUNameWindow);
+
+
+/***/ }),
+
+/***/ "./animations/preloadedAssetSprite/preloadedAssetSprite.js":
+/*!*****************************************************************!*\
+  !*** ./animations/preloadedAssetSprite/preloadedAssetSprite.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function PreloadedAssetSprite(context, imageObject, renderList) {
+  this.frameIndex = 0;
+  this.tickCount = 0;
+
+  //[sx, sy, width, height, renderWidth, renderHeight, numTicks]
+  this.context = context;
+  this.spriteSheet = imageObject;
+  this.renderList = renderList;
+  // debugger
+  this.numberOfFrames = renderList.length;
+}
+
+PreloadedAssetSprite.prototype.render = function(row, col, sF) {
+  const renderWidth = this.renderList[this.frameIndex][4];
+  const renderHeight = this.renderList[this.frameIndex][5]
+
+  const scale = sF / 18;
+  const cx = (row*sF) + (((scale*18) - (scale*renderWidth)) / 2);
+  const cy = (col*sF) + ((scale*18) - (scale*renderHeight));
+  const cWidth = scale*renderWidth;
+  const cHeight = scale*renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,
+    this.renderList[this.frameIndex][0],
+    this.renderList[this.frameIndex][1],
+    this.renderList[this.frameIndex][2],
+    this.renderList[this.frameIndex][3],
+    cx,
+    cy,
+    cWidth,
+    cHeight
+  );
+  this.update();
+}
+
+PreloadedAssetSprite.prototype.update = function() {
+  this.tickCount += 1;
+
+  // if(this.tickCount > this.ticksPerFrame) {
+  if(this.tickCount > this.renderList[this.frameIndex][6]) {
+    this.tickCount = 0;
+    if(this.frameIndex < this.numberOfFrames - 1) {
+      this.frameIndex += 1;
+    } else if(this.frameIndex === this.numberOfFrames - 1) {
+      this.frameIndex = 0;
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PreloadedAssetSprite);
+
+
+/***/ }),
+
 /***/ "./animations/sprite.js":
 /*!******************************!*\
   !*** ./animations/sprite.js ***!
@@ -6006,6 +6124,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _passiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./passiveWindow */ "./window/passiveWindow/passiveWindow.js");
 /* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatPUNameWindow */ "./animations/preloadedAssetSprite/combatPUNameWindow.js");
+
 
 
 
@@ -6025,6 +6145,7 @@ function CombatAnimationBackgroundWindow(pu, eu) {
   this.playerHP = pu.current_hp;
   this.enemyHP = eu.current_hp;
 
+  this.puNameWindowSprite = new _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__["default"]();
 }
 
 CombatAnimationBackgroundWindow.prototype = Object.create(_passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
@@ -6041,14 +6162,15 @@ CombatAnimationBackgroundWindow.prototype.render = function(sF) {
 
 CombatAnimationBackgroundWindow.prototype.renderNameWindows = function() {
   // let midX = (this.x + this.width)/2;
-  this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 200, 275);
   this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -200 - 150, -275);
+  this.puNameWindowSprite.render(12.8, 0.8, 45);
+  this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 200, 275);
 }
 
 CombatAnimationBackgroundWindow.prototype.renderNameWindow = function(color,
   unitName, xDisplacement, nameXCoord) {
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = color;
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(this.halfWidth + xDisplacement, this.y + 20, 150, 50);
+  // c.fillStyle = color;
+  // c.fillRect(this.halfWidth + xDisplacement, this.y + 20, 150, 50);
   Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
     unitName, this.halfWidth + nameXCoord, this.y + 50);
 }
