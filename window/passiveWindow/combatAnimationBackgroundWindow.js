@@ -2,6 +2,7 @@ import PassiveWindow from './passiveWindow';
 import { c } from '../../createContext';
 import { renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 import CombatPUNameWindow from '../../animations/preloadedAssetSprite/combatPUNameWindow';
+import CombatEUNameWindow from '../../animations/preloadedAssetSprite/combatEUNameWindow';
 
 function CombatAnimationBackgroundWindow(pu, eu) {
   const sF = 45;
@@ -19,6 +20,7 @@ function CombatAnimationBackgroundWindow(pu, eu) {
   this.enemyHP = eu.current_hp;
 
   this.puNameWindowSprite = new CombatPUNameWindow();
+  this.euNameWindowSprite = new CombatEUNameWindow();
 }
 
 CombatAnimationBackgroundWindow.prototype = Object.create(PassiveWindow.prototype);
@@ -35,8 +37,9 @@ CombatAnimationBackgroundWindow.prototype.render = function(sF) {
 
 CombatAnimationBackgroundWindow.prototype.renderNameWindows = function() {
   // let midX = (this.x + this.width)/2;
-  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -200 - 150, -275);
   this.puNameWindowSprite.render(12.8, 0.8, 45);
+  this.euNameWindowSprite.render(1.2, 0.8, 45);
+  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -200 - 150, -275);
   this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 200, 275);
 }
 

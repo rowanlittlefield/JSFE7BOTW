@@ -633,6 +633,44 @@ battleAssetImage.src = 'animations/preloadedAssetSprite/FEBattleAssets.png';
 
 /***/ }),
 
+/***/ "./animations/preloadedAssetSprite/combatEUNameWindow.js":
+/*!***************************************************************!*\
+  !*** ./animations/preloadedAssetSprite/combatEUNameWindow.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
+/* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+
+
+
+
+function CombatEUNameWindow() {
+  //[sx, sy, width, height, renderWidth, renderHeight, numTicks]
+  const renderList = [
+    [245, 34, 67, 31, 67, 31, 1]
+  ];
+
+  _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
+    _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
+    renderList
+  );
+}
+
+CombatEUNameWindow.prototype = Object.create(_preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatEUNameWindow.prototype.constructor = CombatEUNameWindow;
+
+/* harmony default export */ __webpack_exports__["default"] = (CombatEUNameWindow);
+
+
+/***/ }),
+
 /***/ "./animations/preloadedAssetSprite/combatPUNameWindow.js":
 /*!***************************************************************!*\
   !*** ./animations/preloadedAssetSprite/combatPUNameWindow.js ***!
@@ -666,7 +704,6 @@ function CombatPUNameWindow() {
 CombatPUNameWindow.prototype = Object.create(_preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 CombatPUNameWindow.prototype.constructor = CombatPUNameWindow;
 
-
 /* harmony default export */ __webpack_exports__["default"] = (CombatPUNameWindow);
 
 
@@ -689,7 +726,6 @@ function PreloadedAssetSprite(context, imageObject, renderList) {
   this.context = context;
   this.spriteSheet = imageObject;
   this.renderList = renderList;
-  // debugger
   this.numberOfFrames = renderList.length;
 }
 
@@ -6125,6 +6161,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
 /* harmony import */ var _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatPUNameWindow */ "./animations/preloadedAssetSprite/combatPUNameWindow.js");
+/* harmony import */ var _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatEUNameWindow */ "./animations/preloadedAssetSprite/combatEUNameWindow.js");
+
 
 
 
@@ -6146,6 +6184,7 @@ function CombatAnimationBackgroundWindow(pu, eu) {
   this.enemyHP = eu.current_hp;
 
   this.puNameWindowSprite = new _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  this.euNameWindowSprite = new _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
 }
 
 CombatAnimationBackgroundWindow.prototype = Object.create(_passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
@@ -6162,8 +6201,9 @@ CombatAnimationBackgroundWindow.prototype.render = function(sF) {
 
 CombatAnimationBackgroundWindow.prototype.renderNameWindows = function() {
   // let midX = (this.x + this.width)/2;
-  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -200 - 150, -275);
   this.puNameWindowSprite.render(12.8, 0.8, 45);
+  this.euNameWindowSprite.render(1.2, 0.8, 45);
+  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -200 - 150, -275);
   this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 200, 275);
 }
 

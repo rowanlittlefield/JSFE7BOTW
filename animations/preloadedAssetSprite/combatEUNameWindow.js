@@ -2,10 +2,10 @@ import PreloadedAssetSprite from './preloadedAssetSprite';
 import battleAssetImage from './battleAssetImage';
 import { c } from '../../createContext';
 
-function CombatPUNameWindow() {
+function CombatEUNameWindow() {
   //[sx, sy, width, height, renderWidth, renderHeight, numTicks]
   const renderList = [
-    [384, 1, 69, 32, 69, 32, 1]
+    [245, 34, 67, 31, 67, 31, 1]
   ];
 
   PreloadedAssetSprite.call(
@@ -16,7 +16,7 @@ function CombatPUNameWindow() {
   );
 }
 
-CombatPUNameWindow.prototype = Object.create(PreloadedAssetSprite.prototype);
-CombatPUNameWindow.prototype.constructor = CombatPUNameWindow;
+CombatEUNameWindow.prototype = Object.create(PreloadedAssetSprite.prototype);
+CombatEUNameWindow.prototype.constructor = CombatEUNameWindow;
 
-export default CombatPUNameWindow;
+export default CombatEUNameWindow;

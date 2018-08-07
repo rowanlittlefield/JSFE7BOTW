@@ -6,7 +6,6 @@ function PreloadedAssetSprite(context, imageObject, renderList) {
   this.context = context;
   this.spriteSheet = imageObject;
   this.renderList = renderList;
-  // debugger
   this.numberOfFrames = renderList.length;
 }
 
