@@ -21,6 +21,7 @@ function Player(board, display, phaseStage) {
   this.unitType = PlayerUnit;
   this.opposingUnitType = EnemyUnit;
   this.units = this.listOfOwnUnits();
+  this.gameFinishedWindow = new GameFinishedWindow();
 }
 
 Player.prototype = Object.create(GeneralPlayer.prototype);
@@ -162,7 +163,8 @@ Player.prototype.postMovementDecision = function() {
     this.fightPreparations();
   } else if (option === 'Seize') {
     this.phaseStage.stage = 'Game Finished';
-    this.display.window = new GameFinishedWindow();
+    this.display.window = this.gameFinishedWindow;
+    // this.display.window = new GameFinishedWindow();
     this.display.cursor = new NullCursor();
   }
 }
