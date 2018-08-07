@@ -142,7 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function CombatAnimation(combat, phaseStage) {
+function CombatAnimation(combat, phaseStage, battlePlatformSprite) {
   this.combat = combat;
   this.combatQueueIndex = combat.queue.length - 1;
 
@@ -153,7 +153,8 @@ function CombatAnimation(combat, phaseStage) {
     combat.pu, combat.eu
   );
 
-  this.battlePlatformSprite = new _battlePlatformSprite__WEBPACK_IMPORTED_MODULE_1__["default"]();
+  // this.battlePlatformSprite = new BattlePlatformSprite();
+  this.battlePlatformSprite = battlePlatformSprite
 }
 
 CombatAnimation.prototype.render = function() {
@@ -2481,6 +2482,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _window_passiveWindow_terrainWindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../window/passiveWindow/terrainWindow */ "./window/passiveWindow/terrainWindow.js");
 /* harmony import */ var _window_interactiveWindow_combatInformationWindow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../window/interactiveWindow/combatInformationWindow */ "./window/interactiveWindow/combatInformationWindow.js");
 /* harmony import */ var _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../window/passiveWindow/gameFinishedWindow */ "./window/passiveWindow/gameFinishedWindow.js");
+/* harmony import */ var _animations_battlePlatformSprite__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../animations/battlePlatformSprite */ "./animations/battlePlatformSprite.js");
+/* harmony import */ var _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../animations/combatAnimation */ "./animations/combatAnimation.js");
+
+
 
 
 
@@ -2498,6 +2503,15 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.window = new _window_nullWindow__WEBPACK_IMPORTED_MODULE_1__["default"]();
   this.combatAnimation = null;
   this.gameIsFinished = false;
+
+  //Temporary fix for pre-loading assets
+  this.battlePlatformSprite = new _animations_battlePlatformSprite__WEBPACK_IMPORTED_MODULE_8__["default"]();
+}
+
+GlobalDisplay.prototype.setupCombatAnimation = function(newCombat, phaseStage) {
+  this.combatAnimation = new _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_9__["default"](
+    newCombat, phaseStage, this.battlePlatformSprite
+  );
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
@@ -3228,7 +3242,8 @@ EnemyPlayer.prototype.finishUnitTurn = function() {
 
   if (playerUnit) {
     let newCombat = new _combat_combat__WEBPACK_IMPORTED_MODULE_5__["default"](this.unitQueue[0], playerUnit);
-    this.display.combatAnimation = new _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_6__["default"](newCombat, this.phaseStage);
+    // this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
+    this.display.setupCombatAnimation(newCombat, this.phaseStage);
     newCombat.initiateFight();
   }
 
@@ -3581,7 +3596,8 @@ Player.prototype.initiateFight = function() {
   let pos = this.display.window.returnOption();
 
   let newCombat = new _combat_combat__WEBPACK_IMPORTED_MODULE_9__["default"](this.selectedUnit(), this.board.space(pos).unit);
-  this.display.combatAnimation = new _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_10__["default"](newCombat, this.phaseStage);
+  // this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
+  this.display.setupCombatAnimation(newCombat, this.phaseStage);
   newCombat.initiateFight();
   this.phaseStage.nextStage('combat animation');
   this.cursor.selectedUnit.actionTaken = true;

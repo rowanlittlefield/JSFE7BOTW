@@ -56,7 +56,8 @@ EnemyPlayer.prototype.finishUnitTurn = function() {
 
   if (playerUnit) {
     let newCombat = new Combat(this.unitQueue[0], playerUnit);
-    this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
+    // this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
+    this.display.setupCombatAnimation(newCombat, this.phaseStage);
     newCombat.initiateFight();
   }
 

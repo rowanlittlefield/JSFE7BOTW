@@ -208,7 +208,8 @@ Player.prototype.initiateFight = function() {
   let pos = this.display.window.returnOption();
 
   let newCombat = new Combat(this.selectedUnit(), this.board.space(pos).unit);
-  this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
+  // this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
+  this.display.setupCombatAnimation(newCombat, this.phaseStage);
   newCombat.initiateFight();
   this.phaseStage.nextStage('combat animation');
   this.cursor.selectedUnit.actionTaken = true;

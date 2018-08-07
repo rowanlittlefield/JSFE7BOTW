@@ -1,7 +1,7 @@
 import CombatAnimationBackgroundWindow from '../window/passiveWindow/combatAnimationBackgroundWindow';
 import BattlePlatformSprite from './battlePlatformSprite';
 
-function CombatAnimation(combat, phaseStage) {
+function CombatAnimation(combat, phaseStage, battlePlatformSprite) {
   this.combat = combat;
   this.combatQueueIndex = combat.queue.length - 1;
 
@@ -12,7 +12,8 @@ function CombatAnimation(combat, phaseStage) {
     combat.pu, combat.eu
   );
 
-  this.battlePlatformSprite = new BattlePlatformSprite();
+  // this.battlePlatformSprite = new BattlePlatformSprite();
+  this.battlePlatformSprite = battlePlatformSprite
 }
 
 CombatAnimation.prototype.render = function() {

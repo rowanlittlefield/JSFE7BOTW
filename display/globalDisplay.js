@@ -6,6 +6,8 @@ import UnitMapWindow from '../window/passiveWindow/unitMapWindow';
 import TerrainWindow from '../window/passiveWindow/terrainWindow';
 import CombatInformationWindow from '../window/interactiveWindow/combatInformationWindow';
 import GameFinishedWindow from '../window/passiveWindow/gameFinishedWindow';
+import BattlePlatformSprite from '../animations/battlePlatformSprite';
+import CombatAnimation from '../animations/combatAnimation';
 
 function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.board = board;
@@ -15,6 +17,15 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.window = new NullWindow();
   this.combatAnimation = null;
   this.gameIsFinished = false;
+
+  //Temporary fix for pre-loading assets
+  this.battlePlatformSprite = new BattlePlatformSprite();
+}
+
+GlobalDisplay.prototype.setupCombatAnimation = function(newCombat, phaseStage) {
+  this.combatAnimation = new CombatAnimation(
+    newCombat, phaseStage, this.battlePlatformSprite
+  );
 }
 
 GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
