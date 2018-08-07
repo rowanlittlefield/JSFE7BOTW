@@ -284,6 +284,252 @@ CoordinateSprite.prototype.render = function(row, col, sF) {
 
 /***/ }),
 
+/***/ "./animations/hitAnimations/normalCriticalDamageAnimation.js":
+/*!*******************************************************************!*\
+  !*** ./animations/hitAnimations/normalCriticalDamageAnimation.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+
+
+
+function NormalCriticalDamageAnimation(defenderCoordinates) {
+  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
+    240,//width
+    143,//height
+    //238,//renderWidth
+    240*1.4,//renderWidth
+
+    //158,//renderHeight
+    143*1.3,//renderHeight
+
+    'animations/FE7HitSpriteSheetsTransTest.png',//image
+    2,//ticksPerFrame
+    // [10, 21]
+    [
+      // [10, 21],
+      // [253, 1033],
+      // //[10, 1197],
+      // //[253, 1033],
+      // [10,21],
+
+      [253, 526], [496, 526],
+      [10, 690], [253, 690], [496, 690],
+      [10, 853], [253, 853], [496, 853]
+
+    ]//coordinatesList
+  );
+
+  this.defenderCoordinates = defenderCoordinates;
+}
+
+NormalCriticalDamageAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+NormalCriticalDamageAnimation.prototype.constructor = NormalCriticalDamageAnimation;
+
+NormalCriticalDamageAnimation.prototype.render = function(sF) {
+  let scale = sF / 18;
+  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.5*sF);
+  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (2*sF);
+
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,// this.spriteSheet,
+    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
+    this.coordinatesList[this.frameIndex][1],// 0,
+    this.width,// this.width,
+    this.height,// this.height,
+    cx,// cx,
+    cy,// cy,
+    cWidth,// cWidth,
+    cHeight// cHeight
+  );
+  this.update();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (NormalCriticalDamageAnimation);
+
+
+/***/ }),
+
+/***/ "./animations/hitAnimations/normalDamageAnimation.js":
+/*!***********************************************************!*\
+  !*** ./animations/hitAnimations/normalDamageAnimation.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+
+
+
+function NormalDamageAnimation(defenderCoordinates) {
+  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
+    238,//width
+    158,//height
+    //238,//renderWidth
+    238*1.8,//renderWidth
+
+    // 158,//renderHeight
+    158*1.8,//renderHeight
+
+    'animations/FE7HitSpriteSheetsTransTest.png',//image
+    2,//ticksPerFrame
+    // [10, 21]
+    [
+      // [10, 21],
+      // [253, 1033],
+      // [10, 1197],
+      // [253, 1033],
+      // [10,21],
+
+     [253, 21], [496, 21],
+    [10, 184], [253, 184], [496, 184],
+    [10, 347], [253, 347], [496, 347]]//coordinatesList
+  );
+
+  this.defenderCoordinates = defenderCoordinates;
+}
+
+NormalDamageAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+NormalDamageAnimation.prototype.constructor = NormalDamageAnimation;
+
+NormalDamageAnimation.prototype.render = function(sF) {
+  let scale = sF / 18;
+  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.2*sF);
+  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (sF*2.5);
+
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,// this.spriteSheet,
+    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
+    this.coordinatesList[this.frameIndex][1],// 0,
+    this.width,// this.width,
+    this.height,// this.height,
+    cx,// cx,
+    cy,// cy,
+    cWidth,// cWidth,
+    cHeight// cHeight
+  );
+  this.update();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (NormalDamageAnimation);
+
+
+/***/ }),
+
+/***/ "./animations/hitAnimations/royCriticalHitAnimation.js":
+/*!*************************************************************!*\
+  !*** ./animations/hitAnimations/royCriticalHitAnimation.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+
+
+
+function RoyCriticalHitAnimation(defenderCoordinates) {
+  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
+    236,//width
+    156,//height
+    //238,//renderWidth
+    236,//renderWidth
+
+    //158,//renderHeight
+    156*1.3,//renderHeight
+
+    'animations/royCritHitSpriteSheetProg.png',//image
+    2,//ticksPerFrame
+    // [10, 21]
+    [
+      // [10, 21],
+      // [253, 1033],
+      // //[10, 1197],
+      // //[253, 1033],
+      // [10,21],
+
+      [7, 496], //[7, 496], [7, 496], [7, 496], [7, 496], [7, 496], [7, 496], [7, 496], [7, 496], [7, 496],
+      [249, 496], //[249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], //[249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496],
+      [492, 496], //[492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], //[492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496],
+      [734, 496],// [734, 496], [734, 496], [734, 496], [734, 496], [734, 496], [734, 496], [734, 496], [734, 496], [734, 496],
+
+      [8, 658], //[8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658],
+      [250, 658], //[250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658],
+      [492, 657], //[492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657],
+      [734, 657], //[734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657],
+
+      [8, 819], //[8, 819], [8, 819], [8, 819], [8, 819], [8, 819], [8, 819], [8, 819], [8, 819], [8, 819],
+      [250, 819], //[250, 819], [250, 819], [250, 819], [250, 819], [250, 819], [250, 819], [250, 819], [250, 819], [250, 819],
+      [492, 819], //[492, 819], [492, 819], [492, 819], [492, 819], [492, 819], [492, 819], [492, 819], [492, 819], [492, 819],
+      [734, 819], //[734, 819], [734, 819], [734, 819], [734, 819], [734, 819], [734, 819], [734, 819], [734, 819], [734, 819],
+
+      [8, 982], //[8, 982], [8, 982], [8, 982], [8, 982], [8, 982], [8, 982], [8, 982], [8, 982], [8, 982],
+      [250, 982], //[250, 982], [250, 982], [250, 982], [250, 982], [250, 982], [250, 982], [250, 982], [250, 982], [250, 982],
+      [492, 982], //[492, 982], [492, 982], [492, 982], [492, 982], [492, 982], [492, 982], [492, 982], [492, 982], [492, 982],
+      [734, 982], //[734, 982], [734, 982], [734, 982], [734, 982], [734, 982], [734, 982], [734, 982], [734, 982], [734, 982]
+
+
+    ]//coordinatesList
+  );
+
+  this.defenderCoordinates = defenderCoordinates;
+}
+
+RoyCriticalHitAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+RoyCriticalHitAnimation.prototype.constructor = RoyCriticalHitAnimation;
+
+RoyCriticalHitAnimation.prototype.render = function(sF) {
+  let scale = sF / 18;
+  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.2*sF);
+  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (sF*2.5);
+
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,// this.spriteSheet,
+    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
+    this.coordinatesList[this.frameIndex][1],// 0,
+    this.width,// this.width,
+    this.height,// this.height,
+    cx,// cx,
+    cy,// cy,
+    cWidth,// cWidth,
+    cHeight// cHeight
+  );
+  this.update();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (RoyCriticalHitAnimation);
+
+
+/***/ }),
+
 /***/ "./animations/movingAnimation.js":
 /*!***************************************!*\
   !*** ./animations/movingAnimation.js ***!
@@ -367,252 +613,6 @@ MovingAnimation.prototype.endAnimation = function() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MovingAnimation);
-
-
-/***/ }),
-
-/***/ "./animations/normalCriticalDamageAnimation.js":
-/*!*****************************************************!*\
-  !*** ./animations/normalCriticalDamageAnimation.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
-
-
-
-function NormalCriticalDamageAnimation(defenderCoordinates) {
-  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
-    240,//width
-    143,//height
-    //238,//renderWidth
-    240*1.4,//renderWidth
-
-    //158,//renderHeight
-    143*1.3,//renderHeight
-
-    'animations/FE7HitSpriteSheetsTransTest.png',//image
-    2,//ticksPerFrame
-    // [10, 21]
-    [
-      // [10, 21],
-      // [253, 1033],
-      // //[10, 1197],
-      // //[253, 1033],
-      // [10,21],
-
-      [253, 526], [496, 526],
-      [10, 690], [253, 690], [496, 690],
-      [10, 853], [253, 853], [496, 853]
-
-    ]//coordinatesList
-  );
-
-  this.defenderCoordinates = defenderCoordinates;
-}
-
-NormalCriticalDamageAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-NormalCriticalDamageAnimation.prototype.constructor = NormalCriticalDamageAnimation;
-
-NormalCriticalDamageAnimation.prototype.render = function(sF) {
-  let scale = sF / 18;
-  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
-  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.5*sF);
-  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (2*sF);
-
-  let cWidth = scale * this.renderWidth;
-  let cHeight = scale *  this.renderHeight;
-  this.context.drawImage(
-    this.spriteSheet,// this.spriteSheet,
-    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
-    this.coordinatesList[this.frameIndex][1],// 0,
-    this.width,// this.width,
-    this.height,// this.height,
-    cx,// cx,
-    cy,// cy,
-    cWidth,// cWidth,
-    cHeight// cHeight
-  );
-  this.update();
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (NormalCriticalDamageAnimation);
-
-
-/***/ }),
-
-/***/ "./animations/normalDamageAnimation.js":
-/*!*********************************************!*\
-  !*** ./animations/normalDamageAnimation.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
-
-
-
-function NormalDamageAnimation(defenderCoordinates) {
-  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
-    238,//width
-    158,//height
-    //238,//renderWidth
-    238*1.8,//renderWidth
-
-    // 158,//renderHeight
-    158*1.8,//renderHeight
-
-    'animations/FE7HitSpriteSheetsTransTest.png',//image
-    2,//ticksPerFrame
-    // [10, 21]
-    [
-      // [10, 21],
-      // [253, 1033],
-      // [10, 1197],
-      // [253, 1033],
-      // [10,21],
-
-     [253, 21], [496, 21],
-    [10, 184], [253, 184], [496, 184],
-    [10, 347], [253, 347], [496, 347]]//coordinatesList
-  );
-
-  this.defenderCoordinates = defenderCoordinates;
-}
-
-NormalDamageAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-NormalDamageAnimation.prototype.constructor = NormalDamageAnimation;
-
-NormalDamageAnimation.prototype.render = function(sF) {
-  let scale = sF / 18;
-  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
-  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.2*sF);
-  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (sF*2.5);
-
-  let cWidth = scale * this.renderWidth;
-  let cHeight = scale *  this.renderHeight;
-  this.context.drawImage(
-    this.spriteSheet,// this.spriteSheet,
-    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
-    this.coordinatesList[this.frameIndex][1],// 0,
-    this.width,// this.width,
-    this.height,// this.height,
-    cx,// cx,
-    cy,// cy,
-    cWidth,// cWidth,
-    cHeight// cHeight
-  );
-  this.update();
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (NormalDamageAnimation);
-
-
-/***/ }),
-
-/***/ "./animations/royCriticalHitAnimation.js":
-/*!***********************************************!*\
-  !*** ./animations/royCriticalHitAnimation.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
-
-
-
-function RoyCriticalHitAnimation(defenderCoordinates) {
-  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
-    236,//width
-    156,//height
-    //238,//renderWidth
-    236,//renderWidth
-
-    //158,//renderHeight
-    156*1.3,//renderHeight
-
-    'animations/royCritHitSpriteSheetProg.png',//image
-    2,//ticksPerFrame
-    // [10, 21]
-    [
-      // [10, 21],
-      // [253, 1033],
-      // //[10, 1197],
-      // //[253, 1033],
-      // [10,21],
-
-      [7, 496], //[7, 496], [7, 496], [7, 496], [7, 496], [7, 496], [7, 496], [7, 496], [7, 496], [7, 496],
-      [249, 496], //[249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], //[249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496], [249, 496],
-      [492, 496], //[492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], //[492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496], [492, 496],
-      [734, 496],// [734, 496], [734, 496], [734, 496], [734, 496], [734, 496], [734, 496], [734, 496], [734, 496], [734, 496],
-
-      [8, 658], //[8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658], [8, 658],
-      [250, 658], //[250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658], [250, 658],
-      [492, 657], //[492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657], [492, 657],
-      [734, 657], //[734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657], [734, 657],
-
-      [8, 819], //[8, 819], [8, 819], [8, 819], [8, 819], [8, 819], [8, 819], [8, 819], [8, 819], [8, 819],
-      [250, 819], //[250, 819], [250, 819], [250, 819], [250, 819], [250, 819], [250, 819], [250, 819], [250, 819], [250, 819],
-      [492, 819], //[492, 819], [492, 819], [492, 819], [492, 819], [492, 819], [492, 819], [492, 819], [492, 819], [492, 819],
-      [734, 819], //[734, 819], [734, 819], [734, 819], [734, 819], [734, 819], [734, 819], [734, 819], [734, 819], [734, 819],
-
-      [8, 982], //[8, 982], [8, 982], [8, 982], [8, 982], [8, 982], [8, 982], [8, 982], [8, 982], [8, 982],
-      [250, 982], //[250, 982], [250, 982], [250, 982], [250, 982], [250, 982], [250, 982], [250, 982], [250, 982], [250, 982],
-      [492, 982], //[492, 982], [492, 982], [492, 982], [492, 982], [492, 982], [492, 982], [492, 982], [492, 982], [492, 982],
-      [734, 982], //[734, 982], [734, 982], [734, 982], [734, 982], [734, 982], [734, 982], [734, 982], [734, 982], [734, 982]
-
-
-    ]//coordinatesList
-  );
-
-  this.defenderCoordinates = defenderCoordinates;
-}
-
-RoyCriticalHitAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-RoyCriticalHitAnimation.prototype.constructor = RoyCriticalHitAnimation;
-
-RoyCriticalHitAnimation.prototype.render = function(sF) {
-  let scale = sF / 18;
-  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
-  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.2*sF);
-  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (sF*2.5);
-
-  let cWidth = scale * this.renderWidth;
-  let cHeight = scale *  this.renderHeight;
-  this.context.drawImage(
-    this.spriteSheet,// this.spriteSheet,
-    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
-    this.coordinatesList[this.frameIndex][1],// 0,
-    this.width,// this.width,
-    this.height,// this.height,
-    cx,// cx,
-    cy,// cy,
-    cWidth,// cWidth,
-    cHeight// cHeight
-  );
-  this.update();
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (RoyCriticalHitAnimation);
 
 
 /***/ }),
@@ -2069,7 +2069,7 @@ Attack.prototype.dodgeAnimationPlayedCondition = function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./attack */ "./combat/attack/attack.js");
-/* harmony import */ var _animations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../animations/normalDamageAnimation */ "./animations/normalDamageAnimation.js");
+/* harmony import */ var _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../animations/hitAnimations/normalDamageAnimation */ "./animations/hitAnimations/normalDamageAnimation.js");
 
 
 
@@ -2078,7 +2078,7 @@ function EUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
   );
 
-  this.hitAnimation = new _animations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.playerCoordinates[0] + 1.7, this.playerCoordinates[1] + 2.8]);
+  this.hitAnimation = new _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.playerCoordinates[0] + 1.7, this.playerCoordinates[1] + 2.8]);
 }
 
 EUAttack.prototype = Object.create(_attack__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
@@ -2103,9 +2103,9 @@ EUAttack.prototype.render = function(enemyCoordinates, sF) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./attack */ "./combat/attack/attack.js");
-/* harmony import */ var _animations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../animations/normalDamageAnimation */ "./animations/normalDamageAnimation.js");
-/* harmony import */ var _animations_normalCriticalDamageAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../animations/normalCriticalDamageAnimation */ "./animations/normalCriticalDamageAnimation.js");
-/* harmony import */ var _animations_royCriticalHitAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/royCriticalHitAnimation */ "./animations/royCriticalHitAnimation.js");
+/* harmony import */ var _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../animations/hitAnimations/normalDamageAnimation */ "./animations/hitAnimations/normalDamageAnimation.js");
+/* harmony import */ var _animations_hitAnimations_normalCriticalDamageAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../animations/hitAnimations/normalCriticalDamageAnimation */ "./animations/hitAnimations/normalCriticalDamageAnimation.js");
+/* harmony import */ var _animations_hitAnimations_royCriticalHitAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/hitAnimations/royCriticalHitAnimation */ "./animations/hitAnimations/royCriticalHitAnimation.js");
 /* harmony import */ var _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../units/playerUnits/roy/roy */ "./units/playerUnits/roy/roy.js");
 
 
@@ -2120,12 +2120,12 @@ function PUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   );
   if (this.isCrit) {
     if (attacker instanceof _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_4__["default"]) {
-      this.hitAnimation = new _animations_royCriticalHitAnimation__WEBPACK_IMPORTED_MODULE_3__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
+      this.hitAnimation = new _animations_hitAnimations_royCriticalHitAnimation__WEBPACK_IMPORTED_MODULE_3__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
     } else {
-      this.hitAnimation = new _animations_normalCriticalDamageAnimation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
+      this.hitAnimation = new _animations_hitAnimations_normalCriticalDamageAnimation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
     }
   } else {
-      this.hitAnimation = new _animations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.enemyCoordinates[0] + 1.7, this.enemyCoordinates[1] + 2.8]);
+      this.hitAnimation = new _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.enemyCoordinates[0] + 1.7, this.enemyCoordinates[1] + 2.8]);
   }
 }
 
