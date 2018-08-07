@@ -3,6 +3,7 @@ import { c } from '../../createContext';
 import { renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 import CombatPUNameWindow from '../../animations/preloadedAssetSprite/combatPUNameWindow';
 import CombatEUNameWindow from '../../animations/preloadedAssetSprite/combatEUNameWindow';
+import CombatLowerWindow from '../../animations/preloadedAssetSprite/combatLowerWindow';
 
 function CombatAnimationBackgroundWindow(pu, eu) {
   const sF = 45;
@@ -21,6 +22,7 @@ function CombatAnimationBackgroundWindow(pu, eu) {
 
   this.puNameWindowSprite = new CombatPUNameWindow();
   this.euNameWindowSprite = new CombatEUNameWindow();
+  this.lowerWindow = new CombatLowerWindow();
 }
 
 CombatAnimationBackgroundWindow.prototype = Object.create(PassiveWindow.prototype);
@@ -28,9 +30,10 @@ CombatAnimationBackgroundWindow.prototype.constructor = CombatAnimationBackgroun
 
 CombatAnimationBackgroundWindow.prototype.render = function(sF) {
   this.renderNameWindows();
-  this.renderWeaponWindows();
+  // this.renderWeaponWindows();
+  this.renderLowerWindow();
   this.renderStatWindows();
-  this.renderCentralDelineator();
+  // this.renderCentralDelineator();
   this.renderWeaponNames();
   this.renderHPWindows();
 }
@@ -51,6 +54,10 @@ CombatAnimationBackgroundWindow.prototype.renderNameWindow = function(color,
     unitName, this.halfWidth + nameXCoord, this.y + 50);
 }
 
+CombatAnimationBackgroundWindow.prototype.renderLowerWindow = function() {
+  this.lowerWindow.render(7, 9.12, 45);
+}
+
 CombatAnimationBackgroundWindow.prototype.renderStatWindows = function() {
 
   this.renderStatWindow('rgba(0, 0, 142, 1)', 238, this.pu, this.eu);
@@ -58,9 +65,9 @@ CombatAnimationBackgroundWindow.prototype.renderStatWindows = function() {
 }
 
 CombatAnimationBackgroundWindow.prototype.renderStatWindow = function(color, deltaX, attacker, defender) {
-  c.fillStyle = color;
-  let y = 340;
-  c.fillRect(this.halfWidth + deltaX, y, 100, 50);
+  // c.fillStyle = color;
+  const y = 340;
+  // c.fillRect(this.halfWidth + deltaX, y, 100, 50);
 
   renderTextWithFont("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
     `HIT`, this.halfWidth + deltaX, y + 15);

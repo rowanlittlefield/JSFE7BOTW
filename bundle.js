@@ -671,6 +671,44 @@ CombatEUNameWindow.prototype.constructor = CombatEUNameWindow;
 
 /***/ }),
 
+/***/ "./animations/preloadedAssetSprite/combatLowerWindow.js":
+/*!**************************************************************!*\
+  !*** ./animations/preloadedAssetSprite/combatLowerWindow.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
+/* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+
+
+
+
+function CombatLowerWindow() {
+  //[sx, sy, width, height, renderWidth, renderHeight, numTicks]
+  const renderList = [
+    [244, 191, 242, 56, 242*1.15, 56*0.93, 1]
+  ];
+
+  _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
+    _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
+    renderList
+  );
+}
+
+CombatLowerWindow.prototype = Object.create(_preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatLowerWindow.prototype.constructor = CombatLowerWindow;
+
+/* harmony default export */ __webpack_exports__["default"] = (CombatLowerWindow);
+
+
+/***/ }),
+
 /***/ "./animations/preloadedAssetSprite/combatPUNameWindow.js":
 /*!***************************************************************!*\
   !*** ./animations/preloadedAssetSprite/combatPUNameWindow.js ***!
@@ -6162,6 +6200,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
 /* harmony import */ var _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatPUNameWindow */ "./animations/preloadedAssetSprite/combatPUNameWindow.js");
 /* harmony import */ var _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatEUNameWindow */ "./animations/preloadedAssetSprite/combatEUNameWindow.js");
+/* harmony import */ var _animations_preloadedAssetSprite_combatLowerWindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatLowerWindow */ "./animations/preloadedAssetSprite/combatLowerWindow.js");
+
 
 
 
@@ -6185,6 +6225,7 @@ function CombatAnimationBackgroundWindow(pu, eu) {
 
   this.puNameWindowSprite = new _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__["default"]();
   this.euNameWindowSprite = new _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
+  this.lowerWindow = new _animations_preloadedAssetSprite_combatLowerWindow__WEBPACK_IMPORTED_MODULE_5__["default"]();
 }
 
 CombatAnimationBackgroundWindow.prototype = Object.create(_passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
@@ -6192,9 +6233,10 @@ CombatAnimationBackgroundWindow.prototype.constructor = CombatAnimationBackgroun
 
 CombatAnimationBackgroundWindow.prototype.render = function(sF) {
   this.renderNameWindows();
-  this.renderWeaponWindows();
+  // this.renderWeaponWindows();
+  this.renderLowerWindow();
   this.renderStatWindows();
-  this.renderCentralDelineator();
+  // this.renderCentralDelineator();
   this.renderWeaponNames();
   this.renderHPWindows();
 }
@@ -6215,6 +6257,10 @@ CombatAnimationBackgroundWindow.prototype.renderNameWindow = function(color,
     unitName, this.halfWidth + nameXCoord, this.y + 50);
 }
 
+CombatAnimationBackgroundWindow.prototype.renderLowerWindow = function() {
+  this.lowerWindow.render(7, 9.12, 45);
+}
+
 CombatAnimationBackgroundWindow.prototype.renderStatWindows = function() {
 
   this.renderStatWindow('rgba(0, 0, 142, 1)', 238, this.pu, this.eu);
@@ -6222,9 +6268,9 @@ CombatAnimationBackgroundWindow.prototype.renderStatWindows = function() {
 }
 
 CombatAnimationBackgroundWindow.prototype.renderStatWindow = function(color, deltaX, attacker, defender) {
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = color;
-  let y = 340;
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(this.halfWidth + deltaX, y, 100, 50);
+  // c.fillStyle = color;
+  const y = 340;
+  // c.fillRect(this.halfWidth + deltaX, y, 100, 50);
 
   Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
     `HIT`, this.halfWidth + deltaX, y + 15);
