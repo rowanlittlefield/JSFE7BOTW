@@ -44,10 +44,10 @@ GlobalDisplay.prototype.render = function() {
     this.displayWindow.height
    );
     this.renderBoard();
+    this.renderObjects(this.displayWindow.sF);
     if(!this.combatAnimation) {
       this.phaseStage.render(45, this.cursor.cursorPos);
     }
-    this.renderObjects(this.displayWindow.sF);
     this.displayWindow.updatePosition();
 }
 
