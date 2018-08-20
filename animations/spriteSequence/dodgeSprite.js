@@ -1,7 +1,7 @@
 import SpriteSequence from './spriteSequence';
 
-function DodgeSprite(context, spriteQueue, positionAdjustment, restFrame) {
-  SpriteSequence.call(this, context, spriteQueue, positionAdjustment);
+function DodgeSprite(spriteQueue, positionAdjustment, restFrame) {
+  SpriteSequence.call(this, spriteQueue, positionAdjustment);
 
   this.restFrame = restFrame;
   this.restTicks = 15;

@@ -1,14 +1,13 @@
 import Sprite from '../animations/sprite';
-import { c } from '../createContext';
 
 function PhaseStage() {
   this.stage = 'select unit';
   this.playerPhaseSprite = new Sprite(
-    c, 240, 160, 240*0.4, 160*0.4, 'phaseStage/FE_player_phase_sprite.png', 3, 1
+    240, 160, 240*0.4, 160*0.4, 'phaseStage/FE_player_phase_sprite.png', 3, 1
   );
 
   this.enemyPhaseSprite = new Sprite(
-    c, 240, 160, 240*0.4, 160*0.4, 'phaseStage/FE_enemy_phase_sprite.png', 3, 1
+    240, 160, 240*0.4, 160*0.4, 'phaseStage/FE_enemy_phase_sprite.png', 3, 1
   );
 }
 

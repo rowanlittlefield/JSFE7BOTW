@@ -1,10 +1,8 @@
 import CoordinateSprite from '../coordinateSprite';
-import { c } from '../../createContext';
 
 function NormalCriticalDamageAnimation(defenderCoordinates) {
   CoordinateSprite.call(
     this,
-    c,
     240,//width
     143,//height
     //238,//renderWidth

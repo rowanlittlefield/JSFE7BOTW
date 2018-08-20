@@ -1,5 +1,7 @@
-function Sprite(context, width, height, renderWidth, renderHeight, image, ticksPerFrame, numberOfFrames) {
-  this.context = context;
+import { c } from '../createContext';
+
+function Sprite(width, height, renderWidth, renderHeight, image, ticksPerFrame, numberOfFrames) {
+  this.context = c;
   this.width = width;
   this.height = height;
   this.renderWidth = renderWidth;

@@ -1,6 +1,5 @@
 import PreloadedAssetSprite from './preloadedAssetSprite';
 import battleAssetImage from './battleAssetImage';
-import { c } from '../../createContext';
 
 function CombatPUNameWindow() {
   //[sx, sy, width, height, renderWidth, renderHeight, numTicks]
@@ -10,7 +9,6 @@ function CombatPUNameWindow() {
 
   PreloadedAssetSprite.call(
     this,
-    c,
     battleAssetImage,
     renderList
   );

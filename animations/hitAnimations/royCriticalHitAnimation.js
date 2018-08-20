@@ -1,10 +1,8 @@
 import CoordinateSprite from '../coordinateSprite';
-import { c } from '../../createContext';
 
 function RoyCriticalHitAnimation(defenderCoordinates) {
   CoordinateSprite.call(
     this,
-    c,
     236,//width
     156,//height
     //238,//renderWidth

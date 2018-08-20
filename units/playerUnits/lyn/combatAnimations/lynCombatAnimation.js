@@ -1,12 +1,11 @@
 import CombatSprite from '../../../../animations/spriteSequence/combatSprite';
 import Sprite from '../../../../animations/sprite';
-import { c } from '../../../../createContext';
 
 function LynCombatAnimation() {
-  let desSprites0 = new Sprite(c, 90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 3, 12);
-  let desSprites1 = new Sprite(c, 100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 3, 8);
-  let desSprites2 = new Sprite(c, 90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 3, 8);
-  let desSprites3 = new Sprite(c, 90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
+  let desSprites0 = new Sprite(90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 3, 12);
+  let desSprites1 = new Sprite(100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 3, 8);
+  let desSprites2 = new Sprite(90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 3, 8);
+  let desSprites3 = new Sprite(90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
 
   let spriteQueue = [desSprites0, desSprites1, desSprites2, desSprites3];
 
@@ -52,7 +51,6 @@ function LynCombatAnimation() {
 
   CombatSprite.call(
     this,
-    c,
     spriteQueue,
     positionAdjustment,
     damageFrame

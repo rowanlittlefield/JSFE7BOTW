@@ -1,5 +1,7 @@
-function SpriteSequence(context, spriteQueue, positionAdjustment) {
-  this.context = context;
+import { c } from '../../createContext';
+
+function SpriteSequence(spriteQueue, positionAdjustment) {
+  this.context = c;
   this.queueIndex = 0;
   this.spriteQueue = spriteQueue;
   this.positionAdjustment = positionAdjustment;

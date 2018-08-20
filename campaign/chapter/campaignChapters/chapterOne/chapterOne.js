@@ -1,7 +1,6 @@
 import Board from '../../../../board/board';
 import Chapter from '../../chapter';
 import Sprite from '../../../../animations/sprite';
-import { c } from '../../../../createContext';
 import Roy from '../../../../units/playerUnits/roy/roy';
 import Inventory from '../../../../inventory/inventory';
 import { SwordOfSeals } from '../../../../items/weapon';
@@ -34,7 +33,7 @@ ChapterOne.prototype = Object.create(Chapter.prototype);
 ChapterOne.prototype.constructor = ChapterOne;
 
 ChapterOne.prototype.setupBoard = function() {
-  let newBoard = new Board([21, 17], new Sprite(c, 336, 299, 378, 336.375, 'campaign/chapter/campaignChapters/chapterOne//Chapter18xMapSample.png', 1, 1));
+  let newBoard = new Board([21, 17], new Sprite(336, 299, 378, 336.375, 'campaign/chapter/campaignChapters/chapterOne//Chapter18xMapSample.png', 1, 1));
 
 
   const roy = new Roy(newBoard, new Inventory([new SwordOfSeals()]));

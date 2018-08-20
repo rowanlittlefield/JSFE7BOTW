@@ -1,7 +1,7 @@
 import CoordinateSprite from '../../animations/coordinateSprite';
 import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
-import { c } from '../../createContext';
 import Sprite from '../../animations/sprite';
+import { c } from '../../createContext';
 
 function drawStrokedSmaller(text, x, y, opacity) {
     c.font = "15px Serif"
@@ -17,15 +17,15 @@ function GameFinishedWindow() {
   this.dy = 45 * 1;
 
   this.backgroundWindow = new CoordinateSprite(
-    c, 315, 191, 140, 95, require("../interactiveWindow/fe_new_background_window.png"), 1,
+    315, 191, 140, 95, require("../interactiveWindow/fe_new_background_window.png"), 1,
     [[0, 0]]
   );
 
   this.backgroundSpriteOne = new CoordinateSprite(
-    c, 118, 79, 118, 79, require("../interactiveWindow/FE_6_story_scenes.png"), 1,
+    118, 79, 118, 79, require("../interactiveWindow/FE_6_story_scenes.png"), 1,
     [[4, 3]]
   );
-  this.scrollSprite = new Sprite(c, 480, 320, 480*0.5, 320*0.5, require("../interactiveWindow/fe_6_scroll_you_win.png"), 1, 1);
+  this.scrollSprite = new Sprite(480, 320, 480*0.5, 320*0.5, require("../interactiveWindow/fe_6_scroll_you_win.png"), 1, 1);
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {

@@ -1,14 +1,13 @@
 import CombatSprite from '../../../../animations/spriteSequence/combatSprite';
 import Sprite from '../../../../animations/sprite';
-import { c } from '../../../../createContext';
 
 function BrigandCombatAnimation() {
-  let sprites0 = new Sprite(c, 70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite0.png', 6, 4);
-  let sprites1 = new Sprite(c, 70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite1.png', 6, 1);
-  let sprites2 = new Sprite(c, 70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite2.png', 4, 6);
-  let sprites3 = new Sprite(c, 90, 35, 90, 35, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite3.png', 2, 4);
-  let sprites4 = new Sprite(c, 90, 48, 90, 48, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite4.png', 4, 6);
-  let sprites5 = new Sprite(c, 70, 33, 70, 33, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite5.png', 6, 2);
+  let sprites0 = new Sprite(70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite0.png', 6, 4);
+  let sprites1 = new Sprite(70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite1.png', 6, 1);
+  let sprites2 = new Sprite(70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite2.png', 4, 6);
+  let sprites3 = new Sprite(90, 35, 90, 35, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite3.png', 2, 4);
+  let sprites4 = new Sprite(90, 48, 90, 48, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite4.png', 4, 6);
+  let sprites5 = new Sprite(70, 33, 70, 33, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite5.png', 6, 2);
 
   let spriteQueue = [
     sprites0, sprites1, sprites2, sprites3, sprites4, sprites5
@@ -39,7 +38,6 @@ function BrigandCombatAnimation() {
 
   CombatSprite.call(
     this,
-    c,
     spriteQueue,
     positionAdjustment,
     damageFrame

@@ -1,6 +1,5 @@
 import EnemyUnit from '../enemyUnit';
 import Sprite from '../../../animations/sprite';
-import { c } from '../../../createContext';
 import BrigandCombatAnimation from './combatAnimations/brigandCombatAnimation';
 import LynDodgeAnimation from '../../playerUnits/lyn/combatAnimations/lynDodgeAnimation';
 import BrigandReceiveHitAnimation from './combatAnimations/brigandReceiveHitAnimation';
@@ -13,15 +12,15 @@ function Brigand(board, inventory, behavior, stats) {
     board,
     inventory,
     'Brigand',
-    new Sprite(c, 18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSprite.png", 6, 12),
-    new Sprite(c, 22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandForwardWalkSpriteSheet.png", 6, 4),
-    new Sprite(c, 22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandBackwardsWalkSprite.png", 8, 4),
-    new Sprite(c, 22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandRightWalkSprite.png", 8, 4),
-    new Sprite(c, 22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandLeftWalkSprite.png", 8, 4),
+    new Sprite(18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSprite.png", 6, 12),
+    new Sprite(22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandForwardWalkSpriteSheet.png", 6, 4),
+    new Sprite(22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandBackwardsWalkSprite.png", 8, 4),
+    new Sprite(22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandRightWalkSprite.png", 8, 4),
+    new Sprite(22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandLeftWalkSprite.png", 8, 4),
 
-    new Sprite(c, 18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSpritePostAction.png", 6, 12),
+    new Sprite(18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSpritePostAction.png", 6, 12),
 
-    new Sprite(c, 80, 72, 18, 18, "units/enemyUnits/brigand/HPWindowImage/brigandHPWindowSprite.png", 6, 1),
+    new Sprite(80, 72, 18, 18, "units/enemyUnits/brigand/HPWindowImage/brigandHPWindowSprite.png", 6, 1),
     new BrigandCombatAnimation(),
     new BrigandCombatAnimation(),
     new LynDodgeAnimation(),

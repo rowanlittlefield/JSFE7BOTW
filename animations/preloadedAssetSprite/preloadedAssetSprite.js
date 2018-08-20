@@ -1,9 +1,11 @@
-function PreloadedAssetSprite(context, imageObject, renderList) {
+import { c } from '../../createContext';
+
+function PreloadedAssetSprite(imageObject, renderList) {
   this.frameIndex = 0;
   this.tickCount = 0;
 
   //[sx, sy, width, height, renderWidth, renderHeight, numTicks]
-  this.context = context;
+  this.context = c;
   this.spriteSheet = imageObject;
   this.renderList = renderList;
   this.numberOfFrames = renderList.length;

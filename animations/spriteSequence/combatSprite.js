@@ -1,7 +1,7 @@
 import SpriteSequence from './spriteSequence';
 
-function CombatSprite(context, spriteQueue, positionAdjustment, damageFrame) {
-  SpriteSequence.call(this, context, spriteQueue, positionAdjustment);
+function CombatSprite(spriteQueue, positionAdjustment, damageFrame) {
+  SpriteSequence.call(this, spriteQueue, positionAdjustment);
 
   this.damageFrame = damageFrame;
 }

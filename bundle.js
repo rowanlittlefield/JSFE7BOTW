@@ -96,14 +96,11 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
-
 
 
 function BattlePlatformSprite() {
   _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
     194,//width
     57,//height
     194*1.125,//renderWidth
@@ -238,12 +235,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sprite */ "./animations/sprite.js");
 
 
-function CoordinateSprite(context, width, height, renderWidth,
+function CoordinateSprite(width, height, renderWidth,
    renderHeight, image, ticksPerFrame, coordinatesList
  ) {
   _sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    context,
     width,
     height,
     renderWidth,
@@ -294,14 +290,11 @@ CoordinateSprite.prototype.render = function(row, col, sF) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
 
 
 function NormalCriticalDamageAnimation(defenderCoordinates) {
   _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
     240,//width
     143,//height
     //238,//renderWidth
@@ -371,14 +364,11 @@ NormalCriticalDamageAnimation.prototype.render = function(sF) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
 
 
 function NormalDamageAnimation(defenderCoordinates) {
   _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
     238,//width
     158,//height
     //238,//renderWidth
@@ -446,14 +436,11 @@ NormalDamageAnimation.prototype.render = function(sF) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
 
 
 function RoyCriticalHitAnimation(defenderCoordinates) {
   _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"],
     236,//width
     156,//height
     //238,//renderWidth
@@ -644,8 +631,6 @@ battleAssetImage.src = 'animations/preloadedAssetSprite/FEBattleAssets.png';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
 /* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
 
 
 
@@ -657,7 +642,6 @@ function CombatEUNameWindow() {
 
   _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
     renderList
   );
@@ -682,8 +666,6 @@ CombatEUNameWindow.prototype.constructor = CombatEUNameWindow;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
 /* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
 
 
 
@@ -695,7 +677,6 @@ function CombatLowerWindow() {
 
   _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
     renderList
   );
@@ -720,8 +701,6 @@ CombatLowerWindow.prototype.constructor = CombatLowerWindow;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
 /* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
 
 
 
@@ -733,7 +712,6 @@ function CombatPUNameWindow() {
 
   _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
     renderList
   );
@@ -756,12 +734,15 @@ CombatPUNameWindow.prototype.constructor = CombatPUNameWindow;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function PreloadedAssetSprite(context, imageObject, renderList) {
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+
+
+function PreloadedAssetSprite(imageObject, renderList) {
   this.frameIndex = 0;
   this.tickCount = 0;
 
   //[sx, sy, width, height, renderWidth, renderHeight, numTicks]
-  this.context = context;
+  this.context = _createContext__WEBPACK_IMPORTED_MODULE_0__["c"];
   this.spriteSheet = imageObject;
   this.renderList = renderList;
   this.numberOfFrames = renderList.length;
@@ -818,8 +799,11 @@ PreloadedAssetSprite.prototype.update = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function Sprite(context, width, height, renderWidth, renderHeight, image, ticksPerFrame, numberOfFrames) {
-  this.context = context;
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
+
+
+function Sprite(width, height, renderWidth, renderHeight, image, ticksPerFrame, numberOfFrames) {
+  this.context = _createContext__WEBPACK_IMPORTED_MODULE_0__["c"];
   this.width = width;
   this.height = height;
   this.renderWidth = renderWidth;
@@ -936,8 +920,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
 
 
-function CombatSprite(context, spriteQueue, positionAdjustment, damageFrame) {
-  _spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, context, spriteQueue, positionAdjustment);
+function CombatSprite(spriteQueue, positionAdjustment, damageFrame) {
+  _spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, spriteQueue, positionAdjustment);
 
   this.damageFrame = damageFrame;
 }
@@ -980,8 +964,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
 
 
-function DodgeSprite(context, spriteQueue, positionAdjustment, restFrame) {
-  _spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, context, spriteQueue, positionAdjustment);
+function DodgeSprite(spriteQueue, positionAdjustment, restFrame) {
+  _spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, spriteQueue, positionAdjustment);
 
   this.restFrame = restFrame;
   this.restTicks = 15;
@@ -1030,8 +1014,11 @@ DodgeSprite.prototype.renderDecision = function(x, y, dP, sF) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function SpriteSequence(context, spriteQueue, positionAdjustment) {
-  this.context = context;
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+
+
+function SpriteSequence(spriteQueue, positionAdjustment) {
+  this.context = _createContext__WEBPACK_IMPORTED_MODULE_0__["c"];
   this.queueIndex = 0;
   this.spriteQueue = spriteQueue;
   this.positionAdjustment = positionAdjustment;
@@ -1706,21 +1693,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _board_board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../board/board */ "./board/board.js");
 /* harmony import */ var _chapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../chapter */ "./campaign/chapter/chapter.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-/* harmony import */ var _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../units/playerUnits/roy/roy */ "./units/playerUnits/roy/roy.js");
-/* harmony import */ var _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../inventory/inventory */ "./inventory/inventory.js");
-/* harmony import */ var _items_weapon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../items/weapon */ "./items/weapon.js");
-/* harmony import */ var _units_playerUnits_lyn_lyn__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../units/playerUnits/lyn/lyn */ "./units/playerUnits/lyn/lyn.js");
-/* harmony import */ var _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../units/enemyUnits/brigand/brigand */ "./units/enemyUnits/brigand/brigand.js");
-/* harmony import */ var _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../board/terrain/thicket */ "./board/terrain/thicket.js");
-/* harmony import */ var _board_terrain_wall__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../board/terrain/wall */ "./board/terrain/wall.js");
-/* harmony import */ var _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../board/terrain/forest */ "./board/terrain/forest.js");
-/* harmony import */ var _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../board/terrain/mountain */ "./board/terrain/mountain.js");
-/* harmony import */ var _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../board/terrain/peak */ "./board/terrain/peak.js");
-/* harmony import */ var _board_terrain_fort__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../board/terrain/fort */ "./board/terrain/fort.js");
-/* harmony import */ var _board_terrain_gate__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../../board/terrain/gate */ "./board/terrain/gate.js");
-/* harmony import */ var _board_terrain_village__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../../board/terrain/village */ "./board/terrain/village.js");
-
+/* harmony import */ var _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../units/playerUnits/roy/roy */ "./units/playerUnits/roy/roy.js");
+/* harmony import */ var _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../inventory/inventory */ "./inventory/inventory.js");
+/* harmony import */ var _items_weapon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../items/weapon */ "./items/weapon.js");
+/* harmony import */ var _units_playerUnits_lyn_lyn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../units/playerUnits/lyn/lyn */ "./units/playerUnits/lyn/lyn.js");
+/* harmony import */ var _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../units/enemyUnits/brigand/brigand */ "./units/enemyUnits/brigand/brigand.js");
+/* harmony import */ var _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../board/terrain/thicket */ "./board/terrain/thicket.js");
+/* harmony import */ var _board_terrain_wall__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../board/terrain/wall */ "./board/terrain/wall.js");
+/* harmony import */ var _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../board/terrain/forest */ "./board/terrain/forest.js");
+/* harmony import */ var _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../board/terrain/mountain */ "./board/terrain/mountain.js");
+/* harmony import */ var _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../board/terrain/peak */ "./board/terrain/peak.js");
+/* harmony import */ var _board_terrain_fort__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../board/terrain/fort */ "./board/terrain/fort.js");
+/* harmony import */ var _board_terrain_gate__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../board/terrain/gate */ "./board/terrain/gate.js");
+/* harmony import */ var _board_terrain_village__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../../board/terrain/village */ "./board/terrain/village.js");
 
 
 
@@ -1756,29 +1741,29 @@ ChapterOne.prototype = Object.create(_chapter__WEBPACK_IMPORTED_MODULE_1__["defa
 ChapterOne.prototype.constructor = ChapterOne;
 
 ChapterOne.prototype.setupBoard = function() {
-  let newBoard = new _board_board__WEBPACK_IMPORTED_MODULE_0__["default"]([21, 17], new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 336, 299, 378, 336.375, 'campaign/chapter/campaignChapters/chapterOne//Chapter18xMapSample.png', 1, 1));
+  let newBoard = new _board_board__WEBPACK_IMPORTED_MODULE_0__["default"]([21, 17], new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](336, 299, 378, 336.375, 'campaign/chapter/campaignChapters/chapterOne//Chapter18xMapSample.png', 1, 1));
 
 
-  const roy = new _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_4__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["SwordOfSeals"]()]));
-  const lyn = new _units_playerUnits_lyn_lyn__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["ManiKatti"]()]));
+  const roy = new _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_3__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["SwordOfSeals"]()]));
+  const lyn = new _units_playerUnits_lyn_lyn__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["ManiKatti"]()]));
   newBoard.placeUnit(roy, [18, 3]);
   newBoard.placeUnit(lyn, [17, 3]);
   //Enemy units
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [9, 6]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'seekAndDestroy'), [10, 11]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'seekAndDestroy'), [13, 12]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [10, 11]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [13, 12]);
 
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'seekAndDestroy'), [18, 4]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [18, 4]);
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [8, 4]);
 
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'TWBS'), [9, 14]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'TWBS'), [15, 15]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'TWBS'), [1, 15]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [9, 14]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [15, 15]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 15]);
 
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'TWBS'), [1, 7]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'TWBS'), [3, 7]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_5__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_6__["IronAxe"]]), 'idle'), [2, 6]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 7]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [3, 7]);
+  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'idle'), [2, 6]);
 
 
 
@@ -1786,36 +1771,36 @@ ChapterOne.prototype.setupBoard = function() {
 
 //thicket
   for(let i = 0; i < 4; i++) {
-    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 0]);
+    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 0]);
   }
 
   for(let i = 0; i < 4; i++) {
-    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 1]);
+    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 1]);
   }
 
   for(let i = 0; i < 3; i++) {
-    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 2]);
+    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 2]);
   }
 
   for(let i = 0; i < 2; i++) {
-    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 3]);
+    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 3]);
   }
 
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [11, 2]);
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [12, 2]);
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [12, 1]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [11, 2]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [12, 2]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [12, 1]);
 
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [13, 4]);
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [13, 5]);
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [12, 6]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [13, 4]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [13, 5]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [12, 6]);
 
   for(let i = 6; i < 10; i++) {
-    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 9]);
+    new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 9]);
   }
 
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [7, 8]);
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [8, 8]);
-  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [8, 10]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [7, 8]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [8, 8]);
+  new _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [8, 10]);
 
 
 
@@ -1825,183 +1810,183 @@ ChapterOne.prototype.setupBoard = function() {
   //wall
 
   for(let i = 1; i < 4; i++) {
-    new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 5]);
+    new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 5]);
   }
-  new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [1, 6]);
-  new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [3, 6]);
+  new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [1, 6]);
+  new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [3, 6]);
 
   for(let i = 17; i < 20; i++) {
-    new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 13]);
+    new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 13]);
   }
-  new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 14]);
-  new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, 14]);
+  new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [17, 14]);
+  new _board_terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [19, 14]);
 
 //forest
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [17, 0]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [18, 0]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [17, 1]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [19, 1]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [20, 1]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 0]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [18, 0]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 1]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, 1]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [20, 1]);
 
   for(let i = 17; i < 20; i++) {
-    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [i, 2]);
+    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 2]);
   }
 
   for(let i = 3; i < 6; i++) {
-    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [19, i]);
+    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, i]);
   }
   for(let i = 3; i < 13; i++) {
-    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [20, i]);
+    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [20, i]);
   }
 
   for(let i =  7; i < 11; i++) {
-    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [19, i]);
+    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, i]);
   }
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [19, 12]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, 12]);
 
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [16, 6]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [17, 7]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [17, 9]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [15, 9]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [15, 10]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [14, 11]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [14, 12]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [13, 13]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [16, 13]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [11, 11]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [12, 11]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [12, 10]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [16, 6]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 7]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 9]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [15, 9]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [15, 10]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [14, 11]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [14, 12]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [13, 13]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [16, 13]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [11, 11]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [12, 11]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [12, 10]);
 
   for(let i = 14; i < 21; i++) {
-    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [i, 16]);
+    new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 16]);
   }
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [20, 15]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [18, 15]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [20, 14]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [20, 15]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [18, 15]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [20, 14]);
 
   for(let i = 10; i < 13; i++) {
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [i, 16]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 16]);
   }
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [11, 14]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [9, 13]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [9, 12]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [7, 13]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [7, 15]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [8, 15]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [7, 16]);
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 16]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [11, 14]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [9, 13]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [9, 12]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [7, 13]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [7, 15]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [8, 15]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [7, 16]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [6, 16]);
 
 for(let i = 13; i < 17; i++) {
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [0, i]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [0, i]);
 }
 for(let i = 13; i < 17; i++) {
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [2, i]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [2, i]);
 }
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [3, 15]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [4, 14]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [4, 16]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [3, 15]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [4, 14]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [4, 16]);
 
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [1, 13]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [1, 16]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [1, 11]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [1, 13]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [1, 16]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [1, 11]);
 
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [0, 9]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [0, 6]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [3, 4]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [0, 9]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [0, 6]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [3, 4]);
 
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 3]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [7, 3]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [6, 3]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [7, 3]);
 
 for(let i = 6; i < 11; i++) {
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [i, 1]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 1]);
 }
 
 for(let i = 8; i < 12; i++) {
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [i, 0]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 0]);
 }
 
 for(let i = 4; i < 7; i++) {
-  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [i, 0]);
+  new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 0]);
 }
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [4, 1]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [5, 2]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [4, 1]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [5, 2]);
 
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [8, 2]);
-new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [9, 2]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [8, 2]);
+new _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [9, 2]);
 
 
 
 //mountain
   for(let i = 0; i < 4; i++) {
-    new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [16, i]);
+    new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [16, i]);
   }
 
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [15, 3]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [15, 4]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [14, 4]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [14, 5]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [13, 6]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [12, 7]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [12, 8]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [11, 8]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [10, 9]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [15, 3]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [15, 4]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [14, 4]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [14, 5]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [13, 6]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [12, 7]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [12, 8]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [11, 8]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [10, 9]);
 
   for(let i = 5; i < 8; i++) {
-    new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [i, 10]);
+    new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [i, 10]);
   }
 
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [4, 9]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [5, 9]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [5, 8]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [6, 8]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [6, 7]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [7, 7]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [8, 6]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [8, 5]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [9, 5]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [9, 4]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [10, 4]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [10, 3]);
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [11, 3]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [4, 9]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [5, 9]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [5, 8]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 8]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 7]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [7, 7]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [8, 6]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [8, 5]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [9, 5]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [9, 4]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [10, 4]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [10, 3]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [11, 3]);
 
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [11, 1]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [11, 1]);
 
-  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [12, 0]);
+  new _board_terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [12, 0]);
 
 //peak
   for(let i = 0; i < 3; i++) {
-    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [15, i])
+    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [15, i])
   }
   for(let i = 0; i < 4; i++) {
-    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [14, i])
+    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [14, i])
   }
   for(let i = 0; i < 4; i++) {
-    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [13, i])
+    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [13, i])
   }
   for(let i = 3; i < 6; i++) {
-    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [12, i])
+    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [12, i])
   }
   for(let i = 4; i < 8; i++) {
-    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [11, i])
+    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [11, i])
   }
   for(let i = 5; i < 9; i++) {
-    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [10, i])
+    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [10, i])
   }
   for(let i = 6; i < 9; i++) {
-    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [9, i])
+    new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [9, i])
   }
-  new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [8, 7])
+  new _board_terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [8, 7])
 //fort
-  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_14__["default"](newBoard, [17, 3])
-  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_14__["default"](newBoard, [18, 3])
-  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_14__["default"](newBoard, [6, 5])
-  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_14__["default"](newBoard, [6, 11])
-  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_14__["default"](newBoard, [6, 12])
+  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [17, 3])
+  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [18, 3])
+  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [6, 5])
+  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [6, 11])
+  new _board_terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [6, 12])
 
 //gate
-  new _board_terrain_gate__WEBPACK_IMPORTED_MODULE_15__["default"](newBoard, [2, 6]);
+  new _board_terrain_gate__WEBPACK_IMPORTED_MODULE_14__["default"](newBoard, [2, 6]);
 //Village
-  new _board_terrain_village__WEBPACK_IMPORTED_MODULE_16__["default"](newBoard, [18, 14]);
+  new _board_terrain_village__WEBPACK_IMPORTED_MODULE_15__["default"](newBoard, [18, 14]);
 
 //test
   return newBoard;
@@ -3325,18 +3310,16 @@ nullPhaseStage.prototype.render = function(sF) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
-
 
 
 function PhaseStage() {
   this.stage = 'select unit';
   this.playerPhaseSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_0__["default"](
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"], 240, 160, 240*0.4, 160*0.4, 'phaseStage/FE_player_phase_sprite.png', 3, 1
+    240, 160, 240*0.4, 160*0.4, 'phaseStage/FE_player_phase_sprite.png', 3, 1
   );
 
   this.enemyPhaseSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_0__["default"](
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"], 240, 160, 240*0.4, 160*0.4, 'phaseStage/FE_enemy_phase_sprite.png', 3, 1
+    240, 160, 240*0.4, 160*0.4, 'phaseStage/FE_enemy_phase_sprite.png', 3, 1
   );
 }
 
@@ -3832,12 +3815,10 @@ Player.prototype.deselectUnit = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _enemyUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../enemyUnit */ "./units/enemyUnits/enemyUnit.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
-/* harmony import */ var _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./combatAnimations/brigandCombatAnimation */ "./units/enemyUnits/brigand/combatAnimations/brigandCombatAnimation.js");
-/* harmony import */ var _playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../playerUnits/lyn/combatAnimations/lynDodgeAnimation */ "./units/playerUnits/lyn/combatAnimations/lynDodgeAnimation.js");
-/* harmony import */ var _combatAnimations_brigandReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./combatAnimations/brigandReceiveHitAnimation */ "./units/enemyUnits/brigand/combatAnimations/brigandReceiveHitAnimation.js");
-/* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
-
+/* harmony import */ var _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./combatAnimations/brigandCombatAnimation */ "./units/enemyUnits/brigand/combatAnimations/brigandCombatAnimation.js");
+/* harmony import */ var _playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../playerUnits/lyn/combatAnimations/lynDodgeAnimation */ "./units/playerUnits/lyn/combatAnimations/lynDodgeAnimation.js");
+/* harmony import */ var _combatAnimations_brigandReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./combatAnimations/brigandReceiveHitAnimation */ "./units/enemyUnits/brigand/combatAnimations/brigandReceiveHitAnimation.js");
+/* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
 
 
 
@@ -3852,19 +3833,19 @@ function Brigand(board, inventory, behavior, stats) {
     board,
     inventory,
     'Brigand',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSprite.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandForwardWalkSpriteSheet.png", 6, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandBackwardsWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandRightWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandLeftWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSprite.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandForwardWalkSpriteSheet.png", 6, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandBackwardsWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandRightWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandLeftWalkSprite.png", 8, 4),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSpritePostAction.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSpritePostAction.png", 6, 12),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 80, 72, 18, 18, "units/enemyUnits/brigand/HPWindowImage/brigandHPWindowSprite.png", 6, 1),
-    new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _combatAnimations_brigandReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_5__["default"],
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "units/enemyUnits/brigand/HPWindowImage/brigandHPWindowSprite.png", 6, 1),
+    new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
+    new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
+    new _playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+    new _combatAnimations_brigandReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_4__["default"],
     behavior
     );
 }
@@ -3873,7 +3854,7 @@ Brigand.prototype = Object.create(_enemyUnit__WEBPACK_IMPORTED_MODULE_0__["defau
 Brigand.prototype.constructor = Brigand;
 
 Brigand.prototype.defaultStats = function() {
-  return new _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__["default"](
+  return new _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_5__["default"](
     {
       level: 1,
       experience: 0,
@@ -3914,18 +3895,16 @@ Brigand.prototype.defaultStats = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 function BrigandCombatAnimation() {
-  let sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite0.png', 6, 4);
-  let sprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite1.png', 6, 1);
-  let sprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite2.png', 4, 6);
-  let sprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 90, 35, 90, 35, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite3.png', 2, 4);
-  let sprites4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 90, 48, 90, 48, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite4.png', 4, 6);
-  let sprites5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 33, 70, 33, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite5.png', 6, 2);
+  let sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite0.png', 6, 4);
+  let sprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite1.png', 6, 1);
+  let sprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite2.png', 4, 6);
+  let sprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 35, 90, 35, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite3.png', 2, 4);
+  let sprites4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite4.png', 4, 6);
+  let sprites5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite5.png', 6, 2);
 
   let spriteQueue = [
     sprites0, sprites1, sprites2, sprites3, sprites4, sprites5
@@ -3956,7 +3935,6 @@ function BrigandCombatAnimation() {
 
   _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment,
     damageFrame
@@ -3982,19 +3960,16 @@ BrigandCombatAnimation.prototype.constructor = BrigandCombatAnimation;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 function BrigandReceiveHitAnimation() {
-  const sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandReceiveHitSprite.png', 4, 1);
+  const sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprites0];
   const positionAdjustment = {};
 
   _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment
   );
@@ -4077,16 +4052,14 @@ EnemyUnit.prototype.waitForAnimationCompletion = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 function LynCombatAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 3, 12);
-  let desSprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 3, 8);
-  let desSprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 3, 8);
-  let desSprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
+  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 3, 12);
+  let desSprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 3, 8);
+  let desSprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 3, 8);
+  let desSprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
 
   let spriteQueue = [desSprites0, desSprites1, desSprites2, desSprites3];
 
@@ -4132,7 +4105,6 @@ function LynCombatAnimation() {
 
   _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment,
     damageFrame
@@ -4158,36 +4130,34 @@ LynCombatAnimation.prototype.constructor = LynCombatAnimation;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 function LynCritCombatAnimation() {
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 4, 5);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 140, 35, 140, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet1.png', 4, 8);
-  let spriteNull1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 16, 1);
+  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 4, 5);
+  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](140, 35, 140, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet1.png', 4, 8);
+  let spriteNull1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 16, 1);
 
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet2.png', 1, 1);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 1, 1);
-  let spriteNull2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 1, 1);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 2, 1);
-  let spriteNull3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 2, 1);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 4, 1);
-  let spriteNull4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 3, 1);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 3, 1);
-  let spriteNull5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 3, 1);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 3, 1);
+  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet2.png', 1, 1);
+  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 1, 1);
+  let spriteNull2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 1, 1);
+  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 2, 1);
+  let spriteNull3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 2, 1);
+  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 4, 1);
+  let spriteNull4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 3, 1);
+  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 3, 1);
+  let spriteNull5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 3, 1);
+  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 3, 1);
 
-  let spriteNull6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 15, 1);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 50, 87, 50, 87, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet4.png', 1, 2);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet5.png', 1, 2);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet6.png', 1, 2);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 173, 44, 173, 44, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet7.png', 2, 1);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 4, 3);
+  let spriteNull6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 15, 1);
+  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](50, 87, 50, 87, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet4.png', 1, 2);
+  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet5.png', 1, 2);
+  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet6.png', 1, 2);
+  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](173, 44, 173, 44, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet7.png', 2, 1);
+  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 4, 3);
 
-  let sprite13 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 2, 8);
-  let sprite14 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
+  let sprite13 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 2, 8);
+  let sprite14 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
 
 
 
@@ -4249,7 +4219,6 @@ function LynCritCombatAnimation() {
 
   _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment,
     damageFrame
@@ -4276,14 +4245,12 @@ LynCritCombatAnimation.prototype.constructor = LynCritCombatAnimation;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/dodgeSprite */ "./animations/spriteSequence/dodgeSprite.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 
 function LynDodgeAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 35, 70, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynDodgeSpriteSheet.png', 3, 3);
+  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 35, 70, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynDodgeSpriteSheet.png', 3, 3);
 
   let spriteQueue = [desSprites0];
 
@@ -4294,7 +4261,6 @@ function LynDodgeAnimation() {
 
   _animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment,
     restFrame
@@ -4321,19 +4287,16 @@ LynDodgeAnimation.prototype.constructor = LynDodgeAnimation;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 function LynReceiveHitAnimation() {
-  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
+  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 
   _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment
   );
@@ -4377,13 +4340,11 @@ LynReceiveHitAnimation.prototype.update = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnit */ "./units/playerUnits/playerUnit.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
-/* harmony import */ var _combatAnimations_lynCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./combatAnimations/lynCombatAnimation */ "./units/playerUnits/lyn/combatAnimations/lynCombatAnimation.js");
-/* harmony import */ var _combatAnimations_lynCritCombatAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./combatAnimations/lynCritCombatAnimation */ "./units/playerUnits/lyn/combatAnimations/lynCritCombatAnimation.js");
-/* harmony import */ var _combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./combatAnimations/lynDodgeAnimation */ "./units/playerUnits/lyn/combatAnimations/lynDodgeAnimation.js");
-/* harmony import */ var _combatAnimations_lynReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./combatAnimations/lynReceiveHitAnimation */ "./units/playerUnits/lyn/combatAnimations/lynReceiveHitAnimation.js");
-/* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
-
+/* harmony import */ var _combatAnimations_lynCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./combatAnimations/lynCombatAnimation */ "./units/playerUnits/lyn/combatAnimations/lynCombatAnimation.js");
+/* harmony import */ var _combatAnimations_lynCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./combatAnimations/lynCritCombatAnimation */ "./units/playerUnits/lyn/combatAnimations/lynCritCombatAnimation.js");
+/* harmony import */ var _combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./combatAnimations/lynDodgeAnimation */ "./units/playerUnits/lyn/combatAnimations/lynDodgeAnimation.js");
+/* harmony import */ var _combatAnimations_lynReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./combatAnimations/lynReceiveHitAnimation */ "./units/playerUnits/lyn/combatAnimations/lynReceiveHitAnimation.js");
+/* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
 
 
 
@@ -4400,19 +4361,19 @@ function Lyn(board, inventory, stats) {
     board,
     inventory,
     'Lyn',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/playerUnits/lyn/mapSpriteSheets/lynMapSpriteSheet.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 23, 19, 23, 19, "units/playerUnits/lyn/mapSpriteSheets/lynForwardWalkSpriteSheet.png", 6, 6),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 21, 18, 21, 18, "units/playerUnits/lyn/mapSpriteSheets/lynBackwardWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynRightWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynLeftWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/lyn/mapSpriteSheets/lynMapSpriteSheet.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](23, 19, 23, 19, "units/playerUnits/lyn/mapSpriteSheets/lynForwardWalkSpriteSheet.png", 6, 6),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "units/playerUnits/lyn/mapSpriteSheets/lynBackwardWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynRightWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynLeftWalkSpriteSheet.png", 8, 4),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/playerUnits/lyn/mapSpriteSheets/lynMapSpriteSheetPostAction.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/lyn/mapSpriteSheets/lynMapSpriteSheetPostAction.png", 6, 12),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 165, 158, 18, 18, "units/playerUnits/lyn/HPWindowImage/lynHPWindowSprite3.jpg", 6, 1),
-    new _combatAnimations_lynCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _combatAnimations_lynCritCombatAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_5__["default"](),
-    new _combatAnimations_lynReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_6__["default"]()
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](165, 158, 18, 18, "units/playerUnits/lyn/HPWindowImage/lynHPWindowSprite3.jpg", 6, 1),
+    new _combatAnimations_lynCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
+    new _combatAnimations_lynCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+    new _combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+    new _combatAnimations_lynReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_5__["default"]()
   );
 }
 
@@ -4420,7 +4381,7 @@ Lyn.prototype = Object.create(_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"
 Lyn.prototype.constructor = Lyn;
 
 Lyn.prototype.defaultStats = function() {
-  return new _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_7__["default"](
+  return new _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__["default"](
     {
       level: 1,
       experience: 0,
@@ -4519,27 +4480,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/combatAnimation */ "./animations/combatAnimation.js");
 /* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 
 function RoyCombatAnimation() {
 
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite0.png', 3, 6);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 46, 32, 46, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite.png', 3, 6);
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 64, 42, 64, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite2.png', 3, 6);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 64, 61, 64, 61, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite3.png', 3, 6);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 90, 52, 90, 52, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite4.png', 3, 4);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 110, 67, 110, 67, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite5.png', 3, 2);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 90, 35, 90, 35, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite6.png', 3, 7);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 140, 40, 140, 40, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite7.png', 3, 6);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 120, 47, 120, 47, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite8.png', 3, 6);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 90, 32, 90, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite9.png', 3, 6);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 90, 32, 90, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite10.png', 3, 5);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 90, 102, 90, 102, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite11.png', 3, 10);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](_createContext__WEBPACK_IMPORTED_MODULE_3__["c"], 90, 50, 90, 50, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite12.png', 3, 7);
+  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite0.png', 3, 6);
+  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](46, 32, 46, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite.png', 3, 6);
+  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 42, 64, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite2.png', 3, 6);
+  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 61, 64, 61, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite3.png', 3, 6);
+  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 52, 90, 52, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite4.png', 3, 4);
+  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](110, 67, 110, 67, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite5.png', 3, 2);
+  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 35, 90, 35, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite6.png', 3, 7);
+  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](140, 40, 140, 40, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite7.png', 3, 6);
+  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](120, 47, 120, 47, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite8.png', 3, 6);
+  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite9.png', 3, 6);
+  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite10.png', 3, 5);
+  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 102, 90, 102, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite11.png', 3, 10);
+  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 50, 90, 50, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite12.png', 3, 7);
 
   let spriteQueue = [
     sprite0, sprite1, sprite2, sprite3, sprite4, sprite5, sprite6,
@@ -4606,7 +4565,6 @@ function RoyCombatAnimation() {
 
   _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_1__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"],
     spriteQueue,
     positionAdjustment,
     damageFrame
@@ -4632,26 +4590,24 @@ RoyCombatAnimation.prototype.constructor = RoyCombatAnimation;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 function RoyCritCombatAnimation() {
 
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite0.png', 3, 6);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 46, 32, 46, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite.png', 3, 6);
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 64, 42, 64, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite2.png', 3, 6);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 64, 67, 64, 67, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite3.png', 2, 6);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 64, 74, 64, 74, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite4.png', 2, 6);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 64, 74, 64, 74, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite5.png', 2, 6);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 64, 68, 64, 68, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite6.png', 2, 8);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 64, 61, 64, 61, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite7.png', 2, 3);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 150, 55, 150, 55, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite8.png', 2, 7);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 150, 42, 150, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite9.png', 1, 3);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 150, 76, 150, 76, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite10.png', 1, 5);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 100, 31, 100, 31, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite11.png', 2, 7);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 100, 36, 100, 36, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite12.png', 4, 7);
+  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite0.png', 3, 6);
+  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](46, 32, 46, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite.png', 3, 6);
+  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 42, 64, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite2.png', 3, 6);
+  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 67, 64, 67, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite3.png', 2, 6);
+  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite4.png', 2, 6);
+  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite5.png', 2, 6);
+  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 68, 64, 68, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite6.png', 2, 8);
+  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 61, 64, 61, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite7.png', 2, 3);
+  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 55, 150, 55, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite8.png', 2, 7);
+  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 42, 150, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite9.png', 1, 3);
+  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 76, 150, 76, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite10.png', 1, 5);
+  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 31, 100, 31, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite11.png', 2, 7);
+  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 36, 100, 36, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite12.png', 4, 7);
 
   let spriteQueue = [
     sprite0, sprite1, sprite2, sprite3, sprite4, sprite5, sprite6,
@@ -4676,7 +4632,6 @@ function RoyCritCombatAnimation() {
 
   _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment,
     damageFrame
@@ -4702,13 +4657,11 @@ RoyCritCombatAnimation.prototype.constructor = RoyCritCombatAnimation;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/dodgeSprite */ "./animations/spriteSequence/dodgeSprite.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 function RoyDodgeAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 33, 70, 33, 'units/playerUnits/roy/combatAnimations/spriteSheets/royDodgeSpriteSheet.png', 3, 3);
+  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'units/playerUnits/roy/combatAnimations/spriteSheets/royDodgeSpriteSheet.png', 3, 3);
 
   let spriteQueue = [desSprites0];
 
@@ -4722,7 +4675,6 @@ function RoyDodgeAnimation() {
 
   _animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment,
     restFrame
@@ -4749,19 +4701,16 @@ RoyDodgeAnimation.prototype.constructor = RoyDodgeAnimation;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
-
 
 
 
 function RoyReceiveHitAnimation() {
-  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royReceiveHitSprite.png', 4, 1);
+  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 
   _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"],
     spriteQueue,
     positionAdjustment
   );
@@ -4805,13 +4754,11 @@ RoyReceiveHitAnimation.prototype.update = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnit */ "./units/playerUnits/playerUnit.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
-/* harmony import */ var _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./combatAnimations/royCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCombatAnimation.js");
-/* harmony import */ var _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./combatAnimations/royCritCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCritCombatAnimation.js");
-/* harmony import */ var _combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./combatAnimations/royDodgeAnimation */ "./units/playerUnits/roy/combatAnimations/royDodgeAnimation.js");
-/* harmony import */ var _combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./combatAnimations/royReceiveHitSprite */ "./units/playerUnits/roy/combatAnimations/royReceiveHitSprite.js");
-/* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
-
+/* harmony import */ var _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./combatAnimations/royCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCombatAnimation.js");
+/* harmony import */ var _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./combatAnimations/royCritCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCritCombatAnimation.js");
+/* harmony import */ var _combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./combatAnimations/royDodgeAnimation */ "./units/playerUnits/roy/combatAnimations/royDodgeAnimation.js");
+/* harmony import */ var _combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./combatAnimations/royReceiveHitSprite */ "./units/playerUnits/roy/combatAnimations/royReceiveHitSprite.js");
+/* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
 
 
 
@@ -4827,19 +4774,19 @@ function Roy(board, inventory, stats) {
     board,
     inventory,
     'Roy',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 22, 20, 22, 20, "units/playerUnits/roy/mapSpriteSheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackground.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "units/playerUnits/roy/mapSpriteSheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
-    new _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_5__["default"](),
-    new _combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_6__["default"]()
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
+    new _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
+    new _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+    new _combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+    new _combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_5__["default"]()
   );
 }
 
@@ -4847,7 +4794,7 @@ Roy.prototype = Object.create(_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"
 Roy.prototype.constructor = Roy;
 
 Roy.prototype.defaultStats = function() {
-  return new _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_7__["default"](
+  return new _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__["default"](
     {
       level: 1,
       experience: 0,
@@ -6032,8 +5979,8 @@ InteractiveWindow.prototype.returnOption = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./interactiveWindow */ "./window/interactiveWindow/interactiveWindow.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-/* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
 
 
 
@@ -6043,11 +5990,11 @@ function MainMenuWindowOne() {
   let options = ['New Game']//, 'Credits']
   _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, 0, 0, 0, 0, innerWidth, 100, options);
   this.color = "rgba(65, 105, 225, 1)";
-  this.logoSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 240, 160, 240, 160, __webpack_require__(/*! ./FE_titlescreen_logo.png */ "./window/interactiveWindow/FE_titlescreen_logo.png"), 1, 1);
+  this.logoSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](240, 160, 240, 160, __webpack_require__(/*! ./FE_titlescreen_logo.png */ "./window/interactiveWindow/FE_titlescreen_logo.png"), 1, 1);
 
-  this.backgroundSpriteTwo = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_3__["default"](
+  this.backgroundSpriteTwo = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_2__["default"](
     //238, 319
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 239, 150, 600/2.22, 450/2.5, __webpack_require__(/*! ./FE_7_story_scenes.png */ "./window/interactiveWindow/FE_7_story_scenes.png"), 1,
+    239, 150, 600/2.22, 450/2.5, __webpack_require__(/*! ./FE_7_story_scenes.png */ "./window/interactiveWindow/FE_7_story_scenes.png"), 1,
     [[490, 330]]
   );
 
@@ -6084,12 +6031,12 @@ MainMenuWindowOne.prototype.render = function(sF) {
 }
 
 function drawStroked(text, x, y, opacity) {
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].font = "20px Serif"
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeStyle = 'black';
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].lineWidth = 7;
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeText(text, x, y);
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].font = "20px Serif"
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].strokeStyle = 'black';
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].lineWidth = 7;
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].strokeText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillText(text, x, y);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MainMenuWindowOne);
@@ -6348,20 +6295,20 @@ CombatAnimationBackgroundWindow.prototype.modifyHP = function(defender, newHP) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
 
 
 
 
 
 function drawStrokedSmaller(text, x, y, opacity) {
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].font = "15px Serif"
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeStyle = 'black';
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].lineWidth = 6;
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeText(text, x, y);
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].font = "15px Serif"
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].strokeStyle = 'black';
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].lineWidth = 6;
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].strokeText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillText(text, x, y);
 }
 
 function GameFinishedWindow() {
@@ -6369,15 +6316,15 @@ function GameFinishedWindow() {
   this.dy = 45 * 1;
 
   this.backgroundWindow = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 315, 191, 140, 95, __webpack_require__(/*! ../interactiveWindow/fe_new_background_window.png */ "./window/interactiveWindow/fe_new_background_window.png"), 1,
+    315, 191, 140, 95, __webpack_require__(/*! ../interactiveWindow/fe_new_background_window.png */ "./window/interactiveWindow/fe_new_background_window.png"), 1,
     [[0, 0]]
   );
 
   this.backgroundSpriteOne = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 118, 79, 118, 79, __webpack_require__(/*! ../interactiveWindow/FE_6_story_scenes.png */ "./window/interactiveWindow/FE_6_story_scenes.png"), 1,
+    118, 79, 118, 79, __webpack_require__(/*! ../interactiveWindow/FE_6_story_scenes.png */ "./window/interactiveWindow/FE_6_story_scenes.png"), 1,
     [[4, 3]]
   );
-  this.scrollSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_3__["default"](_createContext__WEBPACK_IMPORTED_MODULE_2__["c"], 480, 320, 480*0.5, 320*0.5, __webpack_require__(/*! ../interactiveWindow/fe_6_scroll_you_win.png */ "./window/interactiveWindow/fe_6_scroll_you_win.png"), 1, 1);
+  this.scrollSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](480, 320, 480*0.5, 320*0.5, __webpack_require__(/*! ../interactiveWindow/fe_6_scroll_you_win.png */ "./window/interactiveWindow/fe_6_scroll_you_win.png"), 1, 1);
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {

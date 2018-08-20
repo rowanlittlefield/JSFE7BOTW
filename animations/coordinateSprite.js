@@ -1,11 +1,10 @@
 import Sprite from './sprite';
 
-function CoordinateSprite(context, width, height, renderWidth,
+function CoordinateSprite(width, height, renderWidth,
    renderHeight, image, ticksPerFrame, coordinatesList
  ) {
   Sprite.call(
     this,
-    context,
     width,
     height,
     renderWidth,

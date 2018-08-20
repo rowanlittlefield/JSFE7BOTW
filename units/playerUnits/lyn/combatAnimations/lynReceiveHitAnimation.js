@@ -1,15 +1,13 @@
 import SpriteSequence from '../../../../animations/spriteSequence/spriteSequence';
 import Sprite from '../../../../animations/sprite';
-import { c } from '../../../../createContext';
 
 function LynReceiveHitAnimation() {
-  const sprite0 = new Sprite(c, 70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
+  const sprite0 = new Sprite(70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 
   SpriteSequence.call(
     this,
-    c,
     spriteQueue,
     positionAdjustment
   );

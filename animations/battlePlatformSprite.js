@@ -1,10 +1,8 @@
 import CoordinateSprite from './coordinateSprite';
-import { c } from '../createContext';
 
 function BattlePlatformSprite() {
   CoordinateSprite.call(
     this,
-    c,
     194,//width
     57,//height
     194*1.125,//renderWidth

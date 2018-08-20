@@ -1,6 +1,5 @@
 import PlayerUnit from '../playerUnit';
 import Sprite from '../../../animations/sprite';
-import { c } from '../../../createContext';
 import RoyCombatAnimation from './combatAnimations/royCombatAnimation';
 import RoyCritCombatAnimation from './combatAnimations/royCritCombatAnimation';
 import RoyDodgeAnimation from './combatAnimations/royDodgeAnimation';
@@ -14,15 +13,15 @@ function Roy(board, inventory, stats) {
     board,
     inventory,
     'Roy',
-    new Sprite(c, 18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new Sprite(c, 22, 20, 22, 20, "units/playerUnits/roy/mapSpriteSheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new Sprite(c, 21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
-    new Sprite(c, 34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
+    new Sprite(18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackground.png", 6, 12),
+    new Sprite(22, 20, 22, 20, "units/playerUnits/roy/mapSpriteSheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
+    new Sprite(21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
+    new Sprite(34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
+    new Sprite(34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
 
-    new Sprite(c, 18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
+    new Sprite(18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
 
-    new Sprite(c, 253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
+    new Sprite(253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
     new RoyCombatAnimation(),
     new RoyCritCombatAnimation(),
     new RoyDodgeAnimation(),
