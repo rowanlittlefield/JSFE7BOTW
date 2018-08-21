@@ -1,7 +1,7 @@
 import PlayerUnit from '../playerUnits/playerUnit';
 import { stringToPos, equivalentPositions, spaceHighlight } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 
-function BFSMazeSolver(board, unit) {
+function MazeSolver(board, unit) {
   this.board = board;
   this.unit = unit;
   this.isPlayerUnit = unit instanceof PlayerUnit;
@@ -18,7 +18,7 @@ function BFSMazeSolver(board, unit) {
   this.endPos = null;
 }
 
-BFSMazeSolver.prototype.clear = function() {
+MazeSolver.prototype.clear = function() {
   this.paths = {};
   this.potentialPositions = {};
   this.routePositions = null;
@@ -28,11 +28,11 @@ BFSMazeSolver.prototype.clear = function() {
   this.endPos = null;
 }
 
-BFSMazeSolver.prototype.update = function(unitPosition) {
+MazeSolver.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
 }
 
-BFSMazeSolver.prototype.findPath = function(endPos) {
+MazeSolver.prototype.findPath = function(endPos) {
   if(equivalentPositions(endPos, this.unitPosition)) return [this.unitPosition];
 
   this.paths[this.unitPosition] = null;
@@ -50,7 +50,7 @@ BFSMazeSolver.prototype.findPath = function(endPos) {
 
 }
 
-BFSMazeSolver.prototype.findMovesForOneMoreStep = function() {
+MazeSolver.prototype.findMovesForOneMoreStep = function() {
   this.foundNewPositionsFlag = false;
   const prevPositionStrings = Object.keys(this.paths);
   const iterationMoves = {};
@@ -60,7 +60,7 @@ BFSMazeSolver.prototype.findMovesForOneMoreStep = function() {
   }
 }
 
-BFSMazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, iterationMoves) {
+MazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, iterationMoves) {
   const prevPosition = stringToPos(prevPositionString);
   const adjMoveablePositions = this.adjacentPositionsCanMoveThrough(prevPosition);
   for(let idx = 0; idx < adjMoveablePositions.length; idx++) {
@@ -75,7 +75,7 @@ BFSMazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, 
   }
 }
 
-BFSMazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, iterationMoves) {
+MazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, iterationMoves) {
   if (space.terrain === null) {
     this.appendPosition(pos, prevPos);
   } else if (this.potentialPositions[pos] === undefined) {
@@ -89,13 +89,13 @@ BFSMazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, itera
   iterationMoves[pos] = true;
 }
 
-BFSMazeSolver.prototype.appendPosition = function(position, prevPos = null) {
+MazeSolver.prototype.appendPosition = function(position, prevPos = null) {
   prevPos = (prevPos === null ? this.potentialPositions[position]['previousPos'] : prevPos);
   this.paths[position] = prevPos;
   this.numPositions += 1;
 }
 
-BFSMazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
+MazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
   const adjPositions = this.adjacentPositionsList(pos);
   const moveableAdjPositions = [];
 
@@ -109,11 +109,11 @@ BFSMazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
   return moveableAdjPositions;
 }
 
-BFSMazeSolver.prototype._isTraversableSpace = function(pos) {
+MazeSolver.prototype._isTraversableSpace = function(pos) {
   return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
 }
 
-BFSMazeSolver.prototype.adjacentPositionsList = function(pos) {
+MazeSolver.prototype.adjacentPositionsList = function(pos) {
   const dimensions = this.board.dimensions;
   const spaces = [];
 
@@ -127,7 +127,7 @@ BFSMazeSolver.prototype.adjacentPositionsList = function(pos) {
 
 
 
-BFSMazeSolver.prototype.routeList = function() {
+MazeSolver.prototype.routeList = function() {
   const routePositionsList = [this.endPos];
 
   while (!equivalentPositions(routePositionsList[routePositionsList.length - 1], this.unitPosition)) {
@@ -139,7 +139,7 @@ BFSMazeSolver.prototype.routeList = function() {
   return routePositionsList.reverse();
 }
 
-BFSMazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
+MazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
   if(this.routePositions === null) return null;
   const topX = x/sF;
   const topY = y/sF;
@@ -153,4 +153,4 @@ BFSMazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
 
 }
 
-export default BFSMazeSolver;
+export default MazeSolver;

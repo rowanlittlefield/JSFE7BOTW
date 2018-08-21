@@ -2,7 +2,7 @@ import PlayerUnit from '../playerUnits/playerUnit';
 import MoveThroughPositions from './moveThroughPositions';
 import ValidMovePositions from './validMovePositions';
 import AttackPositions from './attackPositions';
-import BFSMazeSolver from './bfsMazeSolver';
+import MazeSolver from './mazeSolver';
 import { equivalentPositions, stringToPos } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 
 function PathFinder(board, unit) {
@@ -14,7 +14,7 @@ function PathFinder(board, unit) {
   this.validMovePositions = new ValidMovePositions(board, unit);
   this.attackPositions = new AttackPositions(board, unit);
 
-  this.bfsMazeSolver = new BFSMazeSolver(board, unit);
+  this.mazeSolver = new MazeSolver(board, unit);
 }
 
 PathFinder.prototype.clearAndUpdate = function(unitPosition) {
@@ -22,14 +22,14 @@ PathFinder.prototype.clearAndUpdate = function(unitPosition) {
   this.moveThroughPositions.update(unitPosition);
   this.validMovePositions.update(unitPosition);
   this.attackPositions.update(unitPosition);
-  this.bfsMazeSolver.update(unitPosition);
+  this.mazeSolver.update(unitPosition);
 }
 
 PathFinder.prototype.clear = function() {
   this.moveThroughPositions.clear();
   this.validMovePositions.clear();
   this.attackPositions.clear();
-  this.bfsMazeSolver.clear();
+  this.mazeSolver.clear();
 }
 
 PathFinder.prototype.setupSingleMovePositionSets = function(unitPosition) {
@@ -40,7 +40,7 @@ PathFinder.prototype.setupSingleMovePositionSets = function(unitPosition) {
 }
 
 PathFinder.prototype.setupRoute = function(endPos) {
-  return this.bfsMazeSolver.findPath(endPos);
+  return this.mazeSolver.findPath(endPos);
 }
 
 PathFinder.prototype.findSingleMoveAttackPosition = function(unitPosition, unitRanges) {
@@ -81,10 +81,10 @@ PathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, u
 
   for(const positionString in playerUnitPositions) {
     const position = stringToPos(positionString);
-    this.bfsMazeSolver.clear();
-    this.bfsMazeSolver.update(unitPosition);
+    this.mazeSolver.clear();
+    this.mazeSolver.update(unitPosition);
     // debugger;
-    const route = this.bfsMazeSolver.findPath(position);
+    const route = this.mazeSolver.findPath(position);
     // debugger
     if(route !== null) return route;
   }
@@ -96,7 +96,7 @@ PathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, u
 PathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, height) {
   this.moveThroughPositions.render(sF, x, y, width, height);
   this.attackPositions.render(sF, x, y, width, height);
-  this.bfsMazeSolver.renderRouteSpaces(sF, x, y, width, height);
+  this.mazeSolver.renderRouteSpaces(sF, x, y, width, height);
 }
 
 export default PathFinder;

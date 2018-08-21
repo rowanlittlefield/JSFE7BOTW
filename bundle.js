@@ -3689,9 +3689,9 @@ Player.prototype.setMovingAnimation = function() {
 Player.prototype.updateSelectedUnitRouteSpaces = function() {
   if (this.selectedUnit().pathFinder.moveThroughPositions.positions[this.cursorPos()] != undefined &&
       !Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_6__["equivalentPositions"])(this.cursorPos(), this.selectedUnit().position)) {
-    this.selectedUnit().pathFinder.bfsMazeSolver.findPath(this.cursorPos());
+    this.selectedUnit().pathFinder.mazeSolver.findPath(this.cursorPos());
   } else {
-    this.selectedUnit().pathFinder.bfsMazeSolver.routePositions = [this.selectedUnit().position];
+    this.selectedUnit().pathFinder.mazeSolver.routePositions = [this.selectedUnit().position];
   }
 }
 
@@ -4146,10 +4146,10 @@ Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1
 
 /***/ }),
 
-/***/ "./units/pathFinder/bfsMazeSolver.js":
-/*!*******************************************!*\
-  !*** ./units/pathFinder/bfsMazeSolver.js ***!
-  \*******************************************/
+/***/ "./units/pathFinder/mazeSolver.js":
+/*!****************************************!*\
+  !*** ./units/pathFinder/mazeSolver.js ***!
+  \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4160,7 +4160,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function BFSMazeSolver(board, unit) {
+function MazeSolver(board, unit) {
   this.board = board;
   this.unit = unit;
   this.isPlayerUnit = unit instanceof _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
@@ -4177,7 +4177,7 @@ function BFSMazeSolver(board, unit) {
   this.endPos = null;
 }
 
-BFSMazeSolver.prototype.clear = function() {
+MazeSolver.prototype.clear = function() {
   this.paths = {};
   this.potentialPositions = {};
   this.routePositions = null;
@@ -4187,11 +4187,11 @@ BFSMazeSolver.prototype.clear = function() {
   this.endPos = null;
 }
 
-BFSMazeSolver.prototype.update = function(unitPosition) {
+MazeSolver.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
 }
 
-BFSMazeSolver.prototype.findPath = function(endPos) {
+MazeSolver.prototype.findPath = function(endPos) {
   if(Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["equivalentPositions"])(endPos, this.unitPosition)) return [this.unitPosition];
 
   this.paths[this.unitPosition] = null;
@@ -4209,7 +4209,7 @@ BFSMazeSolver.prototype.findPath = function(endPos) {
 
 }
 
-BFSMazeSolver.prototype.findMovesForOneMoreStep = function() {
+MazeSolver.prototype.findMovesForOneMoreStep = function() {
   this.foundNewPositionsFlag = false;
   const prevPositionStrings = Object.keys(this.paths);
   const iterationMoves = {};
@@ -4219,7 +4219,7 @@ BFSMazeSolver.prototype.findMovesForOneMoreStep = function() {
   }
 }
 
-BFSMazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, iterationMoves) {
+MazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, iterationMoves) {
   const prevPosition = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["stringToPos"])(prevPositionString);
   const adjMoveablePositions = this.adjacentPositionsCanMoveThrough(prevPosition);
   for(let idx = 0; idx < adjMoveablePositions.length; idx++) {
@@ -4234,7 +4234,7 @@ BFSMazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, 
   }
 }
 
-BFSMazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, iterationMoves) {
+MazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, iterationMoves) {
   if (space.terrain === null) {
     this.appendPosition(pos, prevPos);
   } else if (this.potentialPositions[pos] === undefined) {
@@ -4248,13 +4248,13 @@ BFSMazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, itera
   iterationMoves[pos] = true;
 }
 
-BFSMazeSolver.prototype.appendPosition = function(position, prevPos = null) {
+MazeSolver.prototype.appendPosition = function(position, prevPos = null) {
   prevPos = (prevPos === null ? this.potentialPositions[position]['previousPos'] : prevPos);
   this.paths[position] = prevPos;
   this.numPositions += 1;
 }
 
-BFSMazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
+MazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
   const adjPositions = this.adjacentPositionsList(pos);
   const moveableAdjPositions = [];
 
@@ -4268,11 +4268,11 @@ BFSMazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
   return moveableAdjPositions;
 }
 
-BFSMazeSolver.prototype._isTraversableSpace = function(pos) {
+MazeSolver.prototype._isTraversableSpace = function(pos) {
   return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
 }
 
-BFSMazeSolver.prototype.adjacentPositionsList = function(pos) {
+MazeSolver.prototype.adjacentPositionsList = function(pos) {
   const dimensions = this.board.dimensions;
   const spaces = [];
 
@@ -4286,7 +4286,7 @@ BFSMazeSolver.prototype.adjacentPositionsList = function(pos) {
 
 
 
-BFSMazeSolver.prototype.routeList = function() {
+MazeSolver.prototype.routeList = function() {
   const routePositionsList = [this.endPos];
 
   while (!Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["equivalentPositions"])(routePositionsList[routePositionsList.length - 1], this.unitPosition)) {
@@ -4298,7 +4298,7 @@ BFSMazeSolver.prototype.routeList = function() {
   return routePositionsList.reverse();
 }
 
-BFSMazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
+MazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
   if(this.routePositions === null) return null;
   const topX = x/sF;
   const topY = y/sF;
@@ -4312,7 +4312,7 @@ BFSMazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (BFSMazeSolver);
+/* harmony default export */ __webpack_exports__["default"] = (MazeSolver);
 
 
 /***/ }),
@@ -4464,7 +4464,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _moveThroughPositions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moveThroughPositions */ "./units/pathFinder/moveThroughPositions.js");
 /* harmony import */ var _validMovePositions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./validMovePositions */ "./units/pathFinder/validMovePositions.js");
 /* harmony import */ var _attackPositions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./attackPositions */ "./units/pathFinder/attackPositions.js");
-/* harmony import */ var _bfsMazeSolver__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./bfsMazeSolver */ "./units/pathFinder/bfsMazeSolver.js");
+/* harmony import */ var _mazeSolver__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mazeSolver */ "./units/pathFinder/mazeSolver.js");
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
 
 
@@ -4482,7 +4482,7 @@ function PathFinder(board, unit) {
   this.validMovePositions = new _validMovePositions__WEBPACK_IMPORTED_MODULE_2__["default"](board, unit);
   this.attackPositions = new _attackPositions__WEBPACK_IMPORTED_MODULE_3__["default"](board, unit);
 
-  this.bfsMazeSolver = new _bfsMazeSolver__WEBPACK_IMPORTED_MODULE_4__["default"](board, unit);
+  this.mazeSolver = new _mazeSolver__WEBPACK_IMPORTED_MODULE_4__["default"](board, unit);
 }
 
 PathFinder.prototype.clearAndUpdate = function(unitPosition) {
@@ -4490,14 +4490,14 @@ PathFinder.prototype.clearAndUpdate = function(unitPosition) {
   this.moveThroughPositions.update(unitPosition);
   this.validMovePositions.update(unitPosition);
   this.attackPositions.update(unitPosition);
-  this.bfsMazeSolver.update(unitPosition);
+  this.mazeSolver.update(unitPosition);
 }
 
 PathFinder.prototype.clear = function() {
   this.moveThroughPositions.clear();
   this.validMovePositions.clear();
   this.attackPositions.clear();
-  this.bfsMazeSolver.clear();
+  this.mazeSolver.clear();
 }
 
 PathFinder.prototype.setupSingleMovePositionSets = function(unitPosition) {
@@ -4508,7 +4508,7 @@ PathFinder.prototype.setupSingleMovePositionSets = function(unitPosition) {
 }
 
 PathFinder.prototype.setupRoute = function(endPos) {
-  return this.bfsMazeSolver.findPath(endPos);
+  return this.mazeSolver.findPath(endPos);
 }
 
 PathFinder.prototype.findSingleMoveAttackPosition = function(unitPosition, unitRanges) {
@@ -4549,10 +4549,10 @@ PathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, u
 
   for(const positionString in playerUnitPositions) {
     const position = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__["stringToPos"])(positionString);
-    this.bfsMazeSolver.clear();
-    this.bfsMazeSolver.update(unitPosition);
+    this.mazeSolver.clear();
+    this.mazeSolver.update(unitPosition);
     // debugger;
-    const route = this.bfsMazeSolver.findPath(position);
+    const route = this.mazeSolver.findPath(position);
     // debugger
     if(route !== null) return route;
   }
@@ -4564,7 +4564,7 @@ PathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, u
 PathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, height) {
   this.moveThroughPositions.render(sF, x, y, width, height);
   this.attackPositions.render(sF, x, y, width, height);
-  this.bfsMazeSolver.renderRouteSpaces(sF, x, y, width, height);
+  this.mazeSolver.renderRouteSpaces(sF, x, y, width, height);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (PathFinder);

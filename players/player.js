@@ -126,9 +126,9 @@ Player.prototype.setMovingAnimation = function() {
 Player.prototype.updateSelectedUnitRouteSpaces = function() {
   if (this.selectedUnit().pathFinder.moveThroughPositions.positions[this.cursorPos()] != undefined &&
       !equivalentPositions(this.cursorPos(), this.selectedUnit().position)) {
-    this.selectedUnit().pathFinder.bfsMazeSolver.findPath(this.cursorPos());
+    this.selectedUnit().pathFinder.mazeSolver.findPath(this.cursorPos());
   } else {
-    this.selectedUnit().pathFinder.bfsMazeSolver.routePositions = [this.selectedUnit().position];
+    this.selectedUnit().pathFinder.mazeSolver.routePositions = [this.selectedUnit().position];
   }
 }
 

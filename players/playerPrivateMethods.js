@@ -73,10 +73,10 @@ Player.prototype.updateSelectedUnitRouteSpaces = function() {
       !equivalentPositions(this.cursorPos(), this.selectedUnit().position)) {
     // this.selectedUnit().routeSpaces =
     // this.selectedUnit().findAnOptimalRoute(this.cursorPos());
-    this.selectedUnit().pathFinder.bfsMazeSolver.findPath(this.cursorPos());
+    this.selectedUnit().pathFinder.mazeSolver.findPath(this.cursorPos());
   } else {
     // this.selectedUnit().routeSpaces = [this.selectedUnit().position];
-    this.selectedUnit().pathFinder.bfsMazeSolver.routePositions = [this.selectedUnit().position];
+    this.selectedUnit().pathFinder.mazeSolver.routePositions = [this.selectedUnit().position];
   }
 }
 
