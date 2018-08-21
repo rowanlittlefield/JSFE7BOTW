@@ -4058,7 +4058,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function AttackPositions(board, unit) {
-  _positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].call(this, board, unit);
+  _positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].call(this, board, unit, 'rgba(255, 0, 0, 0.2)');
 
   this.isPlayerUnit = unit instanceof _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
   this.attackRanges = unit.equippedWeapon.stats['range'];
@@ -4119,11 +4119,6 @@ AttackPositions.prototype.adjacentAttackablePositions = function(position, valid
   }
 
   return attackableAdjPositions;
-}
-
-AttackPositions.prototype.render = function(sF, x, y, width, height) {
-// Test to verify is working
-Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["galileoHighlightSpaces"])(sF, x, y, width, height, this.positions, 'rgba(255, 0, 0, 0.2)');
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (AttackPositions);
@@ -4317,7 +4312,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MoveThroughPositions(board, isPlayerUnit, unit) {
-  _positionSet__WEBPACK_IMPORTED_MODULE_1__["default"].call(this, board, unit);
+  _positionSet__WEBPACK_IMPORTED_MODULE_1__["default"].call(this, board, unit, 'rgba(0, 0, 255, 0.3)');
 
   this.isPlayerUnit = isPlayerUnit;
   this.moveStat = unit.stats.move;
@@ -4414,11 +4409,6 @@ MoveThroughPositions.prototype.adjacentPositionsCanMoveThrough = function(pos) {
 
 MoveThroughPositions.prototype._isTraversableSpace = function(pos) {
   return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
-}
-
-MoveThroughPositions.prototype.render = function(sF, x, y, width, height) {
-  // need to test this!
-  Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__["galileoHighlightSpaces"])(sF, x, y, width, height, this.positions, 'rgba(0, 0, 255, 0.3)');
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MoveThroughPositions);
@@ -4556,9 +4546,13 @@ PathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, he
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function PositionSet(board, unit) {
+/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+
+
+function PositionSet(board, unit, color) {
   this.board = board;
   this.unitPosition = unit.position;
+  this.color = color ? color : 'rgba(0, 0, 0, 1)';
   this.positions = {};
 }
 
@@ -4576,6 +4570,10 @@ PositionSet.prototype.adjacentPositionsList = function(pos) {
   if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
 
   return spaces;
+}
+
+PositionSet.prototype.render = function(sF, x, y, width, height) {
+  Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__["galileoHighlightSpaces"])(sF, x, y, width, height, this.positions, this.color);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (PositionSet);

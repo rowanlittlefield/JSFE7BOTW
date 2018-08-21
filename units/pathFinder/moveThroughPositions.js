@@ -1,8 +1,8 @@
-import { stringToPos, galileoHighlightSpaces } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { stringToPos } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 import PositionSet from './positionSet';
 
 function MoveThroughPositions(board, isPlayerUnit, unit) {
-  PositionSet.call(this, board, unit);
+  PositionSet.call(this, board, unit, 'rgba(0, 0, 255, 0.3)');
 
   this.isPlayerUnit = isPlayerUnit;
   this.moveStat = unit.stats.move;
@@ -99,11 +99,6 @@ MoveThroughPositions.prototype.adjacentPositionsCanMoveThrough = function(pos) {
 
 MoveThroughPositions.prototype._isTraversableSpace = function(pos) {
   return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
-}
-
-MoveThroughPositions.prototype.render = function(sF, x, y, width, height) {
-  // need to test this!
-  galileoHighlightSpaces(sF, x, y, width, height, this.positions, 'rgba(0, 0, 255, 0.3)');
 }
 
 export default MoveThroughPositions;

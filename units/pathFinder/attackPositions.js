@@ -1,9 +1,9 @@
 import PlayerUnit from '../playerUnits/playerUnit';
-import { stringToPos, galileoHighlightSpaces } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { stringToPos } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 import PositionSet from './positionSet';
 
 function AttackPositions(board, unit) {
-  PositionSet.call(this, board, unit);
+  PositionSet.call(this, board, unit, 'rgba(255, 0, 0, 0.2)');
 
   this.isPlayerUnit = unit instanceof PlayerUnit;
   this.attackRanges = unit.equippedWeapon.stats['range'];
@@ -64,11 +64,6 @@ AttackPositions.prototype.adjacentAttackablePositions = function(position, valid
   }
 
   return attackableAdjPositions;
-}
-
-AttackPositions.prototype.render = function(sF, x, y, width, height) {
-// Test to verify is working
-galileoHighlightSpaces(sF, x, y, width, height, this.positions, 'rgba(255, 0, 0, 0.2)');
 }
 
 export default AttackPositions;

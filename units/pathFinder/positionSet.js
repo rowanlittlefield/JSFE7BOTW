@@ -1,6 +1,9 @@
-function PositionSet(board, unit) {
+import { galileoHighlightSpaces } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+
+function PositionSet(board, unit, color) {
   this.board = board;
   this.unitPosition = unit.position;
+  this.color = color ? color : 'rgba(0, 0, 0, 1)';
   this.positions = {};
 }
 
@@ -18,6 +21,10 @@ PositionSet.prototype.adjacentPositionsList = function(pos) {
   if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
 
   return spaces;
+}
+
+PositionSet.prototype.render = function(sF, x, y, width, height) {
+  galileoHighlightSpaces(sF, x, y, width, height, this.positions, this.color);
 }
 
 export default PositionSet;
