@@ -86,7 +86,7 @@ EnemyPlayer.prototype.moveSelectedUnit = function() {
   if(equivalentPositions(moveSelection, unit.position)) {
     this.finishUnitTurn();
   } else {
-    const route = unit.singleMovePathFinder.setupRoute(moveSelection);
+    const route = unit.pathFinder.setupRoute(moveSelection);
     const movementAnimation = new MovingAnimation(
       unit, route, 8, this.phaseStage, this
     );

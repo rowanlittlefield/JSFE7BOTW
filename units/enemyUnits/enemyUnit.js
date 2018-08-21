@@ -1,5 +1,5 @@
 import Unit from '../unit';
-import SingleMovePathFinder from '../singleMovePathFinder/singleMovePathFinder';
+import PathFinder from '../pathFinder/pathFinder';
 
 function EnemyUnit(stats, board, inventory, name, mapSprite,
   forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
@@ -10,7 +10,7 @@ function EnemyUnit(stats, board, inventory, name, mapSprite,
     leftWalkSprite, postActionMapSprite, hpWindowSprite,
     combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
   this.behavior = behavior;
-  this.singleMovePathFinder =  new SingleMovePathFinder(board, this);
+  this.pathFinder =  new PathFinder(board, this);
 }
 
 EnemyUnit.prototype = Object.create(Unit.prototype);

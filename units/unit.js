@@ -82,7 +82,7 @@ Unit.prototype.move = function(pos) {
 }
 
 Unit.prototype.validMoveSpaces = function() {
-  return this.singleMovePathFinder.validMovePositions.positions;
+  return this.pathFinder.validMovePositions.positions;
 }
 
 Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange) {
@@ -103,12 +103,12 @@ Unit.prototype.moveSelection = function() {
    if(this.behavior === 'idle') {
      return this.position;
    } else if(this.behavior === 'TWBS') {
-      return this.singleMovePathFinder.findSingleMoveAttackPosition(
+      return this.pathFinder.findSingleMoveAttackPosition(
         this.position,
         this.equippedWeapon.stats['range']
       );
    } else if(this.behavior === 'seekAndDestroy') {
-     return this.singleMovePathFinder.findSeekAndDestroySingleTurnPosition(
+     return this.pathFinder.findSeekAndDestroySingleTurnPosition(
        this.position,
        this.equippedWeapon.stats['range']
      );

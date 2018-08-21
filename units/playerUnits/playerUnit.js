@@ -1,5 +1,5 @@
 import Unit from '../unit';
-import SingleMovePathFinder from '../singleMovePathFinder/singleMovePathFinder';
+import PathFinder from '../pathFinder/pathFinder';
 
 function PlayerUnit(stats, board, inventory, name, mapSprite,
 forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
@@ -13,7 +13,7 @@ forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
   this.windowOptions = null;
   this.fightOptions = null;
 
-  this.singleMovePathFinder =  new SingleMovePathFinder(board, this);
+  this.pathFinder =  new PathFinder(board, this);
 }
 
 PlayerUnit.prototype = Object.create(Unit.prototype);
@@ -23,7 +23,7 @@ PlayerUnit.prototype.setMoveForecast = function() {
   this.inTransit = true;
   this.prevPos = [this.position[0], this.position[1]];
 
-  this.singleMovePathFinder.setupSingleMovePositionSets(this.position)
+  this.pathFinder.setupSingleMovePositionSets(this.position)
 }
 
 PlayerUnit.prototype.nullifyOptions = function(display) {
@@ -32,11 +32,11 @@ PlayerUnit.prototype.nullifyOptions = function(display) {
   this.fightOptions = null;
   this.inTransit = false;
 
-  this.singleMovePathFinder.clearAndUpdate(this.position);
+  this.pathFinder.clearAndUpdate(this.position);
 }
 
 PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
-  this.singleMovePathFinder.renderSingleMovePositionSets(sF, x, y, width, height);
+  this.pathFinder.renderSingleMovePositionSets(sF, x, y, width, height);
 }
 
 export default PlayerUnit;

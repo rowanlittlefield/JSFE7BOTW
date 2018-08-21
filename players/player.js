@@ -114,7 +114,7 @@ Player.prototype.moveSelectedUnit = function() {
 Player.prototype.setMovingAnimation = function() {
   this.selectedUnit().moving = true;
   // debugger
-  const siftedRoute = this.selectedUnit().singleMovePathFinder.setupRoute(this.cursorPos());
+  const siftedRoute = this.selectedUnit().pathFinder.setupRoute(this.cursorPos());
   this.selectedUnit().movingAnimation = new MovingAnimation(
     this.selectedUnit(),
     siftedRoute,
@@ -124,11 +124,11 @@ Player.prototype.setMovingAnimation = function() {
 }
 
 Player.prototype.updateSelectedUnitRouteSpaces = function() {
-  if (this.selectedUnit().singleMovePathFinder.moveThroughPositions.positions[this.cursorPos()] != undefined &&
+  if (this.selectedUnit().pathFinder.moveThroughPositions.positions[this.cursorPos()] != undefined &&
       !equivalentPositions(this.cursorPos(), this.selectedUnit().position)) {
-    this.selectedUnit().singleMovePathFinder.bfsMazeSolver.findPath(this.cursorPos());
+    this.selectedUnit().pathFinder.bfsMazeSolver.findPath(this.cursorPos());
   } else {
-    this.selectedUnit().singleMovePathFinder.bfsMazeSolver.routePositions = [this.selectedUnit().position];
+    this.selectedUnit().pathFinder.bfsMazeSolver.routePositions = [this.selectedUnit().position];
   }
 }
 
