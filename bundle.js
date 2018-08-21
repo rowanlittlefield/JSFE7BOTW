@@ -4058,13 +4058,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function AttackPositions(board, unit) {
-  this.board = board;
+  _positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].call(this, board, unit);
+
   this.isPlayerUnit = unit instanceof _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
   this.attackRanges = unit.equippedWeapon.stats['range'];
   this.unit = unit;
-  this.unitPosition = unit.position;
-
-  this.positions = {};
 }
 
 AttackPositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].prototype);
@@ -4074,11 +4072,7 @@ AttackPositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
 }
 
-AttackPositions.prototype.clear = function() {
-  this.positions = {};
-}
 
-//
 AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
   const maxRange = Math.max.apply(null, this.attackRanges);
 
@@ -4323,13 +4317,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MoveThroughPositions(board, isPlayerUnit, unit) {
-  this.board = board;
+  _positionSet__WEBPACK_IMPORTED_MODULE_1__["default"].call(this, board, unit);
+
   this.isPlayerUnit = isPlayerUnit;
-  this.unitPosition = unit.position;
   this.moveStat = unit.stats.move;
   this.unitClass = unit.constructor.name;
 
-  this.positions = {};
   this.potentialPositions = {};
   this.potentialPosChangedFlag = false;
   this.numPositions = 0;
@@ -4350,7 +4343,6 @@ MoveThroughPositions.prototype.clear = function() {
   this.steps = 0;
 }
 
-//
 MoveThroughPositions.prototype.findPositions = function() {
   this.positions[this.unitPosition] = 0;
 
@@ -4564,9 +4556,13 @@ PathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, he
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function PositionSet(board, isPlayerUnit, unit) {
+function PositionSet(board, unit) {
   this.board = board;
   this.unitPosition = unit.position;
+  this.positions = {};
+}
+
+PositionSet.prototype.clear = function() {
   this.positions = {};
 }
 
@@ -4597,20 +4593,20 @@ PositionSet.prototype.adjacentPositionsList = function(pos) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet.js");
+
 
 
 function ValidMovePositions(board, unit) {
-  this.board = board;
-  this.unitPosition = unit.position;
-  this.positions = {};
+  _positionSet__WEBPACK_IMPORTED_MODULE_1__["default"].call(this, board, unit);
 }
+
+ValidMovePositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_1__["default"].prototype);
+ValidMovePositions.prototype.constructor = ValidMovePositions;
+
 
 ValidMovePositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
-}
-
-ValidMovePositions.prototype.clear = function() {
-  this.positions = {};
 }
 
 ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) {

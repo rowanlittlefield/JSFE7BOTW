@@ -2,13 +2,12 @@ import { stringToPos, galileoHighlightSpaces } from '../../miscellaneousFunction
 import PositionSet from './positionSet';
 
 function MoveThroughPositions(board, isPlayerUnit, unit) {
-  this.board = board;
+  PositionSet.call(this, board, unit);
+
   this.isPlayerUnit = isPlayerUnit;
-  this.unitPosition = unit.position;
   this.moveStat = unit.stats.move;
   this.unitClass = unit.constructor.name;
 
-  this.positions = {};
   this.potentialPositions = {};
   this.potentialPosChangedFlag = false;
   this.numPositions = 0;
@@ -29,7 +28,6 @@ MoveThroughPositions.prototype.clear = function() {
   this.steps = 0;
 }
 
-//
 MoveThroughPositions.prototype.findPositions = function() {
   this.positions[this.unitPosition] = 0;
 

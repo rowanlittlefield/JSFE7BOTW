@@ -3,13 +3,11 @@ import { stringToPos, galileoHighlightSpaces } from '../../miscellaneousFunction
 import PositionSet from './positionSet';
 
 function AttackPositions(board, unit) {
-  this.board = board;
+  PositionSet.call(this, board, unit);
+
   this.isPlayerUnit = unit instanceof PlayerUnit;
   this.attackRanges = unit.equippedWeapon.stats['range'];
   this.unit = unit;
-  this.unitPosition = unit.position;
-
-  this.positions = {};
 }
 
 AttackPositions.prototype = Object.create(PositionSet.prototype);
@@ -19,11 +17,7 @@ AttackPositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
 }
 
-AttackPositions.prototype.clear = function() {
-  this.positions = {};
-}
 
-//
 AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
   const maxRange = Math.max.apply(null, this.attackRanges);
 

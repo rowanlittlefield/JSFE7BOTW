@@ -1,17 +1,16 @@
 import { stringToPos, equivalentPositions, distance } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import PositionSet from './positionSet';
 
 function ValidMovePositions(board, unit) {
-  this.board = board;
-  this.unitPosition = unit.position;
-  this.positions = {};
+  PositionSet.call(this, board, unit);
 }
+
+ValidMovePositions.prototype = Object.create(PositionSet.prototype);
+ValidMovePositions.prototype.constructor = ValidMovePositions;
+
 
 ValidMovePositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
-}
-
-ValidMovePositions.prototype.clear = function() {
-  this.positions = {};
 }
 
 ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) {

@@ -1,6 +1,10 @@
-function PositionSet(board, isPlayerUnit, unit) {
+function PositionSet(board, unit) {
   this.board = board;
   this.unitPosition = unit.position;
+  this.positions = {};
+}
+
+PositionSet.prototype.clear = function() {
   this.positions = {};
 }
 
