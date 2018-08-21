@@ -1,5 +1,6 @@
 import PlayerUnit from '../playerUnits/playerUnit';
 import { stringToPos, galileoHighlightSpaces } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import PositionSet from './positionSet';
 
 function AttackPositions(board, unit) {
   this.board = board;
@@ -10,6 +11,9 @@ function AttackPositions(board, unit) {
 
   this.positions = {};
 }
+
+AttackPositions.prototype = Object.create(PositionSet.prototype);
+AttackPositions.prototype.constructor = AttackPositions;
 
 AttackPositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
@@ -67,20 +71,6 @@ AttackPositions.prototype.adjacentAttackablePositions = function(position, valid
 
   return attackableAdjPositions;
 }
-
-
-AttackPositions.prototype.adjacentPositionsList = function(pos) {
-  const dimensions = this.board.dimensions;
-  const spaces = [];
-
-  if(pos[0] + 1 <= dimensions[0] - 1) spaces.push([pos[0] + 1, pos[1]]);
-  if(pos[0] - 1 >= 0) spaces.push([pos[0] - 1, pos[1]]);
-  if(pos[1] + 1 <= dimensions[1] - 1) spaces.push([pos[0], pos[1] + 1]);
-  if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
-
-  return spaces;
-}
-
 
 AttackPositions.prototype.render = function(sF, x, y, width, height) {
 // Test to verify is working

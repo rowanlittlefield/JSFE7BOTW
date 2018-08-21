@@ -4052,6 +4052,8 @@ EnemyUnit.prototype.waitForAnimationCompletion = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet.js");
+
 
 
 
@@ -4064,6 +4066,9 @@ function AttackPositions(board, unit) {
 
   this.positions = {};
 }
+
+AttackPositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].prototype);
+AttackPositions.prototype.constructor = AttackPositions;
 
 AttackPositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
@@ -4121,20 +4126,6 @@ AttackPositions.prototype.adjacentAttackablePositions = function(position, valid
 
   return attackableAdjPositions;
 }
-
-
-AttackPositions.prototype.adjacentPositionsList = function(pos) {
-  const dimensions = this.board.dimensions;
-  const spaces = [];
-
-  if(pos[0] + 1 <= dimensions[0] - 1) spaces.push([pos[0] + 1, pos[1]]);
-  if(pos[0] - 1 >= 0) spaces.push([pos[0] - 1, pos[1]]);
-  if(pos[1] + 1 <= dimensions[1] - 1) spaces.push([pos[0], pos[1] + 1]);
-  if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
-
-  return spaces;
-}
-
 
 AttackPositions.prototype.render = function(sF, x, y, width, height) {
 // Test to verify is working
@@ -4327,6 +4318,8 @@ MazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet.js");
+
 
 
 function MoveThroughPositions(board, isPlayerUnit, unit) {
@@ -4342,6 +4335,9 @@ function MoveThroughPositions(board, isPlayerUnit, unit) {
   this.numPositions = 0;
   this.steps = 0;
 }
+
+MoveThroughPositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_1__["default"].prototype);
+MoveThroughPositions.prototype.constructor = MoveThroughPositions;
 
 MoveThroughPositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
@@ -4427,19 +4423,6 @@ MoveThroughPositions.prototype.adjacentPositionsCanMoveThrough = function(pos) {
 MoveThroughPositions.prototype._isTraversableSpace = function(pos) {
   return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
 }
-
-MoveThroughPositions.prototype.adjacentPositionsList = function(pos) {
-  const dimensions = this.board.dimensions;
-  const spaces = [];
-
-  if(pos[0] + 1 <= dimensions[0] - 1) spaces.push([pos[0] + 1, pos[1]]);
-  if(pos[0] - 1 >= 0) spaces.push([pos[0] - 1, pos[1]]);
-  if(pos[1] + 1 <= dimensions[1] - 1) spaces.push([pos[0], pos[1] + 1]);
-  if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
-
-  return spaces;
-}
-
 
 MoveThroughPositions.prototype.render = function(sF, x, y, width, height) {
   // need to test this!
@@ -4568,6 +4551,38 @@ PathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, he
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (PathFinder);
+
+
+/***/ }),
+
+/***/ "./units/pathFinder/positionSet.js":
+/*!*****************************************!*\
+  !*** ./units/pathFinder/positionSet.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function PositionSet(board, isPlayerUnit, unit) {
+  this.board = board;
+  this.unitPosition = unit.position;
+  this.positions = {};
+}
+
+PositionSet.prototype.adjacentPositionsList = function(pos) {
+  const dimensions = this.board.dimensions;
+  const spaces = [];
+
+  if(pos[0] + 1 <= dimensions[0] - 1) spaces.push([pos[0] + 1, pos[1]]);
+  if(pos[0] - 1 >= 0) spaces.push([pos[0] - 1, pos[1]]);
+  if(pos[1] + 1 <= dimensions[1] - 1) spaces.push([pos[0], pos[1] + 1]);
+  if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
+
+  return spaces;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PositionSet);
 
 
 /***/ }),

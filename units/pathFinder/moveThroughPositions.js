@@ -1,4 +1,5 @@
 import { stringToPos, galileoHighlightSpaces } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import PositionSet from './positionSet';
 
 function MoveThroughPositions(board, isPlayerUnit, unit) {
   this.board = board;
@@ -13,6 +14,9 @@ function MoveThroughPositions(board, isPlayerUnit, unit) {
   this.numPositions = 0;
   this.steps = 0;
 }
+
+MoveThroughPositions.prototype = Object.create(PositionSet.prototype);
+MoveThroughPositions.prototype.constructor = MoveThroughPositions;
 
 MoveThroughPositions.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
@@ -98,19 +102,6 @@ MoveThroughPositions.prototype.adjacentPositionsCanMoveThrough = function(pos) {
 MoveThroughPositions.prototype._isTraversableSpace = function(pos) {
   return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
 }
-
-MoveThroughPositions.prototype.adjacentPositionsList = function(pos) {
-  const dimensions = this.board.dimensions;
-  const spaces = [];
-
-  if(pos[0] + 1 <= dimensions[0] - 1) spaces.push([pos[0] + 1, pos[1]]);
-  if(pos[0] - 1 >= 0) spaces.push([pos[0] - 1, pos[1]]);
-  if(pos[1] + 1 <= dimensions[1] - 1) spaces.push([pos[0], pos[1] + 1]);
-  if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
-
-  return spaces;
-}
-
 
 MoveThroughPositions.prototype.render = function(sF, x, y, width, height) {
   // need to test this!
