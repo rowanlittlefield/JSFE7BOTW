@@ -12,7 +12,7 @@ ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) 
   for(const positionString in moveThroughPositionsHash) {
     const position = stringToPos(positionString);
 
-    if(this.isValidMove(position)) {
+    if(this._isValidMove(position)) {
       this.positions[position] = moveThroughPositionsHash[position];
     }
   }
@@ -20,7 +20,7 @@ ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) 
   return this.positions;
 }
 
-ValidMovePositions.prototype.isValidMove = function(position) {
+ValidMovePositions.prototype._isValidMove = function(position) {
   if(!(this.board.space(position).unit === null ||
    equivalentPositions(position, this.unitPosition))) {
     return false;

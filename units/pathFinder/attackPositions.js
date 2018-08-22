@@ -18,7 +18,7 @@ AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
 
   for(let idx = 0; idx < maxRange; idx++) {
     const seedSpaceFlag = idx === 0;
-    this.iterateAttackSpace(validMovePositionsHash, seedSpaceFlag);
+    this._iterateAttackSpace(validMovePositionsHash, seedSpaceFlag);
   }
 
   for(const position in this.positions) {
@@ -30,19 +30,19 @@ AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
   return this.positions;
 }
 
-AttackPositions.prototype.iterateAttackSpace = function(validMovePositionsHash, seedSpaceFlag) {
+AttackPositions.prototype._iterateAttackSpace = function(validMovePositionsHash, seedSpaceFlag) {
   const seedSpace = (seedSpaceFlag ? validMovePositionsHash : this.positions);
   for(const positionString in seedSpace) {
     const position = stringToPos(positionString);
-    const adjAttackPositions = this.adjacentAttackablePositions(position, validMovePositionsHash);
+    const adjAttackPositions = this._adjacentAttackablePositions(position, validMovePositionsHash);
     for(let idx = 0; idx < adjAttackPositions.length; idx++) {
       this.positions[adjAttackPositions[idx]] = true;
     }
   }
 }
 
-AttackPositions.prototype.adjacentAttackablePositions = function(position, validMovePositionsHash) {
-  const adjPositions = this.adjacentPositionsList(position);
+AttackPositions.prototype._adjacentAttackablePositions = function(position, validMovePositionsHash) {
+  const adjPositions = this._adjacentPositionsList(position);
   const attackableAdjPositions = [];
 
   for (let i = 0; i < adjPositions.length; i++) {

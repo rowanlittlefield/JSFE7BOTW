@@ -4073,7 +4073,7 @@ AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
 
   for(let idx = 0; idx < maxRange; idx++) {
     const seedSpaceFlag = idx === 0;
-    this.iterateAttackSpace(validMovePositionsHash, seedSpaceFlag);
+    this._iterateAttackSpace(validMovePositionsHash, seedSpaceFlag);
   }
 
   for(const position in this.positions) {
@@ -4085,19 +4085,19 @@ AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
   return this.positions;
 }
 
-AttackPositions.prototype.iterateAttackSpace = function(validMovePositionsHash, seedSpaceFlag) {
+AttackPositions.prototype._iterateAttackSpace = function(validMovePositionsHash, seedSpaceFlag) {
   const seedSpace = (seedSpaceFlag ? validMovePositionsHash : this.positions);
   for(const positionString in seedSpace) {
     const position = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["stringToPos"])(positionString);
-    const adjAttackPositions = this.adjacentAttackablePositions(position, validMovePositionsHash);
+    const adjAttackPositions = this._adjacentAttackablePositions(position, validMovePositionsHash);
     for(let idx = 0; idx < adjAttackPositions.length; idx++) {
       this.positions[adjAttackPositions[idx]] = true;
     }
   }
 }
 
-AttackPositions.prototype.adjacentAttackablePositions = function(position, validMovePositionsHash) {
-  const adjPositions = this.adjacentPositionsList(position);
+AttackPositions.prototype._adjacentAttackablePositions = function(position, validMovePositionsHash) {
+  const adjPositions = this._adjacentPositionsList(position);
   const attackableAdjPositions = [];
 
   for (let i = 0; i < adjPositions.length; i++) {
@@ -4330,27 +4330,27 @@ MoveThroughPositions.prototype.findPositions = function() {
   this.positions[this.unitPosition] = 0;
 
   for(this.steps = 1; this.steps < this.moveStat + 1; this.steps++) {
-    this.findPositionsForNextStep();
+    this._findPositionsForNextStep();
   }
   return this.positions;
 }
 
-MoveThroughPositions.prototype.findPositionsForNextStep = function() {
+MoveThroughPositions.prototype._findPositionsForNextStep = function() {
   this.potentialPosChangedFlag = false;
   const positionStrings = Object.keys(this.positions);
   const iterationMoves = {};
 
   for(let idx = 0; idx < positionStrings.length; idx++) {
-    this.findMoveableAdjPositions(positionStrings[idx], iterationMoves);
+    this._findMoveableAdjPositions(positionStrings[idx], iterationMoves);
   }
 }
 
-MoveThroughPositions.prototype.findMoveableAdjPositions = function(positionString, iterationMoves) {
+MoveThroughPositions.prototype._findMoveableAdjPositions = function(positionString, iterationMoves) {
   const position = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__["stringToPos"])(positionString);
-  const adjMoveablePositions = this.adjacentPositionsCanMoveThrough(position);
+  const adjMoveablePositions = this._adjacentPositionsCanMoveThrough(position);
   for(let idx = 0; idx < adjMoveablePositions.length; idx++) {
     if (this.positions[adjMoveablePositions[idx]] === undefined) {
-      this.handleTerrainBonus(
+      this._handleTerrainBonus(
         adjMoveablePositions[idx],
         this.board.space(adjMoveablePositions[idx]),
         iterationMoves
@@ -4359,9 +4359,9 @@ MoveThroughPositions.prototype.findMoveableAdjPositions = function(positionStrin
   }
 }
 
-MoveThroughPositions.prototype.handleTerrainBonus = function(pos, space, iterationMoves) {
+MoveThroughPositions.prototype._handleTerrainBonus = function(pos, space, iterationMoves) {
   if (space.terrain === null) {
-    this.appendPosition(pos);
+    this._appendPosition(pos);
   } else if (this.potentialPositions[pos] === undefined) {
     this.potentialPositions[pos] = space.terrain.moveCost(this.unitClass) - 1;
     this.potentialPosChangedFlag = true;
@@ -4369,19 +4369,19 @@ MoveThroughPositions.prototype.handleTerrainBonus = function(pos, space, iterati
     this.potentialPositions[pos] -= 1;
     this.potentialPosChangedFlag = true;
   } else if(iterationMoves[pos] === undefined && this.potentialPositions[pos] <= 1) {
-    this.appendPosition(pos);
+    this._appendPosition(pos);
   }
   iterationMoves[pos] = true;
 }
 
-MoveThroughPositions.prototype.appendPosition = function(position) {
+MoveThroughPositions.prototype._appendPosition = function(position) {
   this.positions[position] = this.steps;
   this.numPositions += 1;
 }
 
-MoveThroughPositions.prototype.adjacentPositionsCanMoveThrough = function(pos) {
-  let adjPositions = this.adjacentPositionsList(pos);
-  let moveableAdjPositions = [];
+MoveThroughPositions.prototype._adjacentPositionsCanMoveThrough = function(pos) {
+  const adjPositions = this._adjacentPositionsList(pos);
+  const moveableAdjPositions = [];
 
   for (let i = 0; i < adjPositions.length; i++) {
     let adjPos = adjPositions[i];
@@ -4550,7 +4550,7 @@ PositionSet.prototype.update = function(unitPosition) {
   this.unitPosition = unitPosition;
 }
 
-PositionSet.prototype.adjacentPositionsList = function(pos) {
+PositionSet.prototype._adjacentPositionsList = function(pos) {
   const dimensions = this.board.dimensions;
   const spaces = [];
 
@@ -4596,7 +4596,7 @@ ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) 
   for(const positionString in moveThroughPositionsHash) {
     const position = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__["stringToPos"])(positionString);
 
-    if(this.isValidMove(position)) {
+    if(this._isValidMove(position)) {
       this.positions[position] = moveThroughPositionsHash[position];
     }
   }
@@ -4604,7 +4604,7 @@ ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) 
   return this.positions;
 }
 
-ValidMovePositions.prototype.isValidMove = function(position) {
+ValidMovePositions.prototype._isValidMove = function(position) {
   if(!(this.board.space(position).unit === null ||
    Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__["equivalentPositions"])(position, this.unitPosition))) {
     return false;

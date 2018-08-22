@@ -28,27 +28,27 @@ MoveThroughPositions.prototype.findPositions = function() {
   this.positions[this.unitPosition] = 0;
 
   for(this.steps = 1; this.steps < this.moveStat + 1; this.steps++) {
-    this.findPositionsForNextStep();
+    this._findPositionsForNextStep();
   }
   return this.positions;
 }
 
-MoveThroughPositions.prototype.findPositionsForNextStep = function() {
+MoveThroughPositions.prototype._findPositionsForNextStep = function() {
   this.potentialPosChangedFlag = false;
   const positionStrings = Object.keys(this.positions);
   const iterationMoves = {};
 
   for(let idx = 0; idx < positionStrings.length; idx++) {
-    this.findMoveableAdjPositions(positionStrings[idx], iterationMoves);
+    this._findMoveableAdjPositions(positionStrings[idx], iterationMoves);
   }
 }
 
-MoveThroughPositions.prototype.findMoveableAdjPositions = function(positionString, iterationMoves) {
+MoveThroughPositions.prototype._findMoveableAdjPositions = function(positionString, iterationMoves) {
   const position = stringToPos(positionString);
-  const adjMoveablePositions = this.adjacentPositionsCanMoveThrough(position);
+  const adjMoveablePositions = this._adjacentPositionsCanMoveThrough(position);
   for(let idx = 0; idx < adjMoveablePositions.length; idx++) {
     if (this.positions[adjMoveablePositions[idx]] === undefined) {
-      this.handleTerrainBonus(
+      this._handleTerrainBonus(
         adjMoveablePositions[idx],
         this.board.space(adjMoveablePositions[idx]),
         iterationMoves
@@ -57,9 +57,9 @@ MoveThroughPositions.prototype.findMoveableAdjPositions = function(positionStrin
   }
 }
 
-MoveThroughPositions.prototype.handleTerrainBonus = function(pos, space, iterationMoves) {
+MoveThroughPositions.prototype._handleTerrainBonus = function(pos, space, iterationMoves) {
   if (space.terrain === null) {
-    this.appendPosition(pos);
+    this._appendPosition(pos);
   } else if (this.potentialPositions[pos] === undefined) {
     this.potentialPositions[pos] = space.terrain.moveCost(this.unitClass) - 1;
     this.potentialPosChangedFlag = true;
@@ -67,19 +67,19 @@ MoveThroughPositions.prototype.handleTerrainBonus = function(pos, space, iterati
     this.potentialPositions[pos] -= 1;
     this.potentialPosChangedFlag = true;
   } else if(iterationMoves[pos] === undefined && this.potentialPositions[pos] <= 1) {
-    this.appendPosition(pos);
+    this._appendPosition(pos);
   }
   iterationMoves[pos] = true;
 }
 
-MoveThroughPositions.prototype.appendPosition = function(position) {
+MoveThroughPositions.prototype._appendPosition = function(position) {
   this.positions[position] = this.steps;
   this.numPositions += 1;
 }
 
-MoveThroughPositions.prototype.adjacentPositionsCanMoveThrough = function(pos) {
-  let adjPositions = this.adjacentPositionsList(pos);
-  let moveableAdjPositions = [];
+MoveThroughPositions.prototype._adjacentPositionsCanMoveThrough = function(pos) {
+  const adjPositions = this._adjacentPositionsList(pos);
+  const moveableAdjPositions = [];
 
   for (let i = 0; i < adjPositions.length; i++) {
     let adjPos = adjPositions[i];
