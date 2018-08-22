@@ -13,11 +13,6 @@ function AttackPositions(board, unit) {
 AttackPositions.prototype = Object.create(PositionSet.prototype);
 AttackPositions.prototype.constructor = AttackPositions;
 
-AttackPositions.prototype.update = function(unitPosition) {
-  this.unitPosition = unitPosition;
-}
-
-
 AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
   const maxRange = Math.max.apply(null, this.attackRanges);
 
@@ -45,9 +40,6 @@ AttackPositions.prototype.iterateAttackSpace = function(validMovePositionsHash, 
     }
   }
 }
-
-
-//
 
 AttackPositions.prototype.adjacentAttackablePositions = function(position, validMovePositionsHash) {
   const adjPositions = this.adjacentPositionsList(position);

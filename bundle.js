@@ -4068,11 +4068,6 @@ function AttackPositions(board, unit) {
 AttackPositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].prototype);
 AttackPositions.prototype.constructor = AttackPositions;
 
-AttackPositions.prototype.update = function(unitPosition) {
-  this.unitPosition = unitPosition;
-}
-
-
 AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
   const maxRange = Math.max.apply(null, this.attackRanges);
 
@@ -4100,9 +4095,6 @@ AttackPositions.prototype.iterateAttackSpace = function(validMovePositionsHash, 
     }
   }
 }
-
-
-//
 
 AttackPositions.prototype.adjacentAttackablePositions = function(position, validMovePositionsHash) {
   const adjPositions = this.adjacentPositionsList(position);
@@ -4327,10 +4319,6 @@ function MoveThroughPositions(board, isPlayerUnit, unit) {
 MoveThroughPositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_1__["default"].prototype);
 MoveThroughPositions.prototype.constructor = MoveThroughPositions;
 
-MoveThroughPositions.prototype.update = function(unitPosition) {
-  this.unitPosition = unitPosition;
-}
-
 MoveThroughPositions.prototype.clear = function() {
   this.positions = {};
   this.potentialPositions = {};
@@ -4391,8 +4379,6 @@ MoveThroughPositions.prototype.appendPosition = function(position) {
   this.numPositions += 1;
 }
 
-
-//
 MoveThroughPositions.prototype.adjacentPositionsCanMoveThrough = function(pos) {
   let adjPositions = this.adjacentPositionsList(pos);
   let moveableAdjPositions = [];
@@ -4560,6 +4546,10 @@ PositionSet.prototype.clear = function() {
   this.positions = {};
 }
 
+PositionSet.prototype.update = function(unitPosition) {
+  this.unitPosition = unitPosition;
+}
+
 PositionSet.prototype.adjacentPositionsList = function(pos) {
   const dimensions = this.board.dimensions;
   const spaces = [];
@@ -4601,11 +4591,6 @@ function ValidMovePositions(board, unit) {
 
 ValidMovePositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_1__["default"].prototype);
 ValidMovePositions.prototype.constructor = ValidMovePositions;
-
-
-ValidMovePositions.prototype.update = function(unitPosition) {
-  this.unitPosition = unitPosition;
-}
 
 ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) {
   for(const positionString in moveThroughPositionsHash) {

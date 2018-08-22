@@ -17,10 +17,6 @@ function MoveThroughPositions(board, isPlayerUnit, unit) {
 MoveThroughPositions.prototype = Object.create(PositionSet.prototype);
 MoveThroughPositions.prototype.constructor = MoveThroughPositions;
 
-MoveThroughPositions.prototype.update = function(unitPosition) {
-  this.unitPosition = unitPosition;
-}
-
 MoveThroughPositions.prototype.clear = function() {
   this.positions = {};
   this.potentialPositions = {};
@@ -81,8 +77,6 @@ MoveThroughPositions.prototype.appendPosition = function(position) {
   this.numPositions += 1;
 }
 
-
-//
 MoveThroughPositions.prototype.adjacentPositionsCanMoveThrough = function(pos) {
   let adjPositions = this.adjacentPositionsList(pos);
   let moveableAdjPositions = [];

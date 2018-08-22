@@ -8,11 +8,6 @@ function ValidMovePositions(board, unit) {
 ValidMovePositions.prototype = Object.create(PositionSet.prototype);
 ValidMovePositions.prototype.constructor = ValidMovePositions;
 
-
-ValidMovePositions.prototype.update = function(unitPosition) {
-  this.unitPosition = unitPosition;
-}
-
 ValidMovePositions.prototype.findPositions = function(moveThroughPositionsHash) {
   for(const positionString in moveThroughPositionsHash) {
     const position = stringToPos(positionString);

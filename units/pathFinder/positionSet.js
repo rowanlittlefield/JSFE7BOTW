@@ -11,6 +11,10 @@ PositionSet.prototype.clear = function() {
   this.positions = {};
 }
 
+PositionSet.prototype.update = function(unitPosition) {
+  this.unitPosition = unitPosition;
+}
+
 PositionSet.prototype.adjacentPositionsList = function(pos) {
   const dimensions = this.board.dimensions;
   const spaces = [];
