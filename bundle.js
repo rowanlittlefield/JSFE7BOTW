@@ -4052,6 +4052,8 @@ EnemyUnit.prototype.waitForAnimationCompletion = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
 /* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _positionSet_moveThroughPositions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./positionSet/moveThroughPositions */ "./units/pathFinder/positionSet/moveThroughPositions.js");
+
 
 
 
@@ -4062,15 +4064,11 @@ function MazeSolver(board, unit) {
   this.unitClass = unit.constructor.name;
   this.unitPosition = unit.position;
 
-//TODO: substitute this and others with clear if works
-  this.paths = {};
-  this.potentialPositions = {};
-  this.routePositions = null;
-  this.foundNewPositionsFlag = false;
-  this.numPositions = 0;
-  this.steps = 0;
-  this.endPos = null;
+  this.clear();
 }
+
+MazeSolver.prototype = Object.create(_positionSet_moveThroughPositions__WEBPACK_IMPORTED_MODULE_2__["default"].prototype);
+MazeSolver.prototype.constructor = MazeSolver;
 
 MazeSolver.prototype.clear = function() {
   this.paths = {};
@@ -4082,10 +4080,6 @@ MazeSolver.prototype.clear = function() {
   this.endPos = null;
 }
 
-MazeSolver.prototype.update = function(unitPosition) {
-  this.unitPosition = unitPosition;
-}
-
 MazeSolver.prototype.findPath = function(endPos) {
   if(Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["equivalentPositions"])(endPos, this.unitPosition)) return [this.unitPosition];
 
@@ -4095,7 +4089,7 @@ MazeSolver.prototype.findPath = function(endPos) {
   this.foundNewPositionsFlag = true;
 
   while (true) {
-    this.findMovesForOneMoreStep();
+    this._findMovesForOneMoreStep();
 
     if (!this.foundNewPositionsFlag) {return null;}
     this.steps += 1;
@@ -4104,22 +4098,22 @@ MazeSolver.prototype.findPath = function(endPos) {
 
 }
 
-MazeSolver.prototype.findMovesForOneMoreStep = function() {
+MazeSolver.prototype._findMovesForOneMoreStep = function() {
   this.foundNewPositionsFlag = false;
   const prevPositionStrings = Object.keys(this.paths);
   const iterationMoves = {};
 
   for(let idx = 0; idx < prevPositionStrings.length; idx++) {
-    this.findMoveableAdjPositions(prevPositionStrings[idx], iterationMoves);
+    this._findMoveableAdjPositions(prevPositionStrings[idx], iterationMoves);
   }
 }
 
-MazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, iterationMoves) {
+MazeSolver.prototype._findMoveableAdjPositions = function(prevPositionString, iterationMoves) {
   const prevPosition = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["stringToPos"])(prevPositionString);
-  const adjMoveablePositions = this.adjacentPositionsCanMoveThrough(prevPosition);
+  const adjMoveablePositions = this._adjacentPositionsCanMoveThrough(prevPosition);
   for(let idx = 0; idx < adjMoveablePositions.length; idx++) {
     if (this.paths[adjMoveablePositions[idx]] === undefined) {
-      this.handleTerrainBonus(
+      this._handleTerrainBonus(
         adjMoveablePositions[idx],
         prevPosition,
         this.board.space(adjMoveablePositions[idx]),
@@ -4129,28 +4123,28 @@ MazeSolver.prototype.findMoveableAdjPositions = function(prevPositionString, ite
   }
 }
 
-MazeSolver.prototype.handleTerrainBonus = function(pos, prevPos, space, iterationMoves) {
+MazeSolver.prototype._handleTerrainBonus = function(pos, prevPos, space, iterationMoves) {
   if (space.terrain === null) {
-    this.appendPosition(pos, prevPos);
+    this._appendPosition(pos, prevPos);
   } else if (this.potentialPositions[pos] === undefined) {
     this.potentialPositions[pos] = {remainingTerrainBonusCount: space.terrain.moveCost(this.unitClass) - 1, previousPos: prevPos};
   } else if (iterationMoves[pos] === undefined && this.potentialPositions[pos]['remainingTerrainBonusCount'] > 1) {
     this.potentialPositions[pos]['remainingTerrainBonusCount'] -= 1;
   } else if(iterationMoves[pos] === undefined && this.potentialPositions[pos]['remainingTerrainBonusCount'] <= 1) {
-    this.appendPosition(pos);
+    this._appendPosition(pos);
   }
   this.foundNewPositionsFlag = true;
   iterationMoves[pos] = true;
 }
 
-MazeSolver.prototype.appendPosition = function(position, prevPos = null) {
+MazeSolver.prototype._appendPosition = function(position, prevPos = null) {
   prevPos = (prevPos === null ? this.potentialPositions[position]['previousPos'] : prevPos);
   this.paths[position] = prevPos;
   this.numPositions += 1;
 }
 
-MazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
-  const adjPositions = this.adjacentPositionsList(pos);
+MazeSolver.prototype._adjacentPositionsCanMoveThrough = function(pos) {
+  const adjPositions = this._adjacentPositionsList(pos);
   const moveableAdjPositions = [];
 
   for (let i = 0; i < adjPositions.length; i++) {
@@ -4162,24 +4156,6 @@ MazeSolver.prototype.adjacentPositionsCanMoveThrough = function(pos) {
 
   return moveableAdjPositions;
 }
-
-MazeSolver.prototype._isTraversableSpace = function(pos) {
-  return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
-}
-
-MazeSolver.prototype.adjacentPositionsList = function(pos) {
-  const dimensions = this.board.dimensions;
-  const spaces = [];
-
-  if(pos[0] + 1 <= dimensions[0] - 1) spaces.push([pos[0] + 1, pos[1]]);
-  if(pos[0] - 1 >= 0) spaces.push([pos[0] - 1, pos[1]]);
-  if(pos[1] + 1 <= dimensions[1] - 1) spaces.push([pos[0], pos[1] + 1]);
-  if(pos[1] - 1 >= 0) spaces.push([pos[0], pos[1] - 1]);
-
-  return spaces;
-}
-
-
 
 MazeSolver.prototype.routeList = function() {
   const routePositionsList = [this.endPos];
@@ -4199,12 +4175,9 @@ MazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
   const topY = y/sF;
 
   for(let i = 0; i < this.routePositions.length; i++) {
-
-
-    let highlightPos = [this.routePositions[i][0] - topX, this.routePositions[i][1] - topY];
+    const highlightPos = [this.routePositions[i][0] - topX, this.routePositions[i][1] - topY];
     Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["spaceHighlight"])(highlightPos, 'rgba(123, 104, 238, 0.4)', sF);
   }
-
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MazeSolver);
@@ -4505,7 +4478,7 @@ MoveThroughPositions.prototype._adjacentPositionsCanMoveThrough = function(pos) 
   const moveableAdjPositions = [];
 
   for (let i = 0; i < adjPositions.length; i++) {
-    let adjPos = adjPositions[i];
+    const adjPos = adjPositions[i];
     if(this._isTraversableSpace(adjPos)) {
       moveableAdjPositions.push(adjPos);
     }

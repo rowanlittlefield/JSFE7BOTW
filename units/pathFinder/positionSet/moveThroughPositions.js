@@ -82,7 +82,7 @@ MoveThroughPositions.prototype._adjacentPositionsCanMoveThrough = function(pos) 
   const moveableAdjPositions = [];
 
   for (let i = 0; i < adjPositions.length; i++) {
-    let adjPos = adjPositions[i];
+    const adjPos = adjPositions[i];
     if(this._isTraversableSpace(adjPos)) {
       moveableAdjPositions.push(adjPos);
     }
