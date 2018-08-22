@@ -1,4 +1,4 @@
-import { stringToPos } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { stringToPos } from '../../../miscellaneousFunctions/MiscellaneousFunctions';
 import PositionSet from './positionSet';
 
 function MoveThroughPositions(board, isPlayerUnit, unit) {

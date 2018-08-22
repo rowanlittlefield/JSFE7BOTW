@@ -1,4 +1,4 @@
-import { stringToPos, equivalentPositions, distance } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { stringToPos, equivalentPositions, distance } from '../../../miscellaneousFunctions/MiscellaneousFunctions';
 import PositionSet from './positionSet';
 
 function ValidMovePositions(board, unit) {

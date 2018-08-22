@@ -1,7 +1,7 @@
 import PlayerUnit from '../playerUnits/playerUnit';
-import MoveThroughPositions from './moveThroughPositions';
-import ValidMovePositions from './validMovePositions';
-import AttackPositions from './attackPositions';
+import MoveThroughPositions from './positionSet/moveThroughPositions';
+import ValidMovePositions from './positionSet/validMovePositions';
+import AttackPositions from './positionSet/attackPositions';
 import MazeSolver from './mazeSolver';
 import { equivalentPositions, stringToPos } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 

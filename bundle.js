@@ -4041,83 +4041,6 @@ EnemyUnit.prototype.waitForAnimationCompletion = function() {
 
 /***/ }),
 
-/***/ "./units/pathFinder/attackPositions.js":
-/*!*********************************************!*\
-  !*** ./units/pathFinder/attackPositions.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
-/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
-/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet.js");
-
-
-
-
-function AttackPositions(board, unit) {
-  _positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].call(this, board, unit, 'rgba(255, 0, 0, 0.2)');
-
-  this.isPlayerUnit = unit instanceof _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
-  this.attackRanges = unit.equippedWeapon.stats['range'];
-  this.unit = unit;
-}
-
-AttackPositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].prototype);
-AttackPositions.prototype.constructor = AttackPositions;
-
-AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
-  const maxRange = Math.max.apply(null, this.attackRanges);
-
-  for(let idx = 0; idx < maxRange; idx++) {
-    const seedSpaceFlag = idx === 0;
-    this._iterateAttackSpace(validMovePositionsHash, seedSpaceFlag);
-  }
-
-  for(const position in this.positions) {
-    if(this.unit.isCorrectDistance(position, validMovePositionsHash, this.attackRanges)) {
-      delete this.positions[position];
-    }
-  }
-
-  return this.positions;
-}
-
-AttackPositions.prototype._iterateAttackSpace = function(validMovePositionsHash, seedSpaceFlag) {
-  const seedSpace = (seedSpaceFlag ? validMovePositionsHash : this.positions);
-  for(const positionString in seedSpace) {
-    const position = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["stringToPos"])(positionString);
-    const adjAttackPositions = this._adjacentAttackablePositions(position, validMovePositionsHash);
-    for(let idx = 0; idx < adjAttackPositions.length; idx++) {
-      this.positions[adjAttackPositions[idx]] = true;
-    }
-  }
-}
-
-AttackPositions.prototype._adjacentAttackablePositions = function(position, validMovePositionsHash) {
-  const adjPositions = this._adjacentPositionsList(position);
-  const attackableAdjPositions = [];
-
-  for (let i = 0; i < adjPositions.length; i++) {
-    const pos = adjPositions[i];
-    const unitAtPos = this.board.space(pos).unit;
-    if(validMovePositionsHash[pos] === undefined &&
-       (unitAtPos === null ||
-      unitAtPos instanceof(_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]) != this.isPlayerUnit)) {
-      attackableAdjPositions.push(pos);
-    }
-  }
-
-  return attackableAdjPositions;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (AttackPositions);
-
-
-/***/ }),
-
 /***/ "./units/pathFinder/mazeSolver.js":
 /*!****************************************!*\
   !*** ./units/pathFinder/mazeSolver.js ***!
@@ -4289,17 +4212,215 @@ MazeSolver.prototype.renderRouteSpaces = function(sF, x, y, width, height) {
 
 /***/ }),
 
-/***/ "./units/pathFinder/moveThroughPositions.js":
-/*!**************************************************!*\
-  !*** ./units/pathFinder/moveThroughPositions.js ***!
-  \**************************************************/
+/***/ "./units/pathFinder/pathFinder.js":
+/*!****************************************!*\
+  !*** ./units/pathFinder/pathFinder.js ***!
+  \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
-/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet.js");
+/* harmony import */ var _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _positionSet_moveThroughPositions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./positionSet/moveThroughPositions */ "./units/pathFinder/positionSet/moveThroughPositions.js");
+/* harmony import */ var _positionSet_validMovePositions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./positionSet/validMovePositions */ "./units/pathFinder/positionSet/validMovePositions.js");
+/* harmony import */ var _positionSet_attackPositions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./positionSet/attackPositions */ "./units/pathFinder/positionSet/attackPositions.js");
+/* harmony import */ var _mazeSolver__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mazeSolver */ "./units/pathFinder/mazeSolver.js");
+/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+
+
+
+
+
+
+
+function PathFinder(board, unit) {
+  this.board = board;
+  this.moveStat = unit.stats.move;
+  this.isPlayerUnit = unit instanceof _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
+
+  this.moveThroughPositions = new _positionSet_moveThroughPositions__WEBPACK_IMPORTED_MODULE_1__["default"](board, this.isPlayerUnit, unit);
+  this.validMovePositions = new _positionSet_validMovePositions__WEBPACK_IMPORTED_MODULE_2__["default"](board, unit);
+  this.attackPositions = new _positionSet_attackPositions__WEBPACK_IMPORTED_MODULE_3__["default"](board, unit);
+
+  this.mazeSolver = new _mazeSolver__WEBPACK_IMPORTED_MODULE_4__["default"](board, unit);
+}
+
+PathFinder.prototype.clearAndUpdate = function(unitPosition) {
+  this.clear();
+  this.moveThroughPositions.update(unitPosition);
+  this.validMovePositions.update(unitPosition);
+  this.attackPositions.update(unitPosition);
+  this.mazeSolver.update(unitPosition);
+}
+
+PathFinder.prototype.clear = function() {
+  this.moveThroughPositions.clear();
+  this.validMovePositions.clear();
+  this.attackPositions.clear();
+  this.mazeSolver.clear();
+}
+
+PathFinder.prototype.setupSingleMovePositionSets = function(unitPosition) {
+  this.clearAndUpdate(unitPosition);
+  const moveThrougPositionsHash = this.moveThroughPositions.findPositions();
+  const validMovePositionsHash = this.validMovePositions.findPositions(moveThrougPositionsHash);
+  const attackPositionsHash = this.attackPositions.findPositions(validMovePositionsHash);
+}
+
+PathFinder.prototype.setupRoute = function(endPos) {
+  return this.mazeSolver.findPath(endPos);
+}
+
+PathFinder.prototype.findSingleMoveAttackPosition = function(unitPosition, unitRanges) {
+  this.setupSingleMovePositionSets(unitPosition, unitRanges);
+  const playerUnitPositions = this.board.listOfUnitsObject(_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  for(const pos in playerUnitPositions) {
+    if(this.attackPositions.positions[pos]) {
+      return this.validMovePositions.selectAttackSetupSpace(pos, unitRanges);
+    }
+  }
+  return unitPosition;
+}
+
+PathFinder.prototype.findSeekAndDestroySingleTurnPosition = function(unitPosition, unitRanges) {
+  const singleMoveAttackPosition = this.findSingleMoveAttackPosition(
+    unitPosition, unitRanges
+  );
+  if(!Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__["equivalentPositions"])(unitPosition, singleMoveAttackPosition)) {
+    return singleMoveAttackPosition;
+  }
+
+  const multiTurnRoute = this.findSeekAndDestroyMultiTurnRoute(unitPosition, unitRanges);
+  if(Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__["equivalentPositions"])(unitPosition, multiTurnRoute)) return unitPosition;
+
+  this.clearAndUpdate(unitPosition);
+  this.setupSingleMovePositionSets(unitPosition);
+
+  for(let i = multiTurnRoute.length - 1; i >= 0; i--){
+    const position = multiTurnRoute[i];
+    if(this.validMovePositions.positions[position] != undefined) {
+      return position;
+    }
+  }
+}
+
+PathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, unitRanges) {
+  const playerUnitPositions = this.board.listOfUnitsObject(_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+  for(const positionString in playerUnitPositions) {
+    const position = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__["stringToPos"])(positionString);
+    this.mazeSolver.clear();
+    this.mazeSolver.update(unitPosition);
+    // debugger;
+    const route = this.mazeSolver.findPath(position);
+    // debugger
+    if(route !== null) return route;
+  }
+
+  return unitPosition;
+}
+
+
+PathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, height) {
+  this.moveThroughPositions.render(sF, x, y, width, height);
+  this.attackPositions.render(sF, x, y, width, height);
+  this.mazeSolver.renderRouteSpaces(sF, x, y, width, height);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PathFinder);
+
+
+/***/ }),
+
+/***/ "./units/pathFinder/positionSet/attackPositions.js":
+/*!*********************************************************!*\
+  !*** ./units/pathFinder/positionSet/attackPositions.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet/positionSet.js");
+
+
+
+
+function AttackPositions(board, unit) {
+  _positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].call(this, board, unit, 'rgba(255, 0, 0, 0.2)');
+
+  this.isPlayerUnit = unit instanceof _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
+  this.attackRanges = unit.equippedWeapon.stats['range'];
+  this.unit = unit;
+}
+
+AttackPositions.prototype = Object.create(_positionSet__WEBPACK_IMPORTED_MODULE_2__["default"].prototype);
+AttackPositions.prototype.constructor = AttackPositions;
+
+AttackPositions.prototype.findPositions = function(validMovePositionsHash) {
+  const maxRange = Math.max.apply(null, this.attackRanges);
+
+  for(let idx = 0; idx < maxRange; idx++) {
+    const seedSpaceFlag = idx === 0;
+    this._iterateAttackSpace(validMovePositionsHash, seedSpaceFlag);
+  }
+
+  for(const position in this.positions) {
+    if(this.unit.isCorrectDistance(position, validMovePositionsHash, this.attackRanges)) {
+      delete this.positions[position];
+    }
+  }
+
+  return this.positions;
+}
+
+AttackPositions.prototype._iterateAttackSpace = function(validMovePositionsHash, seedSpaceFlag) {
+  const seedSpace = (seedSpaceFlag ? validMovePositionsHash : this.positions);
+  for(const positionString in seedSpace) {
+    const position = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_1__["stringToPos"])(positionString);
+    const adjAttackPositions = this._adjacentAttackablePositions(position, validMovePositionsHash);
+    for(let idx = 0; idx < adjAttackPositions.length; idx++) {
+      this.positions[adjAttackPositions[idx]] = true;
+    }
+  }
+}
+
+AttackPositions.prototype._adjacentAttackablePositions = function(position, validMovePositionsHash) {
+  const adjPositions = this._adjacentPositionsList(position);
+  const attackableAdjPositions = [];
+
+  for (let i = 0; i < adjPositions.length; i++) {
+    const pos = adjPositions[i];
+    const unitAtPos = this.board.space(pos).unit;
+    if(validMovePositionsHash[pos] === undefined &&
+       (unitAtPos === null ||
+      unitAtPos instanceof(_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]) != this.isPlayerUnit)) {
+      attackableAdjPositions.push(pos);
+    }
+  }
+
+  return attackableAdjPositions;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (AttackPositions);
+
+
+/***/ }),
+
+/***/ "./units/pathFinder/positionSet/moveThroughPositions.js":
+/*!**************************************************************!*\
+  !*** ./units/pathFinder/positionSet/moveThroughPositions.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet/positionSet.js");
 
 
 
@@ -4402,137 +4523,16 @@ MoveThroughPositions.prototype._isTraversableSpace = function(pos) {
 
 /***/ }),
 
-/***/ "./units/pathFinder/pathFinder.js":
-/*!****************************************!*\
-  !*** ./units/pathFinder/pathFinder.js ***!
-  \****************************************/
+/***/ "./units/pathFinder/positionSet/positionSet.js":
+/*!*****************************************************!*\
+  !*** ./units/pathFinder/positionSet/positionSet.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
-/* harmony import */ var _moveThroughPositions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moveThroughPositions */ "./units/pathFinder/moveThroughPositions.js");
-/* harmony import */ var _validMovePositions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./validMovePositions */ "./units/pathFinder/validMovePositions.js");
-/* harmony import */ var _attackPositions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./attackPositions */ "./units/pathFinder/attackPositions.js");
-/* harmony import */ var _mazeSolver__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mazeSolver */ "./units/pathFinder/mazeSolver.js");
-/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
-
-
-
-
-
-
-
-function PathFinder(board, unit) {
-  this.board = board;
-  this.moveStat = unit.stats.move;
-  this.isPlayerUnit = unit instanceof _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
-
-  this.moveThroughPositions = new _moveThroughPositions__WEBPACK_IMPORTED_MODULE_1__["default"](board, this.isPlayerUnit, unit);
-  this.validMovePositions = new _validMovePositions__WEBPACK_IMPORTED_MODULE_2__["default"](board, unit);
-  this.attackPositions = new _attackPositions__WEBPACK_IMPORTED_MODULE_3__["default"](board, unit);
-
-  this.mazeSolver = new _mazeSolver__WEBPACK_IMPORTED_MODULE_4__["default"](board, unit);
-}
-
-PathFinder.prototype.clearAndUpdate = function(unitPosition) {
-  this.clear();
-  this.moveThroughPositions.update(unitPosition);
-  this.validMovePositions.update(unitPosition);
-  this.attackPositions.update(unitPosition);
-  this.mazeSolver.update(unitPosition);
-}
-
-PathFinder.prototype.clear = function() {
-  this.moveThroughPositions.clear();
-  this.validMovePositions.clear();
-  this.attackPositions.clear();
-  this.mazeSolver.clear();
-}
-
-PathFinder.prototype.setupSingleMovePositionSets = function(unitPosition) {
-  this.clearAndUpdate(unitPosition);
-  const moveThrougPositionsHash = this.moveThroughPositions.findPositions();
-  const validMovePositionsHash = this.validMovePositions.findPositions(moveThrougPositionsHash);
-  const attackPositionsHash = this.attackPositions.findPositions(validMovePositionsHash);
-}
-
-PathFinder.prototype.setupRoute = function(endPos) {
-  return this.mazeSolver.findPath(endPos);
-}
-
-PathFinder.prototype.findSingleMoveAttackPosition = function(unitPosition, unitRanges) {
-  this.setupSingleMovePositionSets(unitPosition, unitRanges);
-  const playerUnitPositions = this.board.listOfUnitsObject(_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  for(const pos in playerUnitPositions) {
-    if(this.attackPositions.positions[pos]) {
-      return this.validMovePositions.selectAttackSetupSpace(pos, unitRanges);
-    }
-  }
-  return unitPosition;
-}
-
-PathFinder.prototype.findSeekAndDestroySingleTurnPosition = function(unitPosition, unitRanges) {
-  const singleMoveAttackPosition = this.findSingleMoveAttackPosition(
-    unitPosition, unitRanges
-  );
-  if(!Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__["equivalentPositions"])(unitPosition, singleMoveAttackPosition)) {
-    return singleMoveAttackPosition;
-  }
-
-  const multiTurnRoute = this.findSeekAndDestroyMultiTurnRoute(unitPosition, unitRanges);
-  if(Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__["equivalentPositions"])(unitPosition, multiTurnRoute)) return unitPosition;
-
-  this.clearAndUpdate(unitPosition);
-  this.setupSingleMovePositionSets(unitPosition);
-
-  for(let i = multiTurnRoute.length - 1; i >= 0; i--){
-    const position = multiTurnRoute[i];
-    if(this.validMovePositions.positions[position] != undefined) {
-      return position;
-    }
-  }
-}
-
-PathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, unitRanges) {
-  const playerUnitPositions = this.board.listOfUnitsObject(_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-  for(const positionString in playerUnitPositions) {
-    const position = Object(_miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_5__["stringToPos"])(positionString);
-    this.mazeSolver.clear();
-    this.mazeSolver.update(unitPosition);
-    // debugger;
-    const route = this.mazeSolver.findPath(position);
-    // debugger
-    if(route !== null) return route;
-  }
-
-  return unitPosition;
-}
-
-
-PathFinder.prototype.renderSingleMovePositionSets = function(sF, x, y, width, height) {
-  this.moveThroughPositions.render(sF, x, y, width, height);
-  this.attackPositions.render(sF, x, y, width, height);
-  this.mazeSolver.renderRouteSpaces(sF, x, y, width, height);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (PathFinder);
-
-
-/***/ }),
-
-/***/ "./units/pathFinder/positionSet.js":
-/*!*****************************************!*\
-  !*** ./units/pathFinder/positionSet.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
 
 
 function PositionSet(board, unit, color) {
@@ -4571,17 +4571,17 @@ PositionSet.prototype.render = function(sF, x, y, width, height) {
 
 /***/ }),
 
-/***/ "./units/pathFinder/validMovePositions.js":
-/*!************************************************!*\
-  !*** ./units/pathFinder/validMovePositions.js ***!
-  \************************************************/
+/***/ "./units/pathFinder/positionSet/validMovePositions.js":
+/*!************************************************************!*\
+  !*** ./units/pathFinder/positionSet/validMovePositions.js ***!
+  \************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
-/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet.js");
+/* harmony import */ var _miscellaneousFunctions_MiscellaneousFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../miscellaneousFunctions/MiscellaneousFunctions */ "./miscellaneousFunctions/MiscellaneousFunctions.js");
+/* harmony import */ var _positionSet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./positionSet */ "./units/pathFinder/positionSet/positionSet.js");
 
 
 

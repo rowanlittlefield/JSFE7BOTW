@@ -1,5 +1,5 @@
-import PlayerUnit from '../playerUnits/playerUnit';
-import { stringToPos } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import PlayerUnit from '../../playerUnits/playerUnit';
+import { stringToPos } from '../../../miscellaneousFunctions/MiscellaneousFunctions';
 import PositionSet from './positionSet';
 
 function AttackPositions(board, unit) {
