@@ -19,10 +19,7 @@ function PathFinder(board, unit) {
 
 PathFinder.prototype.clearAndUpdate = function(unitPosition) {
   this.clear();
-  this.moveThroughPositions.update(unitPosition);
-  this.validMovePositions.update(unitPosition);
-  this.attackPositions.update(unitPosition);
-  this.mazeSolver.update(unitPosition);
+  this.update(unitPosition);
 }
 
 PathFinder.prototype.clear = function() {
@@ -30,6 +27,13 @@ PathFinder.prototype.clear = function() {
   this.validMovePositions.clear();
   this.attackPositions.clear();
   this.mazeSolver.clear();
+}
+
+PathFinder.prototype.update = function(unitPosition) {
+  this.moveThroughPositions.update(unitPosition);
+  this.validMovePositions.update(unitPosition);
+  this.attackPositions.update(unitPosition);
+  this.mazeSolver.update(unitPosition);
 }
 
 PathFinder.prototype.setupSingleMovePositionSets = function(unitPosition) {
@@ -83,9 +87,7 @@ PathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, u
     const position = stringToPos(positionString);
     this.mazeSolver.clear();
     this.mazeSolver.update(unitPosition);
-    // debugger;
     const route = this.mazeSolver.findPath(position);
-    // debugger
     if(route !== null) return route;
   }
 
