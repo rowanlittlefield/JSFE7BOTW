@@ -1,0 +1,17 @@
+{
+  "ignore": [],
+  "env": {
+    "test": {
+      "presets": ["es2015", "react", "flow"],
+      "plugins": [ "transform-runtime"]
+    },
+    "production": {
+      "presets": [["es2015", { "modules": false }], "stage-1", "react", "flow"],
+      "plugins": ["lodash", "transform-runtime"]
+    },
+    "development": {
+      "presets": [["es2015", { "modules": false }], "stage-1", "react", "flow"],
+      "plugins": ["lodash", "transform-runtime", "react-hot-loader/babel"]
+    }
+  }
+}
