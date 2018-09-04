@@ -1,9 +1,9 @@
 function Controller(game) {
   this.game = game;
-  let that = this;
+  const that = this;
 
   this.checkKeyPress = function(key) {
-    if (key.keyCode == "65") {
+    if (key.keyCode == "65" || key.keyCode == "37") {
       that.game.receiveInput('left'); //a
     } else if (key.keyCode == "68") {
       that.game.receiveInput('right'); //d
