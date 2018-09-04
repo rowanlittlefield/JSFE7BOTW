@@ -18,5 +18,16 @@ describe('stringToPos', () => {
     expect(Util.stringToPos("10, 10")[0]).toBe(10)
     expect(Util.stringToPos("10, 10")[1]).toBe(10)
 
-  })
-})
+  });
+});
+
+describe('equivalentPositions', () => {
+  it('returns true for equivalent positions', () => {
+    expect(Util.equivalentPositions([1, 4], [1, 4])).toBe(true)
+  });
+  it('returns false for inequivalent positions', () => {
+    expect(Util.equivalentPositions([1, 4], [4, 1])).toBe(false)
+    expect(Util.equivalentPositions([1, 4], [1, 1])).toBe(false)
+    expect(Util.equivalentPositions([1, 4], [1, 3])).toBe(false)
+  });
+});
