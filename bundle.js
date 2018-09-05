@@ -2846,11 +2846,11 @@ function Controller(game) {
   this.checkKeyPress = function(key) {
     if (key.keyCode == "65" || key.keyCode == "37") {
       that.game.receiveInput('left'); //a
-    } else if (key.keyCode == "68") {
+    } else if (key.keyCode == "68" || key.keyCode == "39") {
       that.game.receiveInput('right'); //d
-    } else if (key.keyCode == "87") {
+    } else if (key.keyCode == "87" || key.keyCode == "38") {
       that.game.receiveInput('up'); //w
-    } else if (key.keyCode == "83") {
+    } else if (key.keyCode == "83" || key.keyCode == "40") {
       that.game.receiveInput('down'); //s
     } else if (key.keyCode == "13") {
       that.game.receiveInput('A'); //enter
