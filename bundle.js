@@ -1226,8 +1226,6 @@ function Space(position) {
   this.sprite = null;
 }
 
-
-
 Space.prototype.isTraversable = function(unit) {
   return (!(this.terrain instanceof(_terrain_wall__WEBPACK_IMPORTED_MODULE_0__["default"])) && (this.unit === null ||
     this.unit instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"]) === unit instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"])));
@@ -1482,7 +1480,6 @@ Peak.prototype.moveCost = function(constructorName) {
 __webpack_require__.r(__webpack_exports__);
 function Terrain(board, position) {
   this.board = board;
-  // this.position = this.setTerrain(position);
   this.setTerrain(position);
 }
 

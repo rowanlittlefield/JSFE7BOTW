@@ -1,6 +1,5 @@
 function Terrain(board, position) {
   this.board = board;
-  // this.position = this.setTerrain(position);
   this.setTerrain(position);
 }
 
