@@ -82,6 +82,14 @@ Board.prototype.setUpUnitHash = function() {
   return units;
 }
 
+Board.prototype.setTerrainAtPosition = function(terrain, pos) {
+  if (this.space(pos).terrain == null) {
+    this.grid[pos[0]][pos[1]].terrain = terrain;
+    return true;
+  }
+  return false;
+}
+
 Board.prototype.space = function(pos) {
   return this.grid[pos[0]][pos[1]];
 }

@@ -1166,6 +1166,14 @@ Board.prototype.setUpUnitHash = function() {
   return units;
 }
 
+Board.prototype.setTerrainAtPosition = function(terrain, pos) {
+  if (this.space(pos).terrain == null) {
+    this.grid[pos[0]][pos[1]].terrain = terrain;
+    return true;
+  }
+  return false;
+}
+
 Board.prototype.space = function(pos) {
   return this.grid[pos[0]][pos[1]];
 }
@@ -1217,6 +1225,8 @@ function Space(position) {
   this.terrain = null;
   this.sprite = null;
 }
+
+
 
 Space.prototype.isTraversable = function(unit) {
   return (!(this.terrain instanceof(_terrain_wall__WEBPACK_IMPORTED_MODULE_0__["default"])) && (this.unit === null ||
@@ -1472,13 +1482,13 @@ Peak.prototype.moveCost = function(constructorName) {
 __webpack_require__.r(__webpack_exports__);
 function Terrain(board, position) {
   this.board = board;
-  this.position = this.setTerrain(position);
+  // this.position = this.setTerrain(position);
+  this.setTerrain(position);
 }
 
 Terrain.prototype.setTerrain = function(pos) {
-  if (this.board.grid[pos[0]][pos[1]].terrain == null) {
+  if (this.board.setTerrainAtPosition(this, pos)) {
     this.position = pos;
-    this.board.grid[pos[0]][pos[1]].terrain = this;
   } else {
     throw 'Space already occupied';
   }
