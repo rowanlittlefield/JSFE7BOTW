@@ -1470,7 +1470,7 @@ Peak.prototype.moveCost = function(constructorName) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function Terrain(board, position, name) {
+function Terrain(board, position) {
   this.board = board;
   this.position = this.setTerrain(position);
 }
