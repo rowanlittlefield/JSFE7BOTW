@@ -10,6 +10,10 @@ describe('Forest', () => {
   };
   const forest = new Forest(board, [0,0]);
 
+  describe('Constructor', () => {
+    
+  });
+
   describe('Forest.prototype.terrainName', () => {
     it('returns "Forest"', () => {
       expect(forest.terrainName()).toBe('Forest');
