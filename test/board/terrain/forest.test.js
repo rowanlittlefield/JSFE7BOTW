@@ -1,4 +1,6 @@
+import Terrain from '../../../board/terrain/terrain';
 import Forest from '../../../board/terrain/forest';
+jest.mock('../../../board/terrain/terrain');
 
 describe('Forest', () => {
   const mockSetTerrainAtPositionTrue = jest.fn();
@@ -8,10 +10,17 @@ describe('Forest', () => {
   const board = {
     setTerrainAtPosition: mockSetTerrainAtPositionTrue
   };
-  const forest = new Forest(board, [0,0]);
+  const pos = [0,0]
+  const forest = new Forest(board, pos);
 
   describe('Constructor', () => {
-    
+    it('inherits from Terrain', () => {
+      expect(Forest.prototype instanceof Terrain).toBe(true);
+    });
+
+    it('calls the Terrain constructor', () => {
+      expect(Terrain).toHaveBeenCalledWith(board, pos);
+    });
   });
 
   describe('Forest.prototype.terrainName', () => {
