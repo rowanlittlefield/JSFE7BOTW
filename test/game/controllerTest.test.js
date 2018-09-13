@@ -25,7 +25,6 @@ describe('Controller', () => {
     controller.checkKeyPress({ keyCode: '86' });
 
     expect(game.receiveInput.mock.calls[0][0]).toBe('left')
-    // expect(game.receiveInput).toHaveBeenCalledWith('left');
     expect(game.receiveInput.mock.calls[1][0]).toBe('left')
     expect(game.receiveInput.mock.calls[2][0]).toBe('right')
     expect(game.receiveInput.mock.calls[3][0]).toBe('right')
