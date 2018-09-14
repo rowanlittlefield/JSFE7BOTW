@@ -1460,7 +1460,7 @@ Peak.prototype.moveCost = function(constructorName) {
   if (constructorName === 'Brigand') {
     return 4;
   } else {
-    return 10;
+    return Infinity;
   }
 }
 
