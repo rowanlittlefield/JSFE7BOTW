@@ -1555,7 +1555,7 @@ Thicket.prototype.healBonus = function() {
 }
 
 Thicket.prototype.moveCost = function() {
-  return 20;
+  return Infinity;
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Thicket);
@@ -1643,7 +1643,7 @@ Wall.prototype.healBonus = function() {
 }
 
 Wall.prototype.moveCost = function() {
-  return 20;
+  return Infinity;
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Wall);

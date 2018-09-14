@@ -24,7 +24,7 @@ Thicket.prototype.healBonus = function() {
 }
 
 Thicket.prototype.moveCost = function() {
-  return 20;
+  return Infinity;
 }
 
 export default Thicket;

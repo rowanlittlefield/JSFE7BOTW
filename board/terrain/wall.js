@@ -24,7 +24,7 @@ Wall.prototype.healBonus = function() {
 }
 
 Wall.prototype.moveCost = function() {
-  return 20;
+  return Infinity;
 }
 
 export default Wall;
