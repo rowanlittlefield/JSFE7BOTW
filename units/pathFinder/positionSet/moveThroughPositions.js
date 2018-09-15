@@ -92,7 +92,7 @@ MoveThroughPositions.prototype._adjacentPositionsCanMoveThrough = function(pos) 
 }
 
 MoveThroughPositions.prototype._isTraversableSpace = function(pos) {
-  return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
+  return this.board.space(pos).isTraversable(this.isPlayerUnit);
 }
 
 export default MoveThroughPositions;

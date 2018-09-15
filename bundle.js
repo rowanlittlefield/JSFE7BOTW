@@ -1223,17 +1223,11 @@ function Space(position) {
   this.position = position;
   this.unit = null;
   this.terrain = null;
-  this.sprite = null;
 }
 
-Space.prototype.isTraversable = function(unit) {
-  return (!(this.terrain instanceof(_terrain_wall__WEBPACK_IMPORTED_MODULE_0__["default"])) && (this.unit === null ||
-    this.unit instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"]) === unit instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"])));
-}
-
-Space.prototype.isTraversableBoolean = function(isPlayerUnit) {
-  return (!(this.terrain instanceof(_terrain_wall__WEBPACK_IMPORTED_MODULE_0__["default"])) && (this.unit === null ||
-    this.unit instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"]) === isPlayerUnit));
+Space.prototype.isTraversable = function(isPlayerUnit) {
+  return (this.unit === null ||
+    this.unit instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"]) === isPlayerUnit);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Space);
@@ -4499,7 +4493,7 @@ MoveThroughPositions.prototype._adjacentPositionsCanMoveThrough = function(pos) 
 }
 
 MoveThroughPositions.prototype._isTraversableSpace = function(pos) {
-  return this.board.space(pos).isTraversableBoolean(this.isPlayerUnit);
+  return this.board.space(pos).isTraversable(this.isPlayerUnit);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MoveThroughPositions);
