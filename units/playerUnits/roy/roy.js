@@ -1,4 +1,5 @@
-import PlayerUnit from '../playerUnit';
+// import PlayerUnit from '../playerUnit';
+import PlayerUnit from '@/../../units/playerUnits/playerUnit';
 import Sprite from '../../../animations/sprite';
 import RoyCombatAnimation from './combatAnimations/royCombatAnimation';
 import RoyCritCombatAnimation from './combatAnimations/royCritCombatAnimation';
@@ -15,7 +16,7 @@ function Roy(board, inventory, stats) {
     'Roy',
     new Sprite(18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackground.png", 6, 12),
     new Sprite(22, 20, 22, 20, "units/playerUnits/roy/mapSpriteSheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new Sprite(21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
+    new Sprite(21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
     new Sprite(34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
     new Sprite(34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
 

@@ -5323,13 +5323,14 @@ RoyReceiveHitAnimation.prototype.update = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/../../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
 /* harmony import */ var _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./combatAnimations/royCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCombatAnimation.js");
 /* harmony import */ var _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./combatAnimations/royCritCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCritCombatAnimation.js");
 /* harmony import */ var _combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./combatAnimations/royDodgeAnimation */ "./units/playerUnits/roy/combatAnimations/royDodgeAnimation.js");
 /* harmony import */ var _combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./combatAnimations/royReceiveHitSprite */ "./units/playerUnits/roy/combatAnimations/royReceiveHitSprite.js");
 /* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
+// import PlayerUnit from '../playerUnit';
 
 
 
@@ -5339,7 +5340,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Roy(board, inventory, stats) {
-  _playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+  _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
     stats,
     board,
@@ -5347,7 +5348,7 @@ function Roy(board, inventory, stats) {
     'Roy',
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackground.png", 6, 12),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "units/playerUnits/roy/mapSpriteSheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "units/playerUnits/roy/mapSpriteSheets/royBackwardsWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
 
@@ -5361,7 +5362,7 @@ function Roy(board, inventory, stats) {
   );
 }
 
-Roy.prototype = Object.create(_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+Roy.prototype = Object.create(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 Roy.prototype.constructor = Roy;
 
 Roy.prototype.defaultStats = function() {
