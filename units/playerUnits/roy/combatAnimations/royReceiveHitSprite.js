@@ -2,7 +2,7 @@ import SpriteSequence from '../../../../animations/spriteSequence/spriteSequence
 import Sprite from '../../../../animations/sprite';
 
 function RoyReceiveHitAnimation() {
-  const sprite0 = new Sprite(70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royReceiveHitSprite.png', 4, 1);
+  const sprite0 = new Sprite(70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 

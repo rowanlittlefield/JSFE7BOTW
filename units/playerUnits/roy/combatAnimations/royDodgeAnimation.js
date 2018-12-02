@@ -2,7 +2,7 @@ import DodgeSprite from  '../../../../animations/spriteSequence/dodgeSprite';
 import Sprite from '../../../../animations/sprite';
 
 function RoyDodgeAnimation() {
-  let desSprites0 = new Sprite(70, 33, 70, 33, 'units/playerUnits/roy/combatAnimations/spriteSheets/royDodgeSpriteSheet.png', 3, 3);
+  let desSprites0 = new Sprite(70, 33, 70, 33, 'src/assets/combat_spritesheets/roy/royDodgeSpriteSheet.png', 3, 3);
 
   let spriteQueue = [desSprites0];
 

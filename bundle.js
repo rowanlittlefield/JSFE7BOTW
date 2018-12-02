@@ -5057,19 +5057,19 @@ __webpack_require__.r(__webpack_exports__);
 
 function RoyCombatAnimation() {
 
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite0.png', 3, 6);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](46, 32, 46, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite.png', 3, 6);
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 42, 64, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite2.png', 3, 6);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 61, 64, 61, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite3.png', 3, 6);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 52, 90, 52, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite4.png', 3, 4);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](110, 67, 110, 67, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite5.png', 3, 2);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 35, 90, 35, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite6.png', 3, 7);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](140, 40, 140, 40, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite7.png', 3, 6);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](120, 47, 120, 47, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite8.png', 3, 6);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite9.png', 3, 6);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite10.png', 3, 5);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 102, 90, 102, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite11.png', 3, 10);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 50, 90, 50, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite12.png', 3, 7);
+  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royCombatSprite0.png', 3, 6);
+  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](46, 32, 46, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite.png', 3, 6);
+  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 42, 64, 42, 'src/assets/combat_spritesheets/roy/royCombatSprite2.png', 3, 6);
+  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 61, 64, 61, 'src/assets/combat_spritesheets/roy/royCombatSprite3.png', 3, 6);
+  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 52, 90, 52, 'src/assets/combat_spritesheets/roy/royCombatSprite4.png', 3, 4);
+  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](110, 67, 110, 67, 'src/assets/combat_spritesheets/roy/royCombatSprite5.png', 3, 2);
+  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 35, 90, 35, 'src/assets/combat_spritesheets/roy/royCombatSprite6.png', 3, 7);
+  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](140, 40, 140, 40, 'src/assets/combat_spritesheets/roy/royCombatSprite7.png', 3, 6);
+  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](120, 47, 120, 47, 'src/assets/combat_spritesheets/roy/royCombatSprite8.png', 3, 6);
+  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite9.png', 3, 6);
+  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite10.png', 3, 5);
+  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 102, 90, 102, 'src/assets/combat_spritesheets/roy/royCombatSprite11.png', 3, 10);
+  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/roy/royCombatSprite12.png', 3, 7);
 
   let spriteQueue = [
     sprite0, sprite1, sprite2, sprite3, sprite4, sprite5, sprite6,
@@ -5166,19 +5166,19 @@ __webpack_require__.r(__webpack_exports__);
 
 function RoyCritCombatAnimation() {
 
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite0.png', 3, 6);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](46, 32, 46, 32, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite.png', 3, 6);
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 42, 64, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCombatSprite2.png', 3, 6);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 67, 64, 67, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite3.png', 2, 6);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite4.png', 2, 6);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite5.png', 2, 6);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 68, 64, 68, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite6.png', 2, 8);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 61, 64, 61, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite7.png', 2, 3);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 55, 150, 55, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite8.png', 2, 7);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 42, 150, 42, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite9.png', 1, 3);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 76, 150, 76, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite10.png', 1, 5);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 31, 100, 31, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite11.png', 2, 7);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 36, 100, 36, 'units/playerUnits/roy/combatAnimations/spriteSheets/royCritSprite12.png', 4, 7);
+  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royCombatSprite0.png', 3, 6);
+  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](46, 32, 46, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite.png', 3, 6);
+  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 42, 64, 42, 'src/assets/combat_spritesheets/roy/royCombatSprite2.png', 3, 6);
+  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 67, 64, 67, 'src/assets/combat_spritesheets/roy/royCritSprite3.png', 2, 6);
+  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'src/assets/combat_spritesheets/roy/royCritSprite4.png', 2, 6);
+  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'src/assets/combat_spritesheets/roy/royCritSprite5.png', 2, 6);
+  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 68, 64, 68, 'src/assets/combat_spritesheets/roy/royCritSprite6.png', 2, 8);
+  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 61, 64, 61, 'src/assets/combat_spritesheets/roy/royCritSprite7.png', 2, 3);
+  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 55, 150, 55, 'src/assets/combat_spritesheets/roy/royCritSprite8.png', 2, 7);
+  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 42, 150, 42, 'src/assets/combat_spritesheets/roy/royCritSprite9.png', 1, 3);
+  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 76, 150, 76, 'src/assets/combat_spritesheets/roy/royCritSprite10.png', 1, 5);
+  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 31, 100, 31, 'src/assets/combat_spritesheets/roy/royCritSprite11.png', 2, 7);
+  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 36, 100, 36, 'src/assets/combat_spritesheets/roy/royCritSprite12.png', 4, 7);
 
   let spriteQueue = [
     sprite0, sprite1, sprite2, sprite3, sprite4, sprite5, sprite6,
@@ -5232,7 +5232,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function RoyDodgeAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'units/playerUnits/roy/combatAnimations/spriteSheets/royDodgeSpriteSheet.png', 3, 3);
+  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'src/assets/combat_spritesheets/roy/royDodgeSpriteSheet.png', 3, 3);
 
   let spriteQueue = [desSprites0];
 
@@ -5276,7 +5276,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function RoyReceiveHitAnimation() {
-  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'units/playerUnits/roy/combatAnimations/spriteSheets/royReceiveHitSprite.png', 4, 1);
+  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 
@@ -5346,15 +5346,13 @@ function Roy(board, inventory, stats) {
     board,
     inventory,
     'Roy',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "units/playerUnits/roy/mapSpriteSheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
     new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royRightWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "units/playerUnits/roy/mapSpriteSheets/royLeftWalkSpriteSheet.png", 8, 4),
-
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/roy/mapSpriteSheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
-
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "units/playerUnits/roy/HPWindowImage/RoyMugshotZoom.jpg", 6, 1),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royRightWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "src/assets/mugshots/RoyMugshotZoom.jpg", 6, 1),
     new _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
     new _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
     new _combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
