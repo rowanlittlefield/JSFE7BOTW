@@ -3836,15 +3836,13 @@ function Brigand(board, inventory, behavior, stats) {
     board,
     inventory,
     'Brigand',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSprite.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandForwardWalkSpriteSheet.png", 6, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "units/enemyUnits/brigand/mapSpriteSheets/brigandBackwardsWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandRightWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "units/enemyUnits/brigand/mapSpriteSheets/brigandLeftWalkSprite.png", 8, 4),
-
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/enemyUnits/brigand/mapSpriteSheets/brigandMapSpritePostAction.png", 6, 12),
-
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "units/enemyUnits/brigand/HPWindowImage/brigandHPWindowSprite.png", 6, 1),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSprite.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png", 6, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandRightWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandLeftWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSpritePostAction.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "src/assets/mugshots/brigandHPWindowSprite.png", 6, 1),
     new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
     new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
     new _playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
@@ -3902,12 +3900,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function BrigandCombatAnimation() {
-  let sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite0.png', 6, 4);
-  let sprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite1.png', 6, 1);
-  let sprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite2.png', 4, 6);
-  let sprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 35, 90, 35, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite3.png', 2, 4);
-  let sprites4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite4.png', 4, 6);
-  let sprites5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandCombatSprite5.png', 6, 2);
+  let sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite0.png', 6, 4);
+  let sprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite1.png', 6, 1);
+  let sprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite2.png', 4, 6);
+  let sprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 35, 90, 35, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite3.png', 2, 4);
+  let sprites4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite4.png', 4, 6);
+  let sprites5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite5.png', 6, 2);
 
   let spriteQueue = [
     sprites0, sprites1, sprites2, sprites3, sprites4, sprites5
@@ -3967,7 +3965,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function BrigandReceiveHitAnimation() {
-  const sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandReceiveHitSprite.png', 4, 1);
+  const sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'src/assets/combat_spritesheets/brigand/brigandReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprites0];
   const positionAdjustment = {};
 

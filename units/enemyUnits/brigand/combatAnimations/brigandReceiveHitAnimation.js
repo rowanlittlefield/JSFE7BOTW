@@ -2,7 +2,7 @@ import SpriteSequence from '../../../../animations/spriteSequence/spriteSequence
 import Sprite from '../../../../animations/sprite';
 
 function BrigandReceiveHitAnimation() {
-  const sprites0 = new Sprite(70, 39, 70, 39, 'units/enemyUnits/brigand/combatAnimations/spriteSheets/brigandReceiveHitSprite.png', 4, 1);
+  const sprites0 = new Sprite(70, 39, 70, 39, 'src/assets/combat_spritesheets/brigand/brigandReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprites0];
   const positionAdjustment = {};
 
