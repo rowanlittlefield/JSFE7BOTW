@@ -3,7 +3,7 @@ import Sprite from '../../../../animations/sprite';
 
 
 function LynDodgeAnimation() {
-  let desSprites0 = new Sprite(70, 35, 70, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynDodgeSpriteSheet.png', 3, 3);
+  let desSprites0 = new Sprite(70, 35, 70, 35, 'src/assets/combat_spritesheets/lyn/lynDodgeSpriteSheet.png', 3, 3);
 
   let spriteQueue = [desSprites0];
 

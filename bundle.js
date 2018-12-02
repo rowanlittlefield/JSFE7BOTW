@@ -4627,10 +4627,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LynCombatAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 3, 12);
-  let desSprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 3, 8);
-  let desSprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 3, 8);
-  let desSprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
+  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/lyn/lynCombatSprite0.png', 3, 12);
+  let desSprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'src/assets/combat_spritesheets/lyn/lynCombatSprite1.png', 3, 8);
+  let desSprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'src/assets/combat_spritesheets/lyn/lynCombatSprite2.png', 3, 8);
+  let desSprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/lyn/lynCombatSprite3.png', 3, 6);
 
   let spriteQueue = [desSprites0, desSprites1, desSprites2, desSprites3];
 
@@ -4705,30 +4705,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LynCritCombatAnimation() {
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 4, 5);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](140, 35, 140, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet1.png', 4, 8);
-  let spriteNull1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 16, 1);
+  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/lyn/lynCombatSprite0.png', 4, 5);
+  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](140, 35, 140, 35, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet1.png', 4, 8);
+  let spriteNull1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 16, 1);
 
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet2.png', 1, 1);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 1, 1);
-  let spriteNull2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 1, 1);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 2, 1);
-  let spriteNull3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 2, 1);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 4, 1);
-  let spriteNull4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 3, 1);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 3, 1);
-  let spriteNull5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 3, 1);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 3, 1);
+  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet2.png', 1, 1);
+  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 1, 1);
+  let spriteNull2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 1, 1);
+  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 2, 1);
+  let spriteNull3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 2, 1);
+  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 4, 1);
+  let spriteNull4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 3, 1);
+  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 3, 1);
+  let spriteNull5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 3, 1);
+  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 3, 1);
 
-  let spriteNull6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 15, 1);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](50, 87, 50, 87, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet4.png', 1, 2);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet5.png', 1, 2);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet6.png', 1, 2);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](173, 44, 173, 44, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet7.png', 2, 1);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 4, 3);
+  let spriteNull6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 15, 1);
+  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](50, 87, 50, 87, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet4.png', 1, 2);
+  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet5.png', 1, 2);
+  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet6.png', 1, 2);
+  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](173, 44, 173, 44, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet7.png', 2, 1);
+  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'src/assets/combat_spritesheets/lyn/lynCombatSprite1.png', 4, 3);
 
-  let sprite13 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 2, 8);
-  let sprite14 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
+  let sprite13 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'src/assets/combat_spritesheets/lyn/lynCombatSprite2.png', 2, 8);
+  let sprite14 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/lyn/lynCombatSprite3.png', 3, 6);
 
 
 
@@ -4821,7 +4821,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LynDodgeAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 35, 70, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynDodgeSpriteSheet.png', 3, 3);
+  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 35, 70, 35, 'src/assets/combat_spritesheets/lyn/lynDodgeSpriteSheet.png', 3, 3);
 
   let spriteQueue = [desSprites0];
 
@@ -4862,7 +4862,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LynReceiveHitAnimation() {
-  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
+  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/lyn/lynReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 
@@ -4932,15 +4932,15 @@ function Lyn(board, inventory, stats) {
     board,
     inventory,
     'Lyn',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/lyn/mapSpriteSheets/lynMapSpriteSheet.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](23, 19, 23, 19, "units/playerUnits/lyn/mapSpriteSheets/lynForwardWalkSpriteSheet.png", 6, 6),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "units/playerUnits/lyn/mapSpriteSheets/lynBackwardWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynRightWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "units/playerUnits/lyn/mapSpriteSheets/lynLeftWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheet.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](23, 19, 23, 19, "src/assets/map_spritesheets/lynForwardWalkSpriteSheet.png", 6, 6),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/lynBackwardWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynRightWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynLeftWalkSpriteSheet.png", 8, 4),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "units/playerUnits/lyn/mapSpriteSheets/lynMapSpriteSheetPostAction.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheetPostAction.png", 6, 12),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](165, 158, 18, 18, "units/playerUnits/lyn/HPWindowImage/lynHPWindowSprite3.jpg", 6, 1),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](165, 158, 18, 18, "src/assets/mugshots/lynHPWindowSprite3.jpg", 6, 1),
     new _combatAnimations_lynCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
     new _combatAnimations_lynCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
     new _combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),

@@ -2,7 +2,7 @@ import SpriteSequence from '../../../../animations/spriteSequence/spriteSequence
 import Sprite from '../../../../animations/sprite';
 
 function LynReceiveHitAnimation() {
-  const sprite0 = new Sprite(70, 43, 70, 43, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynReceiveHitSprite.png', 4, 1);
+  const sprite0 = new Sprite(70, 43, 70, 43, 'src/assets/combat_spritesheets/lyn/lynReceiveHitSprite.png', 4, 1);
   const spriteQueue = [sprite0];
   const positionAdjustment = {};
 

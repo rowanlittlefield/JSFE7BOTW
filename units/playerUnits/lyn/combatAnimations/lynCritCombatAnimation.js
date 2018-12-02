@@ -2,30 +2,30 @@ import CombatSprite from '../../../../animations/spriteSequence/combatSprite';
 import Sprite from '../../../../animations/sprite';
 
 function LynCritCombatAnimation() {
-  let sprite0 = new Sprite(90, 50, 90, 50, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite0.png', 4, 5);
-  let sprite1 = new Sprite(140, 35, 140, 35, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet1.png', 4, 8);
-  let spriteNull1 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 16, 1);
+  let sprite0 = new Sprite(90, 50, 90, 50, 'src/assets/combat_spritesheets/lyn/lynCombatSprite0.png', 4, 5);
+  let sprite1 = new Sprite(140, 35, 140, 35, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet1.png', 4, 8);
+  let spriteNull1 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 16, 1);
 
-  let sprite2 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet2.png', 1, 1);
-  let sprite3 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 1, 1);
-  let spriteNull2 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 1, 1);
-  let sprite4 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 2, 1);
-  let spriteNull3 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 2, 1);
-  let sprite5 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 4, 1);
-  let spriteNull4 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 3, 1);
-  let sprite6 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 3, 1);
-  let spriteNull5 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 3, 1);
-  let sprite7 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet3.png', 3, 1);
+  let sprite2 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet2.png', 1, 1);
+  let sprite3 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 1, 1);
+  let spriteNull2 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 1, 1);
+  let sprite4 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 2, 1);
+  let spriteNull3 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 2, 1);
+  let sprite5 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 4, 1);
+  let spriteNull4 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 3, 1);
+  let sprite6 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 3, 1);
+  let spriteNull5 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 3, 1);
+  let sprite7 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 3, 1);
 
-  let spriteNull6 = new Sprite(155, 141, 155, 141, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheetNull.png', 15, 1);
-  let sprite8 = new Sprite(50, 87, 50, 87, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet4.png', 1, 2);
-  let sprite9 = new Sprite(110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet5.png', 1, 2);
-  let sprite10 = new Sprite(110, 28, 110, 28, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet6.png', 1, 2);
-  let sprite11 = new Sprite(173, 44, 173, 44, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCritSpriteSheet7.png', 2, 1);
-  let sprite12 = new Sprite(100, 41, 100, 41, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite1.png', 4, 3);
+  let spriteNull6 = new Sprite(155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 15, 1);
+  let sprite8 = new Sprite(50, 87, 50, 87, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet4.png', 1, 2);
+  let sprite9 = new Sprite(110, 28, 110, 28, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet5.png', 1, 2);
+  let sprite10 = new Sprite(110, 28, 110, 28, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet6.png', 1, 2);
+  let sprite11 = new Sprite(173, 44, 173, 44, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet7.png', 2, 1);
+  let sprite12 = new Sprite(100, 41, 100, 41, 'src/assets/combat_spritesheets/lyn/lynCombatSprite1.png', 4, 3);
 
-  let sprite13 = new Sprite(90, 46, 90, 46, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite2.png', 2, 8);
-  let sprite14 = new Sprite(90, 48, 90, 48, 'units/playerUnits/lyn/combatAnimations/spriteSheets/lynCombatSprite3.png', 3, 6);
+  let sprite13 = new Sprite(90, 46, 90, 46, 'src/assets/combat_spritesheets/lyn/lynCombatSprite2.png', 2, 8);
+  let sprite14 = new Sprite(90, 48, 90, 48, 'src/assets/combat_spritesheets/lyn/lynCombatSprite3.png', 3, 6);
 
 
 
