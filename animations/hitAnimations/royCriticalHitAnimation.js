@@ -11,7 +11,7 @@ function RoyCriticalHitAnimation(defenderCoordinates) {
     //158,//renderHeight
     156*1.3,//renderHeight
 
-    'animations/royCritHitSpriteSheetProg.png',//image
+    'src/assets/hit_effect_spritesheets/royCritHitSpriteSheetProg.png',//image
     2,//ticksPerFrame
     // [10, 21]
     [

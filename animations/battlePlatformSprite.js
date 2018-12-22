@@ -9,7 +9,7 @@ function BattlePlatformSprite() {
 
     57*1.125,//renderHeight
 
-    'animations/BattlePlatformSprite.png',//image
+    'src/assets/combat_display/BattlePlatformSprite.png',//image
     1,//ticksPerFrame
 
     [

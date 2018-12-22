@@ -11,7 +11,7 @@ function NormalCriticalDamageAnimation(defenderCoordinates) {
     //158,//renderHeight
     143*1.3,//renderHeight
 
-    'animations/FE7HitSpriteSheetsTransTest.png',//image
+    'src/assets/hit_effect_spritesheets/FE7HitSpriteSheetsTransTest.png',//image
     2,//ticksPerFrame
     // [10, 21]
     [

@@ -17,15 +17,15 @@ function GameFinishedWindow() {
   this.dy = 45 * 1;
 
   this.backgroundWindow = new CoordinateSprite(
-    315, 191, 140, 95, require("../interactiveWindow/fe_new_background_window.png"), 1,
+    315, 191, 140, 95, "src/assets/window_images/fe_new_background_window.png", 1,
     [[0, 0]]
   );
 
   this.backgroundSpriteOne = new CoordinateSprite(
-    118, 79, 118, 79, require("../interactiveWindow/FE_6_story_scenes.png"), 1,
+    118, 79, 118, 79, "src/assets/window_images/FE_6_story_scenes.png", 1,
     [[4, 3]]
   );
-  this.scrollSprite = new Sprite(480, 320, 480*0.5, 320*0.5, require("../interactiveWindow/fe_6_scroll_you_win.png"), 1, 1);
+  this.scrollSprite = new Sprite(480, 320, 480*0.5, 320*0.5, "src/assets/window_images/fe_6_scroll_you_win.png", 1, 1);
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {

@@ -7,11 +7,11 @@ function MainMenuWindowOne() {
   let options = ['New Game']//, 'Credits']
   InteractiveWindow.call(this, 0, 0, 0, 0, innerWidth, 100, options);
   this.color = "rgba(65, 105, 225, 1)";
-  this.logoSprite = new Sprite(240, 160, 240, 160, require("./FE_titlescreen_logo.png"), 1, 1);
+  this.logoSprite = new Sprite(240, 160, 240, 160, "src/assets/window_images/FE_titlescreen_logo.png", 1, 1);
 
   this.backgroundSpriteTwo = new CoordinateSprite(
     //238, 319
-    239, 150, 600/2.22, 450/2.5, require("./FE_7_story_scenes.png"), 1,
+    239, 150, 600/2.22, 450/2.5, "src/assets/window_images/FE_7_story_scenes.png", 1,
     [[490, 330]]
   );
 
