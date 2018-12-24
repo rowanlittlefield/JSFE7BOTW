@@ -1,10 +1,10 @@
 import PlayerUnit from '@/unit/player_unit';
 import Sprite from '../../../animations/sprite';
-import LynCombatAnimation from './combatAnimations/lynCombatAnimation';
-import LynCritCombatAnimation from './combatAnimations/lynCritCombatAnimation';
-import LynDodgeAnimation from './combatAnimations/lynDodgeAnimation';
-import LynReceiveHitAnimation from './combatAnimations/lynReceiveHitAnimation';
-import UnitStats from '../../unitStats/unitStats';
+import LynCombatAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynCombatAnimation';
+import LynCritCombatAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynCritCombatAnimation';
+import LynDodgeAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynDodgeAnimation';
+import LynReceiveHitAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynReceiveHitAnimation';
+import UnitStats from '../../../units/unitStats/unitStats';
 
 
 function Lyn(board, inventory, stats) {

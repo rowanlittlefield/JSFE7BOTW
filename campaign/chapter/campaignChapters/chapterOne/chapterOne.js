@@ -4,7 +4,7 @@ import Sprite from '../../../../animations/sprite';
 import Roy from '@/unit/roy';
 import Inventory from '../../../../inventory/inventory';
 import { SwordOfSeals } from '../../../../items/weapon';
-import Lyn from '../../../../units/playerUnits/lyn/lyn';
+import Lyn from '@/unit/lyn';
 import { ManiKatti } from '../../../../items/weapon';
 import Brigand from '@/unit/brigand';
 import { IronAxe } from '../../../../items/weapon';
