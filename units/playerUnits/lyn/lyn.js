@@ -1,4 +1,4 @@
-import PlayerUnit from '../playerUnit';
+import PlayerUnit from '@/unit/player_unit';
 import Sprite from '../../../animations/sprite';
 import LynCombatAnimation from './combatAnimations/lynCombatAnimation';
 import LynCritCombatAnimation from './combatAnimations/lynCritCombatAnimation';

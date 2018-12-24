@@ -1215,7 +1215,7 @@ NullBoard.prototype.render = function(sF) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _terrain_wall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./terrain/wall */ "./board/terrain/wall.js");
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 
 
 
@@ -1227,7 +1227,7 @@ function Space(position) {
 
 Space.prototype.isTraversable = function(isPlayerUnit) {
   return (this.unit === null ||
-    this.unit instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"]) === isPlayerUnit);
+    this.unit instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"]) === isPlayerUnit);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Space);
@@ -1694,11 +1694,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _board_board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../board/board */ "./board/board.js");
 /* harmony import */ var _chapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../chapter */ "./campaign/chapter/chapter.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../units/playerUnits/roy/roy */ "./units/playerUnits/roy/roy.js");
+/* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
 /* harmony import */ var _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../inventory/inventory */ "./inventory/inventory.js");
 /* harmony import */ var _items_weapon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../items/weapon */ "./items/weapon.js");
 /* harmony import */ var _units_playerUnits_lyn_lyn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../units/playerUnits/lyn/lyn */ "./units/playerUnits/lyn/lyn.js");
-/* harmony import */ var _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../units/enemyUnits/brigand/brigand */ "./units/enemyUnits/brigand/brigand.js");
+/* harmony import */ var _unit_brigand__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit/brigand */ "./src/classes/unit/brigand.js");
 /* harmony import */ var _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../board/terrain/thicket */ "./board/terrain/thicket.js");
 /* harmony import */ var _board_terrain_wall__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../board/terrain/wall */ "./board/terrain/wall.js");
 /* harmony import */ var _board_terrain_forest__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../board/terrain/forest */ "./board/terrain/forest.js");
@@ -1748,26 +1748,26 @@ ChapterOne.prototype.setupBoard = function() {
     );
 
 
-  const roy = new _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_3__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["SwordOfSeals"]()]));
+  const roy = new _unit_roy__WEBPACK_IMPORTED_MODULE_3__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["SwordOfSeals"]()]));
   const lyn = new _units_playerUnits_lyn_lyn__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["ManiKatti"]()]));
   newBoard.placeUnit(roy, [18, 3]);
   newBoard.placeUnit(lyn, [17, 3]);
   //Enemy units
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [9, 6]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [10, 11]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [13, 12]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [10, 11]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [13, 12]);
 
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [18, 4]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [18, 4]);
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [8, 4]);
 
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [9, 14]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [15, 15]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 15]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [9, 14]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [15, 15]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 15]);
 
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 7]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [3, 7]);
-  newBoard.placeUnit(new _units_enemyUnits_brigand_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'idle'), [2, 6]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 7]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [3, 7]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'idle'), [2, 6]);
 
 
 
@@ -2287,7 +2287,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../animations/hitAnimations/normalDamageAnimation */ "./animations/hitAnimations/normalDamageAnimation.js");
 /* harmony import */ var _animations_hitAnimations_normalCriticalDamageAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../animations/hitAnimations/normalCriticalDamageAnimation */ "./animations/hitAnimations/normalCriticalDamageAnimation.js");
 /* harmony import */ var _animations_hitAnimations_royCriticalHitAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/hitAnimations/royCriticalHitAnimation */ "./animations/hitAnimations/royCriticalHitAnimation.js");
-/* harmony import */ var _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../units/playerUnits/roy/roy */ "./units/playerUnits/roy/roy.js");
+/* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
 
 
 
@@ -2300,7 +2300,7 @@ function PUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
   );
   if (this.isCrit) {
-    if (attacker instanceof _units_playerUnits_roy_roy__WEBPACK_IMPORTED_MODULE_4__["default"]) {
+    if (attacker instanceof _unit_roy__WEBPACK_IMPORTED_MODULE_4__["default"]) {
       this.hitAnimation = new _animations_hitAnimations_royCriticalHitAnimation__WEBPACK_IMPORTED_MODULE_3__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
     } else {
       this.hitAnimation = new _animations_hitAnimations_normalCriticalDamageAnimation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
@@ -2332,7 +2332,7 @@ PUAttack.prototype.render = function(enemyCoordinates, sF) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Combat; });
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _attack_puAttack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./attack/puAttack */ "./combat/attack/puAttack.js");
 /* harmony import */ var _attack_euAttack__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attack/euAttack */ "./combat/attack/euAttack.js");
 
@@ -2346,7 +2346,7 @@ function Combat(initiator, recipient) {
   this.queue = this.developCombatSequence();
   this.expAllotment = null;
 
-  let check = this.initiator instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  let check = this.initiator instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"]);
   this.pu = check ? this.initiator : this.recipient;
   this.eu = !check ? this.initiator : this.recipient;
   this.playerCS = this.pu.combatAnimation;
@@ -2377,7 +2377,7 @@ function Combat(initiator, recipient) {
 }
 
 Combat.prototype.playerUnit = function() {
-  this.initiator instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]) ? this.initiator : this.recipient;
+  this.initiator instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"]) ? this.initiator : this.recipient;
 }
 
 Combat.prototype.developCombatSequence = function() {
@@ -2405,7 +2405,7 @@ Combat.prototype.developCombatSequence = function() {
 }
 
 Combat.prototype.developAttack = function(attacker, defender, attackerHP, defenderHP) {
-  if (attacker instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"])) {
+  if (attacker instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"])) {
     return new _attack_puAttack__WEBPACK_IMPORTED_MODULE_1__["default"](attacker, defender, attackerHP, defenderHP);
   } else {
     return new _attack_euAttack__WEBPACK_IMPORTED_MODULE_2__["default"](attacker, defender, attackerHP, defenderHP);
@@ -3240,8 +3240,8 @@ PhaseStage.prototype.render = function(sF, cursorPos) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _generalPlayer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./generalPlayer */ "./players/generalPlayer.js");
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
-/* harmony import */ var _units_enemyUnits_enemyUnit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../units/enemyUnits/enemyUnit */ "./units/enemyUnits/enemyUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
+/* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
 /* harmony import */ var _animations_movingAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../animations/movingAnimation */ "./animations/movingAnimation.js");
 /* harmony import */ var _combat_combat__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../combat/combat */ "./combat/combat.js");
@@ -3259,8 +3259,8 @@ function EnemyPlayer(board, display, phaseStage, frameSource) {
   this.display = display;
   this.phaseStage = phaseStage;
   this.frameSource = frameSource;
-  this.unitType = _units_enemyUnits_enemyUnit__WEBPACK_IMPORTED_MODULE_2__["default"];
-  this.opposingUnitType = _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"];
+  this.unitType = _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_2__["default"];
+  this.opposingUnitType = _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"];
   this.units = this.listOfOwnUnits();
   this.unitQueue = [];
 }
@@ -3435,8 +3435,8 @@ GeneralPlayer.prototype.everyUnitMoved = function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _generalPlayer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./generalPlayer */ "./players/generalPlayer.js");
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
-/* harmony import */ var _units_enemyUnits_enemyUnit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../units/enemyUnits/enemyUnit */ "./units/enemyUnits/enemyUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
+/* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
 /* harmony import */ var _window_passiveWindow_terrainWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../window/passiveWindow/terrainWindow */ "./window/passiveWindow/terrainWindow.js");
 /* harmony import */ var _window_nullWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../window/nullWindow */ "./window/nullWindow.js");
 /* harmony import */ var _window_passiveWindow_unitMapWindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../window/passiveWindow/unitMapWindow */ "./window/passiveWindow/unitMapWindow.js");
@@ -3466,8 +3466,8 @@ function Player(board, display, phaseStage) {
   this.display = display;
   this.cursor = this.display.cursor
   this.phaseStage = phaseStage;
-  this.unitType = _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"];
-  this.opposingUnitType = _units_enemyUnits_enemyUnit__WEBPACK_IMPORTED_MODULE_2__["default"];
+  this.unitType = _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"];
+  this.opposingUnitType = _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_2__["default"];
   this.units = this.listOfOwnUnits();
   this.gameFinishedWindow = new _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_10__["default"]();
 }
@@ -3511,7 +3511,7 @@ Player.prototype.playSelectUnit = function(button) {
 // helper methods
 Player.prototype.identifyAndSelectUnit = function() {
   let spaceOccupant = this.board.space(this.cursorPos()).unit;
-  if(spaceOccupant != null && spaceOccupant instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"]) &&
+  if(spaceOccupant != null && spaceOccupant instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"]) &&
   spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
     this.cursor.selectUnit(spaceOccupant);
     this.display.window = new _window_nullWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
@@ -3697,7 +3697,7 @@ Player.prototype.deselectUnit = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
 /* harmony import */ var _pathfinding_position_set__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/pathfinding/position_set */ "./src/classes/pathfinding/position_set.js");
 
@@ -3707,7 +3707,7 @@ __webpack_require__.r(__webpack_exports__);
 function AttackPositions(board, unit) {
   _pathfinding_position_set__WEBPACK_IMPORTED_MODULE_2__["default"].call(this, board, unit, 'rgba(255, 0, 0, 0.2)');
 
-  this.isPlayerUnit = unit instanceof _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
+  this.isPlayerUnit = unit instanceof _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"];
   this.attackRanges = unit.equippedWeapon.stats['range'];
   this.unit = unit;
 }
@@ -3752,7 +3752,7 @@ AttackPositions.prototype._adjacentAttackablePositions = function(position, vali
     const unitAtPos = this.board.space(pos).unit;
     if(validMovePositionsHash[pos] === undefined &&
        (unitAtPos === null ||
-      unitAtPos instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]) != this.isPlayerUnit)) {
+      unitAtPos instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"]) != this.isPlayerUnit)) {
       attackableAdjPositions.push(pos);
     }
   }
@@ -3774,7 +3774,7 @@ AttackPositions.prototype._adjacentAttackablePositions = function(position, vali
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
 /* harmony import */ var _pathfinding_move_through_positions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/pathfinding/move_through_positions */ "./src/classes/pathfinding/move_through_positions.js");
 
@@ -3784,7 +3784,7 @@ __webpack_require__.r(__webpack_exports__);
 function MazeSolver(board, unit) {
   this.board = board;
   this.unit = unit;
-  this.isPlayerUnit = unit instanceof _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
+  this.isPlayerUnit = unit instanceof _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"];
   this.unitClass = unit.constructor.name;
   this.unitPosition = unit.position;
 
@@ -4031,7 +4031,7 @@ MoveThroughPositions.prototype._isTraversableSpace = function(pos) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _pathfinding_move_through_positions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/move_through_positions */ "./src/classes/pathfinding/move_through_positions.js");
 /* harmony import */ var _pathfinding_valid_move_positions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/pathfinding/valid_move_positions */ "./src/classes/pathfinding/valid_move_positions.js");
 /* harmony import */ var _pathfinding_attack_positions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/pathfinding/attack_positions */ "./src/classes/pathfinding/attack_positions.js");
@@ -4047,7 +4047,7 @@ __webpack_require__.r(__webpack_exports__);
 function PathFinder(board, unit) {
   this.board = board;
   this.moveStat = unit.stats.move;
-  this.isPlayerUnit = unit instanceof _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"];
+  this.isPlayerUnit = unit instanceof _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"];
 
   this.moveThroughPositions = new _pathfinding_move_through_positions__WEBPACK_IMPORTED_MODULE_1__["default"](board, this.isPlayerUnit, unit);
   this.validMovePositions = new _pathfinding_valid_move_positions__WEBPACK_IMPORTED_MODULE_2__["default"](board, unit);
@@ -4088,7 +4088,7 @@ PathFinder.prototype.setupRoute = function(endPos) {
 
 PathFinder.prototype.findSingleMoveAttackPosition = function(unitPosition, unitRanges) {
   this.setupSingleMovePositionSets(unitPosition, unitRanges);
-  const playerUnitPositions = this.board.listOfUnitsObject(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  const playerUnitPositions = this.board.listOfUnitsObject(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"]);
   for(const pos in playerUnitPositions) {
     if(this.attackPositions.positions[pos]) {
       return this.validMovePositions.selectAttackSetupSpace(pos, unitRanges);
@@ -4120,7 +4120,7 @@ PathFinder.prototype.findSeekAndDestroySingleTurnPosition = function(unitPositio
 }
 
 PathFinder.prototype.findSeekAndDestroyMultiTurnRoute = function(unitPosition, unitRanges) {
-  const playerUnitPositions = this.board.listOfUnitsObject(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  const playerUnitPositions = this.board.listOfUnitsObject(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
   for(const positionString in playerUnitPositions) {
     const position = Object(_util__WEBPACK_IMPORTED_MODULE_5__["stringToPos"])(positionString);
@@ -4256,6 +4256,526 @@ ValidMovePositions.prototype.selectAttackSetupSpace = function(attackPositionStr
 
 /***/ }),
 
+/***/ "./src/classes/unit/brigand.js":
+/*!*************************************!*\
+  !*** ./src/classes/unit/brigand.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
+/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _units_enemyUnits_brigand_combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../units/enemyUnits/brigand/combatAnimations/brigandCombatAnimation */ "./units/enemyUnits/brigand/combatAnimations/brigandCombatAnimation.js");
+/* harmony import */ var _units_playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../units/playerUnits/lyn/combatAnimations/lynDodgeAnimation */ "./units/playerUnits/lyn/combatAnimations/lynDodgeAnimation.js");
+/* harmony import */ var _units_enemyUnits_brigand_combatAnimations_brigandReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../units/enemyUnits/brigand/combatAnimations/brigandReceiveHitAnimation */ "./units/enemyUnits/brigand/combatAnimations/brigandReceiveHitAnimation.js");
+/* harmony import */ var _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../units/unitStats/unitStats */ "./units/unitStats/unitStats.js");
+
+
+
+
+
+
+
+function Brigand(board, inventory, behavior, stats) {
+  _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    stats,
+    board,
+    inventory,
+    'Brigand',
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSprite.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png", 6, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandRightWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandLeftWalkSprite.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSpritePostAction.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "src/assets/mugshots/brigandHPWindowSprite.png", 6, 1),
+    new _units_enemyUnits_brigand_combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
+    new _units_enemyUnits_brigand_combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
+    new _units_playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+    new _units_enemyUnits_brigand_combatAnimations_brigandReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_4__["default"],
+    behavior
+    );
+}
+
+Brigand.prototype = Object.create(_unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+Brigand.prototype.constructor = Brigand;
+
+Brigand.prototype.defaultStats = function() {
+  return new _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_5__["default"](
+    {
+      level: 1,
+      experience: 0,
+      hp: 20,
+      strength: 5,
+      skill: 1,
+      speed: 5,
+      luck: 0,
+      defense: 3,
+      resistance: 0,
+      move: 5,
+      constitution: 12,
+      hp_growth_rate: 82,
+      strength_growth_rate: 50,
+      skill_growth_rate: 30,
+      speed_growth_rate: 20,
+      luck_growth_rate: 15,
+      defense_growth_rate: 10,
+      resistance_growth_rate: 13,
+      affinity: "wind"
+    }
+  );
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Brigand);
+
+
+/***/ }),
+
+/***/ "./src/classes/unit/enemy_unit.js":
+/*!****************************************!*\
+  !*** ./src/classes/unit/enemy_unit.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _unit_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/unit */ "./src/classes/unit/unit.js");
+/* harmony import */ var _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/path_finder */ "./src/classes/pathfinding/path_finder.js");
+
+
+
+function EnemyUnit(stats, board, inventory, name, mapSprite,
+  forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
+  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation, behavior) {
+  _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
+    forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
+    leftWalkSprite, postActionMapSprite, hpWindowSprite,
+    combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
+  this.behavior = behavior;
+  this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
+}
+
+EnemyUnit.prototype = Object.create(_unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+EnemyUnit.prototype.constructor = EnemyUnit;
+
+EnemyUnit.prototype.waitForAnimationCompletion = function() {
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (EnemyUnit);
+
+
+/***/ }),
+
+/***/ "./src/classes/unit/player_unit.js":
+/*!*****************************************!*\
+  !*** ./src/classes/unit/player_unit.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _unit_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/unit */ "./src/classes/unit/unit.js");
+/* harmony import */ var _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/path_finder */ "./src/classes/pathfinding/path_finder.js");
+
+
+
+function PlayerUnit(stats, board, inventory, name, mapSprite,
+forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
+ postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation) {
+  _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
+  forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
+  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation);
+  this.prevPos = null;
+  this.windowOptions = null;
+  this.fightOptions = null;
+
+  this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
+}
+
+PlayerUnit.prototype = Object.create(_unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+PlayerUnit.prototype.constructor = PlayerUnit;
+
+PlayerUnit.prototype.setMoveForecast = function() {
+  this.inTransit = true;
+  this.prevPos = [this.position[0], this.position[1]];
+
+  this.pathFinder.setupSingleMovePositionSets(this.position)
+}
+
+PlayerUnit.prototype.nullifyOptions = function(display) {
+  this.prevPos = null;
+  this.windowOptions = null;
+  this.fightOptions = null;
+  this.inTransit = false;
+
+  this.pathFinder.clearAndUpdate(this.position);
+}
+
+PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
+  this.pathFinder.renderSingleMovePositionSets(sF, x, y, width, height);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PlayerUnit);
+
+
+/***/ }),
+
+/***/ "./src/classes/unit/roy.js":
+/*!*********************************!*\
+  !*** ./src/classes/unit/roy.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
+/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _units_playerUnits_roy_combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../units/playerUnits/roy/combatAnimations/royCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCombatAnimation.js");
+/* harmony import */ var _units_playerUnits_roy_combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../units/playerUnits/roy/combatAnimations/royCritCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCritCombatAnimation.js");
+/* harmony import */ var _units_playerUnits_roy_combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../units/playerUnits/roy/combatAnimations/royDodgeAnimation */ "./units/playerUnits/roy/combatAnimations/royDodgeAnimation.js");
+/* harmony import */ var _units_playerUnits_roy_combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../units/playerUnits/roy/combatAnimations/royReceiveHitSprite */ "./units/playerUnits/roy/combatAnimations/royReceiveHitSprite.js");
+/* harmony import */ var _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../units/unitStats/unitStats */ "./units/unitStats/unitStats.js");
+// import PlayerUnit from '../playerUnit';
+
+
+
+
+
+
+
+
+function Roy(board, inventory, stats) {
+  _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    stats,
+    board,
+    inventory,
+    'Roy',
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royRightWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png", 8, 4),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
+    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "src/assets/mugshots/RoyMugshotZoom.jpg", 6, 1),
+    new _units_playerUnits_roy_combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
+    new _units_playerUnits_roy_combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+    new _units_playerUnits_roy_combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+    new _units_playerUnits_roy_combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_5__["default"]()
+  );
+}
+
+Roy.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+Roy.prototype.constructor = Roy;
+
+Roy.prototype.defaultStats = function() {
+  return new _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__["default"](
+    {
+      level: 1,
+      experience: 0,
+      hp: 42,
+      strength: 16,
+      skill: 19,
+      speed: 22,
+      luck: 17,
+      defense: 14,
+      resistance: 7,
+      move: 6,
+      constitution: 8,
+      hp_growth_rate: 80,
+      strength_growth_rate: 40,
+      skill_growth_rate: 50,
+      speed_growth_rate: 40,
+      luck_growth_rate: 60,
+      defense_growth_rate: 25,
+      resistance_growth_rate: 30,
+      affinity: "wind"
+    }
+  );
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Roy);
+
+
+/***/ }),
+
+/***/ "./src/classes/unit/unit.js":
+/*!**********************************!*\
+  !*** ./src/classes/unit/unit.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Unit; });
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
+/* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
+/* harmony import */ var _board_terrain_gate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../board/terrain/gate */ "./board/terrain/gate.js");
+/* harmony import */ var _items_weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../items/weapon */ "./items/weapon.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
+
+
+
+
+
+
+
+function Unit(stats, board, inventory, name, mapSprite,
+  forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
+  leftWalkSprite, postActionMapSprite, hpWindowSprite, combatAnimation,
+  critAnimation, dodgeAnimation, receiveHitAnimation) {
+  if (!stats) stats = this.defaultStats();
+  this.stats = stats;
+  this.board = board;
+  this.current_hp = this.stats['hp'];
+  this.inventory = inventory;
+  this.equippedWeapon = inventory.autoEquipWeapon();
+  this.name = name;
+  this.mapSprite = mapSprite;
+  this.forwardWalkSprite = forwardWalkSprite;
+  this.backwardWalkSprite = backwardWalkSprite;
+  this.rightWalkSprite = rightWalkSprite;
+  this.leftWalkSprite = leftWalkSprite;
+  this.postActionMapSprite = postActionMapSprite;
+  this.hpWindowSprite = hpWindowSprite;
+  this.combatAnimation = combatAnimation;
+  this.critAnimation = critAnimation;
+  this.dodgeAnimation = dodgeAnimation;
+  this.receiveHitAnimation = receiveHitAnimation
+  this.position = null;
+  this.actionTaken = false;
+}
+
+//rendering
+Unit.prototype.render = function(displayWindow) {
+  const sF = displayWindow.sF;
+  const topX = displayWindow.x/sF;
+  const topY = displayWindow.y/sF;
+  const highlightPos = [this.position[0] - topX, this.position[1] - topY];
+
+
+  if (this.moving) {
+    this.movingAnimation.render(displayWindow);
+    this.mapSprite.update();
+    this.postActionMapSprite.update();
+  } else if (this.inTransit) {
+    this.forwardWalkSprite.render(highlightPos[0], highlightPos[1], sF);
+    this.mapSprite.update();
+    this.postActionMapSprite.update();
+  } else {
+    // this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
+
+    if(this.actionTaken) {
+      // c.fillStyle = "rgba(128, 128, 128, 0.2)";
+      // c.fill();
+      this.postActionMapSprite.render(highlightPos[0], highlightPos[1], sF);
+      this.mapSprite.update();
+    } else {
+      this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
+      this.postActionMapSprite.update();
+    }
+  }
+}
+
+//unit combat
+Unit.prototype.fight = function(opposingUnit) {
+  const newCombat = new Combat(this, opposingUnit);
+  newCombat.initiateFight();
+}
+
+Unit.prototype.isInRange = function(opposingUnit) {
+  const sep = Object(_util__WEBPACK_IMPORTED_MODULE_0__["distance"])(this.position, opposingUnit.position);
+
+  return this.equippedWeapon.stats['range'].includes(sep);
+}
+
+//unit movement
+Unit.prototype.move = function(pos) {
+  this.board.space(this.position).unit = null;
+  this.board.space(pos).unit = this;
+  this.position = pos;
+}
+
+Unit.prototype.validMoveSpaces = function() {
+  return this.pathFinder.validMovePositions.positions;
+}
+
+Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange) {
+  let keyArray = Object(_util__WEBPACK_IMPORTED_MODULE_0__["stringToPos"])(key);
+  for(let mSpace in moveSpaces) {
+    let mSpaceArray = Object(_util__WEBPACK_IMPORTED_MODULE_0__["stringToPos"])(key);
+    if(weaponRange.includes(Object(_util__WEBPACK_IMPORTED_MODULE_0__["distance"])(keyArray, mSpaceArray))) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+//AI movement selection
+
+Unit.prototype.moveSelection = function() {
+   if(this.behavior === 'idle') {
+     return this.position;
+   } else if(this.behavior === 'TWBS') {
+      return this.pathFinder.findSingleMoveAttackPosition(
+        this.position,
+        this.equippedWeapon.stats['range']
+      );
+   } else if(this.behavior === 'seekAndDestroy') {
+     return this.pathFinder.findSeekAndDestroySingleTurnPosition(
+       this.position,
+       this.equippedWeapon.stats['range']
+     );
+   }
+}
+
+Unit.prototype.selectPlayerUnitInRange = function() {
+  let playerUnitPositionsInRange = [];
+
+  this.board.boardIterator(function(row, col){
+    if (this.board.grid[row][col].unit instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_2__["default"]) &&
+        this.equippedWeapon.stats['range'].includes(Object(_util__WEBPACK_IMPORTED_MODULE_0__["distance"])(this.position, [row, col]))) {
+      playerUnitPositionsInRange.push([row, col]);
+    }
+  }.bind(this));
+
+  if (playerUnitPositionsInRange.length > 0) {
+    let attackIndex = Math.floor(Math.random() * playerUnitPositionsInRange.length);
+    let pos = playerUnitPositionsInRange[attackIndex];
+    return this.board.grid[pos[0]][pos[1]].unit;
+  }
+
+  return null;
+}
+
+// Possibly non-AI methods that may need to be sorted into their own
+// methods later
+
+Unit.prototype.isOppInRange = function() {
+  let ranges = this.equippedWeapon.stats['range'];
+  let oppUnitPositions = [];
+  let oppUnitsPosInRange = [];
+
+  this.board.boardIterator(function(row, col){
+    if (this.board.grid[row][col].unit &&
+      this.board.grid[row][col].unit instanceof(_unit_enemy_unit__WEBPACK_IMPORTED_MODULE_1__["default"])) {
+      oppUnitPositions.push([row, col]);
+    }
+  }.bind(this));
+
+  for(let i = 0; i < oppUnitPositions.length; i++) {
+    if (ranges.includes(Object(_util__WEBPACK_IMPORTED_MODULE_0__["distance"])(oppUnitPositions[i], this.position))) {
+      oppUnitsPosInRange.push(oppUnitPositions[i]);
+    }
+  }
+
+  return oppUnitsPosInRange;
+}
+
+Unit.prototype.postMoveWindowOptions = function() {
+  const options = [];
+  if (this.isOppInRange().length > 0) {
+    options.push('Fight');
+  }
+  if (this.board.space(this.position).terrain instanceof _board_terrain_gate__WEBPACK_IMPORTED_MODULE_3__["default"]) {
+    options.push('Seize')
+  }
+  options.push('Wait');
+
+  return options;
+}
+
+//Unit Combat Stats
+Unit.prototype.attackSpeed = function() {
+  if(this.stats['constitution'] >= this.equippedWeapon.stats['weight']) {
+    return this.stats['speed'];
+  }
+
+  return this.stats['speed'] - (this.equippedWeapon.stats['weight'] - this.stats['constitution']);
+}
+
+Unit.prototype.isRepeatedAttack = function(opposingUnit) {
+  return (this.attackSpeed() > opposingUnit.attackSpeed() + 3);
+}
+
+Unit.prototype.hitRate = function() {
+  return (this.equippedWeapon.stats['ht'] + (this.stats['skill'] * 2) + Math.floor(this.stats['luck'] / 2));
+}
+
+Unit.prototype.avoid = function() {
+  return (this.attackSpeed() * 2) + this.stats['luck'];
+}
+
+Unit.prototype.accuracy = function(opposingUnit) {
+  let calculatedAccuracy = this.hitRate() - opposingUnit.avoid();
+
+  if(calculatedAccuracy >= 0 && calculatedAccuracy < 100) {
+    return calculatedAccuracy;
+  } else if(calculatedAccuracy < 0) {
+    return 0;
+  } else if(calculatedAccuracy >= 100) {
+    return 100;
+  }
+}
+
+Unit.prototype.attack = function() {
+  return this.stats['strength'] + this.equippedWeapon.stats['mt'];
+}
+
+Unit.prototype.defensePower = function(opposingUnit) {
+  if(opposingUnit.equippedWeapon instanceof(_items_weapon__WEBPACK_IMPORTED_MODULE_4__["PhysicalWeapon"])) {
+    return this.stats['defense'];
+  } else if(opposingUnit.equippedWeapon.prototype instanceof(_items_weapon__WEBPACK_IMPORTED_MODULE_4__["MagicalWeapon"])) {
+    return this.stats['resistance'];
+  }
+}
+
+Unit.prototype.damage = function(opposingUnit) {
+  let outputDamage = this.attack() - opposingUnit.defensePower(this);
+  if(outputDamage > 1) {
+    return outputDamage;
+  } else {
+    return 1;
+  }
+}
+
+Unit.prototype.criticalRate = function() {
+  return this.equippedWeapon.stats['critical'] + Math.floor(this.stats['skill'] / 2);
+}
+
+Unit.prototype.criticalEvade = function() {
+  return this.stats['luck'];
+}
+
+Unit.prototype.criticalChance = function(opposingUnit) {
+  let chance = this.criticalRate() - opposingUnit.criticalEvade();
+  if(chance >= 0 && chance <= 100) {
+    return chance;
+  } else if(chance < 0) {
+    return 0;
+  } else if(chance > 100) {
+    return chance;
+  }
+}
+
+// export default Unit;
+
+
+/***/ }),
+
 /***/ "./src/util/index.js":
 /*!***************************!*\
   !*** ./src/util/index.js ***!
@@ -4375,84 +4895,6 @@ function preScaledHighlight(x, y, dx, dy, color) {
 
 /***/ }),
 
-/***/ "./units/enemyUnits/brigand/brigand.js":
-/*!*********************************************!*\
-  !*** ./units/enemyUnits/brigand/brigand.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _enemyUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../enemyUnit */ "./units/enemyUnits/enemyUnit.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./combatAnimations/brigandCombatAnimation */ "./units/enemyUnits/brigand/combatAnimations/brigandCombatAnimation.js");
-/* harmony import */ var _playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../playerUnits/lyn/combatAnimations/lynDodgeAnimation */ "./units/playerUnits/lyn/combatAnimations/lynDodgeAnimation.js");
-/* harmony import */ var _combatAnimations_brigandReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./combatAnimations/brigandReceiveHitAnimation */ "./units/enemyUnits/brigand/combatAnimations/brigandReceiveHitAnimation.js");
-/* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
-
-
-
-
-
-
-
-function Brigand(board, inventory, behavior, stats) {
-  _enemyUnit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    stats,
-    board,
-    inventory,
-    'Brigand',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSprite.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png", 6, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandRightWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandLeftWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSpritePostAction.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "src/assets/mugshots/brigandHPWindowSprite.png", 6, 1),
-    new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _combatAnimations_brigandCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _playerUnits_lyn_combatAnimations_lynDodgeAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _combatAnimations_brigandReceiveHitAnimation__WEBPACK_IMPORTED_MODULE_4__["default"],
-    behavior
-    );
-}
-
-Brigand.prototype = Object.create(_enemyUnit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Brigand.prototype.constructor = Brigand;
-
-Brigand.prototype.defaultStats = function() {
-  return new _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_5__["default"](
-    {
-      level: 1,
-      experience: 0,
-      hp: 20,
-      strength: 5,
-      skill: 1,
-      speed: 5,
-      luck: 0,
-      defense: 3,
-      resistance: 0,
-      move: 5,
-      constitution: 12,
-      hp_growth_rate: 82,
-      strength_growth_rate: 50,
-      skill_growth_rate: 30,
-      speed_growth_rate: 20,
-      luck_growth_rate: 15,
-      defense_growth_rate: 10,
-      resistance_growth_rate: 13,
-      affinity: "wind"
-    }
-  );
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Brigand);
-
-
-/***/ }),
-
 /***/ "./units/enemyUnits/brigand/combatAnimations/brigandCombatAnimation.js":
 /*!*****************************************************************************!*\
   !*** ./units/enemyUnits/brigand/combatAnimations/brigandCombatAnimation.js ***!
@@ -4568,44 +5010,6 @@ BrigandReceiveHitAnimation.prototype.update = function() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (BrigandReceiveHitAnimation);
-
-
-/***/ }),
-
-/***/ "./units/enemyUnits/enemyUnit.js":
-/*!***************************************!*\
-  !*** ./units/enemyUnits/enemyUnit.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../unit */ "./units/unit.js");
-/* harmony import */ var _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/path_finder */ "./src/classes/pathfinding/path_finder.js");
-
-
-
-function EnemyUnit(stats, board, inventory, name, mapSprite,
-  forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation, behavior) {
-  _unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
-    forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-    leftWalkSprite, postActionMapSprite, hpWindowSprite,
-    combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
-  this.behavior = behavior;
-  this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
-}
-
-EnemyUnit.prototype = Object.create(_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-EnemyUnit.prototype.constructor = EnemyUnit;
-
-EnemyUnit.prototype.waitForAnimationCompletion = function() {
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (EnemyUnit);
 
 
 /***/ }),
@@ -4907,7 +5311,7 @@ LynReceiveHitAnimation.prototype.update = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
 /* harmony import */ var _combatAnimations_lynCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./combatAnimations/lynCombatAnimation */ "./units/playerUnits/lyn/combatAnimations/lynCombatAnimation.js");
 /* harmony import */ var _combatAnimations_lynCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./combatAnimations/lynCritCombatAnimation */ "./units/playerUnits/lyn/combatAnimations/lynCritCombatAnimation.js");
@@ -4924,7 +5328,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Lyn(board, inventory, stats) {
-  _playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+  _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
     stats,
     board,
@@ -4946,7 +5350,7 @@ function Lyn(board, inventory, stats) {
   );
 }
 
-Lyn.prototype = Object.create(_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+Lyn.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 Lyn.prototype.constructor = Lyn;
 
 Lyn.prototype.defaultStats = function() {
@@ -4976,63 +5380,6 @@ Lyn.prototype.defaultStats = function() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Lyn);
-
-
-/***/ }),
-
-/***/ "./units/playerUnits/playerUnit.js":
-/*!*****************************************!*\
-  !*** ./units/playerUnits/playerUnit.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../unit */ "./units/unit.js");
-/* harmony import */ var _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/path_finder */ "./src/classes/pathfinding/path_finder.js");
-
-
-
-function PlayerUnit(stats, board, inventory, name, mapSprite,
-forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
- postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation) {
-  _unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
-  forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation);
-  this.prevPos = null;
-  this.windowOptions = null;
-  this.fightOptions = null;
-
-  this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
-}
-
-PlayerUnit.prototype = Object.create(_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-PlayerUnit.prototype.constructor = PlayerUnit;
-
-PlayerUnit.prototype.setMoveForecast = function() {
-  this.inTransit = true;
-  this.prevPos = [this.position[0], this.position[1]];
-
-  this.pathFinder.setupSingleMovePositionSets(this.position)
-}
-
-PlayerUnit.prototype.nullifyOptions = function(display) {
-  this.prevPos = null;
-  this.windowOptions = null;
-  this.fightOptions = null;
-  this.inTransit = false;
-
-  this.pathFinder.clearAndUpdate(this.position);
-}
-
-PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
-  this.pathFinder.renderSingleMovePositionSets(sF, x, y, width, height);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (PlayerUnit);
 
 
 /***/ }),
@@ -5308,353 +5655,6 @@ RoyReceiveHitAnimation.prototype.update = function() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RoyReceiveHitAnimation);
-
-
-/***/ }),
-
-/***/ "./units/playerUnits/roy/roy.js":
-/*!**************************************!*\
-  !*** ./units/playerUnits/roy/roy.js ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/../../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./combatAnimations/royCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCombatAnimation.js");
-/* harmony import */ var _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./combatAnimations/royCritCombatAnimation */ "./units/playerUnits/roy/combatAnimations/royCritCombatAnimation.js");
-/* harmony import */ var _combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./combatAnimations/royDodgeAnimation */ "./units/playerUnits/roy/combatAnimations/royDodgeAnimation.js");
-/* harmony import */ var _combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./combatAnimations/royReceiveHitSprite */ "./units/playerUnits/roy/combatAnimations/royReceiveHitSprite.js");
-/* harmony import */ var _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../unitStats/unitStats */ "./units/unitStats/unitStats.js");
-// import PlayerUnit from '../playerUnit';
-
-
-
-
-
-
-
-
-function Roy(board, inventory, stats) {
-  _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    stats,
-    board,
-    inventory,
-    'Roy',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royRightWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "src/assets/mugshots/RoyMugshotZoom.jpg", 6, 1),
-    new _combatAnimations_royCombatAnimation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _combatAnimations_royCritCombatAnimation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _combatAnimations_royDodgeAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _combatAnimations_royReceiveHitSprite__WEBPACK_IMPORTED_MODULE_5__["default"]()
-  );
-}
-
-Roy.prototype = Object.create(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Roy.prototype.constructor = Roy;
-
-Roy.prototype.defaultStats = function() {
-  return new _unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__["default"](
-    {
-      level: 1,
-      experience: 0,
-      hp: 42,
-      strength: 16,
-      skill: 19,
-      speed: 22,
-      luck: 17,
-      defense: 14,
-      resistance: 7,
-      move: 6,
-      constitution: 8,
-      hp_growth_rate: 80,
-      strength_growth_rate: 40,
-      skill_growth_rate: 50,
-      speed_growth_rate: 40,
-      luck_growth_rate: 60,
-      defense_growth_rate: 25,
-      resistance_growth_rate: 30,
-      affinity: "wind"
-    }
-  );
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Roy);
-
-
-/***/ }),
-
-/***/ "./units/unit.js":
-/*!***********************!*\
-  !*** ./units/unit.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Unit; });
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-/* harmony import */ var _enemyUnits_enemyUnit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./enemyUnits/enemyUnit */ "./units/enemyUnits/enemyUnit.js");
-/* harmony import */ var _playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
-/* harmony import */ var _board_terrain_gate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../board/terrain/gate */ "./board/terrain/gate.js");
-/* harmony import */ var _items_weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../items/weapon */ "./items/weapon.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
-
-
-
-
-
-
-
-function Unit(stats, board, inventory, name, mapSprite,
-  forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-  leftWalkSprite, postActionMapSprite, hpWindowSprite, combatAnimation,
-  critAnimation, dodgeAnimation, receiveHitAnimation) {
-  if (!stats) stats = this.defaultStats();
-  this.stats = stats;
-  this.board = board;
-  this.current_hp = this.stats['hp'];
-  this.inventory = inventory;
-  this.equippedWeapon = inventory.autoEquipWeapon();
-  this.name = name;
-  this.mapSprite = mapSprite;
-  this.forwardWalkSprite = forwardWalkSprite;
-  this.backwardWalkSprite = backwardWalkSprite;
-  this.rightWalkSprite = rightWalkSprite;
-  this.leftWalkSprite = leftWalkSprite;
-  this.postActionMapSprite = postActionMapSprite;
-  this.hpWindowSprite = hpWindowSprite;
-  this.combatAnimation = combatAnimation;
-  this.critAnimation = critAnimation;
-  this.dodgeAnimation = dodgeAnimation;
-  this.receiveHitAnimation = receiveHitAnimation
-  this.position = null;
-  this.actionTaken = false;
-}
-
-//rendering
-Unit.prototype.render = function(displayWindow) {
-  const sF = displayWindow.sF;
-  const topX = displayWindow.x/sF;
-  const topY = displayWindow.y/sF;
-  const highlightPos = [this.position[0] - topX, this.position[1] - topY];
-
-
-  if (this.moving) {
-    this.movingAnimation.render(displayWindow);
-    this.mapSprite.update();
-    this.postActionMapSprite.update();
-  } else if (this.inTransit) {
-    this.forwardWalkSprite.render(highlightPos[0], highlightPos[1], sF);
-    this.mapSprite.update();
-    this.postActionMapSprite.update();
-  } else {
-    // this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
-
-    if(this.actionTaken) {
-      // c.fillStyle = "rgba(128, 128, 128, 0.2)";
-      // c.fill();
-      this.postActionMapSprite.render(highlightPos[0], highlightPos[1], sF);
-      this.mapSprite.update();
-    } else {
-      this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
-      this.postActionMapSprite.update();
-    }
-  }
-}
-
-//unit combat
-Unit.prototype.fight = function(opposingUnit) {
-  const newCombat = new Combat(this, opposingUnit);
-  newCombat.initiateFight();
-}
-
-Unit.prototype.isInRange = function(opposingUnit) {
-  const sep = Object(_util__WEBPACK_IMPORTED_MODULE_0__["distance"])(this.position, opposingUnit.position);
-
-  return this.equippedWeapon.stats['range'].includes(sep);
-}
-
-//unit movement
-Unit.prototype.move = function(pos) {
-  this.board.space(this.position).unit = null;
-  this.board.space(pos).unit = this;
-  this.position = pos;
-}
-
-Unit.prototype.validMoveSpaces = function() {
-  return this.pathFinder.validMovePositions.positions;
-}
-
-Unit.prototype.isCorrectDistance = function(key, moveSpaces, weaponRange) {
-  let keyArray = Object(_util__WEBPACK_IMPORTED_MODULE_0__["stringToPos"])(key);
-  for(let mSpace in moveSpaces) {
-    let mSpaceArray = Object(_util__WEBPACK_IMPORTED_MODULE_0__["stringToPos"])(key);
-    if(weaponRange.includes(Object(_util__WEBPACK_IMPORTED_MODULE_0__["distance"])(keyArray, mSpaceArray))) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-//AI movement selection
-
-Unit.prototype.moveSelection = function() {
-   if(this.behavior === 'idle') {
-     return this.position;
-   } else if(this.behavior === 'TWBS') {
-      return this.pathFinder.findSingleMoveAttackPosition(
-        this.position,
-        this.equippedWeapon.stats['range']
-      );
-   } else if(this.behavior === 'seekAndDestroy') {
-     return this.pathFinder.findSeekAndDestroySingleTurnPosition(
-       this.position,
-       this.equippedWeapon.stats['range']
-     );
-   }
-}
-
-Unit.prototype.selectPlayerUnitInRange = function() {
-  let playerUnitPositionsInRange = [];
-
-  this.board.boardIterator(function(row, col){
-    if (this.board.grid[row][col].unit instanceof(_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_2__["default"]) &&
-        this.equippedWeapon.stats['range'].includes(Object(_util__WEBPACK_IMPORTED_MODULE_0__["distance"])(this.position, [row, col]))) {
-      playerUnitPositionsInRange.push([row, col]);
-    }
-  }.bind(this));
-
-  if (playerUnitPositionsInRange.length > 0) {
-    let attackIndex = Math.floor(Math.random() * playerUnitPositionsInRange.length);
-    let pos = playerUnitPositionsInRange[attackIndex];
-    return this.board.grid[pos[0]][pos[1]].unit;
-  }
-
-  return null;
-}
-
-// Possibly non-AI methods that may need to be sorted into their own
-// methods later
-
-Unit.prototype.isOppInRange = function() {
-  let ranges = this.equippedWeapon.stats['range'];
-  let oppUnitPositions = [];
-  let oppUnitsPosInRange = [];
-
-  this.board.boardIterator(function(row, col){
-    if (this.board.grid[row][col].unit &&
-      this.board.grid[row][col].unit instanceof(_enemyUnits_enemyUnit__WEBPACK_IMPORTED_MODULE_1__["default"])) {
-      oppUnitPositions.push([row, col]);
-    }
-  }.bind(this));
-
-  for(let i = 0; i < oppUnitPositions.length; i++) {
-    if (ranges.includes(Object(_util__WEBPACK_IMPORTED_MODULE_0__["distance"])(oppUnitPositions[i], this.position))) {
-      oppUnitsPosInRange.push(oppUnitPositions[i]);
-    }
-  }
-
-  return oppUnitsPosInRange;
-}
-
-Unit.prototype.postMoveWindowOptions = function() {
-  const options = [];
-  if (this.isOppInRange().length > 0) {
-    options.push('Fight');
-  }
-  if (this.board.space(this.position).terrain instanceof _board_terrain_gate__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-    options.push('Seize')
-  }
-  options.push('Wait');
-
-  return options;
-}
-
-//Unit Combat Stats
-Unit.prototype.attackSpeed = function() {
-  if(this.stats['constitution'] >= this.equippedWeapon.stats['weight']) {
-    return this.stats['speed'];
-  }
-
-  return this.stats['speed'] - (this.equippedWeapon.stats['weight'] - this.stats['constitution']);
-}
-
-Unit.prototype.isRepeatedAttack = function(opposingUnit) {
-  return (this.attackSpeed() > opposingUnit.attackSpeed() + 3);
-}
-
-Unit.prototype.hitRate = function() {
-  return (this.equippedWeapon.stats['ht'] + (this.stats['skill'] * 2) + Math.floor(this.stats['luck'] / 2));
-}
-
-Unit.prototype.avoid = function() {
-  return (this.attackSpeed() * 2) + this.stats['luck'];
-}
-
-Unit.prototype.accuracy = function(opposingUnit) {
-  let calculatedAccuracy = this.hitRate() - opposingUnit.avoid();
-
-  if(calculatedAccuracy >= 0 && calculatedAccuracy < 100) {
-    return calculatedAccuracy;
-  } else if(calculatedAccuracy < 0) {
-    return 0;
-  } else if(calculatedAccuracy >= 100) {
-    return 100;
-  }
-}
-
-Unit.prototype.attack = function() {
-  return this.stats['strength'] + this.equippedWeapon.stats['mt'];
-}
-
-Unit.prototype.defensePower = function(opposingUnit) {
-  if(opposingUnit.equippedWeapon instanceof(_items_weapon__WEBPACK_IMPORTED_MODULE_4__["PhysicalWeapon"])) {
-    return this.stats['defense'];
-  } else if(opposingUnit.equippedWeapon.prototype instanceof(_items_weapon__WEBPACK_IMPORTED_MODULE_4__["MagicalWeapon"])) {
-    return this.stats['resistance'];
-  }
-}
-
-Unit.prototype.damage = function(opposingUnit) {
-  let outputDamage = this.attack() - opposingUnit.defensePower(this);
-  if(outputDamage > 1) {
-    return outputDamage;
-  } else {
-    return 1;
-  }
-}
-
-Unit.prototype.criticalRate = function() {
-  return this.equippedWeapon.stats['critical'] + Math.floor(this.stats['skill'] / 2);
-}
-
-Unit.prototype.criticalEvade = function() {
-  return this.stats['luck'];
-}
-
-Unit.prototype.criticalChance = function(opposingUnit) {
-  let chance = this.criticalRate() - opposingUnit.criticalEvade();
-  if(chance >= 0 && chance <= 100) {
-    return chance;
-  } else if(chance < 0) {
-    return 0;
-  } else if(chance > 100) {
-    return chance;
-  }
-}
-
-// export default Unit;
 
 
 /***/ }),
@@ -6343,7 +6343,7 @@ TerrainWindow.prototype.render = function(displayWindow) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _passiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./passiveWindow */ "./window/passiveWindow/passiveWindow.js");
-/* harmony import */ var _units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../units/playerUnits/playerUnit */ "./units/playerUnits/playerUnit.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
 /* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
 
@@ -6357,7 +6357,7 @@ function UnitMapWindow(unit) {
   this.name = unit.name;
   this.current_hp = unit.current_hp;
   this.hp = unit.stats['hp'];
-  this.color = unit instanceof(_units_playerUnits_playerUnit__WEBPACK_IMPORTED_MODULE_1__["default"]) ? "rgba(0, 255, 255, 0.7)" : "rgba(255, 0, 0, 0.7)";
+  this.color = unit instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"]) ? "rgba(0, 255, 255, 0.7)" : "rgba(255, 0, 0, 0.7)";
 }
 
 UnitMapWindow.prototype = Object.create(_passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);

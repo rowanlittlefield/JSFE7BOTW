@@ -1,4 +1,4 @@
-import PlayerUnit from '../../../units/playerUnits/playerUnit';
+import PlayerUnit from '@/unit/player_unit';
 import MoveThroughPositions from '@/pathfinding/move_through_positions';
 import ValidMovePositions from '@/pathfinding/valid_move_positions';
 import AttackPositions from '@/pathfinding/attack_positions';

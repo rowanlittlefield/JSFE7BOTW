@@ -1,4 +1,4 @@
-import PlayerUnit from '../units/playerUnits/playerUnit';
+import PlayerUnit from '@/unit/player_unit';
 import PUAttack from './attack/puAttack';
 import EUAttack from './attack/euAttack';
 

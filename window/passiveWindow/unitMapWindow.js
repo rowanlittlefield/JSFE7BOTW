@@ -1,5 +1,5 @@
 import PassiveWindow from  './passiveWindow';
-import PlayerUnit from '../../units/playerUnits/playerUnit';
+import PlayerUnit from '@/unit/player_unit';
 import { preScaledHighlight, renderTextWithFont } from '~/util';
 import { c } from '../../createContext';
 

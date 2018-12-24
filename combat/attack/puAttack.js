@@ -2,7 +2,7 @@ import Attack from './attack';
 import NormalDamageAnimation from '../../animations/hitAnimations/normalDamageAnimation';
 import NormalCriticalDamageAnimation from '../../animations/hitAnimations/normalCriticalDamageAnimation';
 import RoyCriticalHitAnimation from '../../animations/hitAnimations/royCriticalHitAnimation';
-import Roy from '../../units/playerUnits/roy/roy';
+import Roy from '@/unit/roy';
 
 
 function PUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {

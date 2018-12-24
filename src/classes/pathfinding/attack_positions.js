@@ -1,4 +1,4 @@
-import PlayerUnit from '../../../units/playerUnits/playerUnit';
+import PlayerUnit from '@/unit/player_unit';
 import { stringToPos } from '~/util';
 import PositionSet from '@/pathfinding/position_set';
 

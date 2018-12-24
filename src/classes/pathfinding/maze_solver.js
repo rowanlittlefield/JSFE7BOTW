@@ -1,4 +1,4 @@
-import PlayerUnit from '../../../units/playerUnits/playerUnit';
+import PlayerUnit from '@/unit/player_unit';
 import { stringToPos, equivalentPositions, spaceHighlight } from '~/util';
 import MoveThroughPositions from '@/pathfinding/move_through_positions';
 

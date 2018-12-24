@@ -1,12 +1,12 @@
 import Board from '../../../../board/board';
 import Chapter from '../../chapter';
 import Sprite from '../../../../animations/sprite';
-import Roy from '../../../../units/playerUnits/roy/roy';
+import Roy from '@/unit/roy';
 import Inventory from '../../../../inventory/inventory';
 import { SwordOfSeals } from '../../../../items/weapon';
 import Lyn from '../../../../units/playerUnits/lyn/lyn';
 import { ManiKatti } from '../../../../items/weapon';
-import Brigand from '../../../../units/enemyUnits/brigand/brigand';
+import Brigand from '@/unit/brigand';
 import { IronAxe } from '../../../../items/weapon';
 
 import Thicket from '../../../../board/terrain/thicket';

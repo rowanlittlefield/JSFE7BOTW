@@ -1,5 +1,5 @@
 import Wall from './terrain/wall';
-import PlayerUnit from '../units/playerUnits/playerUnit';
+import PlayerUnit from '@/unit/player_unit';
 
 function Space(position) {
   this.position = position;
