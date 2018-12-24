@@ -1,5 +1,5 @@
-import { stringToPos, equivalentPositions, distance } from '../../../miscellaneousFunctions/MiscellaneousFunctions';
-import PositionSet from './positionSet';
+import { stringToPos, equivalentPositions, distance } from '~/util';
+import PositionSet from '@/pathfinding/position_set';
 
 function ValidMovePositions(board, unit) {
   PositionSet.call(this, board, unit);

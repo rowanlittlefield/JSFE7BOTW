@@ -1,5 +1,5 @@
 import PassiveWindow from './passiveWindow';
-import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { preScaledHighlight, renderTextWithFont } from '~/util';
 
 function TerrainWindow(space) {
   let terrain = space.terrain;

@@ -1,6 +1,6 @@
-import PlayerUnit from '../playerUnits/playerUnit';
-import { stringToPos, equivalentPositions, spaceHighlight } from '../../miscellaneousFunctions/MiscellaneousFunctions';
-import MoveThroughPositions from './positionSet/moveThroughPositions';
+import PlayerUnit from '../../../units/playerUnits/playerUnit';
+import { stringToPos, equivalentPositions, spaceHighlight } from '~/util';
+import MoveThroughPositions from '@/pathfinding/move_through_positions';
 
 function MazeSolver(board, unit) {
   this.board = board;

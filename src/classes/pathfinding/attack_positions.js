@@ -1,6 +1,6 @@
-import PlayerUnit from '../../playerUnits/playerUnit';
-import { stringToPos } from '../../../miscellaneousFunctions/MiscellaneousFunctions';
-import PositionSet from './positionSet';
+import PlayerUnit from '../../../units/playerUnits/playerUnit';
+import { stringToPos } from '~/util';
+import PositionSet from '@/pathfinding/position_set';
 
 function AttackPositions(board, unit) {
   PositionSet.call(this, board, unit, 'rgba(255, 0, 0, 0.2)');

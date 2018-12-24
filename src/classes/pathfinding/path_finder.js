@@ -1,9 +1,9 @@
-import PlayerUnit from '../playerUnits/playerUnit';
-import MoveThroughPositions from './positionSet/moveThroughPositions';
-import ValidMovePositions from './positionSet/validMovePositions';
-import AttackPositions from './positionSet/attackPositions';
-import MazeSolver from './mazeSolver';
-import { equivalentPositions, stringToPos } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import PlayerUnit from '../../../units/playerUnits/playerUnit';
+import MoveThroughPositions from '@/pathfinding/move_through_positions';
+import ValidMovePositions from '@/pathfinding/valid_move_positions';
+import AttackPositions from '@/pathfinding/attack_positions';
+import MazeSolver from '@/pathfinding/maze_solver';
+import { equivalentPositions, stringToPos } from '~/util';
 
 function PathFinder(board, unit) {
   this.board = board;

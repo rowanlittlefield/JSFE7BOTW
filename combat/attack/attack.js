@@ -1,4 +1,4 @@
-import { randomNumberFromOneTo } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { randomNumberFromOneTo } from '~/util';
 
 export default function Attack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   this.attacker = attacker;

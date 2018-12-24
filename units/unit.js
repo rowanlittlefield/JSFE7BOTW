@@ -1,4 +1,4 @@
-import { stringToPos, distance } from '../miscellaneousFunctions/MiscellaneousFunctions';
+import { stringToPos, distance } from '~/util';
 import EnemyUnit from './enemyUnits/enemyUnit';
 import PlayerUnit from './playerUnits/playerUnit';
 import Gate from '../board/terrain/gate';

@@ -1,4 +1,4 @@
-import { galileoHighlightSpaces } from '../../../miscellaneousFunctions/MiscellaneousFunctions';
+import { galileoHighlightSpaces } from '~/util';
 
 function PositionSet(board, unit, color) {
   this.board = board;

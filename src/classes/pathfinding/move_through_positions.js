@@ -1,5 +1,5 @@
-import { stringToPos } from '../../../miscellaneousFunctions/MiscellaneousFunctions';
-import PositionSet from './positionSet';
+import { stringToPos } from '~/util';
+import PositionSet from '@/pathfinding/position_set';
 
 function MoveThroughPositions(board, isPlayerUnit, unit) {
   PositionSet.call(this, board, unit, 'rgba(0, 0, 255, 0.3)');

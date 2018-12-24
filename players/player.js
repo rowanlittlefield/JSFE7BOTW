@@ -4,11 +4,10 @@ import EnemyUnit from '../units/enemyUnits/enemyUnit';
 import TerrainWindow from '../window/passiveWindow/terrainWindow';
 import NullWindow from '../window/nullWindow';
 import UnitMapWindow from '../window/passiveWindow/unitMapWindow';
-import { equivalentPositions } from '../miscellaneousFunctions/MiscellaneousFunctions';
+import { equivalentPositions } from '~/util';
 import MovingAnimation from '../animations/movingAnimation';
 import CombatInformationWindow from '../window/interactiveWindow/combatInformationWindow';
 import Combat from '../combat/combat';
-import CombatAnimation from '../animations/combatAnimation';
 import GameFinishedWindow from '../window/passiveWindow/gameFinishedWindow';
 import NullCursor from '../display/nullCursor';
 import UnitPostMovePhaseWindow from '../window/interactiveWindow/unitPostMovePhaseWindow';
@@ -208,7 +207,6 @@ Player.prototype.initiateFight = function() {
   let pos = this.display.window.returnOption();
 
   let newCombat = new Combat(this.selectedUnit(), this.board.space(pos).unit);
-  // this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
   this.display.setupCombatAnimation(newCombat, this.phaseStage);
   newCombat.initiateFight();
   this.phaseStage.nextStage('combat animation');

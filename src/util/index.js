@@ -1,4 +1,4 @@
-import { c } from '../createContext';
+import { c } from '../../createContext';
 
 export function distance(pos1, pos2) {
   let dr = Math.abs(pos1[0] - pos2[0]);

@@ -1,7 +1,7 @@
 import GeneralPlayer from  './generalPlayer';
 import PlayerUnit from '../units/playerUnits/playerUnit';
 import EnemyUnit from '../units/enemyUnits/enemyUnit';
-import { equivalentPositions } from '../miscellaneousFunctions/MiscellaneousFunctions';
+import { equivalentPositions } from '~/util';
 import MovingAnimation from '../animations/movingAnimation';
 import Combat from '../combat/combat';
 import CombatAnimation from '../animations/combatAnimation';

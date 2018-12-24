@@ -1,6 +1,6 @@
 import PassiveWindow from './passiveWindow';
 import { c } from '../../createContext';
-import { renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { renderTextWithFont } from '~/util';
 import CombatPUNameWindow from '../../animations/preloadedAssetSprite/combatPUNameWindow';
 import CombatEUNameWindow from '../../animations/preloadedAssetSprite/combatEUNameWindow';
 import CombatLowerWindow from '../../animations/preloadedAssetSprite/combatLowerWindow';

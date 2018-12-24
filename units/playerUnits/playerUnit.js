@@ -1,5 +1,5 @@
 import Unit from '../unit';
-import PathFinder from '../pathFinder/pathFinder';
+import PathFinder from '@/pathfinding/path_finder';
 
 function PlayerUnit(stats, board, inventory, name, mapSprite,
 forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,

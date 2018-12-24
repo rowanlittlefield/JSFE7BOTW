@@ -1,5 +1,4 @@
 import CoordinateSprite from '../../animations/coordinateSprite';
-import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
 import Sprite from '../../animations/sprite';
 import { c } from '../../createContext';
 

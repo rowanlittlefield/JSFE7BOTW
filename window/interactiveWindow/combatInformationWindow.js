@@ -1,6 +1,6 @@
 import InteractiveWindow from './interactiveWindow';
 import { c } from '../../createContext';
-import { renderText, distance, highlight } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { renderText, distance, highlight } from '~/util';
 
 function CombatInformationWindow(unit, options) {
   InteractiveWindow.call(this, options[0][0], options[0][1], 2, 1.5, 150, 135, options);

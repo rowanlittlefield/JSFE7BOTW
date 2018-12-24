@@ -1,4 +1,4 @@
-import { highlight } from '../miscellaneousFunctions/MiscellaneousFunctions';
+import { highlight } from '~/util';
 
 function Cursor(board, displayWindow) {
   this.board = board;

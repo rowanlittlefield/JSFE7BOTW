@@ -1,6 +1,6 @@
 import PassiveWindow from  './passiveWindow';
 import PlayerUnit from '../../units/playerUnits/playerUnit';
-import { preScaledHighlight, renderTextWithFont } from '../../miscellaneousFunctions/MiscellaneousFunctions';
+import { preScaledHighlight, renderTextWithFont } from '~/util';
 import { c } from '../../createContext';
 
 function UnitMapWindow(unit) {
