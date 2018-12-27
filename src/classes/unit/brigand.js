@@ -3,7 +3,7 @@ import Sprite from '../../../animations/sprite';
 import BrigandCombatAnimation from '@/animation/combat_animation/brigand_combat_animation';
 import LynDodgeAnimation from '@/animation/combat_animation/lyn_combat_animation';
 import BrigandReceiveHitAnimation from '@/animation/combat_animation/brigand_receive_hit_animation';
-import UnitStats from '../../../units/unitStats/unitStats';
+import UnitStats from '@/unit_attribute/unit_stats';
 
 function Brigand(board, inventory, behavior, stats) {
   EnemyUnit.call(

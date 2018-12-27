@@ -1695,8 +1695,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../chapter */ "./campaign/chapter/chapter.js");
 /* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
 /* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
-/* harmony import */ var _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../inventory/inventory */ "./inventory/inventory.js");
-/* harmony import */ var _items_weapon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../items/weapon */ "./items/weapon.js");
+/* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
 /* harmony import */ var _unit_lyn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit/lyn */ "./src/classes/unit/lyn.js");
 /* harmony import */ var _unit_brigand__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit/brigand */ "./src/classes/unit/brigand.js");
 /* harmony import */ var _board_terrain_thicket__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../board/terrain/thicket */ "./board/terrain/thicket.js");
@@ -1748,26 +1748,26 @@ ChapterOne.prototype.setupBoard = function() {
     );
 
 
-  const roy = new _unit_roy__WEBPACK_IMPORTED_MODULE_3__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["SwordOfSeals"]()]));
-  const lyn = new _unit_lyn__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["ManiKatti"]()]));
+  const roy = new _unit_roy__WEBPACK_IMPORTED_MODULE_3__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["SwordOfSeals"]()]));
+  const lyn = new _unit_lyn__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["ManiKatti"]()]));
   newBoard.placeUnit(roy, [18, 3]);
   newBoard.placeUnit(lyn, [17, 3]);
   //Enemy units
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [9, 6]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [10, 11]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [13, 12]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [10, 11]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [13, 12]);
 
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [18, 4]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [18, 4]);
   // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [8, 4]);
 
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [9, 14]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [15, 15]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 15]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [9, 14]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [15, 15]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 15]);
 
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 7]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [3, 7]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _inventory_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _items_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'idle'), [2, 6]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 7]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [3, 7]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'idle'), [2, 6]);
 
 
 
@@ -3020,148 +3020,6 @@ game.play();
 
 /***/ }),
 
-/***/ "./inventory/inventory.js":
-/*!********************************!*\
-  !*** ./inventory/inventory.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _items_weapon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../items/weapon */ "./items/weapon.js");
-
-
-function Inventory(items) {
-  this.items = items ? items : [];
-}
-
-Inventory.prototype.autoEquipWeapon = function() {
-  for(let i = 0; i < this.items.length; i++) {
-    if (this.items[i] instanceof(_items_weapon__WEBPACK_IMPORTED_MODULE_0__["Weapon"])) {
-      return this.items[i];
-    }
-  }
-  return null;
-}
-
-Inventory.prototype.manualEquipWeapon = function(index) {
-  if(this.items[index] instanceof(_items_weapon__WEBPACK_IMPORTED_MODULE_0__["Weapon"])) {
-    return this.items[index];
-  } else {
-    return null;
-  }
-}
-
-Inventory.prototype.discard = function(index) {
-  this.items[index] = null;
-  this.items = removeNull(this.items);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Inventory);
-
-
-/***/ }),
-
-/***/ "./items/weapon.js":
-/*!*************************!*\
-  !*** ./items/weapon.js ***!
-  \*************************/
-/*! exports provided: Weapon, PhysicalWeapon, MagicalWeapon, ManiKatti, SwordOfSeals, IronAxe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Weapon", function() { return Weapon; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhysicalWeapon", function() { return PhysicalWeapon; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MagicalWeapon", function() { return MagicalWeapon; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManiKatti", function() { return ManiKatti; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SwordOfSeals", function() { return SwordOfSeals; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IronAxe", function() { return IronAxe; });
-function Weapon() {
-  this.stats = {};
-}
-
-function PhysicalWeapon() {
-}
-PhysicalWeapon.prototype = Object.create(Weapon.prototype);
-PhysicalWeapon.prototype.constructor = PhysicalWeapon;
-
-function MagicalWeapon() {
-}
-MagicalWeapon.prototype = Object.create(Weapon.prototype);
-MagicalWeapon.prototype.constructor = MagicalWeapon;
-
-function Sword() {
-}
-Sword.prototype = Object.create(PhysicalWeapon.prototype);
-Sword.prototype.constructor = Sword;
-
-function Axe() {
-}
-Axe.prototype = Object.create(PhysicalWeapon.prototype);
-Axe.prototype.constructor = Axe;
-
-function ManiKatti() {
-  this.stats = {
-    name: 'Mani Katti',
-    rank: 'Prf',
-    totalUses: 45,
-    weight: 3,
-    mt: 8,
-    ht: 80,
-    critical: 20,
-    range: [1],
-    wex: 2,
-    cost: 0
-  };
-
-  this.numberOfUses = this.stats['totalUses'];
-}
-ManiKatti.prototype = Object.create(Sword.prototype);
-ManiKatti.prototype.constructor = ManiKatti;
-
-function SwordOfSeals() {
-  this.stats = {
-    name: 'Sword of Seals',
-    rank: 'Prf',
-    totalUses: 20,
-    weight: 8,
-    mt: 18,
-    ht: 95,
-    critical: 10,
-    range: [1],
-    wex: 1,
-    cost: 0
-  };
-
-  this.numberOfUses = this.stats['totalUses'];
-}
-SwordOfSeals.prototype = Object.create(Sword.prototype);
-SwordOfSeals.prototype.constructor = SwordOfSeals;
-
-function IronAxe() {
-  this.stats = {
-    name: 'Iron Axe',
-    rank: 'E',
-    totalUses: 45,
-    weight: 10,
-    mt: 8,
-    ht: 75,
-    critical: 0,
-    range: [1],
-    wex: 1,
-    cost: 0
-  };
-
-  this.numberOfUses = this.stats['totalUses'];
-}
-IronAxe.prototype = Object.create(Axe.prototype);
-IronAxe.prototype.constructor = IronAxe;
-
-
-/***/ }),
-
 /***/ "./phaseStage/nullPhaseStage.js":
 /*!**************************************!*\
   !*** ./phaseStage/nullPhaseStage.js ***!
@@ -4370,6 +4228,105 @@ RoyReceiveHitAnimation.prototype.update = function() {
 
 /***/ }),
 
+/***/ "./src/classes/item/weapon.js":
+/*!************************************!*\
+  !*** ./src/classes/item/weapon.js ***!
+  \************************************/
+/*! exports provided: Weapon, PhysicalWeapon, MagicalWeapon, ManiKatti, SwordOfSeals, IronAxe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Weapon", function() { return Weapon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhysicalWeapon", function() { return PhysicalWeapon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MagicalWeapon", function() { return MagicalWeapon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManiKatti", function() { return ManiKatti; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SwordOfSeals", function() { return SwordOfSeals; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IronAxe", function() { return IronAxe; });
+function Weapon() {
+  this.stats = {};
+}
+
+function PhysicalWeapon() {
+}
+PhysicalWeapon.prototype = Object.create(Weapon.prototype);
+PhysicalWeapon.prototype.constructor = PhysicalWeapon;
+
+function MagicalWeapon() {
+}
+MagicalWeapon.prototype = Object.create(Weapon.prototype);
+MagicalWeapon.prototype.constructor = MagicalWeapon;
+
+function Sword() {
+}
+Sword.prototype = Object.create(PhysicalWeapon.prototype);
+Sword.prototype.constructor = Sword;
+
+function Axe() {
+}
+Axe.prototype = Object.create(PhysicalWeapon.prototype);
+Axe.prototype.constructor = Axe;
+
+function ManiKatti() {
+  this.stats = {
+    name: 'Mani Katti',
+    rank: 'Prf',
+    totalUses: 45,
+    weight: 3,
+    mt: 8,
+    ht: 80,
+    critical: 20,
+    range: [1],
+    wex: 2,
+    cost: 0
+  };
+
+  this.numberOfUses = this.stats['totalUses'];
+}
+ManiKatti.prototype = Object.create(Sword.prototype);
+ManiKatti.prototype.constructor = ManiKatti;
+
+function SwordOfSeals() {
+  this.stats = {
+    name: 'Sword of Seals',
+    rank: 'Prf',
+    totalUses: 20,
+    weight: 8,
+    mt: 18,
+    ht: 95,
+    critical: 10,
+    range: [1],
+    wex: 1,
+    cost: 0
+  };
+
+  this.numberOfUses = this.stats['totalUses'];
+}
+SwordOfSeals.prototype = Object.create(Sword.prototype);
+SwordOfSeals.prototype.constructor = SwordOfSeals;
+
+function IronAxe() {
+  this.stats = {
+    name: 'Iron Axe',
+    rank: 'E',
+    totalUses: 45,
+    weight: 10,
+    mt: 8,
+    ht: 75,
+    critical: 0,
+    range: [1],
+    wex: 1,
+    cost: 0
+  };
+
+  this.numberOfUses = this.stats['totalUses'];
+}
+IronAxe.prototype = Object.create(Axe.prototype);
+IronAxe.prototype.constructor = IronAxe;
+
+
+/***/ }),
+
 /***/ "./src/classes/pathfinding/attack_positions.js":
 /*!*****************************************************!*\
   !*** ./src/classes/pathfinding/attack_positions.js ***!
@@ -4952,7 +4909,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/brigand_combat_animation */ "./src/classes/animation/combat_animation/brigand_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/brigand_receive_hit_animation */ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js");
-/* harmony import */ var _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../units/unitStats/unitStats */ "./units/unitStats/unitStats.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
 
 
 
@@ -4986,7 +4943,7 @@ Brigand.prototype = Object.create(_unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__[
 Brigand.prototype.constructor = Brigand;
 
 Brigand.prototype.defaultStats = function() {
-  return new _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_5__["default"](
+  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_5__["default"](
     {
       level: 1,
       experience: 0,
@@ -5069,7 +5026,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_crit_combat_animation */ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
 /* harmony import */ var _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/lyn_receive_hit_animation */ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js");
-/* harmony import */ var _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../units/unitStats/unitStats */ "./units/unitStats/unitStats.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
 
 
 
@@ -5106,7 +5063,7 @@ Lyn.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["de
 Lyn.prototype.constructor = Lyn;
 
 Lyn.prototype.defaultStats = function() {
-  return new _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__["default"](
+  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__["default"](
     {
       level: 1,
       experience: 0,
@@ -5208,7 +5165,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/roy_crit_combat_animation */ "./src/classes/animation/combat_animation/roy_crit_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/roy_dodge_animation */ "./src/classes/animation/combat_animation/roy_dodge_animation.js");
 /* harmony import */ var _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/roy_receive_hit_sprite */ "./src/classes/animation/combat_animation/roy_receive_hit_sprite.js");
-/* harmony import */ var _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../units/unitStats/unitStats */ "./units/unitStats/unitStats.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
 // import PlayerUnit from '../playerUnit';
 
 
@@ -5243,7 +5200,7 @@ Roy.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["de
 Roy.prototype.constructor = Roy;
 
 Roy.prototype.defaultStats = function() {
-  return new _units_unitStats_unitStats__WEBPACK_IMPORTED_MODULE_6__["default"](
+  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__["default"](
     {
       level: 1,
       experience: 0,
@@ -5287,7 +5244,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _board_terrain_gate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../board/terrain/gate */ "./board/terrain/gate.js");
-/* harmony import */ var _items_weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../items/weapon */ "./items/weapon.js");
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
 /* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
 
 
@@ -5500,9 +5457,9 @@ Unit.prototype.attack = function() {
 }
 
 Unit.prototype.defensePower = function(opposingUnit) {
-  if(opposingUnit.equippedWeapon instanceof(_items_weapon__WEBPACK_IMPORTED_MODULE_4__["PhysicalWeapon"])) {
+  if(opposingUnit.equippedWeapon instanceof(_item_weapon__WEBPACK_IMPORTED_MODULE_4__["PhysicalWeapon"])) {
     return this.stats['defense'];
-  } else if(opposingUnit.equippedWeapon.prototype instanceof(_items_weapon__WEBPACK_IMPORTED_MODULE_4__["MagicalWeapon"])) {
+  } else if(opposingUnit.equippedWeapon.prototype instanceof(_item_weapon__WEBPACK_IMPORTED_MODULE_4__["MagicalWeapon"])) {
     return this.stats['resistance'];
   }
 }
@@ -5536,6 +5493,85 @@ Unit.prototype.criticalChance = function(opposingUnit) {
 }
 
 // export default Unit;
+
+
+/***/ }),
+
+/***/ "./src/classes/unit_attribute/inventory.js":
+/*!*************************************************!*\
+  !*** ./src/classes/unit_attribute/inventory.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
+
+
+function Inventory(items) {
+  this.items = items ? items : [];
+}
+
+Inventory.prototype.autoEquipWeapon = function() {
+  for(let i = 0; i < this.items.length; i++) {
+    if (this.items[i] instanceof(_item_weapon__WEBPACK_IMPORTED_MODULE_0__["Weapon"])) {
+      return this.items[i];
+    }
+  }
+  return null;
+}
+
+Inventory.prototype.manualEquipWeapon = function(index) {
+  if(this.items[index] instanceof(_item_weapon__WEBPACK_IMPORTED_MODULE_0__["Weapon"])) {
+    return this.items[index];
+  } else {
+    return null;
+  }
+}
+
+Inventory.prototype.discard = function(index) {
+  this.items[index] = null;
+  this.items = removeNull(this.items);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Inventory);
+
+
+/***/ }),
+
+/***/ "./src/classes/unit_attribute/unit_stats.js":
+/*!**************************************************!*\
+  !*** ./src/classes/unit_attribute/unit_stats.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function UnitStats(options) {
+  this.level = (options["level"] ? options["level"] : 1);
+  this.experience = (options["experience"] ? options["experience"] : 0);
+  this.hp = (options["hp"] ? options["hp"] : 20);
+  this.strength = (options["strength"] ? options["strength"] : 5);
+  this.skill = (options["skill"] ? options["skill"] : 5);
+  this.speed = (options["speed"] ? options["speed"] : 5);
+  this.luck = (options["luck"] ? options["luck"] : 5);
+  this.defense = (options["defense"] ? options["defense"] : 5);
+  this.resistance = (options["resistance"] ? options["resistance"] : 5);
+  this.move = (options["move"] ? options["move"] : 5);
+  this.constitution = (options["constitution"] ? options["constitution"] : 7);
+  this.hp_growth_rate = (options["hp_growth_rate"] ? options["hp_growth_rate"] : 30);
+  this.strength_growth_rate = (options["strength_growth_rate"] ? options["strength_growth_rate"] : 30);
+  this.skill_growth_rate = (options["skill_growth_rate"] ? options["skill_growth_rate"] : 30);
+  this.speed_growth_rate = (options["speed_growth_rate"] ? options["speed_growth_rate"] : 30);
+  this.luck_growth_rate = (options["luck_growth_rate"] ? options["luck_growth_rate"] : 30);
+  this.defense_growth_rate = (options["defense_growth_rate"] ? options["defense_growth_rate"] : 30);
+  this.resistance_growth_rate = (options["resistance_growth_rate"] ? options["resistance_growth_rate"] : 30);
+  this.affinity = (options["affinity"] ? options["affinity"] : 'wind');
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (UnitStats);
 
 
 /***/ }),
@@ -5655,42 +5691,6 @@ function preScaledHighlight(x, y, dx, dy, color) {
   _createContext__WEBPACK_IMPORTED_MODULE_0__["c"].fillStyle = color;
   _createContext__WEBPACK_IMPORTED_MODULE_0__["c"].fillRect(x, y, dx, dy);
 }
-
-
-/***/ }),
-
-/***/ "./units/unitStats/unitStats.js":
-/*!**************************************!*\
-  !*** ./units/unitStats/unitStats.js ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function UnitStats(options) {
-  this.level = (options["level"] ? options["level"] : 1);
-  this.experience = (options["experience"] ? options["experience"] : 0);
-  this.hp = (options["hp"] ? options["hp"] : 20);
-  this.strength = (options["strength"] ? options["strength"] : 5);
-  this.skill = (options["skill"] ? options["skill"] : 5);
-  this.speed = (options["speed"] ? options["speed"] : 5);
-  this.luck = (options["luck"] ? options["luck"] : 5);
-  this.defense = (options["defense"] ? options["defense"] : 5);
-  this.resistance = (options["resistance"] ? options["resistance"] : 5);
-  this.move = (options["move"] ? options["move"] : 5);
-  this.constitution = (options["constitution"] ? options["constitution"] : 7);
-  this.hp_growth_rate = (options["hp_growth_rate"] ? options["hp_growth_rate"] : 30);
-  this.strength_growth_rate = (options["strength_growth_rate"] ? options["strength_growth_rate"] : 30);
-  this.skill_growth_rate = (options["skill_growth_rate"] ? options["skill_growth_rate"] : 30);
-  this.speed_growth_rate = (options["speed_growth_rate"] ? options["speed_growth_rate"] : 30);
-  this.luck_growth_rate = (options["luck_growth_rate"] ? options["luck_growth_rate"] : 30);
-  this.defense_growth_rate = (options["defense_growth_rate"] ? options["defense_growth_rate"] : 30);
-  this.resistance_growth_rate = (options["resistance_growth_rate"] ? options["resistance_growth_rate"] : 30);
-  this.affinity = (options["affinity"] ? options["affinity"] : 'wind');
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (UnitStats);
 
 
 /***/ }),

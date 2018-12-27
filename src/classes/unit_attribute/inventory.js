@@ -1,4 +1,4 @@
-import { Weapon } from '../items/weapon';
+import { Weapon } from '@/item/weapon';
 
 function Inventory(items) {
   this.items = items ? items : [];

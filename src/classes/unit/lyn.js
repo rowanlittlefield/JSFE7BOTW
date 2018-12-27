@@ -4,7 +4,7 @@ import LynCombatAnimation from '@/animation/combat_animation/lyn_combat_animatio
 import LynCritCombatAnimation from '@/animation/combat_animation/lyn_crit_combat_animation';
 import LynDodgeAnimation from '@/animation/combat_animation/lyn_dodge_animation';
 import LynReceiveHitAnimation from '@/animation/combat_animation/lyn_receive_hit_animation';
-import UnitStats from '../../../units/unitStats/unitStats';
+import UnitStats from '@/unit_attribute/unit_stats';
 
 
 function Lyn(board, inventory, stats) {

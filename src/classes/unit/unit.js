@@ -2,7 +2,7 @@ import { stringToPos, distance } from '~/util';
 import EnemyUnit from '@/unit/enemy_unit';
 import PlayerUnit from '@/unit/player_unit';
 import Gate from '../../../board/terrain/gate';
-import { PhysicalWeapon, MagicalWeapon } from '../../../items/weapon';
+import { PhysicalWeapon, MagicalWeapon } from '@/item/weapon';
 import { c } from '../../../createContext';
 
 export default function Unit(stats, board, inventory, name, mapSprite,

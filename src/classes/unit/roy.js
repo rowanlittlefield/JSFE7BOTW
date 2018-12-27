@@ -5,7 +5,7 @@ import RoyCombatAnimation from '@/animation/combat_animation/roy_combat_animatio
 import RoyCritCombatAnimation from '@/animation/combat_animation/roy_crit_combat_animation';
 import RoyDodgeAnimation from '@/animation/combat_animation/roy_dodge_animation';
 import RoyReceiveHitAnimation from '@/animation/combat_animation/roy_receive_hit_sprite';
-import UnitStats from '../../../units/unitStats/unitStats';
+import UnitStats from '@/unit_attribute/unit_stats';
 
 function Roy(board, inventory, stats) {
   PlayerUnit.call(
