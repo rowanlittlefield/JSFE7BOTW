@@ -1,10 +1,10 @@
 // import PlayerUnit from '../playerUnit';
 import PlayerUnit from '@/unit/player_unit';
 import Sprite from '../../../animations/sprite';
-import RoyCombatAnimation from '../../../units/playerUnits/roy/combatAnimations/royCombatAnimation';
-import RoyCritCombatAnimation from '../../../units/playerUnits/roy/combatAnimations/royCritCombatAnimation';
-import RoyDodgeAnimation from '../../../units/playerUnits/roy/combatAnimations/royDodgeAnimation';
-import RoyReceiveHitAnimation from '../../../units/playerUnits/roy/combatAnimations/royReceiveHitSprite';
+import RoyCombatAnimation from '@/animation/combat_animation/roy_combat_animation';
+import RoyCritCombatAnimation from '@/animation/combat_animation/roy_crit_combat_animation';
+import RoyDodgeAnimation from '@/animation/combat_animation/roy_dodge_animation';
+import RoyReceiveHitAnimation from '@/animation/combat_animation/roy_receive_hit_sprite';
 import UnitStats from '../../../units/unitStats/unitStats';
 
 function Roy(board, inventory, stats) {

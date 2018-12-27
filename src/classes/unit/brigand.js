@@ -1,8 +1,8 @@
 import EnemyUnit from '@/unit/enemy_unit';
 import Sprite from '../../../animations/sprite';
-import BrigandCombatAnimation from '../../../units/enemyUnits/brigand/combatAnimations/brigandCombatAnimation';
-import LynDodgeAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynDodgeAnimation';
-import BrigandReceiveHitAnimation from '../../../units/enemyUnits/brigand/combatAnimations/brigandReceiveHitAnimation';
+import BrigandCombatAnimation from '@/animation/combat_animation/brigand_combat_animation';
+import LynDodgeAnimation from '@/animation/combat_animation/lyn_combat_animation';
+import BrigandReceiveHitAnimation from '@/animation/combat_animation/brigand_receive_hit_animation';
 import UnitStats from '../../../units/unitStats/unitStats';
 
 function Brigand(board, inventory, behavior, stats) {

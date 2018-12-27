@@ -1,9 +1,9 @@
 import PlayerUnit from '@/unit/player_unit';
 import Sprite from '../../../animations/sprite';
-import LynCombatAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynCombatAnimation';
-import LynCritCombatAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynCritCombatAnimation';
-import LynDodgeAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynDodgeAnimation';
-import LynReceiveHitAnimation from '../../../units/playerUnits/lyn/combatAnimations/lynReceiveHitAnimation';
+import LynCombatAnimation from '@/animation/combat_animation/lyn_combat_animation';
+import LynCritCombatAnimation from '@/animation/combat_animation/lyn_crit_combat_animation';
+import LynDodgeAnimation from '@/animation/combat_animation/lyn_dodge_animation';
+import LynReceiveHitAnimation from '@/animation/combat_animation/lyn_receive_hit_animation';
 import UnitStats from '../../../units/unitStats/unitStats';
 
 
