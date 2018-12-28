@@ -1,6 +1,6 @@
 import PhaseStage from '../../phaseStage/phaseStage';
-import Player from '../../players/player';
-import EnemyPlayer from '../../players/enemyPlayer';
+import Player from '@/player/player';
+import EnemyPlayer from '@/player/enemy_player';
 import Cursor from '../../display/cursor';
 import NullWindow from '../../window/nullWindow';
 

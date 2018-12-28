@@ -1,3 +1,54 @@
+import GeneralPlayer from  '@/player/general_player';
+import PlayerUnit from '@/unit/player_unit';
+import EnemyUnit from '@/unit/enemy_unit';
+import TerrainWindow from '../../../window/passiveWindow/terrainWindow';
+import NullWindow from '../../../window/nullWindow';
+import UnitMapWindow from '../../../window/passiveWindow/unitMapWindow';
+import { equivalentPositions } from '~/util';
+import MovingAnimation from '../../../animations/movingAnimation';
+import CombatInformationWindow from '../../../window/interactiveWindow/combatInformationWindow';
+import Combat from '../../../combat/combat';
+import GameFinishedWindow from '../../../window/passiveWindow/gameFinishedWindow';
+import NullCursor from '../../../display/nullCursor';
+import UnitPostMovePhaseWindow from '../../../window/interactiveWindow/unitPostMovePhaseWindow';
+
+function Player(board, display, phaseStage) {
+  this.board = board;
+  this.display = display;
+  this.cursor = this.display.cursor
+  this.phaseStage = phaseStage;
+  this.unitType = PlayerUnit;
+  this.opposingUnitType = EnemyUnit;
+  this.units = this.listOfOwnUnits();
+  this.gameFinishedWindow = new GameFinishedWindow();
+}
+
+Player.prototype = Object.create(GeneralPlayer.prototype);
+Player.prototype.constructor = Player;
+
+Player.prototype.receiveControllerInput = function(button) {
+  if (this.phaseStage.stage === 'select unit') {
+    this.playSelectUnit(button);
+  } else if (this.phaseStage.stage === 'player unit moving') {
+    this.playPlayerUnitMoving(button);
+  } else if (this.phaseStage.stage === 'post movement options') {
+    this.playPostMovementOptions(button);
+  } else if (this.phaseStage.stage === 'select unit to fight') {
+    this.playSelectUnitToFight(button);
+  }
+}
+
+Player.prototype.isPhaseOver = function() {
+  let phaseOver = true;
+  this.units.forEach(function(item, key, map) {
+    if(key.actionTaken === false) {
+      phaseOver = false;
+    }
+  });
+
+  return phaseOver;
+}
+
 // play select unit
 Player.prototype.playSelectUnit = function(button) {
   if (button === 'A') {
@@ -32,8 +83,12 @@ Player.prototype.updateUnitMapWindow = function() {
 
 //play player unit moving
 Player.prototype.playPlayerUnitMoving = function(button) {
+  // const check = this.selectedUnit().validMoveSpaces()[this.cursorPos()];
+  // debugger
+
   if (button === 'A') {
-    if (this.selectedUnit().validMoveSpaces()[this.cursorPos()]) {
+    const moveCondition = this.selectedUnit().validMoveSpaces()[this.cursorPos()];
+    if (moveCondition || moveCondition === 0) {
       this.moveSelectedUnit();
     }
   } else if (button === 'B') {
@@ -57,7 +112,7 @@ Player.prototype.moveSelectedUnit = function() {
 
 Player.prototype.setMovingAnimation = function() {
   this.selectedUnit().moving = true;
-
+  // debugger
   const siftedRoute = this.selectedUnit().pathFinder.setupRoute(this.cursorPos());
   this.selectedUnit().movingAnimation = new MovingAnimation(
     this.selectedUnit(),
@@ -68,14 +123,10 @@ Player.prototype.setMovingAnimation = function() {
 }
 
 Player.prototype.updateSelectedUnitRouteSpaces = function() {
-  // if (this.selectedUnit().moveSpaces[this.cursorPos()] === true) {
   if (this.selectedUnit().pathFinder.moveThroughPositions.positions[this.cursorPos()] != undefined &&
       !equivalentPositions(this.cursorPos(), this.selectedUnit().position)) {
-    // this.selectedUnit().routeSpaces =
-    // this.selectedUnit().findAnOptimalRoute(this.cursorPos());
     this.selectedUnit().pathFinder.mazeSolver.findPath(this.cursorPos());
   } else {
-    // this.selectedUnit().routeSpaces = [this.selectedUnit().position];
     this.selectedUnit().pathFinder.mazeSolver.routePositions = [this.selectedUnit().position];
   }
 }
@@ -111,7 +162,8 @@ Player.prototype.postMovementDecision = function() {
     this.fightPreparations();
   } else if (option === 'Seize') {
     this.phaseStage.stage = 'Game Finished';
-    this.display.window = new GameFinishedWindow();
+    this.display.window = this.gameFinishedWindow;
+    // this.display.window = new GameFinishedWindow();
     this.display.cursor = new NullCursor();
   }
 }
@@ -155,7 +207,7 @@ Player.prototype.initiateFight = function() {
   let pos = this.display.window.returnOption();
 
   let newCombat = new Combat(this.selectedUnit(), this.board.space(pos).unit);
-  this.display.combatAnimation = new CombatAnimation(newCombat, this.phaseStage);
+  this.display.setupCombatAnimation(newCombat, this.phaseStage);
   newCombat.initiateFight();
   this.phaseStage.nextStage('combat animation');
   this.cursor.selectedUnit.actionTaken = true;
@@ -180,3 +232,6 @@ Player.prototype.deselectUnit = function() {
   this.selectedUnit().nullifyOptions(this.display);
   this.cursor.deselectUnit();
 }
+
+
+export default Player;

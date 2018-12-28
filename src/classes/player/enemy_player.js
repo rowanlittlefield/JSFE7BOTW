@@ -1,10 +1,10 @@
-import GeneralPlayer from  './generalPlayer';
+import GeneralPlayer from  '@/player/general_player';
 import PlayerUnit from '@/unit/player_unit';
 import EnemyUnit from '@/unit/enemy_unit';
 import { equivalentPositions } from '~/util';
-import MovingAnimation from '../animations/movingAnimation';
-import Combat from '../combat/combat';
-import CombatAnimation from '../animations/combatAnimation';
+import MovingAnimation from '../../../animations/movingAnimation';
+import Combat from '../../../combat/combat';
+import CombatAnimation from '../../../animations/combatAnimation';
 
 function EnemyPlayer(board, display, phaseStage, frameSource) {
   this.board = board;
