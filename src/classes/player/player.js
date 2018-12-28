@@ -7,9 +7,9 @@ import UnitMapWindow from '@/game_window/unit_map_window';
 import { equivalentPositions } from '~/util';
 import MovingAnimation from '../../../animations/movingAnimation';
 import CombatInformationWindow from '@/game_window/combat_information_window';
-import Combat from '../../../combat/combat';
+import Combat from '@/combat/combat';
 import GameFinishedWindow from '@/game_window/game_finished_window';
-import NullCursor from '../../../display/nullCursor';
+import NullCursor from '@/cursor/null_cursor';
 import UnitPostMovePhaseWindow from '@/game_window/unit_post_move_phase_window';
 
 function Player(board, display, phaseStage) {

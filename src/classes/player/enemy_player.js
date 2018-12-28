@@ -3,7 +3,7 @@ import PlayerUnit from '@/unit/player_unit';
 import EnemyUnit from '@/unit/enemy_unit';
 import { equivalentPositions } from '~/util';
 import MovingAnimation from '../../../animations/movingAnimation';
-import Combat from '../../../combat/combat';
+import Combat from '@/combat/combat';
 import CombatAnimation from '../../../animations/combatAnimation';
 
 function EnemyPlayer(board, display, phaseStage, frameSource) {

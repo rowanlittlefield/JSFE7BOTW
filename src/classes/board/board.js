@@ -1,4 +1,4 @@
-import Space from './space';
+import Space from '@/space/space';
 
 function Board(dimensions, sprite){
   this.dimensions = dimensions;

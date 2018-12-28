@@ -1,6 +1,6 @@
 import PlayerUnit from '@/unit/player_unit';
-import PUAttack from './attack/puAttack';
-import EUAttack from './attack/euAttack';
+import PUAttack from '@/attack/pu_attack';
+import EUAttack from '@/attack/eu_attack';
 
 export default function Combat(initiator, recipient) {
   this.initiator = initiator;

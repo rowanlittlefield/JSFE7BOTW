@@ -1,4 +1,4 @@
-import Wall from './terrain/wall';
+import Wall from '@/terrain/wall';
 import PlayerUnit from '@/unit/player_unit';
 
 function Space(position) {

@@ -1,7 +1,7 @@
 import { stringToPos, distance } from '~/util';
 import EnemyUnit from '@/unit/enemy_unit';
 import PlayerUnit from '@/unit/player_unit';
-import Gate from '../../../board/terrain/gate';
+import Gate from '@/terrain/gate';
 import { PhysicalWeapon, MagicalWeapon } from '@/item/weapon';
 import { c } from '../../../createContext';
 

@@ -1,4 +1,4 @@
-import Terrain from './terrain';
+import Terrain from '@/terrain/terrain';
 
 function Peak(board, position) {
   Terrain.call(this, board, position);

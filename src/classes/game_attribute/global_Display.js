@@ -1,13 +1,13 @@
-import DisplayWindow from './displayWindow';
+import DisplayWindow from '@/display_window/display_window';
 import NullWindow from '@/game_window/null_window';
-import { c } from '../createContext';
+import { c } from '../../../createContext';
 import UnitPostMovePhaseWindow from '@/game_window/unit_post_move_phase_window';
 import UnitMapWindow from '@/game_window/unit_map_window';
 import TerrainWindow from '@/game_window/terrain_window';
 import CombatInformationWindow from '@/game_window/combat_information_window';
 import GameFinishedWindow from '@/game_window/game_finished_window';
-import BattlePlatformSprite from '../animations/battlePlatformSprite';
-import CombatAnimation from '../animations/combatAnimation';
+import BattlePlatformSprite from '../../../animations/battlePlatformSprite';
+import CombatAnimation from '../../../animations/combatAnimation';
 
 function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.board = board;

@@ -1,5 +1,5 @@
 import Attack from './attack';
-import NormalDamageAnimation from '../../animations/hitAnimations/normalDamageAnimation';
+import NormalDamageAnimation from '../../../animations/hitAnimations/normalDamageAnimation';
 
 function EUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
   Attack.call(

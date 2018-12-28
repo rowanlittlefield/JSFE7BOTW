@@ -1,4 +1,4 @@
-import ChapterOne from './chapter/campaignChapters/chapterOne/chapterOne';
+import ChapterOne from '@/chapter/chapter_one';
 
 function Campaign(display, frameSource) {
   this.display = display;

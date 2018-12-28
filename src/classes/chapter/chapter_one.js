@@ -1,6 +1,6 @@
-import Board from '../../../../board/board';
-import Chapter from '../../chapter';
-import Sprite from '../../../../animations/sprite';
+import Board from '@/board/board';
+import Chapter from '@/chapter/chapter';
+import Sprite from '../../../animations/sprite';
 import Roy from '@/unit/roy';
 import Inventory from '@/unit_attribute/inventory';
 import { SwordOfSeals } from '@/item/weapon';
@@ -9,14 +9,14 @@ import { ManiKatti } from '@/item/weapon';
 import Brigand from '@/unit/brigand';
 import { IronAxe } from '@/item/weapon';
 
-import Thicket from '../../../../board/terrain/thicket';
-import Wall from '../../../../board/terrain/wall';
-import Forest from '../../../../board/terrain/forest';
-import Mountain from '../../../../board/terrain/mountain';
-import Peak from '../../../../board/terrain/peak';
-import Fort from '../../../../board/terrain/fort';
-import Gate from '../../../../board/terrain/gate';
-import Village from '../../../../board/terrain/village';
+import Thicket from '@/terrain/thicket';
+import Wall from '@/terrain/wall';
+import Forest from '@/terrain/forest';
+import Mountain from '@/terrain/mountain';
+import Peak from '@/terrain/peak';
+import Fort from '@/terrain/fort';
+import Gate from '@/terrain/gate';
+import Village from '@/terrain/village';
 
 function ChapterOne(display, frameSource, sF) {
 

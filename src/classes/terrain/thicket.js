@@ -1,4 +1,4 @@
-import Terrain from './terrain';
+import Terrain from '@/terrain/terrain';
 
 function Thicket(board, position) {
   Terrain.call(this, board, position);
