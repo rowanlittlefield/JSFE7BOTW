@@ -2,7 +2,7 @@ import PhaseStage from '../../phaseStage/phaseStage';
 import Player from '@/player/player';
 import EnemyPlayer from '@/player/enemy_player';
 import Cursor from '../../display/cursor';
-import NullWindow from '../../window/nullWindow';
+import NullWindow from '@/game_window/null_window';
 
 function Chapter(board, display, frameSource, objective, sF) {
   this.phase = 0;

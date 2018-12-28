@@ -134,7 +134,7 @@ BattlePlatformSprite.prototype.constructor = BattlePlatformSprite;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _window_passiveWindow_combatAnimationBackgroundWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../window/passiveWindow/combatAnimationBackgroundWindow */ "./window/passiveWindow/combatAnimationBackgroundWindow.js");
+/* harmony import */ var _game_window_combat_animation_background_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/combat_animation_background_window */ "./src/classes/game_window/combat_animation_background_window.js");
 /* harmony import */ var _battlePlatformSprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battlePlatformSprite */ "./animations/battlePlatformSprite.js");
 
 
@@ -146,7 +146,7 @@ function CombatAnimation(combat, phaseStage, battlePlatformSprite) {
   this.phaseStage = phaseStage;
   this.nonCombatFrames = 0;
 
-  this.backgroundWindow = new _window_passiveWindow_combatAnimationBackgroundWindow__WEBPACK_IMPORTED_MODULE_0__["default"](
+  this.backgroundWindow = new _game_window_combat_animation_background_window__WEBPACK_IMPORTED_MODULE_0__["default"](
     combat.pu, combat.eu
   );
 
@@ -526,7 +526,7 @@ RoyCriticalHitAnimation.prototype.render = function(sF) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _window_interactiveWindow_unitPostMovePhaseWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../window/interactiveWindow/unitPostMovePhaseWindow */ "./window/interactiveWindow/unitPostMovePhaseWindow.js");
+/* harmony import */ var _game_window_unit_post_move_phase_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/unit_post_move_phase_window */ "./src/classes/game_window/unit_post_move_phase_window.js");
 
 
 function MovingAnimation(unit, route, ticksPerTranslation, phaseStage, display) {
@@ -595,7 +595,7 @@ MovingAnimation.prototype.endAnimation = function() {
   this.unit.moving = false;
   if (this.phaseStage.stage === 'unit moving animation') {
     this.phaseStage.nextStage('post movement options');
-    this.display.window = new _window_interactiveWindow_unitPostMovePhaseWindow__WEBPACK_IMPORTED_MODULE_0__["default"](this.unit);
+    this.display.window = new _game_window_unit_post_move_phase_window__WEBPACK_IMPORTED_MODULE_0__["default"](this.unit);
   }
 }
 
@@ -2014,7 +2014,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _player_player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/player/player */ "./src/classes/player/player.js");
 /* harmony import */ var _player_enemy_player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/player/enemy_player */ "./src/classes/player/enemy_player.js");
 /* harmony import */ var _display_cursor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../display/cursor */ "./display/cursor.js");
-/* harmony import */ var _window_nullWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../window/nullWindow */ "./window/nullWindow.js");
+/* harmony import */ var _game_window_null_window__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/game_window/null_window */ "./src/classes/game_window/null_window.js");
 
 
 
@@ -2090,7 +2090,7 @@ Chapter.prototype.changePhase = function() {
     this.phase = (this.phase + 1) % 2;
     this.currentPlayer = this.players[this.phase];
   }
-  this.display.window = new _window_nullWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
+  this.display.window = new _game_window_null_window__WEBPACK_IMPORTED_MODULE_4__["default"]();
   if(this.phase === 0) {
     this.numberOfTurns += 1;
   }
@@ -2658,13 +2658,13 @@ DisplayWindow.prototype.updatePosition = function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _displayWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./displayWindow */ "./display/displayWindow.js");
-/* harmony import */ var _window_nullWindow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../window/nullWindow */ "./window/nullWindow.js");
+/* harmony import */ var _game_window_null_window__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/game_window/null_window */ "./src/classes/game_window/null_window.js");
 /* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
-/* harmony import */ var _window_interactiveWindow_unitPostMovePhaseWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../window/interactiveWindow/unitPostMovePhaseWindow */ "./window/interactiveWindow/unitPostMovePhaseWindow.js");
-/* harmony import */ var _window_passiveWindow_unitMapWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../window/passiveWindow/unitMapWindow */ "./window/passiveWindow/unitMapWindow.js");
-/* harmony import */ var _window_passiveWindow_terrainWindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../window/passiveWindow/terrainWindow */ "./window/passiveWindow/terrainWindow.js");
-/* harmony import */ var _window_interactiveWindow_combatInformationWindow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../window/interactiveWindow/combatInformationWindow */ "./window/interactiveWindow/combatInformationWindow.js");
-/* harmony import */ var _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../window/passiveWindow/gameFinishedWindow */ "./window/passiveWindow/gameFinishedWindow.js");
+/* harmony import */ var _game_window_unit_post_move_phase_window__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/game_window/unit_post_move_phase_window */ "./src/classes/game_window/unit_post_move_phase_window.js");
+/* harmony import */ var _game_window_unit_map_window__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/game_window/unit_map_window */ "./src/classes/game_window/unit_map_window.js");
+/* harmony import */ var _game_window_terrain_window__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/game_window/terrain_window */ "./src/classes/game_window/terrain_window.js");
+/* harmony import */ var _game_window_combat_information_window__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/game_window/combat_information_window */ "./src/classes/game_window/combat_information_window.js");
+/* harmony import */ var _game_window_game_finished_window__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/game_window/game_finished_window */ "./src/classes/game_window/game_finished_window.js");
 /* harmony import */ var _animations_battlePlatformSprite__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../animations/battlePlatformSprite */ "./animations/battlePlatformSprite.js");
 /* harmony import */ var _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../animations/combatAnimation */ "./animations/combatAnimation.js");
 
@@ -2683,7 +2683,7 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.displayWindow = new _displayWindow__WEBPACK_IMPORTED_MODULE_0__["default"](sF, 5*sF, 1*sF, 15*sF, 10*sF);
   this.cursor = cursor;
   this.phaseStage = phaseStage;
-  this.window = new _window_nullWindow__WEBPACK_IMPORTED_MODULE_1__["default"]();
+  this.window = new _game_window_null_window__WEBPACK_IMPORTED_MODULE_1__["default"]();
   this.combatAnimation = null;
   this.gameIsFinished = false;
 
@@ -2701,7 +2701,7 @@ GlobalDisplay.prototype.chapterSetup = function(board, cursor, phaseStage) {
   this.board = board;
   this.cursor = cursor;
   this.phaseStage = phaseStage;
-  this.window = new _window_nullWindow__WEBPACK_IMPORTED_MODULE_1__["default"]();
+  this.window = new _game_window_null_window__WEBPACK_IMPORTED_MODULE_1__["default"]();
   this.setupUnitHash();
 }
 
@@ -2752,11 +2752,11 @@ GlobalDisplay.prototype.renderUnits = function() {
 }
 
 GlobalDisplay.prototype.renderWindows = function(sF) {
-  if (this.window instanceof _window_interactiveWindow_unitPostMovePhaseWindow__WEBPACK_IMPORTED_MODULE_3__["default"] ||
-    this.window instanceof _window_passiveWindow_unitMapWindow__WEBPACK_IMPORTED_MODULE_4__["default"] ||
-    this.window instanceof _window_passiveWindow_terrainWindow__WEBPACK_IMPORTED_MODULE_5__["default"] ||
-    this.window instanceof _window_interactiveWindow_combatInformationWindow__WEBPACK_IMPORTED_MODULE_6__["default"] ||
-    this.window instanceof _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_7__["default"]) {
+  if (this.window instanceof _game_window_unit_post_move_phase_window__WEBPACK_IMPORTED_MODULE_3__["default"] ||
+    this.window instanceof _game_window_unit_map_window__WEBPACK_IMPORTED_MODULE_4__["default"] ||
+    this.window instanceof _game_window_terrain_window__WEBPACK_IMPORTED_MODULE_5__["default"] ||
+    this.window instanceof _game_window_combat_information_window__WEBPACK_IMPORTED_MODULE_6__["default"] ||
+    this.window instanceof _game_window_game_finished_window__WEBPACK_IMPORTED_MODULE_7__["default"]) {
     this.window.render(this.displayWindow)
   } else {
     this.window.render(sF);
@@ -2992,7 +2992,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _campaign_campaign__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../campaign/campaign */ "./campaign/campaign.js");
 /* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./game */ "./game/game.js");
 /* harmony import */ var _MainMenu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MainMenu */ "./game/MainMenu.js");
-/* harmony import */ var _window_interactiveWindow_mainMenuWindowOne__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../window/interactiveWindow/mainMenuWindowOne */ "./window/interactiveWindow/mainMenuWindowOne.js");
+/* harmony import */ var _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/game_window/main_menu_window_one */ "./src/classes/game_window/main_menu_window_one.js");
 
 
 
@@ -3012,7 +3012,7 @@ let game = new _game__WEBPACK_IMPORTED_MODULE_6__["default"](
   display,
   frameSource,
   campaign,
-  new _MainMenu__WEBPACK_IMPORTED_MODULE_7__["default"](new _window_interactiveWindow_mainMenuWindowOne__WEBPACK_IMPORTED_MODULE_8__["default"]()),
+  new _MainMenu__WEBPACK_IMPORTED_MODULE_7__["default"](new _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_8__["default"]()),
 );
 
 game.play();
@@ -3766,6 +3766,706 @@ RoyReceiveHitAnimation.prototype.update = function() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RoyReceiveHitAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/combat_animation_background_window.js":
+/*!***********************************************************************!*\
+  !*** ./src/classes/game_window/combat_animation_background_window.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/passive_window */ "./src/classes/game_window/passive_window.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
+/* harmony import */ var _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../animations/preloadedAssetSprite/combatPUNameWindow */ "./animations/preloadedAssetSprite/combatPUNameWindow.js");
+/* harmony import */ var _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../animations/preloadedAssetSprite/combatEUNameWindow */ "./animations/preloadedAssetSprite/combatEUNameWindow.js");
+/* harmony import */ var _animations_preloadedAssetSprite_combatLowerWindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../animations/preloadedAssetSprite/combatLowerWindow */ "./animations/preloadedAssetSprite/combatLowerWindow.js");
+
+
+
+
+
+
+
+function drawStrokedSmaller(text, x, y, opacity) {
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].font = "15px Serif"
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].strokeStyle = 'black';
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].lineWidth = 6;
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].strokeText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillText(text, x, y);
+}
+
+function CombatAnimationBackgroundWindow(pu, eu) {
+  const sF = 45;
+  this.sF = sF;
+  this.x = 5*sF;
+  this.y = 0*sF;
+  this.height = 15*sF;
+  this.width = 10*sF;
+
+  // this.halfWidth = innerWidth / 2;
+  this.halfWidth = (this.x + this.width) / 2;
+  this.pu = pu;
+  this.eu = eu;
+  this.playerHP = pu.current_hp;
+  this.enemyHP = eu.current_hp;
+
+  this.puNameWindowSprite = new _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  this.euNameWindowSprite = new _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
+  this.lowerWindow = new _animations_preloadedAssetSprite_combatLowerWindow__WEBPACK_IMPORTED_MODULE_5__["default"]();
+}
+
+CombatAnimationBackgroundWindow.prototype = Object.create(_game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatAnimationBackgroundWindow.prototype.constructor = CombatAnimationBackgroundWindow;
+
+CombatAnimationBackgroundWindow.prototype.render = function(sF) {
+  this.renderNameWindows();
+  // this.renderWeaponWindows();
+  this.renderLowerWindow();
+  this.renderWeaponNames();
+  this.renderStatWindows();
+  // this.renderCentralDelineator();
+  this.renderHPWindows();
+}
+
+CombatAnimationBackgroundWindow.prototype.renderNameWindows = function() {
+  // let midX = (this.x + this.width)/2;
+  this.puNameWindowSprite.render(12.8, 0.8, 45);
+  this.euNameWindowSprite.render(1.2, 0.8, 45);
+  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -200 - 150, -275);
+  this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 200, 275);
+}
+
+CombatAnimationBackgroundWindow.prototype.renderNameWindow = function(color,
+  unitName, xDisplacement, nameXCoord) {
+  // c.fillStyle = color;
+  // c.fillRect(this.halfWidth + xDisplacement, this.y + 20, 150, 50);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
+    unitName, this.halfWidth + nameXCoord, this.y + 50);
+}
+
+CombatAnimationBackgroundWindow.prototype.renderLowerWindow = function() {
+  this.lowerWindow.render(7, 9.12, 45);
+}
+
+CombatAnimationBackgroundWindow.prototype.renderStatWindows = function() {
+
+  this.renderStatWindow('rgba(0, 0, 142, 1)', 238, this.pu, this.eu);
+  this.renderStatWindow('rgba(255, 0, 0, 1)', -238 - 100, this.eu, this.pu);
+}
+
+CombatAnimationBackgroundWindow.prototype.renderStatWindow = function(color, deltaX, attacker, defender) {
+  // c.fillStyle = color;
+  const y = 340;
+  // c.fillRect(this.halfWidth + deltaX, y, 100, 50);
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
+    `HIT`, this.halfWidth + deltaX, y + 15);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
+    `DMG`, this.halfWidth + deltaX, y + 30);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
+    `CRT`, this.halfWidth + deltaX, y + 45);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
+    `${attacker.accuracy(defender)}`, this.halfWidth + deltaX + 100, y + 15);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
+    `${attacker.damage(defender)}`, this.halfWidth + deltaX + 100, y + 30);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
+    `${attacker.criticalChance(defender)}`, this.halfWidth + deltaX + 100, y + 45);
+}
+
+CombatAnimationBackgroundWindow.prototype.renderCentralDelineator = function() {
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = 'rgba(0, 0, 0, 1)';
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(this.halfWidth - 1, 360, 2, 90);
+}
+
+CombatAnimationBackgroundWindow.prototype.renderWeaponWindows = function() {
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = 'rgba(255, 248, 220, 1)';
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(this.halfWidth + 1, 360, 400 - 1, 90);
+
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = 'rgba(255, 248, 220, 1)';
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(this.halfWidth - 300 - 100, 360, 400 - 1, 90);
+}
+
+CombatAnimationBackgroundWindow.prototype.renderWeaponNames = function() {
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(0, 0, 0, 1)',
+    `${this.pu.equippedWeapon.stats['name']}`, this.halfWidth + 50, 385);
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(0, 0, 0, 1)',
+    `${this.eu.equippedWeapon.stats['name']}`, this.halfWidth - 50, 385);
+}
+
+CombatAnimationBackgroundWindow.prototype.renderHPWindows = function() {
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255 1)',
+   `${this.playerHP}`, this.halfWidth + 50, 430);
+
+   Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255 1)',
+    `${this.enemyHP}`, this.halfWidth - 50, 430);
+}
+
+CombatAnimationBackgroundWindow.prototype.modifyHP = function(defender, newHP) {
+  if (defender === this.pu) {
+    this.playerHP = newHP;
+  } else {
+    this.enemyHP = newHP;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CombatAnimationBackgroundWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/combat_information_window.js":
+/*!**************************************************************!*\
+  !*** ./src/classes/game_window/combat_information_window.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/interactive_window */ "./src/classes/game_window/interactive_window.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
+
+
+
+
+function CombatInformationWindow(unit, options) {
+  _game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, options[0][0], options[0][1], 2, 1.5, 150, 135, options);
+  this.centerX = this.x + (this.dx / 2);
+  this.unit = unit;
+}
+
+CombatInformationWindow.prototype = Object.create(_game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatInformationWindow.prototype.constructor = CombatInformationWindow;
+
+CombatInformationWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
+  let x = (rx + hd + (dx / sF)) * sF <= window.innerWidth ? (rx + hd) * sF : (rx - hd - (dx/sF)) * sF;
+  let y = (ry - vd) * sF >= 0 ? (ry - vd) * sF : (ry + vd) * sF;
+  return [x, y, dx, dy];
+}
+
+CombatInformationWindow.prototype.updateCoordinates = function(windowCursorPos) {
+  let pos = this.options[this.cursorPos];
+  let coord = this.setDimensions(pos[0], pos[1], 2, 1.5, 150, 135, 52);
+  this.x = coord[0];
+  this.y = coord[1];
+  this.centerX = this.x + (this.dx / 2);
+}
+
+CombatInformationWindow.prototype.render = function(displayWindow) {
+  const sF = displayWindow.sF;
+  let pos = this.options[this.cursorPos];
+  const eastX = (displayWindow.x + (displayWindow.width / 2) -  sF * 7.22);
+  const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 7.22) - this.dx);
+  const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (westX) : (eastX);
+  let topX = (x) - displayWindow.x;
+  // let topY = (displayWindow.y + (displayWindow.height / 2) - (sF * 5.5));
+  let topY = (displayWindow.height / 2) - (sF * 4.75);
+  const centerX = topX + (this.dx/2);
+
+  let opponent = this.unit.board.grid[pos[0]][pos[1]].unit;
+
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = "rgba(0, 255, 255, 1)";
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX, topY, this.dx, 35);
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX, topY + 35, 50, 65);
+
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = "rgba(204, 204, 0, 1)";
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX + 50, topY + 35, 50, 65);
+
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = "rgba(255, 0, 0, 1)";
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX + 100, topY + 35, 50, 65);
+  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX, topY + 100, this.dx, 35);
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(this.unit.name, 'center', centerX, topY + 15);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(this.unit.equippedWeapon.stats['name'], 'center', centerX, topY + 30);
+  this.renderStatRow(this.unit.current_hp, opponent.current_hp, 'HP', centerX, topY + 50, this.dx);
+
+  if (opponent.equippedWeapon.stats['range'].includes(Object(_util__WEBPACK_IMPORTED_MODULE_2__["distance"])(opponent.position, this.unit.position))) {
+    this.renderStatRow(this.unit.damage(opponent),
+    opponent.damage(this.unit), 'MT', centerX, topY + 65, this.dx);
+    this.renderStatRow(this.unit.accuracy(opponent),
+    opponent.accuracy(this.unit), 'HT', centerX, topY + 80, this.dx);
+    this.renderStatRow(this.unit.criticalChance(opponent),
+    opponent.criticalChance(this.unit), 'CT', centerX, topY + 95, this.dx);
+
+  } else {
+    this.renderStatRow(this.unit.damage(opponent),
+    '--', 'MT', centerX, topY + 65, this.dx);
+    this.renderStatRow(this.unit.accuracy(opponent),
+    '--', 'HT', centerX, topY + 80, this.dx);
+    this.renderStatRow(this.unit.criticalChance(opponent),
+    '--', 'CT', centerX, topY + 95, this.dx);
+    Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(opponent.equippedWeapon.stats['name'], 'center', centerX, topY + 115);
+    Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(opponent.name, 'center', centerX, topY + 130);
+  }
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(opponent.equippedWeapon.stats['name'], 'center', centerX, topY + 115);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(opponent.name, 'center', centerX, topY + 130);
+
+  if (this.unit.isRepeatedAttack(opponent)) {
+    Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])('x2', 'right', topX + this.dx, topY + 30);
+  }
+  if (opponent.isRepeatedAttack(this.unit)) {
+    Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])('x2', 'right', topX + this.dx, topY + 115);
+  }
+  const oppPosGalileo = [opponent.position[0] - displayWindow.x/sF, opponent.position[1] - displayWindow.y/sF]
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["highlight"])(oppPosGalileo, 'rgba(255, 0, 255, 0.2)', sF); //blue
+}
+
+CombatInformationWindow.prototype.renderStatRow = function(unitStat, oppStat, statName, centerX, y, width) {
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(`${unitStat}`, 'left', centerX - (width/ 2), y);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(`${statName}`, 'center', centerX, y);
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(`${oppStat}`, 'right', centerX + (width/ 2), y);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CombatInformationWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/game_finished_window.js":
+/*!*********************************************************!*\
+  !*** ./src/classes/game_window/game_finished_window.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
+
+
+
+
+function drawStrokedSmaller(text, x, y, opacity) {
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].font = "15px Serif"
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeStyle = 'black';
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].lineWidth = 6;
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillText(text, x, y);
+}
+
+function GameFinishedWindow() {
+  this.dx = 45 * 2;
+  this.dy = 45 * 1;
+
+  this.backgroundWindow = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
+    315, 191, 140, 95, "src/assets/window_images/fe_new_background_window.png", 1,
+    [[0, 0]]
+  );
+
+  this.backgroundSpriteOne = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
+    118, 79, 118, 79, "src/assets/window_images/FE_6_story_scenes.png", 1,
+    [[4, 3]]
+  );
+  this.scrollSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](480, 320, 480*0.5, 320*0.5, "src/assets/window_images/fe_6_scroll_you_win.png", 1, 1);
+}
+
+GameFinishedWindow.prototype.render = function(displayWindow) {
+  this.backgroundWindow.render(6.83, 6.45, 45);
+  this.backgroundSpriteOne.render(6.8, 6, 45);
+  this.scrollSprite.render(6.9, 10.5, 45);
+  drawStrokedSmaller('Chapter Complete', 280, 365, 1);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (GameFinishedWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/game_window.js":
+/*!************************************************!*\
+  !*** ./src/classes/game_window/game_window.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// parameters
+ // rx - reference x
+ // ry - reference y
+ // hd - horizontal displacement
+ // vd - vertical displacement
+ // dx - width
+ // dy - height
+
+
+function GameWindow(rx, ry, hd, vd, dx, dy) {
+  let sF = 52;
+  let attributes = this.setDimensions(rx, ry, hd, vd, dx, dy, sF);
+  this.x = attributes[0];
+  this.y = attributes[1];
+  this.dx = attributes[2]
+  this.dy = attributes[3];
+
+}
+
+GameWindow.prototype.setDimensions = function(sF) {
+  return [this.unit.position[0], this.unit.position[1]];
+}
+
+GameWindow.prototype.render = function(sF) {
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (GameWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/interactive_window.js":
+/*!*******************************************************!*\
+  !*** ./src/classes/game_window/interactive_window.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_game_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/game_window */ "./src/classes/game_window/game_window.js");
+
+
+function InteractiveWindow(rx, ry, hd, vd, dx, dy, options) {
+  _game_window_game_window__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, rx, ry, hd, vd, dx, dy);
+  this.options = options;
+  this.cursorPos = 0;
+}
+
+InteractiveWindow.prototype = Object.create(_game_window_game_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+InteractiveWindow.prototype.constructor = InteractiveWindow;
+
+InteractiveWindow.prototype.scrollCursor = function(button) {
+  if (button == "down" && this.cursorPos < this.options.length - 1) {
+    this.cursorPos += 1;
+  } else if(button == "up" && this.cursorPos > 0) {
+    this.cursorPos -= 1;
+  }
+}
+
+InteractiveWindow.prototype.returnOption = function() {
+  return this.options[this.cursorPos];
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (InteractiveWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/main_menu_window_one.js":
+/*!*********************************************************!*\
+  !*** ./src/classes/game_window/main_menu_window_one.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/interactive_window */ "./src/classes/game_window/interactive_window.js");
+/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
+
+
+
+
+
+function MainMenuWindowOne() {
+  let options = ['New Game']//, 'Credits']
+  _game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, 0, 0, 0, 0, innerWidth, 100, options);
+  this.color = "rgba(65, 105, 225, 1)";
+  this.logoSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](240, 160, 240, 160, "src/assets/window_images/FE_titlescreen_logo.png", 1, 1);
+
+  this.backgroundSpriteTwo = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_2__["default"](
+    //238, 319
+    239, 150, 600/2.22, 450/2.5, "src/assets/window_images/FE_7_story_scenes.png", 1,
+    [[490, 330]]
+  );
+
+  this.textOpacity = 0;
+}
+
+MainMenuWindowOne.prototype = Object.create(_game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+MainMenuWindowOne.prototype.constructor = MainMenuWindowOne;
+
+MainMenuWindowOne.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
+  let centerX = (45*15)/2;
+
+  let xf = centerX - 100;
+  let yf = 300;
+  let dxf = 200;
+  let dyf = 60;
+  return [xf, yf, dxf, dyf];
+}
+
+MainMenuWindowOne.prototype.render = function(sF) {
+
+
+  this.backgroundSpriteTwo.render(7, 9, 45);
+  if (this.backgroundSpriteTwo.coordinatesList[0][1] < 490) {
+    this.backgroundSpriteTwo.coordinatesList[0][1] += 0.15;
+  } else if(this.textOpacity < 1) {
+    this.textOpacity = this.textOpacity + 0.01
+    drawStroked(`Press Enter`, 290, 400, this.textOpacity);
+  } else {
+    drawStroked(`Press Enter`, 290, 400, this.textOpacity);
+  }
+  this.logoSprite.render(7, 5.2, 45);
+
+}
+
+function drawStroked(text, x, y, opacity) {
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].font = "20px Serif"
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].strokeStyle = 'black';
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].lineWidth = 7;
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].strokeText(text, x, y);
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
+    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillText(text, x, y);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MainMenuWindowOne);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/null_window.js":
+/*!************************************************!*\
+  !*** ./src/classes/game_window/null_window.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_game_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/game_window */ "./src/classes/game_window/game_window.js");
+
+
+function NullWindow() {
+
+}
+
+NullWindow.prototype = Object.create(_game_window_game_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+NullWindow.prototype.constructor = NullWindow;
+
+NullWindow.prototype.render = function(sF, windowCursorPos) {
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (NullWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/passive_window.js":
+/*!***************************************************!*\
+  !*** ./src/classes/game_window/passive_window.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_game_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/game_window */ "./src/classes/game_window/game_window.js");
+
+
+function PassiveWindow(rx, ry, hd, vd, dx, dy) {
+  _game_window_game_window__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, rx, ry, hd, vd, dx, dy);
+}
+
+PassiveWindow.prototype = Object.create(_game_window_game_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+PassiveWindow.prototype.constructor = PassiveWindow;
+
+PassiveWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
+  let x = (rx + hd + dx) * sF <= window.innerWidth ? (rx + hd) * sF : (rx - hd - dx) * sF;
+  let y = (ry - vd) * sF >= 0 ? (ry - vd) * sF : (ry + vd) * sF;
+
+  return [x, y, dx * sF, dy * sF];
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PassiveWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/terrain_window.js":
+/*!***************************************************!*\
+  !*** ./src/classes/game_window/terrain_window.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/passive_window */ "./src/classes/game_window/passive_window.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
+
+
+
+function TerrainWindow(space) {
+  let terrain = space.terrain;
+  _game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, space.position[0], space.position[1], 2, 2, 2, 1.4);
+  this.name = terrain.terrainName();
+  this.position = space.position;
+  this.defenseBonus = terrain.defenseBonus();
+  this.avoidBonus = terrain.avoidBonus();
+  this.color = "rgba(0, 255, 255, 0.7)";
+}
+
+TerrainWindow.prototype = Object.create(_game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+TerrainWindow.prototype.constructor = TerrainWindow;
+
+TerrainWindow.prototype.render = function(displayWindow) {
+  const sF = displayWindow.sF;
+  const eastX = ((displayWindow.width / 2) -  sF * 7);
+  const westX = ((displayWindow.width / 2) +  (sF * 7) - this.dx);
+  const topX = displayWindow.eastOrWest(this.position) === 'east' ? (westX) : (eastX);
+  const topY = (displayWindow.height / 2) + (sF * 3);
+
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_1__["preScaledHighlight"])(topX, topY, this.dx, this.dy, this.color);
+  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("20px Arial", 'center', 'rgba(255, 255, 225, 1)',
+  this.name, topX + (this.dx / 2), topY + (0.5 * sF));
+  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 225, 1)',
+  'DEF', topX, topY + (1 * sF));
+  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 225, 1)',
+  this.defenseBonus, topX + (this.dx), topY + (1 * sF));
+  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 225, 1)',
+  'AVO', topX, topY + (1.5 * sF));
+  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 225, 1)',
+  this.avoidBonus, topX + (this.dx), topY + (1.5 * sF));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (TerrainWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/unit_map_window.js":
+/*!****************************************************!*\
+  !*** ./src/classes/game_window/unit_map_window.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/passive_window */ "./src/classes/game_window/passive_window.js");
+/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
+
+
+
+
+
+function UnitMapWindow(unit) {
+  _game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, unit.position[0], unit.position[1], 2, 1.5, 4.76, 1.73);
+  this.unit = unit;
+  this.name = unit.name;
+  this.current_hp = unit.current_hp;
+  this.hp = unit.stats['hp'];
+  this.color = unit instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"]) ? "rgba(0, 255, 255, 0.7)" : "rgba(255, 0, 0, 0.7)";
+}
+
+UnitMapWindow.prototype = Object.create(_game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+UnitMapWindow.prototype.constructor = UnitMapWindow;
+
+UnitMapWindow.prototype.render = function(displayWindow) {
+  const sF = displayWindow.sF;
+  const northY = (displayWindow.y + (displayWindow.height / 2) -  sF * 4.75);
+  const southY = (displayWindow.y + (displayWindow.height / 2) +  (sF * 4.75) - this.dy);
+  const y = (displayWindow.northOrSouth(this.unit.position) === 'north' && displayWindow.eastOrWest(this.unit.position) === 'east') ? (southY) : (northY);
+  let topX = (displayWindow.width / 2) -  (sF * 7.25);
+  let topY = (y) - displayWindow.y;
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["preScaledHighlight"])(topX, topY, this.dx, this.dy, this.color);
+
+  this.unit.hpWindowSprite.renderFromCoordinates(
+    topX, topY, 2 * sF, 2 * sF
+  );
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])('20px Arial', 'left', 'rgba(0,0,0,1)',
+    this.name, topX + (2 * sF), topY + 0.5 *sF);
+  _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillText(`HP: ${this.current_hp} / ${this.hp}`,
+    topX + (2 * sF), topY + 1 * sF);
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["preScaledHighlight"])(topX + (2 * sF), (1.2 * sF) + topY, 3.5 * sF,
+   0.5 * sF, "rgba(0, 0, 0, 0.9)");
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_2__["preScaledHighlight"])(topX + (2 * sF), topY + (1.3 * sF),
+  3.5 * sF *(this.current_hp / this.hp), 0.3 * sF,
+   "rgba(255, 223, 0, 1)");
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (UnitMapWindow);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_window/unit_post_move_phase_window.js":
+/*!****************************************************************!*\
+  !*** ./src/classes/game_window/unit_post_move_phase_window.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/interactive_window */ "./src/classes/game_window/interactive_window.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
+
+
+
+
+function UnitPostMovePhaseWindow(unit) {
+  this.unit = unit;
+  let options = unit.postMoveWindowOptions();
+  _game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, unit.position[0], unit.position[1], 2,
+    unit.position[1], 2, (options.length * 0.5) + 0.2, options);
+  this.color = "rgba(65, 105, 225, 1)";
+}
+
+UnitPostMovePhaseWindow.prototype = Object.create(_game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+UnitPostMovePhaseWindow.prototype.constructor = UnitPostMovePhaseWindow;
+
+UnitPostMovePhaseWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
+  return [(rx + hd) * sF, ry * sF, dx * sF, dy * sF];
+}
+
+UnitPostMovePhaseWindow.prototype.render = function(displayWindow) {
+  const sF = displayWindow.sF;
+  const eastX = (displayWindow.x + (displayWindow.width / 2) -  sF * 6.5);
+  const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 6.5) - this.dx);
+  const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (westX) : (eastX);
+  let topX = (x) - displayWindow.x;
+  // let topY = ((displayWindow.height/4)) - displayWindow.y;
+  let topY = ((displayWindow.height/4));
+
+
+  Object(_util__WEBPACK_IMPORTED_MODULE_1__["preScaledHighlight"])(topX, topY, this.dx, this.dy, this.color);
+
+  for(let i = 0; i < this.options.length; i++) {
+    Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("20px Arial", 'left', 'rgba(255, 255, 225, 1)',
+    `${this.options[i]}`, topX, topY + ((1 + i) * sF * 0.5));
+
+    if (this.cursorPos === i) {
+      _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = "rgba(255, 223, 0, 0.5)";
+      _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillRect(topX, topY + ((0.1) + (i * 0.5)) * sF , this.dx, sF * 0.5);
+    }
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (UnitPostMovePhaseWindow);
 
 
 /***/ }),
@@ -4644,16 +5344,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _player_general_player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/player/general_player */ "./src/classes/player/general_player.js");
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
-/* harmony import */ var _window_passiveWindow_terrainWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../window/passiveWindow/terrainWindow */ "./window/passiveWindow/terrainWindow.js");
-/* harmony import */ var _window_nullWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../window/nullWindow */ "./window/nullWindow.js");
-/* harmony import */ var _window_passiveWindow_unitMapWindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../window/passiveWindow/unitMapWindow */ "./window/passiveWindow/unitMapWindow.js");
+/* harmony import */ var _game_window_terrain_window__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/game_window/terrain_window */ "./src/classes/game_window/terrain_window.js");
+/* harmony import */ var _game_window_null_window__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/game_window/null_window */ "./src/classes/game_window/null_window.js");
+/* harmony import */ var _game_window_unit_map_window__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/game_window/unit_map_window */ "./src/classes/game_window/unit_map_window.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
 /* harmony import */ var _animations_movingAnimation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../animations/movingAnimation */ "./animations/movingAnimation.js");
-/* harmony import */ var _window_interactiveWindow_combatInformationWindow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../window/interactiveWindow/combatInformationWindow */ "./window/interactiveWindow/combatInformationWindow.js");
+/* harmony import */ var _game_window_combat_information_window__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/game_window/combat_information_window */ "./src/classes/game_window/combat_information_window.js");
 /* harmony import */ var _combat_combat__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../combat/combat */ "./combat/combat.js");
-/* harmony import */ var _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../window/passiveWindow/gameFinishedWindow */ "./window/passiveWindow/gameFinishedWindow.js");
+/* harmony import */ var _game_window_game_finished_window__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/game_window/game_finished_window */ "./src/classes/game_window/game_finished_window.js");
 /* harmony import */ var _display_nullCursor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../display/nullCursor */ "./display/nullCursor.js");
-/* harmony import */ var _window_interactiveWindow_unitPostMovePhaseWindow__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../window/interactiveWindow/unitPostMovePhaseWindow */ "./window/interactiveWindow/unitPostMovePhaseWindow.js");
+/* harmony import */ var _game_window_unit_post_move_phase_window__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/game_window/unit_post_move_phase_window */ "./src/classes/game_window/unit_post_move_phase_window.js");
 
 
 
@@ -4676,7 +5376,7 @@ function Player(board, display, phaseStage) {
   this.unitType = _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"];
   this.opposingUnitType = _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_2__["default"];
   this.units = this.listOfOwnUnits();
-  this.gameFinishedWindow = new _window_passiveWindow_gameFinishedWindow__WEBPACK_IMPORTED_MODULE_10__["default"]();
+  this.gameFinishedWindow = new _game_window_game_finished_window__WEBPACK_IMPORTED_MODULE_10__["default"]();
 }
 
 Player.prototype = Object.create(_player_general_player__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
@@ -4721,7 +5421,7 @@ Player.prototype.identifyAndSelectUnit = function() {
   if(spaceOccupant != null && spaceOccupant instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"]) &&
   spaceOccupant.actionTaken === false && this.selectedUnit() === null) {
     this.cursor.selectUnit(spaceOccupant);
-    this.display.window = new _window_nullWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
+    this.display.window = new _game_window_null_window__WEBPACK_IMPORTED_MODULE_4__["default"]();
     this.phaseStage.nextStage('player unit moving');
   }
 }
@@ -4729,11 +5429,11 @@ Player.prototype.identifyAndSelectUnit = function() {
 Player.prototype.updateUnitMapWindow = function() {
   let unit = this.board.space(this.cursorPos()).unit;
   if (unit != null && !this.display.combatAnimation) {
-    this.display.window = new _window_passiveWindow_unitMapWindow__WEBPACK_IMPORTED_MODULE_5__["default"](unit);
+    this.display.window = new _game_window_unit_map_window__WEBPACK_IMPORTED_MODULE_5__["default"](unit);
   } else if (this.board.space(this.cursorPos()).terrain != null) {
-    this.display.window = new _window_passiveWindow_terrainWindow__WEBPACK_IMPORTED_MODULE_3__["default"](this.board.space(this.cursorPos()));
+    this.display.window = new _game_window_terrain_window__WEBPACK_IMPORTED_MODULE_3__["default"](this.board.space(this.cursorPos()));
   } else {
-    this.display.window = new _window_nullWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
+    this.display.window = new _game_window_null_window__WEBPACK_IMPORTED_MODULE_4__["default"]();
   }
 }
 
@@ -4804,7 +5504,7 @@ Player.prototype.undoMove = function() {
   this.selectedUnit().move(prevPos);
   this.selectedUnit().setMoveForecast();
   this.updateSelectedUnitRouteSpaces();
-  this.display.window = new _window_nullWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
+  this.display.window = new _game_window_null_window__WEBPACK_IMPORTED_MODULE_4__["default"]();
   this.cursor.selectUnit(this.selectedUnit());
   this.phaseStage.nextStage('player unit moving');
 }
@@ -4837,7 +5537,7 @@ Player.prototype.endUnitTurn = function() {
 Player.prototype.fightPreparations = function() {
   this.cursor.windowCursorPos = 0;
   let fightOptions = this.cursor.selectedUnit.isOppInRange();
-  this.display.window = new _window_interactiveWindow_combatInformationWindow__WEBPACK_IMPORTED_MODULE_8__["default"](this.cursor.selectedUnit, fightOptions);
+  this.display.window = new _game_window_combat_information_window__WEBPACK_IMPORTED_MODULE_8__["default"](this.cursor.selectedUnit, fightOptions);
   this.phaseStage.nextStage('select unit to fight');
 }
 
@@ -4856,7 +5556,7 @@ Player.prototype.playSelectUnitToFight = function(button) {
 
 Player.prototype.returnToPostMovementOptions = function() {
   this.phaseStage.nextStage('post movement options');
-  this.display.window = new _window_interactiveWindow_unitPostMovePhaseWindow__WEBPACK_IMPORTED_MODULE_12__["default"](this.selectedUnit());
+  this.display.window = new _game_window_unit_post_move_phase_window__WEBPACK_IMPORTED_MODULE_12__["default"](this.selectedUnit());
 }
 
 Player.prototype.initiateFight = function() {
@@ -5691,706 +6391,6 @@ function preScaledHighlight(x, y, dx, dy, color) {
   _createContext__WEBPACK_IMPORTED_MODULE_0__["c"].fillStyle = color;
   _createContext__WEBPACK_IMPORTED_MODULE_0__["c"].fillRect(x, y, dx, dy);
 }
-
-
-/***/ }),
-
-/***/ "./window/gameWindow.js":
-/*!******************************!*\
-  !*** ./window/gameWindow.js ***!
-  \******************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// parameters
- // rx - reference x
- // ry - reference y
- // hd - horizontal displacement
- // vd - vertical displacement
- // dx - width
- // dy - height
-
-
-function GameWindow(rx, ry, hd, vd, dx, dy) {
-  let sF = 52;
-  let attributes = this.setDimensions(rx, ry, hd, vd, dx, dy, sF);
-  this.x = attributes[0];
-  this.y = attributes[1];
-  this.dx = attributes[2]
-  this.dy = attributes[3];
-
-}
-
-GameWindow.prototype.setDimensions = function(sF) {
-  return [this.unit.position[0], this.unit.position[1]];
-}
-
-GameWindow.prototype.render = function(sF) {
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (GameWindow);
-
-
-/***/ }),
-
-/***/ "./window/interactiveWindow/combatInformationWindow.js":
-/*!*************************************************************!*\
-  !*** ./window/interactiveWindow/combatInformationWindow.js ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./interactiveWindow */ "./window/interactiveWindow/interactiveWindow.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-
-
-
-
-function CombatInformationWindow(unit, options) {
-  _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, options[0][0], options[0][1], 2, 1.5, 150, 135, options);
-  this.centerX = this.x + (this.dx / 2);
-  this.unit = unit;
-}
-
-CombatInformationWindow.prototype = Object.create(_interactiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-CombatInformationWindow.prototype.constructor = CombatInformationWindow;
-
-CombatInformationWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
-  let x = (rx + hd + (dx / sF)) * sF <= window.innerWidth ? (rx + hd) * sF : (rx - hd - (dx/sF)) * sF;
-  let y = (ry - vd) * sF >= 0 ? (ry - vd) * sF : (ry + vd) * sF;
-  return [x, y, dx, dy];
-}
-
-CombatInformationWindow.prototype.updateCoordinates = function(windowCursorPos) {
-  let pos = this.options[this.cursorPos];
-  let coord = this.setDimensions(pos[0], pos[1], 2, 1.5, 150, 135, 52);
-  this.x = coord[0];
-  this.y = coord[1];
-  this.centerX = this.x + (this.dx / 2);
-}
-
-CombatInformationWindow.prototype.render = function(displayWindow) {
-  const sF = displayWindow.sF;
-  let pos = this.options[this.cursorPos];
-  const eastX = (displayWindow.x + (displayWindow.width / 2) -  sF * 7.22);
-  const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 7.22) - this.dx);
-  const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (westX) : (eastX);
-  let topX = (x) - displayWindow.x;
-  // let topY = (displayWindow.y + (displayWindow.height / 2) - (sF * 5.5));
-  let topY = (displayWindow.height / 2) - (sF * 4.75);
-  const centerX = topX + (this.dx/2);
-
-  let opponent = this.unit.board.grid[pos[0]][pos[1]].unit;
-
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = "rgba(0, 255, 255, 1)";
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX, topY, this.dx, 35);
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX, topY + 35, 50, 65);
-
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = "rgba(204, 204, 0, 1)";
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX + 50, topY + 35, 50, 65);
-
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = "rgba(255, 0, 0, 1)";
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX + 100, topY + 35, 50, 65);
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(topX, topY + 100, this.dx, 35);
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(this.unit.name, 'center', centerX, topY + 15);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(this.unit.equippedWeapon.stats['name'], 'center', centerX, topY + 30);
-  this.renderStatRow(this.unit.current_hp, opponent.current_hp, 'HP', centerX, topY + 50, this.dx);
-
-  if (opponent.equippedWeapon.stats['range'].includes(Object(_util__WEBPACK_IMPORTED_MODULE_2__["distance"])(opponent.position, this.unit.position))) {
-    this.renderStatRow(this.unit.damage(opponent),
-    opponent.damage(this.unit), 'MT', centerX, topY + 65, this.dx);
-    this.renderStatRow(this.unit.accuracy(opponent),
-    opponent.accuracy(this.unit), 'HT', centerX, topY + 80, this.dx);
-    this.renderStatRow(this.unit.criticalChance(opponent),
-    opponent.criticalChance(this.unit), 'CT', centerX, topY + 95, this.dx);
-
-  } else {
-    this.renderStatRow(this.unit.damage(opponent),
-    '--', 'MT', centerX, topY + 65, this.dx);
-    this.renderStatRow(this.unit.accuracy(opponent),
-    '--', 'HT', centerX, topY + 80, this.dx);
-    this.renderStatRow(this.unit.criticalChance(opponent),
-    '--', 'CT', centerX, topY + 95, this.dx);
-    Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(opponent.equippedWeapon.stats['name'], 'center', centerX, topY + 115);
-    Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(opponent.name, 'center', centerX, topY + 130);
-  }
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(opponent.equippedWeapon.stats['name'], 'center', centerX, topY + 115);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(opponent.name, 'center', centerX, topY + 130);
-
-  if (this.unit.isRepeatedAttack(opponent)) {
-    Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])('x2', 'right', topX + this.dx, topY + 30);
-  }
-  if (opponent.isRepeatedAttack(this.unit)) {
-    Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])('x2', 'right', topX + this.dx, topY + 115);
-  }
-  const oppPosGalileo = [opponent.position[0] - displayWindow.x/sF, opponent.position[1] - displayWindow.y/sF]
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["highlight"])(oppPosGalileo, 'rgba(255, 0, 255, 0.2)', sF); //blue
-}
-
-CombatInformationWindow.prototype.renderStatRow = function(unitStat, oppStat, statName, centerX, y, width) {
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(`${unitStat}`, 'left', centerX - (width/ 2), y);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(`${statName}`, 'center', centerX, y);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderText"])(`${oppStat}`, 'right', centerX + (width/ 2), y);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (CombatInformationWindow);
-
-
-/***/ }),
-
-/***/ "./window/interactiveWindow/interactiveWindow.js":
-/*!*******************************************************!*\
-  !*** ./window/interactiveWindow/interactiveWindow.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _gameWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../gameWindow */ "./window/gameWindow.js");
-
-
-function InteractiveWindow(rx, ry, hd, vd, dx, dy, options) {
-  _gameWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, rx, ry, hd, vd, dx, dy);
-  this.options = options;
-  this.cursorPos = 0;
-}
-
-InteractiveWindow.prototype = Object.create(_gameWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-InteractiveWindow.prototype.constructor = InteractiveWindow;
-
-InteractiveWindow.prototype.scrollCursor = function(button) {
-  if (button == "down" && this.cursorPos < this.options.length - 1) {
-    this.cursorPos += 1;
-  } else if(button == "up" && this.cursorPos > 0) {
-    this.cursorPos -= 1;
-  }
-}
-
-InteractiveWindow.prototype.returnOption = function() {
-  return this.options[this.cursorPos];
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (InteractiveWindow);
-
-
-/***/ }),
-
-/***/ "./window/interactiveWindow/mainMenuWindowOne.js":
-/*!*******************************************************!*\
-  !*** ./window/interactiveWindow/mainMenuWindowOne.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./interactiveWindow */ "./window/interactiveWindow/interactiveWindow.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
-
-
-
-
-function MainMenuWindowOne() {
-  let options = ['New Game']//, 'Credits']
-  _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, 0, 0, 0, 0, innerWidth, 100, options);
-  this.color = "rgba(65, 105, 225, 1)";
-  this.logoSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](240, 160, 240, 160, "src/assets/window_images/FE_titlescreen_logo.png", 1, 1);
-
-  this.backgroundSpriteTwo = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_2__["default"](
-    //238, 319
-    239, 150, 600/2.22, 450/2.5, "src/assets/window_images/FE_7_story_scenes.png", 1,
-    [[490, 330]]
-  );
-
-  this.textOpacity = 0;
-}
-
-MainMenuWindowOne.prototype = Object.create(_interactiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-MainMenuWindowOne.prototype.constructor = MainMenuWindowOne;
-
-MainMenuWindowOne.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
-  let centerX = (45*15)/2;
-
-  let xf = centerX - 100;
-  let yf = 300;
-  let dxf = 200;
-  let dyf = 60;
-  return [xf, yf, dxf, dyf];
-}
-
-MainMenuWindowOne.prototype.render = function(sF) {
-
-
-  this.backgroundSpriteTwo.render(7, 9, 45);
-  if (this.backgroundSpriteTwo.coordinatesList[0][1] < 490) {
-    this.backgroundSpriteTwo.coordinatesList[0][1] += 0.15;
-  } else if(this.textOpacity < 1) {
-    this.textOpacity = this.textOpacity + 0.01
-    drawStroked(`Press Enter`, 290, 400, this.textOpacity);
-  } else {
-    drawStroked(`Press Enter`, 290, 400, this.textOpacity);
-  }
-  this.logoSprite.render(7, 5.2, 45);
-
-}
-
-function drawStroked(text, x, y, opacity) {
-    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].font = "20px Serif"
-    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].strokeStyle = 'black';
-    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].lineWidth = 7;
-    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].strokeText(text, x, y);
-    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillText(text, x, y);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (MainMenuWindowOne);
-
-
-/***/ }),
-
-/***/ "./window/interactiveWindow/unitPostMovePhaseWindow.js":
-/*!*************************************************************!*\
-  !*** ./window/interactiveWindow/unitPostMovePhaseWindow.js ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./interactiveWindow */ "./window/interactiveWindow/interactiveWindow.js");
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
-
-
-
-function UnitPostMovePhaseWindow(unit) {
-  this.unit = unit;
-  let options = unit.postMoveWindowOptions();
-  _interactiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, unit.position[0], unit.position[1], 2,
-    unit.position[1], 2, (options.length * 0.5) + 0.2, options);
-  this.color = "rgba(65, 105, 225, 1)";
-}
-
-UnitPostMovePhaseWindow.prototype = Object.create(_interactiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-UnitPostMovePhaseWindow.prototype.constructor = UnitPostMovePhaseWindow;
-
-UnitPostMovePhaseWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
-  return [(rx + hd) * sF, ry * sF, dx * sF, dy * sF];
-}
-
-UnitPostMovePhaseWindow.prototype.render = function(displayWindow) {
-  const sF = displayWindow.sF;
-  const eastX = (displayWindow.x + (displayWindow.width / 2) -  sF * 6.5);
-  const westX = (displayWindow.x + (displayWindow.width / 2) +  (sF * 6.5) - this.dx);
-  const x = displayWindow.eastOrWest(this.unit.position) === 'east' ? (westX) : (eastX);
-  let topX = (x) - displayWindow.x;
-  // let topY = ((displayWindow.height/4)) - displayWindow.y;
-  let topY = ((displayWindow.height/4));
-
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_1__["preScaledHighlight"])(topX, topY, this.dx, this.dy, this.color);
-
-  for(let i = 0; i < this.options.length; i++) {
-    Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("20px Arial", 'left', 'rgba(255, 255, 225, 1)',
-    `${this.options[i]}`, topX, topY + ((1 + i) * sF * 0.5));
-
-    if (this.cursorPos === i) {
-      _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = "rgba(255, 223, 0, 0.5)";
-      _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillRect(topX, topY + ((0.1) + (i * 0.5)) * sF , this.dx, sF * 0.5);
-    }
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (UnitPostMovePhaseWindow);
-
-
-/***/ }),
-
-/***/ "./window/nullWindow.js":
-/*!******************************!*\
-  !*** ./window/nullWindow.js ***!
-  \******************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _gameWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gameWindow */ "./window/gameWindow.js");
-
-
-function NullWindow() {
-
-}
-
-NullWindow.prototype = Object.create(_gameWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-NullWindow.prototype.constructor = NullWindow;
-
-NullWindow.prototype.render = function(sF, windowCursorPos) {
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (NullWindow);
-
-
-/***/ }),
-
-/***/ "./window/passiveWindow/combatAnimationBackgroundWindow.js":
-/*!*****************************************************************!*\
-  !*** ./window/passiveWindow/combatAnimationBackgroundWindow.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _passiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./passiveWindow */ "./window/passiveWindow/passiveWindow.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-/* harmony import */ var _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatPUNameWindow */ "./animations/preloadedAssetSprite/combatPUNameWindow.js");
-/* harmony import */ var _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatEUNameWindow */ "./animations/preloadedAssetSprite/combatEUNameWindow.js");
-/* harmony import */ var _animations_preloadedAssetSprite_combatLowerWindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../animations/preloadedAssetSprite/combatLowerWindow */ "./animations/preloadedAssetSprite/combatLowerWindow.js");
-
-
-
-
-
-
-
-function drawStrokedSmaller(text, x, y, opacity) {
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].font = "15px Serif"
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].strokeStyle = 'black';
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].lineWidth = 6;
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].strokeText(text, x, y);
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillText(text, x, y);
-}
-
-function CombatAnimationBackgroundWindow(pu, eu) {
-  const sF = 45;
-  this.sF = sF;
-  this.x = 5*sF;
-  this.y = 0*sF;
-  this.height = 15*sF;
-  this.width = 10*sF;
-
-  // this.halfWidth = innerWidth / 2;
-  this.halfWidth = (this.x + this.width) / 2;
-  this.pu = pu;
-  this.eu = eu;
-  this.playerHP = pu.current_hp;
-  this.enemyHP = eu.current_hp;
-
-  this.puNameWindowSprite = new _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__["default"]();
-  this.euNameWindowSprite = new _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
-  this.lowerWindow = new _animations_preloadedAssetSprite_combatLowerWindow__WEBPACK_IMPORTED_MODULE_5__["default"]();
-}
-
-CombatAnimationBackgroundWindow.prototype = Object.create(_passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-CombatAnimationBackgroundWindow.prototype.constructor = CombatAnimationBackgroundWindow;
-
-CombatAnimationBackgroundWindow.prototype.render = function(sF) {
-  this.renderNameWindows();
-  // this.renderWeaponWindows();
-  this.renderLowerWindow();
-  this.renderWeaponNames();
-  this.renderStatWindows();
-  // this.renderCentralDelineator();
-  this.renderHPWindows();
-}
-
-CombatAnimationBackgroundWindow.prototype.renderNameWindows = function() {
-  // let midX = (this.x + this.width)/2;
-  this.puNameWindowSprite.render(12.8, 0.8, 45);
-  this.euNameWindowSprite.render(1.2, 0.8, 45);
-  this.renderNameWindow('rgba(255, 0, 0, 1)', this.eu.name, -200 - 150, -275);
-  this.renderNameWindow('rgba(0, 0, 142, 1)', this.pu.name, 200, 275);
-}
-
-CombatAnimationBackgroundWindow.prototype.renderNameWindow = function(color,
-  unitName, xDisplacement, nameXCoord) {
-  // c.fillStyle = color;
-  // c.fillRect(this.halfWidth + xDisplacement, this.y + 20, 150, 50);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'center', 'rgba(255, 255, 255, 1)',
-    unitName, this.halfWidth + nameXCoord, this.y + 50);
-}
-
-CombatAnimationBackgroundWindow.prototype.renderLowerWindow = function() {
-  this.lowerWindow.render(7, 9.12, 45);
-}
-
-CombatAnimationBackgroundWindow.prototype.renderStatWindows = function() {
-
-  this.renderStatWindow('rgba(0, 0, 142, 1)', 238, this.pu, this.eu);
-  this.renderStatWindow('rgba(255, 0, 0, 1)', -238 - 100, this.eu, this.pu);
-}
-
-CombatAnimationBackgroundWindow.prototype.renderStatWindow = function(color, deltaX, attacker, defender) {
-  // c.fillStyle = color;
-  const y = 340;
-  // c.fillRect(this.halfWidth + deltaX, y, 100, 50);
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
-    `HIT`, this.halfWidth + deltaX, y + 15);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
-    `DMG`, this.halfWidth + deltaX, y + 30);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255, 1)',
-    `CRT`, this.halfWidth + deltaX, y + 45);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
-    `${attacker.accuracy(defender)}`, this.halfWidth + deltaX + 100, y + 15);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
-    `${attacker.damage(defender)}`, this.halfWidth + deltaX + 100, y + 30);
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255, 1)',
-    `${attacker.criticalChance(defender)}`, this.halfWidth + deltaX + 100, y + 45);
-}
-
-CombatAnimationBackgroundWindow.prototype.renderCentralDelineator = function() {
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = 'rgba(0, 0, 0, 1)';
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(this.halfWidth - 1, 360, 2, 90);
-}
-
-CombatAnimationBackgroundWindow.prototype.renderWeaponWindows = function() {
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = 'rgba(255, 248, 220, 1)';
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(this.halfWidth + 1, 360, 400 - 1, 90);
-
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillStyle = 'rgba(255, 248, 220, 1)';
-  _createContext__WEBPACK_IMPORTED_MODULE_1__["c"].fillRect(this.halfWidth - 300 - 100, 360, 400 - 1, 90);
-}
-
-CombatAnimationBackgroundWindow.prototype.renderWeaponNames = function() {
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(0, 0, 0, 1)',
-    `${this.pu.equippedWeapon.stats['name']}`, this.halfWidth + 50, 385);
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(0, 0, 0, 1)',
-    `${this.eu.equippedWeapon.stats['name']}`, this.halfWidth - 50, 385);
-}
-
-CombatAnimationBackgroundWindow.prototype.renderHPWindows = function() {
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 255 1)',
-   `${this.playerHP}`, this.halfWidth + 50, 430);
-
-   Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 255 1)',
-    `${this.enemyHP}`, this.halfWidth - 50, 430);
-}
-
-CombatAnimationBackgroundWindow.prototype.modifyHP = function(defender, newHP) {
-  if (defender === this.pu) {
-    this.playerHP = newHP;
-  } else {
-    this.enemyHP = newHP;
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (CombatAnimationBackgroundWindow);
-
-
-/***/ }),
-
-/***/ "./window/passiveWindow/gameFinishedWindow.js":
-/*!****************************************************!*\
-  !*** ./window/passiveWindow/gameFinishedWindow.js ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
-
-
-
-function drawStrokedSmaller(text, x, y, opacity) {
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].font = "15px Serif"
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeStyle = 'black';
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].lineWidth = 6;
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].strokeText(text, x, y);
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillStyle = `rgba(255, 255, 255, ${opacity})`;
-    _createContext__WEBPACK_IMPORTED_MODULE_2__["c"].fillText(text, x, y);
-}
-
-function GameFinishedWindow() {
-  this.dx = 45 * 2;
-  this.dy = 45 * 1;
-
-  this.backgroundWindow = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
-    315, 191, 140, 95, "src/assets/window_images/fe_new_background_window.png", 1,
-    [[0, 0]]
-  );
-
-  this.backgroundSpriteOne = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
-    118, 79, 118, 79, "src/assets/window_images/FE_6_story_scenes.png", 1,
-    [[4, 3]]
-  );
-  this.scrollSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](480, 320, 480*0.5, 320*0.5, "src/assets/window_images/fe_6_scroll_you_win.png", 1, 1);
-}
-
-GameFinishedWindow.prototype.render = function(displayWindow) {
-  this.backgroundWindow.render(6.83, 6.45, 45);
-  this.backgroundSpriteOne.render(6.8, 6, 45);
-  this.scrollSprite.render(6.9, 10.5, 45);
-  drawStrokedSmaller('Chapter Complete', 280, 365, 1);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (GameFinishedWindow);
-
-
-/***/ }),
-
-/***/ "./window/passiveWindow/passiveWindow.js":
-/*!***********************************************!*\
-  !*** ./window/passiveWindow/passiveWindow.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _gameWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../gameWindow */ "./window/gameWindow.js");
-
-
-function PassiveWindow(rx, ry, hd, vd, dx, dy) {
-  _gameWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, rx, ry, hd, vd, dx, dy);
-}
-
-PassiveWindow.prototype = Object.create(_gameWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-PassiveWindow.prototype.constructor = PassiveWindow;
-
-PassiveWindow.prototype.setDimensions = function(rx, ry, hd, vd, dx, dy, sF) {
-  let x = (rx + hd + dx) * sF <= window.innerWidth ? (rx + hd) * sF : (rx - hd - dx) * sF;
-  let y = (ry - vd) * sF >= 0 ? (ry - vd) * sF : (ry + vd) * sF;
-
-  return [x, y, dx * sF, dy * sF];
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (PassiveWindow);
-
-
-/***/ }),
-
-/***/ "./window/passiveWindow/terrainWindow.js":
-/*!***********************************************!*\
-  !*** ./window/passiveWindow/terrainWindow.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _passiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./passiveWindow */ "./window/passiveWindow/passiveWindow.js");
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-
-
-
-function TerrainWindow(space) {
-  let terrain = space.terrain;
-  _passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, space.position[0], space.position[1], 2, 2, 2, 1.4);
-  this.name = terrain.terrainName();
-  this.position = space.position;
-  this.defenseBonus = terrain.defenseBonus();
-  this.avoidBonus = terrain.avoidBonus();
-  this.color = "rgba(0, 255, 255, 0.7)";
-}
-
-TerrainWindow.prototype = Object.create(_passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-TerrainWindow.prototype.constructor = TerrainWindow;
-
-TerrainWindow.prototype.render = function(displayWindow) {
-  const sF = displayWindow.sF;
-  const eastX = ((displayWindow.width / 2) -  sF * 7);
-  const westX = ((displayWindow.width / 2) +  (sF * 7) - this.dx);
-  const topX = displayWindow.eastOrWest(this.position) === 'east' ? (westX) : (eastX);
-  const topY = (displayWindow.height / 2) + (sF * 3);
-
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_1__["preScaledHighlight"])(topX, topY, this.dx, this.dy, this.color);
-  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("20px Arial", 'center', 'rgba(255, 255, 225, 1)',
-  this.name, topX + (this.dx / 2), topY + (0.5 * sF));
-  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 225, 1)',
-  'DEF', topX, topY + (1 * sF));
-  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 225, 1)',
-  this.defenseBonus, topX + (this.dx), topY + (1 * sF));
-  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("15px Arial", 'left', 'rgba(255, 255, 225, 1)',
-  'AVO', topX, topY + (1.5 * sF));
-  Object(_util__WEBPACK_IMPORTED_MODULE_1__["renderTextWithFont"])("15px Arial", 'right', 'rgba(255, 255, 225, 1)',
-  this.avoidBonus, topX + (this.dx), topY + (1.5 * sF));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (TerrainWindow);
-
-
-/***/ }),
-
-/***/ "./window/passiveWindow/unitMapWindow.js":
-/*!***********************************************!*\
-  !*** ./window/passiveWindow/unitMapWindow.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _passiveWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./passiveWindow */ "./window/passiveWindow/passiveWindow.js");
-/* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
-
-
-
-
-
-function UnitMapWindow(unit) {
-  _passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, unit.position[0], unit.position[1], 2, 1.5, 4.76, 1.73);
-  this.unit = unit;
-  this.name = unit.name;
-  this.current_hp = unit.current_hp;
-  this.hp = unit.stats['hp'];
-  this.color = unit instanceof(_unit_player_unit__WEBPACK_IMPORTED_MODULE_1__["default"]) ? "rgba(0, 255, 255, 0.7)" : "rgba(255, 0, 0, 0.7)";
-}
-
-UnitMapWindow.prototype = Object.create(_passiveWindow__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-UnitMapWindow.prototype.constructor = UnitMapWindow;
-
-UnitMapWindow.prototype.render = function(displayWindow) {
-  const sF = displayWindow.sF;
-  const northY = (displayWindow.y + (displayWindow.height / 2) -  sF * 4.75);
-  const southY = (displayWindow.y + (displayWindow.height / 2) +  (sF * 4.75) - this.dy);
-  const y = (displayWindow.northOrSouth(this.unit.position) === 'north' && displayWindow.eastOrWest(this.unit.position) === 'east') ? (southY) : (northY);
-  let topX = (displayWindow.width / 2) -  (sF * 7.25);
-  let topY = (y) - displayWindow.y;
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["preScaledHighlight"])(topX, topY, this.dx, this.dy, this.color);
-
-  this.unit.hpWindowSprite.renderFromCoordinates(
-    topX, topY, 2 * sF, 2 * sF
-  );
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["renderTextWithFont"])('20px Arial', 'left', 'rgba(0,0,0,1)',
-    this.name, topX + (2 * sF), topY + 0.5 *sF);
-  _createContext__WEBPACK_IMPORTED_MODULE_3__["c"].fillText(`HP: ${this.current_hp} / ${this.hp}`,
-    topX + (2 * sF), topY + 1 * sF);
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["preScaledHighlight"])(topX + (2 * sF), (1.2 * sF) + topY, 3.5 * sF,
-   0.5 * sF, "rgba(0, 0, 0, 0.9)");
-
-  Object(_util__WEBPACK_IMPORTED_MODULE_2__["preScaledHighlight"])(topX + (2 * sF), topY + (1.3 * sF),
-  3.5 * sF *(this.current_hp / this.hp), 0.3 * sF,
-   "rgba(255, 223, 0, 1)");
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (UnitMapWindow);
 
 
 /***/ })

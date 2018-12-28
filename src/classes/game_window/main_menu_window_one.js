@@ -1,7 +1,7 @@
-import InteractiveWindow from './interactiveWindow';
-import Sprite from '../../animations/sprite';
-import CoordinateSprite from '../../animations/coordinateSprite';
-import { c } from '../../createContext';
+import InteractiveWindow from '@/game_window/interactive_window';
+import Sprite from '../../../animations/sprite';
+import CoordinateSprite from '../../../animations/coordinateSprite';
+import { c } from '../../../createContext';
 
 function MainMenuWindowOne() {
   let options = ['New Game']//, 'Credits']

@@ -1,4 +1,4 @@
-import GameWindow from '../gameWindow';
+import GameWindow from '@/game_window/game_window';
 
 function PassiveWindow(rx, ry, hd, vd, dx, dy) {
   GameWindow.call(this, rx, ry, hd, vd, dx, dy);

@@ -6,7 +6,7 @@ import FrameSource from './frameSource';
 import Campaign from '../campaign/campaign';
 import Game from './game';
 import MainMenu from './MainMenu';
-import MainMenuWindowOne from '../window/interactiveWindow/mainMenuWindowOne';
+import MainMenuWindowOne from '@/game_window/main_menu_window_one';
 
 let sF = 45;
 let display = new GlobalDisplay(new NullBoard(), new NullCursor, new nullPhaseStage(), sF);

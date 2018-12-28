@@ -1,4 +1,4 @@
-import PassiveWindow from './passiveWindow';
+import PassiveWindow from '@/game_window/passive_window';
 import { preScaledHighlight, renderTextWithFont } from '~/util';
 
 function TerrainWindow(space) {

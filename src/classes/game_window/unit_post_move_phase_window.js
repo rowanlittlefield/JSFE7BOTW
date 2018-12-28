@@ -1,6 +1,6 @@
-import InteractiveWindow from './interactiveWindow';
+import InteractiveWindow from '@/game_window/interactive_window';
 import { preScaledHighlight, renderTextWithFont } from '~/util';
-import { c } from '../../createContext';
+import { c } from '../../../createContext';
 
 function UnitPostMovePhaseWindow(unit) {
   this.unit = unit;

@@ -1,5 +1,5 @@
-import InteractiveWindow from './interactiveWindow';
-import { c } from '../../createContext';
+import InteractiveWindow from '@/game_window/interactive_window';
+import { c } from '../../../createContext';
 import { renderText, distance, highlight } from '~/util';
 
 function CombatInformationWindow(unit, options) {

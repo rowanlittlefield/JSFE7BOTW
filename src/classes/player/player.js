@@ -1,16 +1,16 @@
 import GeneralPlayer from  '@/player/general_player';
 import PlayerUnit from '@/unit/player_unit';
 import EnemyUnit from '@/unit/enemy_unit';
-import TerrainWindow from '../../../window/passiveWindow/terrainWindow';
-import NullWindow from '../../../window/nullWindow';
-import UnitMapWindow from '../../../window/passiveWindow/unitMapWindow';
+import TerrainWindow from '@/game_window/terrain_window';
+import NullWindow from '@/game_window/null_window';
+import UnitMapWindow from '@/game_window/unit_map_window';
 import { equivalentPositions } from '~/util';
 import MovingAnimation from '../../../animations/movingAnimation';
-import CombatInformationWindow from '../../../window/interactiveWindow/combatInformationWindow';
+import CombatInformationWindow from '@/game_window/combat_information_window';
 import Combat from '../../../combat/combat';
-import GameFinishedWindow from '../../../window/passiveWindow/gameFinishedWindow';
+import GameFinishedWindow from '@/game_window/game_finished_window';
 import NullCursor from '../../../display/nullCursor';
-import UnitPostMovePhaseWindow from '../../../window/interactiveWindow/unitPostMovePhaseWindow';
+import UnitPostMovePhaseWindow from '@/game_window/unit_post_move_phase_window';
 
 function Player(board, display, phaseStage) {
   this.board = board;

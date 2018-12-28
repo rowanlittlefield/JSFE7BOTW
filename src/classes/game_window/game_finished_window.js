@@ -1,6 +1,6 @@
-import CoordinateSprite from '../../animations/coordinateSprite';
-import Sprite from '../../animations/sprite';
-import { c } from '../../createContext';
+import CoordinateSprite from '../../../animations/coordinateSprite';
+import Sprite from '../../../animations/sprite';
+import { c } from '../../../createContext';
 
 function drawStrokedSmaller(text, x, y, opacity) {
     c.font = "15px Serif"

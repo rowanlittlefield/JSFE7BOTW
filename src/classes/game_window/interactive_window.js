@@ -1,4 +1,4 @@
-import GameWindow from '../gameWindow';
+import GameWindow from '@/game_window/game_window';
 
 function InteractiveWindow(rx, ry, hd, vd, dx, dy, options) {
   GameWindow.call(this, rx, ry, hd, vd, dx, dy);

@@ -1,7 +1,7 @@
-import PassiveWindow from  './passiveWindow';
+import PassiveWindow from  '@/game_window/passive_window';
 import PlayerUnit from '@/unit/player_unit';
 import { preScaledHighlight, renderTextWithFont } from '~/util';
-import { c } from '../../createContext';
+import { c } from '../../../createContext';
 
 function UnitMapWindow(unit) {
   PassiveWindow.call(this, unit.position[0], unit.position[1], 2, 1.5, 4.76, 1.73);

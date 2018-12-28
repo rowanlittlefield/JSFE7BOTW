@@ -1,4 +1,4 @@
-import UnitPostMovePhaseWindow from '../window/interactiveWindow/unitPostMovePhaseWindow';
+import UnitPostMovePhaseWindow from '@/game_window/unit_post_move_phase_window';
 
 function MovingAnimation(unit, route, ticksPerTranslation, phaseStage, display) {
   this.unit = unit;
