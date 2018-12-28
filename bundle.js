@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./game/script.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2806,220 +2806,6 @@ NullCursor.prototype.renderBoardCursor = function() {
 
 /***/ }),
 
-/***/ "./game/MainMenu.js":
-/*!**************************!*\
-  !*** ./game/MainMenu.js ***!
-  \**************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function MainMenu(windowOne) {
-  this.windowOne = windowOne;
-}
-
-MainMenu.prototype.receiveControllerInput = function(button) {
-  if (button == 'A') {
-    if (this.windowOne.options[this.windowOne.cursorPos] === 'New Game') {
-      return 'New Game';
-    }
-  } else {
-    this.windowOne.scrollCursor(button);
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (MainMenu);
-
-
-/***/ }),
-
-/***/ "./game/controller.js":
-/*!****************************!*\
-  !*** ./game/controller.js ***!
-  \****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function Controller(game) {
-  this.game = game;
-  const that = this;
-
-  this.checkKeyPress = function(key) {
-    if (key.keyCode == "65" || key.keyCode == "37") {
-      that.game.receiveInput('left'); //a
-    } else if (key.keyCode == "68" || key.keyCode == "39") {
-      that.game.receiveInput('right'); //d
-    } else if (key.keyCode == "87" || key.keyCode == "38") {
-      that.game.receiveInput('up'); //w
-    } else if (key.keyCode == "83" || key.keyCode == "40") {
-      that.game.receiveInput('down'); //s
-    } else if (key.keyCode == "13") {
-      that.game.receiveInput('A'); //enter
-    } else if (key.keyCode == "66") {
-      that.game.receiveInput('B'); //b
-    } else if (key.keyCode == "86") {
-      that.game.receiveInput('select'); //v
-    } else if (key.keyCode == "67") {
-      that.game.receiveInput('start'); //c
-    }
-  }
-
-  window.addEventListener("keydown", this.checkKeyPress, false);
-}
-
-Controller.prototype.removeEventListener = function() {
-  window.removeEventListener("keydown", this.checkKeyPress, false);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Controller);
-
-
-/***/ }),
-
-/***/ "./game/frameSource.js":
-/*!*****************************!*\
-  !*** ./game/frameSource.js ***!
-  \*****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function FrameSource(display) {
-  this.display = display;
-  this.aiPlayer = null;
-  this.aiPhase = false;
-}
-
-FrameSource.prototype.getFrames = function() {
-  window.requestAnimationFrame(this.getFrames.bind(this));
-  // c.clearRect(0, 0, innerWidth, 17 * 18);
-  this.display.render();
-  if(this.aiPhase && !this.display.combatAnimation) this.aiPhaseFrameUpdate();
-}
-
-FrameSource.prototype.beginAIPhase = function(aiPlayer) {
-  this.aiPhase = true;
-  this.aiPlayer = aiPlayer;
-}
-
-FrameSource.prototype.endAIPhase = function() {
-  this.aiPhase = false;
-  this.aiPlayer = null;
-}
-
-
-FrameSource.prototype.aiPhaseFrameUpdate = function() {
-  this.aiPlayer.phaseFrameUpdate();
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (FrameSource);
-
-
-/***/ }),
-
-/***/ "./game/game.js":
-/*!**********************!*\
-  !*** ./game/game.js ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controller */ "./game/controller.js");
-
-
-function Game(display, frameSource, campaign, menu) {
-  this.controller = new _controller__WEBPACK_IMPORTED_MODULE_0__["default"](this);
-  this.frameSource = frameSource;
-
-  this.display = display;
-  this.campaign = campaign;
-  this.menu = menu;
-
-  this.gameStage = null;
-}
-
-Game.prototype.receiveInput = function(button) {
-  //takes input from controller and takes appropriate action
-  if (this.gameStage === 'Main Menu') {
-    let response = this.menu.receiveControllerInput(button);
-    if (response === 'New Game') {
-      this.playCampaign();
-    }
-  } else if (this.gameStage === 'Play Campaign') {
-    this.campaign.receiveControllerInput(button);
-  }
-}
-
-Game.prototype.play = function() {
-  // performs initial tasks, calls this.frameSource.getFrames()
-  this.gameStage = 'Main Menu';
-  this.display.window = this.menu.windowOne;
-  this.frameSource.getFrames();
-}
-
-Game.prototype.playCampaign = function() {
-  // this.campaign.play();
-  // debugger;
-  this.gameStage = 'Play Campaign';
-  this.campaign.play();
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Game);
-
-
-/***/ }),
-
-/***/ "./game/script.js":
-/*!************************!*\
-  !*** ./game/script.js ***!
-  \************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _display_globalDisplay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../display/globalDisplay */ "./display/globalDisplay.js");
-/* harmony import */ var _board_nullBoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../board/nullBoard */ "./board/nullBoard.js");
-/* harmony import */ var _display_nullCursor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../display/nullCursor */ "./display/nullCursor.js");
-/* harmony import */ var _phaseStage_nullPhaseStage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../phaseStage/nullPhaseStage */ "./phaseStage/nullPhaseStage.js");
-/* harmony import */ var _frameSource__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./frameSource */ "./game/frameSource.js");
-/* harmony import */ var _campaign_campaign__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../campaign/campaign */ "./campaign/campaign.js");
-/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./game */ "./game/game.js");
-/* harmony import */ var _MainMenu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MainMenu */ "./game/MainMenu.js");
-/* harmony import */ var _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/game_window/main_menu_window_one */ "./src/classes/game_window/main_menu_window_one.js");
-
-
-
-
-
-
-
-
-
-
-let sF = 45;
-let display = new _display_globalDisplay__WEBPACK_IMPORTED_MODULE_0__["default"](new _board_nullBoard__WEBPACK_IMPORTED_MODULE_1__["default"](), new _display_nullCursor__WEBPACK_IMPORTED_MODULE_2__["default"], new _phaseStage_nullPhaseStage__WEBPACK_IMPORTED_MODULE_3__["default"](), sF);
-let frameSource = new _frameSource__WEBPACK_IMPORTED_MODULE_4__["default"](display);
-let campaign = new _campaign_campaign__WEBPACK_IMPORTED_MODULE_5__["default"](display, frameSource);
-
-let game = new _game__WEBPACK_IMPORTED_MODULE_6__["default"](
-  display,
-  frameSource,
-  campaign,
-  new _MainMenu__WEBPACK_IMPORTED_MODULE_7__["default"](new _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_8__["default"]()),
-);
-
-game.play();
-
-
-/***/ }),
-
 /***/ "./phaseStage/nullPhaseStage.js":
 /*!**************************************!*\
   !*** ./phaseStage/nullPhaseStage.js ***!
@@ -3766,6 +3552,121 @@ RoyReceiveHitAnimation.prototype.update = function() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RoyReceiveHitAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_attribute/controller.js":
+/*!**************************************************!*\
+  !*** ./src/classes/game_attribute/controller.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function Controller(game) {
+  this.game = game;
+  const that = this;
+
+  this.checkKeyPress = function(key) {
+    if (key.keyCode == "65" || key.keyCode == "37") {
+      that.game.receiveInput('left'); //a
+    } else if (key.keyCode == "68" || key.keyCode == "39") {
+      that.game.receiveInput('right'); //d
+    } else if (key.keyCode == "87" || key.keyCode == "38") {
+      that.game.receiveInput('up'); //w
+    } else if (key.keyCode == "83" || key.keyCode == "40") {
+      that.game.receiveInput('down'); //s
+    } else if (key.keyCode == "13") {
+      that.game.receiveInput('A'); //enter
+    } else if (key.keyCode == "66") {
+      that.game.receiveInput('B'); //b
+    } else if (key.keyCode == "86") {
+      that.game.receiveInput('select'); //v
+    } else if (key.keyCode == "67") {
+      that.game.receiveInput('start'); //c
+    }
+  }
+
+  window.addEventListener("keydown", this.checkKeyPress, false);
+}
+
+Controller.prototype.removeEventListener = function() {
+  window.removeEventListener("keydown", this.checkKeyPress, false);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Controller);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_attribute/frame_source.js":
+/*!****************************************************!*\
+  !*** ./src/classes/game_attribute/frame_source.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function FrameSource(display) {
+  this.display = display;
+  this.aiPlayer = null;
+  this.aiPhase = false;
+}
+
+FrameSource.prototype.getFrames = function() {
+  window.requestAnimationFrame(this.getFrames.bind(this));
+  // c.clearRect(0, 0, innerWidth, 17 * 18);
+  this.display.render();
+  if(this.aiPhase && !this.display.combatAnimation) this.aiPhaseFrameUpdate();
+}
+
+FrameSource.prototype.beginAIPhase = function(aiPlayer) {
+  this.aiPhase = true;
+  this.aiPlayer = aiPlayer;
+}
+
+FrameSource.prototype.endAIPhase = function() {
+  this.aiPhase = false;
+  this.aiPlayer = null;
+}
+
+
+FrameSource.prototype.aiPhaseFrameUpdate = function() {
+  this.aiPlayer.phaseFrameUpdate();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (FrameSource);
+
+
+/***/ }),
+
+/***/ "./src/classes/game_attribute/main_menu.js":
+/*!*************************************************!*\
+  !*** ./src/classes/game_attribute/main_menu.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function MainMenu(windowOne) {
+  this.windowOne = windowOne;
+}
+
+MainMenu.prototype.receiveControllerInput = function(button) {
+  if (button == 'A') {
+    if (this.windowOne.options[this.windowOne.cursorPos] === 'New Game') {
+      return 'New Game';
+    }
+  } else {
+    this.windowOne.scrollCursor(button);
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MainMenu);
 
 
 /***/ }),
@@ -6272,6 +6173,105 @@ function UnitStats(options) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (UnitStats);
+
+
+/***/ }),
+
+/***/ "./src/game.js":
+/*!*********************!*\
+  !*** ./src/game.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_attribute_controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_attribute/controller */ "./src/classes/game_attribute/controller.js");
+
+
+function Game(display, frameSource, campaign, menu) {
+  this.controller = new _game_attribute_controller__WEBPACK_IMPORTED_MODULE_0__["default"](this);
+  this.frameSource = frameSource;
+
+  this.display = display;
+  this.campaign = campaign;
+  this.menu = menu;
+
+  this.gameStage = null;
+}
+
+Game.prototype.receiveInput = function(button) {
+  //takes input from controller and takes appropriate action
+  if (this.gameStage === 'Main Menu') {
+    let response = this.menu.receiveControllerInput(button);
+    if (response === 'New Game') {
+      this.playCampaign();
+    }
+  } else if (this.gameStage === 'Play Campaign') {
+    this.campaign.receiveControllerInput(button);
+  }
+}
+
+Game.prototype.play = function() {
+  // performs initial tasks, calls this.frameSource.getFrames()
+  this.gameStage = 'Main Menu';
+  this.display.window = this.menu.windowOne;
+  this.frameSource.getFrames();
+}
+
+Game.prototype.playCampaign = function() {
+  // this.campaign.play();
+  // debugger;
+  this.gameStage = 'Play Campaign';
+  this.campaign.play();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Game);
+
+
+/***/ }),
+
+/***/ "./src/main.js":
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _display_globalDisplay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../display/globalDisplay */ "./display/globalDisplay.js");
+/* harmony import */ var _board_nullBoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../board/nullBoard */ "./board/nullBoard.js");
+/* harmony import */ var _display_nullCursor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../display/nullCursor */ "./display/nullCursor.js");
+/* harmony import */ var _phaseStage_nullPhaseStage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../phaseStage/nullPhaseStage */ "./phaseStage/nullPhaseStage.js");
+/* harmony import */ var _game_attribute_frame_source__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/game_attribute/frame_source */ "./src/classes/game_attribute/frame_source.js");
+/* harmony import */ var _campaign_campaign__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../campaign/campaign */ "./campaign/campaign.js");
+/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ~/game */ "./src/game.js");
+/* harmony import */ var _game_attribute_main_menu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/game_attribute/main_menu */ "./src/classes/game_attribute/main_menu.js");
+/* harmony import */ var _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/game_window/main_menu_window_one */ "./src/classes/game_window/main_menu_window_one.js");
+
+
+
+
+
+
+
+
+
+
+let sF = 45;
+let display = new _display_globalDisplay__WEBPACK_IMPORTED_MODULE_0__["default"](new _board_nullBoard__WEBPACK_IMPORTED_MODULE_1__["default"](), new _display_nullCursor__WEBPACK_IMPORTED_MODULE_2__["default"], new _phaseStage_nullPhaseStage__WEBPACK_IMPORTED_MODULE_3__["default"](), sF);
+let frameSource = new _game_attribute_frame_source__WEBPACK_IMPORTED_MODULE_4__["default"](display);
+let campaign = new _campaign_campaign__WEBPACK_IMPORTED_MODULE_5__["default"](display, frameSource);
+
+let game = new _game__WEBPACK_IMPORTED_MODULE_6__["default"](
+  display,
+  frameSource,
+  campaign,
+  new _game_attribute_main_menu__WEBPACK_IMPORTED_MODULE_7__["default"](new _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_8__["default"]()),
+);
+
+game.play();
 
 
 /***/ }),

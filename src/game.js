@@ -1,4 +1,4 @@
-import Controller from './controller';
+import Controller from '@/game_attribute/controller';
 
 function Game(display, frameSource, campaign, menu) {
   this.controller = new Controller(this);

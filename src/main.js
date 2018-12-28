@@ -2,10 +2,10 @@ import GlobalDisplay from '../display/globalDisplay';
 import NullBoard from '../board/nullBoard';
 import NullCursor from '../display/nullCursor';
 import nullPhaseStage from '../phaseStage/nullPhaseStage';
-import FrameSource from './frameSource';
+import FrameSource from '@/game_attribute/frame_source';
 import Campaign from '../campaign/campaign';
-import Game from './game';
-import MainMenu from './MainMenu';
+import Game from '~/game';
+import MainMenu from '@/game_attribute/main_menu';
 import MainMenuWindowOne from '@/game_window/main_menu_window_one';
 
 let sF = 45;
