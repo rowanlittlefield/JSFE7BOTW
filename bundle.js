@@ -3378,6 +3378,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_window_game_finished_window__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/game_window/game_finished_window */ "./src/classes/game_window/game_finished_window.js");
 /* harmony import */ var _animation_sprite_battle_platform_sprite__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/animation/sprite/battle_platform_sprite */ "./src/classes/animation/sprite/battle_platform_sprite.js");
 /* harmony import */ var _animation_combat_animation_combat_animation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/animation/combat_animation/combat_animation */ "./src/classes/animation/combat_animation/combat_animation.js");
+/* harmony import */ var _board_nullBoard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/board/nullBoard */ "./src/classes/board/nullBoard.js");
+/* harmony import */ var _cursor_null_cursor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/cursor/null_cursor */ "./src/classes/cursor/null_cursor.js");
+/* harmony import */ var _phase_stage_null_phase_stage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/phase_stage/null_phase_stage */ "./src/classes/phase_stage/null_phase_stage.js");
 
 
 
@@ -3389,17 +3392,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function GlobalDisplay(board, cursor, phaseStage, sF) {
-  this.board = board;
+
+
+
+
+function GlobalDisplay(sF, displayOptions) {
+  const options = {
+    ...displayOptions,
+    ...this.defaultOptions(),
+  };
+  
+  this.board = options.board;
   this.displayWindow = new _display_window_display_window__WEBPACK_IMPORTED_MODULE_0__["default"](sF, 5*sF, 1*sF, 15*sF, 10*sF);
-  this.cursor = cursor;
-  this.phaseStage = phaseStage;
+  this.cursor = options.cursor;
+  this.phaseStage = options.phaseStage;
   this.window = new _game_window_null_window__WEBPACK_IMPORTED_MODULE_1__["default"]();
   this.combatAnimation = null;
   this.gameIsFinished = false;
 
   //Temporary fix for pre-loading assets
   this.battlePlatformSprite = new _animation_sprite_battle_platform_sprite__WEBPACK_IMPORTED_MODULE_8__["default"]();
+}
+
+GlobalDisplay.prototype.defaultOptions = function() {
+  return ({
+    board: new _board_nullBoard__WEBPACK_IMPORTED_MODULE_10__["default"](),
+    cursor: new _cursor_null_cursor__WEBPACK_IMPORTED_MODULE_11__["default"],
+    phaseStage: new _phase_stage_null_phase_stage__WEBPACK_IMPORTED_MODULE_12__["default"](),
+  });
 }
 
 GlobalDisplay.prototype.setupCombatAnimation = function(newCombat, phaseStage) {
@@ -3503,8 +3523,11 @@ GlobalDisplay.prototype.renderCombatAnimation = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function MainMenu(windowOne) {
-  this.windowOne = windowOne;
+/* harmony import */ var _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/main_menu_window_one */ "./src/classes/game_window/main_menu_window_one.js");
+
+
+function MainMenu() {
+  this.windowOne = new _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_0__["default"]();
 }
 
 MainMenu.prototype.receiveControllerInput = function(button) {
@@ -6587,15 +6610,24 @@ function UnitStats(options) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_attribute_controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_attribute/controller */ "./src/classes/game_attribute/controller.js");
+/* harmony import */ var _game_attribute_global_display__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/game_attribute/global_display */ "./src/classes/game_attribute/global_display.js");
+/* harmony import */ var _game_attribute_frame_source__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/game_attribute/frame_source */ "./src/classes/game_attribute/frame_source.js");
+/* harmony import */ var _game_attribute_campaign__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/game_attribute/campaign */ "./src/classes/game_attribute/campaign.js");
+/* harmony import */ var _game_attribute_main_menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/game_attribute/main_menu */ "./src/classes/game_attribute/main_menu.js");
 
 
-function Game(display, frameSource, campaign, menu) {
+
+
+
+
+function Game() {
+  const sF = 45;
+  
   this.controller = new _game_attribute_controller__WEBPACK_IMPORTED_MODULE_0__["default"](this);
-  this.frameSource = frameSource;
-
-  this.display = display;
-  this.campaign = campaign;
-  this.menu = menu;
+  this.display = new _game_attribute_global_display__WEBPACK_IMPORTED_MODULE_1__["default"](sF);
+  this.frameSource = new _game_attribute_frame_source__WEBPACK_IMPORTED_MODULE_2__["default"](this.display);
+  this.campaign = new _game_attribute_campaign__WEBPACK_IMPORTED_MODULE_3__["default"](this.display, this.frameSource);
+  this.menu = new _game_attribute_main_menu__WEBPACK_IMPORTED_MODULE_4__["default"]();
 
   this.gameStage = null;
 }
@@ -6640,37 +6672,10 @@ Game.prototype.playCampaign = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _game_attribute_global_display__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_attribute/global_display */ "./src/classes/game_attribute/global_display.js");
-/* harmony import */ var _board_nullBoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/board/nullBoard */ "./src/classes/board/nullBoard.js");
-/* harmony import */ var _cursor_null_cursor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/cursor/null_cursor */ "./src/classes/cursor/null_cursor.js");
-/* harmony import */ var _phase_stage_null_phase_stage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/phase_stage/null_phase_stage */ "./src/classes/phase_stage/null_phase_stage.js");
-/* harmony import */ var _game_attribute_frame_source__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/game_attribute/frame_source */ "./src/classes/game_attribute/frame_source.js");
-/* harmony import */ var _game_attribute_campaign__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/game_attribute/campaign */ "./src/classes/game_attribute/campaign.js");
-/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ~/game */ "./src/game.js");
-/* harmony import */ var _game_attribute_main_menu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/game_attribute/main_menu */ "./src/classes/game_attribute/main_menu.js");
-/* harmony import */ var _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/game_window/main_menu_window_one */ "./src/classes/game_window/main_menu_window_one.js");
+/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ~/game */ "./src/game.js");
 
 
-
-
-
-
-
-
-
-
-let sF = 45;
-let display = new _game_attribute_global_display__WEBPACK_IMPORTED_MODULE_0__["default"](new _board_nullBoard__WEBPACK_IMPORTED_MODULE_1__["default"](), new _cursor_null_cursor__WEBPACK_IMPORTED_MODULE_2__["default"], new _phase_stage_null_phase_stage__WEBPACK_IMPORTED_MODULE_3__["default"](), sF);
-let frameSource = new _game_attribute_frame_source__WEBPACK_IMPORTED_MODULE_4__["default"](display);
-let campaign = new _game_attribute_campaign__WEBPACK_IMPORTED_MODULE_5__["default"](display, frameSource);
-
-let game = new _game__WEBPACK_IMPORTED_MODULE_6__["default"](
-  display,
-  frameSource,
-  campaign,
-  new _game_attribute_main_menu__WEBPACK_IMPORTED_MODULE_7__["default"](new _game_window_main_menu_window_one__WEBPACK_IMPORTED_MODULE_8__["default"]()),
-);
-
+const game = new _game__WEBPACK_IMPORTED_MODULE_0__["default"]();
 game.play();
 
 
