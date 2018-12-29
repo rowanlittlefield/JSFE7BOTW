@@ -890,6 +890,80 @@ RoyReceiveHitAnimation.prototype.update = function() {
 
 /***/ }),
 
+/***/ "./src/classes/animation/hit_animation/normal_critical_damage_animation.js":
+/*!*********************************************************************************!*\
+  !*** ./src/classes/animation/hit_animation/normal_critical_damage_animation.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/coordinate_sprite */ "./src/classes/animation/sprite/coordinate_sprite.js");
+
+
+function NormalCriticalDamageAnimation(defenderCoordinates) {
+  _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    240,//width
+    143,//height
+    //238,//renderWidth
+    240*1.4,//renderWidth
+
+    //158,//renderHeight
+    143*1.3,//renderHeight
+
+    'src/assets/hit_effect_spritesheets/FE7HitSpriteSheetsTransTest.png',//image
+    2,//ticksPerFrame
+    // [10, 21]
+    [
+      // [10, 21],
+      // [253, 1033],
+      // //[10, 1197],
+      // //[253, 1033],
+      // [10,21],
+
+      [253, 526], [496, 526],
+      [10, 690], [253, 690], [496, 690],
+      [10, 853], [253, 853], [496, 853]
+
+    ]//coordinatesList
+  );
+
+  this.defenderCoordinates = defenderCoordinates;
+}
+
+NormalCriticalDamageAnimation.prototype = Object.create(_animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+NormalCriticalDamageAnimation.prototype.constructor = NormalCriticalDamageAnimation;
+
+NormalCriticalDamageAnimation.prototype.render = function(sF) {
+  let scale = sF / 18;
+  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.5*sF);
+  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (2*sF);
+
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,// this.spriteSheet,
+    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
+    this.coordinatesList[this.frameIndex][1],// 0,
+    this.width,// this.width,
+    this.height,// this.height,
+    cx,// cx,
+    cy,// cy,
+    cWidth,// cWidth,
+    cHeight// cHeight
+  );
+  this.update();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (NormalCriticalDamageAnimation);
+
+
+/***/ }),
+
 /***/ "./src/classes/animation/hit_animation/normal_damage_animation.js":
 /*!************************************************************************!*\
   !*** ./src/classes/animation/hit_animation/normal_damage_animation.js ***!
@@ -1365,6 +1439,110 @@ BattlePlatformSprite.prototype.constructor = BattlePlatformSprite;
 
 /***/ }),
 
+/***/ "./src/classes/animation/sprite/brigand_map_sprites.js":
+/*!*************************************************************!*\
+  !*** ./src/classes/animation/sprite/brigand_map_sprites.js ***!
+  \*************************************************************/
+/*! exports provided: BrigandStationaryMapSprite, BrigandForwardWalkMapSprite, BrigandBackwardsWalkMapSprite, BrigandRightWalkMapSprite, BrigandLeftWalkMapSprite, BrigandPostActionMapSprite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandStationaryMapSprite", function() { return BrigandStationaryMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandForwardWalkMapSprite", function() { return BrigandForwardWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandBackwardsWalkMapSprite", function() { return BrigandBackwardsWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandRightWalkMapSprite", function() { return BrigandRightWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandLeftWalkMapSprite", function() { return BrigandLeftWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandPostActionMapSprite", function() { return BrigandPostActionMapSprite; });
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+class BrigandStationaryMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/brigandMapSprite.png",
+      6,
+      12
+    );
+  }
+}
+
+class BrigandForwardWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      25,
+      22,
+      25,
+      "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png",
+      6,
+      4
+    );
+  }
+}
+
+class BrigandBackwardsWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      25,
+      22,
+      25,
+      "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png",
+      8,
+      4
+    );
+  }
+}
+
+class BrigandRightWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      27,
+      22,
+      27,
+      "src/assets/map_spritesheets/brigandRightWalkSprite.png",
+      8,
+      4
+    );
+  }
+}
+
+class BrigandLeftWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      27,
+      22,
+      27,
+      "src/assets/map_spritesheets/brigandLeftWalkSprite.png",
+      8,
+      4
+    );
+  }
+}
+
+class BrigandPostActionMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/brigandMapSpritePostAction.png",
+      6,
+      12
+    );
+  }
+}
+
+/***/ }),
+
 /***/ "./src/classes/animation/sprite/coordinate_sprite.js":
 /*!***********************************************************!*\
   !*** ./src/classes/animation/sprite/coordinate_sprite.js ***!
@@ -1418,6 +1596,274 @@ CoordinateSprite.prototype.render = function(row, col, sF) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (CoordinateSprite);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/sprite/lyn_map_sprites.js":
+/*!*********************************************************!*\
+  !*** ./src/classes/animation/sprite/lyn_map_sprites.js ***!
+  \*********************************************************/
+/*! exports provided: LynStationaryMapSprite, LynForwardWalkMapSprite, LynBackwardsWalkMapSprite, LynRightWalkMapSprite, LynLeftWalkMapSprite, LynPostActionMapSprite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynStationaryMapSprite", function() { return LynStationaryMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynForwardWalkMapSprite", function() { return LynForwardWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynBackwardsWalkMapSprite", function() { return LynBackwardsWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynRightWalkMapSprite", function() { return LynRightWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynLeftWalkMapSprite", function() { return LynLeftWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynPostActionMapSprite", function() { return LynPostActionMapSprite; });
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+class LynStationaryMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/lynMapSpriteSheet.png",
+      6,
+      12
+    );
+  }
+}
+
+class LynForwardWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      23,
+      19,
+      23,
+      19,
+      "src/assets/map_spritesheets/lynForwardWalkSpriteSheet.png",
+      6,
+      6
+    );
+  }
+}
+
+class LynBackwardsWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      21,
+      18,
+      21,
+      18,
+      "src/assets/map_spritesheets/lynBackwardWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class LynRightWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      26,
+      17,
+      26,
+      17,
+      "src/assets/map_spritesheets/lynRightWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class LynLeftWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      26,
+      17,
+      26,
+      17,
+      "src/assets/map_spritesheets/lynLeftWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class LynPostActionMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/lynMapSpriteSheetPostAction.png",
+      6,
+      12
+    );
+  }
+}
+
+/***/ }),
+
+/***/ "./src/classes/animation/sprite/mugshot_sprites.js":
+/*!*********************************************************!*\
+  !*** ./src/classes/animation/sprite/mugshot_sprites.js ***!
+  \*********************************************************/
+/*! exports provided: RoyMugshotSprite, LynMugshotSprite, BrigandMugshotSprite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyMugshotSprite", function() { return RoyMugshotSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynMugshotSprite", function() { return LynMugshotSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandMugshotSprite", function() { return BrigandMugshotSprite; });
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+class RoyMugshotSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      253,
+      228,
+      18,
+      18,
+      "src/assets/mugshots/RoyMugshotZoom.jpg",
+      6,
+      1
+    );
+  }
+}
+
+class LynMugshotSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      165,
+      158,
+      18,
+      18,
+      "src/assets/mugshots/lynHPWindowSprite3.jpg",
+      6,
+      1
+    );
+  }
+}
+
+class BrigandMugshotSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      80,
+      72,
+      18,
+      18,
+      "src/assets/mugshots/brigandHPWindowSprite.png",
+      6,
+      1
+    );
+  }
+}
+
+/***/ }),
+
+/***/ "./src/classes/animation/sprite/roy_map_sprites.js":
+/*!*********************************************************!*\
+  !*** ./src/classes/animation/sprite/roy_map_sprites.js ***!
+  \*********************************************************/
+/*! exports provided: RoyStationaryMapSprite, RoyForwardWalkMapSprite, RoyBackwardsWalkMapSprite, RoyRightWalkMapSprite, RoyLeftWalkMapSprite, RoyPostActionMapSprite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyStationaryMapSprite", function() { return RoyStationaryMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyForwardWalkMapSprite", function() { return RoyForwardWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyBackwardsWalkMapSprite", function() { return RoyBackwardsWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyRightWalkMapSprite", function() { return RoyRightWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyLeftWalkMapSprite", function() { return RoyLeftWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyPostActionMapSprite", function() { return RoyPostActionMapSprite; });
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+class RoyStationaryMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18, 
+      18, 
+      18, 
+      18, 
+      "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 
+      6, 
+      12
+    );
+  }
+}
+
+class RoyForwardWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      20,
+      22,
+      20,
+      "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png",
+      6,
+      6
+    );
+  }
+}
+
+class RoyBackwardsWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      21,
+      18,
+      21,
+      18,
+      "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class RoyRightWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      34,
+      18,
+      34,
+      18,
+      "src/assets/map_spritesheets/royRightWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class RoyLeftWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      34,
+      18,
+      34,
+      18,
+      "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class RoyPostActionMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png",
+      6,
+      12
+    );
+  }
+}
 
 
 /***/ }),
@@ -1887,8 +2333,9 @@ EUAttack.prototype.render = function(enemyCoordinates, sF) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./attack */ "./src/classes/attack/attack.js");
 /* harmony import */ var _animation_hit_animation_normal_damage_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/hit_animation/normal_damage_animation */ "./src/classes/animation/hit_animation/normal_damage_animation.js");
-/* harmony import */ var _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/hit_animation/roy_critical_hit_animation */ "./src/classes/animation/hit_animation/roy_critical_hit_animation.js");
-/* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
+/* harmony import */ var _animation_hit_animation_normal_critical_damage_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/hit_animation/normal_critical_damage_animation */ "./src/classes/animation/hit_animation/normal_critical_damage_animation.js");
+/* harmony import */ var _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/hit_animation/roy_critical_hit_animation */ "./src/classes/animation/hit_animation/roy_critical_hit_animation.js");
+/* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
 
 
 
@@ -1901,10 +2348,10 @@ function PUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
   );
   if (this.isCrit) {
-    if (attacker instanceof _unit_roy__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-      this.hitAnimation = new _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
+    if (attacker instanceof _unit_roy__WEBPACK_IMPORTED_MODULE_4__["default"]) {
+      this.hitAnimation = new _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_3__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
     } else {
-      this.hitAnimation = new _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
+      this.hitAnimation = new _animation_hit_animation_normal_critical_damage_animation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
     }
   } else {
       this.hitAnimation = new _animation_hit_animation_normal_damage_animation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.enemyCoordinates[0] + 1.7, this.enemyCoordinates[1] + 2.8]);
@@ -2170,22 +2617,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chapter_chapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/chapter/chapter */ "./src/classes/chapter/chapter.js");
 /* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 /* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
-/* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
-/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
-/* harmony import */ var _unit_lyn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit/lyn */ "./src/classes/unit/lyn.js");
-/* harmony import */ var _unit_brigand__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit/brigand */ "./src/classes/unit/brigand.js");
-/* harmony import */ var _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/terrain/thicket */ "./src/classes/terrain/thicket.js");
-/* harmony import */ var _terrain_wall__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/terrain/wall */ "./src/classes/terrain/wall.js");
-/* harmony import */ var _terrain_forest__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/terrain/forest */ "./src/classes/terrain/forest.js");
-/* harmony import */ var _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/terrain/mountain */ "./src/classes/terrain/mountain.js");
-/* harmony import */ var _terrain_peak__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/terrain/peak */ "./src/classes/terrain/peak.js");
-/* harmony import */ var _terrain_fort__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/terrain/fort */ "./src/classes/terrain/fort.js");
-/* harmony import */ var _terrain_gate__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/terrain/gate */ "./src/classes/terrain/gate.js");
-/* harmony import */ var _terrain_village__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/terrain/village */ "./src/classes/terrain/village.js");
-
-
-
-
+/* harmony import */ var _unit_lyn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/unit/lyn */ "./src/classes/unit/lyn.js");
+/* harmony import */ var _unit_brigand__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/unit/brigand */ "./src/classes/unit/brigand.js");
+/* harmony import */ var _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/terrain/thicket */ "./src/classes/terrain/thicket.js");
+/* harmony import */ var _terrain_wall__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/terrain/wall */ "./src/classes/terrain/wall.js");
+/* harmony import */ var _terrain_forest__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/terrain/forest */ "./src/classes/terrain/forest.js");
+/* harmony import */ var _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/terrain/mountain */ "./src/classes/terrain/mountain.js");
+/* harmony import */ var _terrain_peak__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/terrain/peak */ "./src/classes/terrain/peak.js");
+/* harmony import */ var _terrain_fort__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/terrain/fort */ "./src/classes/terrain/fort.js");
+/* harmony import */ var _terrain_gate__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/terrain/gate */ "./src/classes/terrain/gate.js");
+/* harmony import */ var _terrain_village__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/terrain/village */ "./src/classes/terrain/village.js");
 
 
 
@@ -2223,63 +2664,56 @@ ChapterOne.prototype.setupBoard = function() {
     );
 
 
-  const roy = new _unit_roy__WEBPACK_IMPORTED_MODULE_3__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["SwordOfSeals"]()]));
-  const lyn = new _unit_lyn__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["ManiKatti"]()]));
+  const roy = new _unit_roy__WEBPACK_IMPORTED_MODULE_3__["default"](newBoard);
+  const lyn = new _unit_lyn__WEBPACK_IMPORTED_MODULE_4__["default"](newBoard);
   newBoard.placeUnit(roy, [18, 3]);
   newBoard.placeUnit(lyn, [17, 3]);
   //Enemy units
-  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
-  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [9, 6]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [10, 11]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [13, 12]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'seekAndDestroy'), [10, 11]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'seekAndDestroy'), [13, 12]);
 
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'seekAndDestroy'), [18, 4]);
-  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [8, 4]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'seekAndDestroy'), [18, 4]);
 
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [9, 14]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [15, 15]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 15]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'TWBS'), [9, 14]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'TWBS'), [15, 15]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'TWBS'), [1, 15]);
 
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [1, 7]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'TWBS'), [3, 7]);
-  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__["default"]([new _item_weapon__WEBPACK_IMPORTED_MODULE_5__["IronAxe"]]), 'idle'), [2, 6]);
-
-
-
-
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'TWBS'), [1, 7]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'TWBS'), [3, 7]);
+  newBoard.placeUnit(new _unit_brigand__WEBPACK_IMPORTED_MODULE_5__["default"](newBoard, 'idle'), [2, 6]);
 
 //thicket
   for(let i = 0; i < 4; i++) {
-    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 0]);
+    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [i, 0]);
   }
 
   for(let i = 0; i < 4; i++) {
-    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 1]);
+    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [i, 1]);
   }
 
   for(let i = 0; i < 3; i++) {
-    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 2]);
+    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [i, 2]);
   }
 
   for(let i = 0; i < 2; i++) {
-    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 3]);
+    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [i, 3]);
   }
 
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [11, 2]);
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [12, 2]);
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [12, 1]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [11, 2]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [12, 2]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [12, 1]);
 
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [13, 4]);
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [13, 5]);
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [12, 6]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [13, 4]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [13, 5]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [12, 6]);
 
   for(let i = 6; i < 10; i++) {
-    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 9]);
+    new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [i, 9]);
   }
 
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [7, 8]);
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [8, 8]);
-  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [8, 10]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [7, 8]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [8, 8]);
+  new _terrain_thicket__WEBPACK_IMPORTED_MODULE_6__["default"](newBoard, [8, 10]);
 
 
 
@@ -2289,183 +2723,183 @@ ChapterOne.prototype.setupBoard = function() {
   //wall
 
   for(let i = 1; i < 4; i++) {
-    new _terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 5]);
+    new _terrain_wall__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, [i, 5]);
   }
-  new _terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [1, 6]);
-  new _terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [3, 6]);
+  new _terrain_wall__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, [1, 6]);
+  new _terrain_wall__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, [3, 6]);
 
   for(let i = 17; i < 20; i++) {
-    new _terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 13]);
+    new _terrain_wall__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, [i, 13]);
   }
-  new _terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [17, 14]);
-  new _terrain_wall__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [19, 14]);
+  new _terrain_wall__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, [17, 14]);
+  new _terrain_wall__WEBPACK_IMPORTED_MODULE_7__["default"](newBoard, [19, 14]);
 
 //forest
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 0]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [18, 0]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 1]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, 1]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [20, 1]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [17, 0]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [18, 0]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [17, 1]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [19, 1]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [20, 1]);
 
   for(let i = 17; i < 20; i++) {
-    new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 2]);
+    new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 2]);
   }
 
   for(let i = 3; i < 6; i++) {
-    new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, i]);
+    new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [19, i]);
   }
   for(let i = 3; i < 13; i++) {
-    new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [20, i]);
+    new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [20, i]);
   }
 
   for(let i =  7; i < 11; i++) {
-    new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, i]);
+    new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [19, i]);
   }
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [19, 12]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [19, 12]);
 
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [16, 6]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 7]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [17, 9]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [15, 9]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [15, 10]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [14, 11]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [14, 12]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [13, 13]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [16, 13]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [11, 11]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [12, 11]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [12, 10]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [16, 6]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [17, 7]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [17, 9]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [15, 9]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [15, 10]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [14, 11]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [14, 12]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [13, 13]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [16, 13]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [11, 11]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [12, 11]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [12, 10]);
 
   for(let i = 14; i < 21; i++) {
-    new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 16]);
+    new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 16]);
   }
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [20, 15]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [18, 15]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [20, 14]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [20, 15]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [18, 15]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [20, 14]);
 
   for(let i = 10; i < 13; i++) {
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 16]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 16]);
   }
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [11, 14]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [9, 13]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [9, 12]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [7, 13]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [7, 15]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [8, 15]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [7, 16]);
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [6, 16]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [11, 14]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [9, 13]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [9, 12]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [7, 13]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [7, 15]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [8, 15]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [7, 16]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [6, 16]);
 
 for(let i = 13; i < 17; i++) {
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [0, i]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [0, i]);
 }
 for(let i = 13; i < 17; i++) {
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [2, i]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [2, i]);
 }
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [3, 15]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [4, 14]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [4, 16]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [3, 15]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [4, 14]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [4, 16]);
 
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [1, 13]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [1, 16]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [1, 11]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [1, 13]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [1, 16]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [1, 11]);
 
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [0, 9]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [0, 6]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [3, 4]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [0, 9]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [0, 6]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [3, 4]);
 
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [6, 3]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [7, 3]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [6, 3]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [7, 3]);
 
 for(let i = 6; i < 11; i++) {
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 1]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 1]);
 }
 
 for(let i = 8; i < 12; i++) {
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 0]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 0]);
 }
 
 for(let i = 4; i < 7; i++) {
-  new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [i, 0]);
+  new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [i, 0]);
 }
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [4, 1]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [5, 2]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [4, 1]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [5, 2]);
 
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [8, 2]);
-new _terrain_forest__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [9, 2]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [8, 2]);
+new _terrain_forest__WEBPACK_IMPORTED_MODULE_8__["default"](newBoard, [9, 2]);
 
 
 
 //mountain
   for(let i = 0; i < 4; i++) {
-    new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [16, i]);
+    new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [16, i]);
   }
 
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [15, 3]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [15, 4]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [14, 4]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [14, 5]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [13, 6]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [12, 7]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [12, 8]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [11, 8]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [10, 9]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [15, 3]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [15, 4]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [14, 4]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [14, 5]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [13, 6]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [12, 7]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [12, 8]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [11, 8]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [10, 9]);
 
   for(let i = 5; i < 8; i++) {
-    new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [i, 10]);
+    new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [i, 10]);
   }
 
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [4, 9]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [5, 9]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [5, 8]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 8]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 7]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [7, 7]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [8, 6]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [8, 5]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [9, 5]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [9, 4]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [10, 4]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [10, 3]);
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [11, 3]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [4, 9]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [5, 9]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [5, 8]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [6, 8]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [6, 7]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [7, 7]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [8, 6]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [8, 5]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [9, 5]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [9, 4]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [10, 4]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [10, 3]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [11, 3]);
 
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [11, 1]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [11, 1]);
 
-  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [12, 0]);
+  new _terrain_mountain__WEBPACK_IMPORTED_MODULE_9__["default"](newBoard, [12, 0]);
 
 //peak
   for(let i = 0; i < 3; i++) {
-    new _terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [15, i])
+    new _terrain_peak__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [15, i])
   }
   for(let i = 0; i < 4; i++) {
-    new _terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [14, i])
+    new _terrain_peak__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [14, i])
   }
   for(let i = 0; i < 4; i++) {
-    new _terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [13, i])
+    new _terrain_peak__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [13, i])
   }
   for(let i = 3; i < 6; i++) {
-    new _terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [12, i])
+    new _terrain_peak__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [12, i])
   }
   for(let i = 4; i < 8; i++) {
-    new _terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [11, i])
+    new _terrain_peak__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [11, i])
   }
   for(let i = 5; i < 9; i++) {
-    new _terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [10, i])
+    new _terrain_peak__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [10, i])
   }
   for(let i = 6; i < 9; i++) {
-    new _terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [9, i])
+    new _terrain_peak__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [9, i])
   }
-  new _terrain_peak__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [8, 7])
+  new _terrain_peak__WEBPACK_IMPORTED_MODULE_10__["default"](newBoard, [8, 7])
 //fort
-  new _terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [17, 3])
-  new _terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [18, 3])
-  new _terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [6, 5])
-  new _terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [6, 11])
-  new _terrain_fort__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [6, 12])
+  new _terrain_fort__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [17, 3])
+  new _terrain_fort__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [18, 3])
+  new _terrain_fort__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 5])
+  new _terrain_fort__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 11])
+  new _terrain_fort__WEBPACK_IMPORTED_MODULE_11__["default"](newBoard, [6, 12])
 
 //gate
-  new _terrain_gate__WEBPACK_IMPORTED_MODULE_14__["default"](newBoard, [2, 6]);
+  new _terrain_gate__WEBPACK_IMPORTED_MODULE_12__["default"](newBoard, [2, 6]);
 //Village
-  new _terrain_village__WEBPACK_IMPORTED_MODULE_15__["default"](newBoard, [18, 14]);
+  new _terrain_village__WEBPACK_IMPORTED_MODULE_13__["default"](newBoard, [18, 14]);
 
 //test
   return newBoard;
@@ -5430,12 +5864,16 @@ Wall.prototype.moveCost = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Brigand; });
 /* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
-/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
-/* harmony import */ var _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/brigand_combat_animation */ "./src/classes/animation/combat_animation/brigand_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/brigand_receive_hit_animation */ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js");
-/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/brigand_map_sprites */ "./src/classes/animation/sprite/brigand_map_sprites.js");
+/* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
+/* harmony import */ var _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/brigand_combat_animation */ "./src/classes/animation/combat_animation/brigand_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/brigand_receive_hit_animation */ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
 
 
 
@@ -5443,58 +5881,72 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Brigand(board, inventory, behavior, stats) {
-  _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    stats,
-    board,
-    inventory,
-    'Brigand',
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSprite.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png", 6, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandRightWalkSprite.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandLeftWalkSprite.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSpritePostAction.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "src/assets/mugshots/brigandHPWindowSprite.png", 6, 1),
-    new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_4__["default"],
-    behavior
+
+
+
+
+class Brigand extends _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(board, behavior, unitOptions) {
+    super(
+      board,
+      behavior,
+      unitOptions,
     );
+  }
+
+  defaultUnitOptions() {
+    return ({
+      name: 'Brigand',
+      stats: this.defaultStats(),
+      inventory: this.defaultInventory(),
+      stationaryMapSprite: new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandStationaryMapSprite"](),
+      forwardWalkMapSprite: new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandForwardWalkMapSprite"](),
+      backwardsWalkMapSprite: new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandBackwardsWalkMapSprite"](),
+      rightWalkMapSprite: new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandRightWalkMapSprite"](),
+      leftWalkMapSprite: new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandLeftWalkMapSprite"](),
+      postActionMapSprite: new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandPostActionMapSprite"](),
+      mugshotSprite: new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__["BrigandMugshotSprite"](),
+      combatAnimation: new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+      critCombatAnimation: new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+      dodgeAnimation: new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+      receiveHitAnimation: new _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
+    });
+  }
+
+  defaultStats() {
+    return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__["default"](
+      {
+        level: 1,
+        experience: 0,
+        hp: 20,
+        strength: 5,
+        skill: 1,
+        speed: 5,
+        luck: 0,
+        defense: 3,
+        resistance: 0,
+        move: 5,
+        constitution: 12,
+        hp_growth_rate: 82,
+        strength_growth_rate: 50,
+        skill_growth_rate: 30,
+        speed_growth_rate: 20,
+        luck_growth_rate: 15,
+        defense_growth_rate: 10,
+        resistance_growth_rate: 13,
+        affinity: "wind"
+      }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_7__["default"]([
+        new _item_weapon__WEBPACK_IMPORTED_MODULE_8__["IronAxe"]
+      ])
+    );
+  }
 }
-
-Brigand.prototype = Object.create(_unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Brigand.prototype.constructor = Brigand;
-
-Brigand.prototype.defaultStats = function() {
-  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_5__["default"](
-    {
-      level: 1,
-      experience: 0,
-      hp: 20,
-      strength: 5,
-      skill: 1,
-      speed: 5,
-      luck: 0,
-      defense: 3,
-      resistance: 0,
-      move: 5,
-      constitution: 12,
-      hp_growth_rate: 82,
-      strength_growth_rate: 50,
-      skill_growth_rate: 30,
-      speed_growth_rate: 20,
-      luck_growth_rate: 15,
-      defense_growth_rate: 10,
-      resistance_growth_rate: 13,
-      affinity: "wind"
-    }
-  );
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Brigand);
 
 
 /***/ }),
@@ -5508,31 +5960,27 @@ Brigand.prototype.defaultStats = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EnemyUnit; });
 /* harmony import */ var _unit_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/unit */ "./src/classes/unit/unit.js");
 /* harmony import */ var _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/path_finder */ "./src/classes/pathfinding/path_finder.js");
 
 
 
-function EnemyUnit(stats, board, inventory, name, mapSprite,
-  forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation, behavior) {
-  _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
-    forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-    leftWalkSprite, postActionMapSprite, hpWindowSprite,
-    combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
-  this.behavior = behavior;
-  this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
+class EnemyUnit extends _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(board, behavior, unitOptions) {
+    super(
+      board,
+      unitOptions,
+    );
+
+    this.behavior = behavior;
+    this.pathFinder = new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
+  }
+
+  waitForAnimationCompletion() {
+
+  }
 }
-
-EnemyUnit.prototype = Object.create(_unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-EnemyUnit.prototype.constructor = EnemyUnit;
-
-EnemyUnit.prototype.waitForAnimationCompletion = function() {
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (EnemyUnit);
 
 
 /***/ }),
@@ -5546,13 +5994,17 @@ EnemyUnit.prototype.waitForAnimationCompletion = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Lyn; });
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
-/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
-/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_crit_combat_animation */ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/lyn_receive_hit_animation */ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js");
-/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/lyn_map_sprites */ "./src/classes/animation/sprite/lyn_map_sprites.js");
+/* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
+/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_crit_combat_animation */ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/lyn_receive_hit_animation */ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
 
 
 
@@ -5562,59 +6014,70 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Lyn(board, inventory, stats) {
-  _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    stats,
-    board,
-    inventory,
-    'Lyn',
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheet.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](23, 19, 23, 19, "src/assets/map_spritesheets/lynForwardWalkSpriteSheet.png", 6, 6),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/lynBackwardWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynRightWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynLeftWalkSpriteSheet.png", 8, 4),
 
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheetPostAction.png", 6, 12),
 
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](165, 158, 18, 18, "src/assets/mugshots/lynHPWindowSprite3.jpg", 6, 1),
-    new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__["default"]()
-  );
+class Lyn extends _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(board, unitOptions) {
+    super(
+      board,
+      unitOptions
+    );
+  }
+
+  defaultUnitOptions() {
+    return ({
+      name: 'Lyn',
+      stats: this.defaultStats(),
+      inventory: this.defaultInventory(),
+      stationaryMapSprite: new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynStationaryMapSprite"](),
+      forwardWalkMapSprite: new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynForwardWalkMapSprite"](),
+      backwardsWalkMapSprite: new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynBackwardsWalkMapSprite"](),
+      rightWalkMapSprite: new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynRightWalkMapSprite"](),
+      leftWalkMapSprite: new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynLeftWalkMapSprite"](),
+      postActionMapSprite: new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynPostActionMapSprite"](),
+      mugshotSprite: new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__["LynMugshotSprite"](),
+      combatAnimation: new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+      critCombatAnimation: new _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+      dodgeAnimation: new _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
+      receiveHitAnimation: new _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_6__["default"](),
+    });
+  }
+
+  defaultStats() {
+    return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__["default"](
+      {
+        level: 1,
+        experience: 0,
+        hp: 31,
+        strength: 14,
+        skill: 17,
+        speed: 15,
+        luck: 15,
+        defense: 6,
+        resistance: 8,
+        move: 6,
+        constitution: 6,
+        hp_growth_rate: 70,
+        strength_growth_rate: 40,
+        skill_growth_rate: 60,
+        speed_growth_rate: 60,
+        luck_growth_rate: 55,
+        defense_growth_rate: 20,
+        resistance_growth_rate: 30,
+        affinity: "wind"
+      }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_8__["default"]([
+        new _item_weapon__WEBPACK_IMPORTED_MODULE_9__["ManiKatti"](),
+      ])
+    );
+  }
 }
 
-Lyn.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Lyn.prototype.constructor = Lyn;
-
-Lyn.prototype.defaultStats = function() {
-  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__["default"](
-    {
-      level: 1,
-      experience: 0,
-      hp: 31,
-      strength: 14,
-      skill: 17,
-      speed: 15,
-      luck: 15,
-      defense: 6,
-      resistance: 8,
-      move: 6,
-      constitution: 6,
-      hp_growth_rate: 70,
-      strength_growth_rate: 40,
-      skill_growth_rate: 60,
-      speed_growth_rate: 60,
-      luck_growth_rate: 55,
-      defense_growth_rate: 20,
-      resistance_growth_rate: 30,
-      affinity: "wind"
-    }
-  );
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Lyn);
 
 
 /***/ }),
@@ -5628,50 +6091,52 @@ Lyn.prototype.defaultStats = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PlayerUnit; });
 /* harmony import */ var _unit_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/unit */ "./src/classes/unit/unit.js");
 /* harmony import */ var _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/path_finder */ "./src/classes/pathfinding/path_finder.js");
 
 
 
-function PlayerUnit(stats, board, inventory, name, mapSprite,
-forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
- postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation) {
-  _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
-  forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation);
-  this.prevPos = null;
-  this.windowOptions = null;
-  this.fightOptions = null;
+class PlayerUnit extends _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(board, unitOptions) {
+    super(
+      board,
+      unitOptions,
+    );
 
-  this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
+    this.prevPos = null;
+    this.windowOptions = null;
+    this.fightOptions = null;
+
+    this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
+  }
+
+  setMoveForecast() {
+    this.inTransit = true;
+    this.prevPos = [this.position[0], this.position[1]];
+
+    this.pathFinder.setupSingleMovePositionSets(this.position)
+  }
+
+  nullifyOptions() {
+    this.prevPos = null;
+    this.windowOptions = null;
+    this.fightOptions = null;
+    this.inTransit = false;
+
+    this.pathFinder.clearAndUpdate(this.position);
+  }
+
+  renderMoveSpaces(sF, x, y, width, height) {
+    this.pathFinder.renderSingleMovePositionSets(
+      sF,
+      x,
+      y,
+      width,
+      height
+    );
+  }
 }
-
-PlayerUnit.prototype = Object.create(_unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-PlayerUnit.prototype.constructor = PlayerUnit;
-
-PlayerUnit.prototype.setMoveForecast = function() {
-  this.inTransit = true;
-  this.prevPos = [this.position[0], this.position[1]];
-
-  this.pathFinder.setupSingleMovePositionSets(this.position)
-}
-
-PlayerUnit.prototype.nullifyOptions = function(display) {
-  this.prevPos = null;
-  this.windowOptions = null;
-  this.fightOptions = null;
-  this.inTransit = false;
-
-  this.pathFinder.clearAndUpdate(this.position);
-}
-
-PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
-  this.pathFinder.renderSingleMovePositionSets(sF, x, y, width, height);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (PlayerUnit);
 
 
 /***/ }),
@@ -5685,14 +6150,17 @@ PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Roy; });
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
-/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
-/* harmony import */ var _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/roy_combat_animation */ "./src/classes/animation/combat_animation/roy_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/roy_crit_combat_animation */ "./src/classes/animation/combat_animation/roy_crit_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/roy_dodge_animation */ "./src/classes/animation/combat_animation/roy_dodge_animation.js");
-/* harmony import */ var _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/roy_receive_hit_sprite */ "./src/classes/animation/combat_animation/roy_receive_hit_sprite.js");
-/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
-// import PlayerUnit from '../playerUnit';
+/* harmony import */ var _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/roy_map_sprites */ "./src/classes/animation/sprite/roy_map_sprites.js");
+/* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
+/* harmony import */ var _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/roy_combat_animation */ "./src/classes/animation/combat_animation/roy_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/roy_crit_combat_animation */ "./src/classes/animation/combat_animation/roy_crit_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/roy_dodge_animation */ "./src/classes/animation/combat_animation/roy_dodge_animation.js");
+/* harmony import */ var _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/roy_receive_hit_sprite */ "./src/classes/animation/combat_animation/roy_receive_hit_sprite.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
 
 
 
@@ -5701,57 +6169,70 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Roy(board, inventory, stats) {
-  _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    stats,
-    board,
-    inventory,
-    'Roy',
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royRightWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "src/assets/mugshots/RoyMugshotZoom.jpg", 6, 1),
-    new _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_5__["default"]()
-  );
+
+
+
+class Roy extends _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(board, unitOptions) {
+    super(
+      board,
+      unitOptions,
+    );    
+  }
+
+  defaultUnitOptions() {
+    return ({
+      name: 'Roy',
+      stats: this.defaultStats(),
+      inventory: this.defaultInventory(),
+      stationaryMapSprite: new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyStationaryMapSprite"](),
+      forwardWalkMapSprite: new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyForwardWalkMapSprite"](),
+      backwardsWalkMapSprite: new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyBackwardsWalkMapSprite"](),
+      rightWalkMapSprite: new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyRightWalkMapSprite"](),
+      leftWalkMapSprite: new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyLeftWalkMapSprite"](),
+      postActionMapSprite: new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyPostActionMapSprite"](),
+      mugshotSprite: new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__["RoyMugshotSprite"](),
+      combatAnimation: new _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+      critCombatAnimation: new _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+      dodgeAnimation: new _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
+      receiveHitAnimation: new _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_6__["default"](),
+    });
+  }
+
+  defaultStats() {
+    return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__["default"](
+      {
+        level: 1,
+        experience: 0,
+        hp: 42,
+        strength: 16,
+        skill: 19,
+        speed: 22,
+        luck: 17,
+        defense: 14,
+        resistance: 7,
+        move: 6,
+        constitution: 8,
+        hp_growth_rate: 80,
+        strength_growth_rate: 40,
+        skill_growth_rate: 50,
+        speed_growth_rate: 40,
+        luck_growth_rate: 60,
+        defense_growth_rate: 25,
+        resistance_growth_rate: 30,
+        affinity: "wind"
+      }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_8__["default"]([
+        new _item_weapon__WEBPACK_IMPORTED_MODULE_9__["SwordOfSeals"](),
+      ])
+    );
+  }
 }
-
-Roy.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Roy.prototype.constructor = Roy;
-
-Roy.prototype.defaultStats = function() {
-  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__["default"](
-    {
-      level: 1,
-      experience: 0,
-      hp: 42,
-      strength: 16,
-      skill: 19,
-      speed: 22,
-      luck: 17,
-      defense: 14,
-      resistance: 7,
-      move: 6,
-      constitution: 8,
-      hp_growth_rate: 80,
-      strength_growth_rate: 40,
-      skill_growth_rate: 50,
-      speed_growth_rate: 40,
-      luck_growth_rate: 60,
-      defense_growth_rate: 25,
-      resistance_growth_rate: 30,
-      affinity: "wind"
-    }
-  );
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Roy);
 
 
 /***/ }),
@@ -5771,36 +6252,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _terrain_gate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/terrain/gate */ "./src/classes/terrain/gate.js");
 /* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
 
 
 
 
 
 
-
-function Unit(stats, board, inventory, name, mapSprite,
-  forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-  leftWalkSprite, postActionMapSprite, hpWindowSprite, combatAnimation,
-  critAnimation, dodgeAnimation, receiveHitAnimation) {
-  if (!stats) stats = this.defaultStats();
-  this.stats = stats;
+function Unit(board, unitOptions) {
+  const options = {
+    ...this.defaultUnitOptions(), 
+    ...unitOptions,
+  };
+    
   this.board = board;
+  this.stats = options.stats;
   this.current_hp = this.stats['hp'];
-  this.inventory = inventory;
-  this.equippedWeapon = inventory.autoEquipWeapon();
-  this.name = name;
-  this.mapSprite = mapSprite;
-  this.forwardWalkSprite = forwardWalkSprite;
-  this.backwardWalkSprite = backwardWalkSprite;
-  this.rightWalkSprite = rightWalkSprite;
-  this.leftWalkSprite = leftWalkSprite;
-  this.postActionMapSprite = postActionMapSprite;
-  this.hpWindowSprite = hpWindowSprite;
-  this.combatAnimation = combatAnimation;
-  this.critAnimation = critAnimation;
-  this.dodgeAnimation = dodgeAnimation;
-  this.receiveHitAnimation = receiveHitAnimation
+  this.inventory = options.inventory;
+  this.equippedWeapon = options.inventory.autoEquipWeapon();
+  this.name = options.name;
+  this.mapSprite = options.stationaryMapSprite;
+  this.forwardWalkSprite = options.forwardWalkMapSprite;
+  this.backwardWalkSprite = options.backwardsWalkMapSprite;
+  this.rightWalkSprite = options.rightWalkMapSprite;
+  this.leftWalkSprite = options.leftWalkMapSprite;
+  this.postActionMapSprite = options.postActionMapSprite;
+  this.hpWindowSprite = options.mugshotSprite;
+  this.combatAnimation = options.combatAnimation;
+  this.critAnimation = options.critCombatAnimation;
+  this.dodgeAnimation = options.dodgeAnimation;
+  this.receiveHitAnimation = options.receiveHitAnimation
   this.position = null;
   this.actionTaken = false;
 }
@@ -5822,11 +6302,8 @@ Unit.prototype.render = function(displayWindow) {
     this.mapSprite.update();
     this.postActionMapSprite.update();
   } else {
-    // this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
 
     if(this.actionTaken) {
-      // c.fillStyle = "rgba(128, 128, 128, 0.2)";
-      // c.fill();
       this.postActionMapSprite.render(highlightPos[0], highlightPos[1], sF);
       this.mapSprite.update();
     } else {
@@ -6017,8 +6494,6 @@ Unit.prototype.criticalChance = function(opposingUnit) {
     return chance;
   }
 }
-
-// export default Unit;
 
 
 /***/ }),
