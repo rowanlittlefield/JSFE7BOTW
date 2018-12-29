@@ -6252,8 +6252,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _terrain_gate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/terrain/gate */ "./src/classes/terrain/gate.js");
 /* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
-
 
 
 
@@ -6304,11 +6302,8 @@ Unit.prototype.render = function(displayWindow) {
     this.mapSprite.update();
     this.postActionMapSprite.update();
   } else {
-    // this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
 
     if(this.actionTaken) {
-      // c.fillStyle = "rgba(128, 128, 128, 0.2)";
-      // c.fill();
       this.postActionMapSprite.render(highlightPos[0], highlightPos[1], sF);
       this.mapSprite.update();
     } else {

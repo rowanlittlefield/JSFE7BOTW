@@ -3,7 +3,6 @@ import EnemyUnit from '@/unit/enemy_unit';
 import PlayerUnit from '@/unit/player_unit';
 import Gate from '@/terrain/gate';
 import { PhysicalWeapon, MagicalWeapon } from '@/item/weapon';
-import { c } from '../../../createContext';
 
 export default function Unit(board, unitOptions) {
   const options = {
@@ -49,11 +48,8 @@ Unit.prototype.render = function(displayWindow) {
     this.mapSprite.update();
     this.postActionMapSprite.update();
   } else {
-    // this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
 
     if(this.actionTaken) {
-      // c.fillStyle = "rgba(128, 128, 128, 0.2)";
-      // c.fill();
       this.postActionMapSprite.render(highlightPos[0], highlightPos[1], sF);
       this.mapSprite.update();
     } else {
