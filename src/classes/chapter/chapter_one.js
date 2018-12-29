@@ -2,12 +2,8 @@ import Board from '@/board/board';
 import Chapter from '@/chapter/chapter';
 import Sprite from '@/animation/sprite/sprite';
 import Roy from '@/unit/roy';
-import Inventory from '@/unit_attribute/inventory';
-import { SwordOfSeals } from '@/item/weapon';
 import Lyn from '@/unit/lyn';
-import { ManiKatti } from '@/item/weapon';
 import Brigand from '@/unit/brigand';
-import { IronAxe } from '@/item/weapon';
 
 import Thicket from '@/terrain/thicket';
 import Wall from '@/terrain/wall';
@@ -39,30 +35,23 @@ ChapterOne.prototype.setupBoard = function() {
     );
 
 
-  const roy = new Roy(newBoard, new Inventory([new SwordOfSeals()]));
-  const lyn = new Lyn(newBoard, new Inventory([new ManiKatti()]));
+  const roy = new Roy(newBoard);
+  const lyn = new Lyn(newBoard);
   newBoard.placeUnit(roy, [18, 3]);
   newBoard.placeUnit(lyn, [17, 3]);
   //Enemy units
-  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 1]);
-  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [9, 6]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [10, 11]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [13, 12]);
+  newBoard.placeUnit(new Brigand(newBoard, 'seekAndDestroy'), [10, 11]);
+  newBoard.placeUnit(new Brigand(newBoard, 'seekAndDestroy'), [13, 12]);
 
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [18, 4]);
-  // newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'seekAndDestroy'), [8, 4]);
+  newBoard.placeUnit(new Brigand(newBoard, 'seekAndDestroy'), [18, 4]);
 
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [9, 14]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [15, 15]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [1, 15]);
+  newBoard.placeUnit(new Brigand(newBoard, 'TWBS'), [9, 14]);
+  newBoard.placeUnit(new Brigand(newBoard, 'TWBS'), [15, 15]);
+  newBoard.placeUnit(new Brigand(newBoard, 'TWBS'), [1, 15]);
 
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [1, 7]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'TWBS'), [3, 7]);
-  newBoard.placeUnit(new Brigand(newBoard, new Inventory([new IronAxe]), 'idle'), [2, 6]);
-
-
-
-
+  newBoard.placeUnit(new Brigand(newBoard, 'TWBS'), [1, 7]);
+  newBoard.placeUnit(new Brigand(newBoard, 'TWBS'), [3, 7]);
+  newBoard.placeUnit(new Brigand(newBoard, 'idle'), [2, 6]);
 
 //thicket
   for(let i = 0; i < 4; i++) {

@@ -10,24 +10,30 @@ import Inventory from '@/unit_attribute/inventory'
 import { SwordOfSeals } from '@/item/weapon';
 
 export default class Roy extends PlayerUnit {
-  constructor(board, inventory, stats) {
+  constructor(board, unitOptions) {
     super(
-      stats,
       board,
-      inventory,
-      'Roy',
-      new mapSprite.RoyStationaryMapSprite(),
-      new mapSprite.RoyForwardWalkMapSprite(),
-      new mapSprite.RoyBackwardsWalkMapSprite(),
-      new mapSprite.RoyRightWalkMapSprite(),
-      new mapSprite.RoyLeftWalkMapSprite(),
-      new mapSprite.RoyPostActionMapSprite(),
-      new RoyMugshotSprite(),
-      new RoyCombatAnimation(),
-      new RoyCritCombatAnimation(),
-      new RoyDodgeAnimation(),
-      new RoyReceiveHitAnimation()
+      unitOptions,
     );    
+  }
+
+  defaultUnitOptions() {
+    return ({
+      name: 'Roy',
+      stats: this.defaultStats(),
+      inventory: this.defaultInventory(),
+      stationaryMapSprite: new mapSprite.RoyStationaryMapSprite(),
+      forwardWalkMapSprite: new mapSprite.RoyForwardWalkMapSprite(),
+      backwardsWalkMapSprite: new mapSprite.RoyBackwardsWalkMapSprite(),
+      rightWalkMapSprite: new mapSprite.RoyRightWalkMapSprite(),
+      leftWalkMapSprite: new mapSprite.RoyLeftWalkMapSprite(),
+      postActionMapSprite: new mapSprite.RoyPostActionMapSprite(),
+      mugshotSprite: new RoyMugshotSprite(),
+      combatAnimation: new RoyCombatAnimation(),
+      critCombatAnimation: new RoyCritCombatAnimation(),
+      dodgeAnimation: new RoyDodgeAnimation(),
+      receiveHitAnimation: new RoyReceiveHitAnimation(),
+    });
   }
 
   defaultStats() {

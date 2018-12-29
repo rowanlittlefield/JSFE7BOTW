@@ -1,14 +1,12 @@
 import Unit from '@/unit/unit';
 import PathFinder from '@/pathfinding/path_finder';
 
-function PlayerUnit(stats, board, inventory, name, mapSprite,
-forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
- postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation) {
-  Unit.call(this, stats, board, inventory, name, mapSprite,
-  forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation);
+function PlayerUnit(board, unitOptions) {
+  Unit.call(
+    this, 
+    board,
+    unitOptions,
+  );
   this.prevPos = null;
   this.windowOptions = null;
   this.fightOptions = null;

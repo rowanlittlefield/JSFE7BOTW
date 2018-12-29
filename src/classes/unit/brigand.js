@@ -10,25 +10,31 @@ import { IronAxe } from '@/item/weapon';
 
 
 export default class Brigand extends EnemyUnit {
-  constructor(board, inventory, behavior, stats) {
+  constructor(board, behavior, unitOptions) {
     super(
-      stats,
       board,
-      inventory,
-      'Brigand',
-      new mapSprite.BrigandStationaryMapSprite(),
-      new mapSprite.BrigandForwardWalkMapSprite(),
-      new mapSprite.BrigandBackwardsWalkMapSprite(),
-      new mapSprite.BrigandRightWalkMapSprite(),
-      new mapSprite.BrigandLeftWalkMapSprite(),
-      new mapSprite.BrigandPostActionMapSprite(),
-      new BrigandMugshotSprite(),
-      new BrigandCombatAnimation(),
-      new BrigandCombatAnimation(),
-      new LynDodgeAnimation(),
-      new BrigandReceiveHitAnimation,
-      behavior
-    )
+      behavior,
+      unitOptions,
+    );
+  }
+
+  defaultUnitOptions() {
+    return ({
+      name: 'Brigand',
+      stats: this.defaultStats(),
+      inventory: this.defaultInventory(),
+      stationaryMapSprite: new mapSprite.BrigandStationaryMapSprite(),
+      forwardWalkMapSprite: new mapSprite.BrigandForwardWalkMapSprite(),
+      backwardsWalkMapSprite: new mapSprite.BrigandBackwardsWalkMapSprite(),
+      rightWalkMapSprite: new mapSprite.BrigandRightWalkMapSprite(),
+      leftWalkMapSprite: new mapSprite.BrigandLeftWalkMapSprite(),
+      postActionMapSprite: new mapSprite.BrigandPostActionMapSprite(),
+      mugshotSprite: new BrigandMugshotSprite(),
+      combatAnimation: new BrigandCombatAnimation(),
+      critCombatAnimation: new BrigandCombatAnimation(),
+      dodgeAnimation: new LynDodgeAnimation(),
+      receiveHitAnimation: new BrigandReceiveHitAnimation(),
+    });
   }
 
   defaultStats() {

@@ -10,24 +10,30 @@ import Inventory from '@/unit_attribute/inventory';
 import { ManiKatti } from '@/item/weapon';
 
 export default class Lyn extends PlayerUnit {
-  constructor(board, inventory, stats) {
+  constructor(board, unitOptions) {
     super(
-      stats,
       board,
-      inventory,
-      'Lyn',
-      new mapSprite.LynStationaryMapSprite(),
-      new mapSprite.LynForwardWalkMapSprite(),
-      new mapSprite.LynBackwardsWalkMapSprite(),
-      new mapSprite.LynRightWalkMapSprite(),
-      new mapSprite.LynLeftWalkMapSprite(),
-      new mapSprite.LynPostActionMapSprite(),
-      new LynMugshotSprite(),
-      new LynCombatAnimation(),
-      new LynCritCombatAnimation(),
-      new LynDodgeAnimation(),
-      new LynReceiveHitAnimation()
+      unitOptions
     );
+  }
+
+  defaultUnitOptions() {
+    return ({
+      name: 'Lyn',
+      stats: this.defaultStats(),
+      inventory: this.defaultInventory(),
+      stationaryMapSprite: new mapSprite.LynStationaryMapSprite(),
+      forwardWalkMapSprite: new mapSprite.LynForwardWalkMapSprite(),
+      backwardsWalkMapSprite: new mapSprite.LynBackwardsWalkMapSprite(),
+      rightWalkMapSprite: new mapSprite.LynRightWalkMapSprite(),
+      leftWalkMapSprite: new mapSprite.LynLeftWalkMapSprite(),
+      postActionMapSprite: new mapSprite.LynPostActionMapSprite(),
+      mugshotSprite: new LynMugshotSprite(),
+      combatAnimation: new LynCombatAnimation(),
+      critCombatAnimation: new LynCritCombatAnimation(),
+      dodgeAnimation: new LynDodgeAnimation(),
+      receiveHitAnimation: new LynReceiveHitAnimation(),
+    });
   }
 
   defaultStats() {
