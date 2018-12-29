@@ -1422,6 +1422,140 @@ CoordinateSprite.prototype.render = function(row, col, sF) {
 
 /***/ }),
 
+/***/ "./src/classes/animation/sprite/mugshot_sprites.js":
+/*!*********************************************************!*\
+  !*** ./src/classes/animation/sprite/mugshot_sprites.js ***!
+  \*********************************************************/
+/*! exports provided: RoyMugshotSprite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyMugshotSprite", function() { return RoyMugshotSprite; });
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+class RoyMugshotSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      253,
+      228,
+      18,
+      18,
+      "src/assets/mugshots/RoyMugshotZoom.jpg",
+      6,
+      1
+    );
+  }
+}
+
+/***/ }),
+
+/***/ "./src/classes/animation/sprite/roy_map_sprites.js":
+/*!*********************************************************!*\
+  !*** ./src/classes/animation/sprite/roy_map_sprites.js ***!
+  \*********************************************************/
+/*! exports provided: RoyStationaryMapSprite, RoyForwardWalkMapSprite, RoyBackwardsWalkMapSprite, RoyRightWalkMapSprite, RoyLeftWalkMapSprite, RoyPostActionMapSprite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyStationaryMapSprite", function() { return RoyStationaryMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyForwardWalkMapSprite", function() { return RoyForwardWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyBackwardsWalkMapSprite", function() { return RoyBackwardsWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyRightWalkMapSprite", function() { return RoyRightWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyLeftWalkMapSprite", function() { return RoyLeftWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyPostActionMapSprite", function() { return RoyPostActionMapSprite; });
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+class RoyStationaryMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18, 
+      18, 
+      18, 
+      18, 
+      "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 
+      6, 
+      12
+    );
+  }
+}
+
+class RoyForwardWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      20,
+      22,
+      20,
+      "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png",
+      6,
+      6
+    );
+  }
+}
+
+class RoyBackwardsWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      21,
+      18,
+      21,
+      18,
+      "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class RoyRightWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      34,
+      18,
+      34,
+      18,
+      "src/assets/map_spritesheets/royRightWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class RoyLeftWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      34,
+      18,
+      34,
+      18,
+      "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class RoyPostActionMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png",
+      6,
+      12
+    );
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/classes/animation/sprite/sprite.js":
 /*!************************************************!*\
   !*** ./src/classes/animation/sprite/sprite.js ***!
@@ -5686,13 +5820,14 @@ PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
-/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
-/* harmony import */ var _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/roy_combat_animation */ "./src/classes/animation/combat_animation/roy_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/roy_crit_combat_animation */ "./src/classes/animation/combat_animation/roy_crit_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/roy_dodge_animation */ "./src/classes/animation/combat_animation/roy_dodge_animation.js");
-/* harmony import */ var _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/roy_receive_hit_sprite */ "./src/classes/animation/combat_animation/roy_receive_hit_sprite.js");
-/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
-// import PlayerUnit from '../playerUnit';
+/* harmony import */ var _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/roy_map_sprites */ "./src/classes/animation/sprite/roy_map_sprites.js");
+/* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
+/* harmony import */ var _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/roy_combat_animation */ "./src/classes/animation/combat_animation/roy_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/roy_crit_combat_animation */ "./src/classes/animation/combat_animation/roy_crit_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/roy_dodge_animation */ "./src/classes/animation/combat_animation/roy_dodge_animation.js");
+/* harmony import */ var _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/roy_receive_hit_sprite */ "./src/classes/animation/combat_animation/roy_receive_hit_sprite.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+
 
 
 
@@ -5708,17 +5843,17 @@ function Roy(board, inventory, stats) {
     board,
     inventory,
     'Roy',
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royRightWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "src/assets/mugshots/RoyMugshotZoom.jpg", 6, 1),
-    new _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_5__["default"]()
+    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyStationaryMapSprite"](),
+    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyForwardWalkMapSprite"](),
+    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyBackwardsWalkMapSprite"](),
+    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyRightWalkMapSprite"](),
+    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyLeftWalkMapSprite"](),
+    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyPostActionMapSprite"](),
+    new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__["RoyMugshotSprite"](),
+    new _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+    new _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+    new _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
+    new _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_6__["default"]()
   );
 }
 
@@ -5726,7 +5861,7 @@ Roy.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["de
 Roy.prototype.constructor = Roy;
 
 Roy.prototype.defaultStats = function() {
-  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__["default"](
+  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__["default"](
     {
       level: 1,
       experience: 0,

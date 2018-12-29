@@ -1,6 +1,6 @@
-// import PlayerUnit from '../playerUnit';
 import PlayerUnit from '@/unit/player_unit';
-import Sprite from '@/animation/sprite/sprite';
+import * as mapSprite from '@/animation/sprite/roy_map_sprites';
+import { RoyMugshotSprite } from '@/animation/sprite/mugshot_sprites';
 import RoyCombatAnimation from '@/animation/combat_animation/roy_combat_animation';
 import RoyCritCombatAnimation from '@/animation/combat_animation/roy_crit_combat_animation';
 import RoyDodgeAnimation from '@/animation/combat_animation/roy_dodge_animation';
@@ -14,13 +14,13 @@ function Roy(board, inventory, stats) {
     board,
     inventory,
     'Roy',
-    new Sprite(18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new Sprite(22, 20, 22, 20, "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new Sprite(21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new Sprite(34, 18, 34, 18, "src/assets/map_spritesheets/royRightWalkSpriteSheet.png", 8, 4),
-    new Sprite(34, 18, 34, 18, "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png", 8, 4),
-    new Sprite(18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
-    new Sprite(253, 228, 18, 18, "src/assets/mugshots/RoyMugshotZoom.jpg", 6, 1),
+    new mapSprite.RoyStationaryMapSprite(),
+    new mapSprite.RoyForwardWalkMapSprite(),
+    new mapSprite.RoyBackwardsWalkMapSprite(),
+    new mapSprite.RoyRightWalkMapSprite(),
+    new mapSprite.RoyLeftWalkMapSprite(),
+    new mapSprite.RoyPostActionMapSprite(),
+    new RoyMugshotSprite(),
     new RoyCombatAnimation(),
     new RoyCritCombatAnimation(),
     new RoyDodgeAnimation(),
