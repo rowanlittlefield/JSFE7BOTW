@@ -5874,15 +5874,15 @@ EnemyUnit.prototype.waitForAnimationCompletion = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Lyn; });
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
-/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
-/* harmony import */ var _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/lyn_map_sprites */ "./src/classes/animation/sprite/lyn_map_sprites.js");
-/* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
-/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/lyn_crit_combat_animation */ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/animation/combat_animation/lyn_receive_hit_animation */ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js");
-/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/lyn_map_sprites */ "./src/classes/animation/sprite/lyn_map_sprites.js");
+/* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
+/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_crit_combat_animation */ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/lyn_receive_hit_animation */ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
 
 
 
@@ -5892,59 +5892,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+class Lyn extends _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(board, inventory, stats) {
+    super(
+      stats,
+      board,
+      inventory,
+      'Lyn',
+      new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynStationaryMapSprite"](),
+      new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynForwardWalkMapSprite"](),
+      new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynBackwardsWalkMapSprite"](),
+      new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynRightWalkMapSprite"](),
+      new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynLeftWalkMapSprite"](),
+      new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_1__["LynPostActionMapSprite"](),
+      new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__["LynMugshotSprite"](),
+      new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+      new _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+      new _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
+      new _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_6__["default"]()
+    );
+  }
 
-
-function Lyn(board, inventory, stats) {
-  _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    stats,
-    board,
-    inventory,
-    'Lyn',
-    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynStationaryMapSprite"](),
-    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynForwardWalkMapSprite"](),
-    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynBackwardsWalkMapSprite"](),
-    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynRightWalkMapSprite"](),
-    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynLeftWalkMapSprite"](),
-    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynPostActionMapSprite"](),
-    new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_3__["LynMugshotSprite"](),
-    new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
-    new _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_6__["default"](),
-    new _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_7__["default"]()
-  );
+  defaultStats() {
+    return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__["default"](
+      {
+        level: 1,
+        experience: 0,
+        hp: 31,
+        strength: 14,
+        skill: 17,
+        speed: 15,
+        luck: 15,
+        defense: 6,
+        resistance: 8,
+        move: 6,
+        constitution: 6,
+        hp_growth_rate: 70,
+        strength_growth_rate: 40,
+        skill_growth_rate: 60,
+        speed_growth_rate: 60,
+        luck_growth_rate: 55,
+        defense_growth_rate: 20,
+        resistance_growth_rate: 30,
+        affinity: "wind"
+      }
+    );
+  }
 }
 
-Lyn.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Lyn.prototype.constructor = Lyn;
-
-Lyn.prototype.defaultStats = function() {
-  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_8__["default"](
-    {
-      level: 1,
-      experience: 0,
-      hp: 31,
-      strength: 14,
-      skill: 17,
-      speed: 15,
-      luck: 15,
-      defense: 6,
-      resistance: 8,
-      move: 6,
-      constitution: 6,
-      hp_growth_rate: 70,
-      strength_growth_rate: 40,
-      skill_growth_rate: 60,
-      speed_growth_rate: 60,
-      luck_growth_rate: 55,
-      defense_growth_rate: 20,
-      resistance_growth_rate: 30,
-      affinity: "wind"
-    }
-  );
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Lyn);
 
 
 /***/ }),
