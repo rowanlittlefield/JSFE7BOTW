@@ -27,3 +27,17 @@ export class LynMugshotSprite extends Sprite {
     );
   }
 }
+
+export class BrigandMugshotSprite extends Sprite {
+  constructor() {
+    super(
+      80,
+      72,
+      18,
+      18,
+      "src/assets/mugshots/brigandHPWindowSprite.png",
+      6,
+      1
+    );
+  }
+}

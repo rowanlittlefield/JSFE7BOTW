@@ -1439,6 +1439,110 @@ BattlePlatformSprite.prototype.constructor = BattlePlatformSprite;
 
 /***/ }),
 
+/***/ "./src/classes/animation/sprite/brigand_map_sprites.js":
+/*!*************************************************************!*\
+  !*** ./src/classes/animation/sprite/brigand_map_sprites.js ***!
+  \*************************************************************/
+/*! exports provided: BrigandStationaryMapSprite, BrigandForwardWalkMapSprite, BrigandBackwardsWalkMapSprite, BrigandRightWalkMapSprite, BrigandLeftWalkMapSprite, BrigandPostActionMapSprite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandStationaryMapSprite", function() { return BrigandStationaryMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandForwardWalkMapSprite", function() { return BrigandForwardWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandBackwardsWalkMapSprite", function() { return BrigandBackwardsWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandRightWalkMapSprite", function() { return BrigandRightWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandLeftWalkMapSprite", function() { return BrigandLeftWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandPostActionMapSprite", function() { return BrigandPostActionMapSprite; });
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+class BrigandStationaryMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/brigandMapSprite.png",
+      6,
+      12
+    );
+  }
+}
+
+class BrigandForwardWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      25,
+      22,
+      25,
+      "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png",
+      6,
+      4
+    );
+  }
+}
+
+class BrigandBackwardsWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      25,
+      22,
+      25,
+      "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png",
+      8,
+      4
+    );
+  }
+}
+
+class BrigandRightWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      27,
+      22,
+      27,
+      "src/assets/map_spritesheets/brigandRightWalkSprite.png",
+      8,
+      4
+    );
+  }
+}
+
+class BrigandLeftWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      22,
+      27,
+      22,
+      27,
+      "src/assets/map_spritesheets/brigandLeftWalkSprite.png",
+      8,
+      4
+    );
+  }
+}
+
+class BrigandPostActionMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/brigandMapSpritePostAction.png",
+      6,
+      12
+    );
+  }
+}
+
+/***/ }),
+
 /***/ "./src/classes/animation/sprite/coordinate_sprite.js":
 /*!***********************************************************!*\
   !*** ./src/classes/animation/sprite/coordinate_sprite.js ***!
@@ -1604,13 +1708,14 @@ class LynPostActionMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_
 /*!*********************************************************!*\
   !*** ./src/classes/animation/sprite/mugshot_sprites.js ***!
   \*********************************************************/
-/*! exports provided: RoyMugshotSprite, LynMugshotSprite */
+/*! exports provided: RoyMugshotSprite, LynMugshotSprite, BrigandMugshotSprite */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyMugshotSprite", function() { return RoyMugshotSprite; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynMugshotSprite", function() { return LynMugshotSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrigandMugshotSprite", function() { return BrigandMugshotSprite; });
 /* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 
 
@@ -1636,6 +1741,20 @@ class LynMugshotSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE
       18,
       18,
       "src/assets/mugshots/lynHPWindowSprite3.jpg",
+      6,
+      1
+    );
+  }
+}
+
+class BrigandMugshotSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      80,
+      72,
+      18,
+      18,
+      "src/assets/mugshots/brigandHPWindowSprite.png",
       6,
       1
     );
@@ -5758,12 +5877,14 @@ Wall.prototype.moveCost = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Brigand; });
 /* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
-/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
-/* harmony import */ var _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/brigand_combat_animation */ "./src/classes/animation/combat_animation/brigand_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/brigand_receive_hit_animation */ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js");
-/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/brigand_map_sprites */ "./src/classes/animation/sprite/brigand_map_sprites.js");
+/* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
+/* harmony import */ var _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/brigand_combat_animation */ "./src/classes/animation/combat_animation/brigand_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/brigand_receive_hit_animation */ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
 
 
 
@@ -5771,58 +5892,55 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Brigand(board, inventory, behavior, stats) {
-  _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    stats,
-    board,
-    inventory,
-    'Brigand',
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSprite.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png", 6, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandRightWalkSprite.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandLeftWalkSprite.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSpritePostAction.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "src/assets/mugshots/brigandHPWindowSprite.png", 6, 1),
-    new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_4__["default"],
-    behavior
+
+class Brigand extends _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(board, inventory, behavior, stats) {
+    super(
+      stats,
+      board,
+      inventory,
+      'Brigand',
+      new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandStationaryMapSprite"](),
+      new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandForwardWalkMapSprite"](),
+      new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandBackwardsWalkMapSprite"](),
+      new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandRightWalkMapSprite"](),
+      new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandLeftWalkMapSprite"](),
+      new _animation_sprite_brigand_map_sprites__WEBPACK_IMPORTED_MODULE_1__["BrigandPostActionMapSprite"](),
+      new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__["BrigandMugshotSprite"](),
+      new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+      new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+      new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+      new _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__["default"],
+      behavior
+    )
+  }
+
+  defaultStats() {
+    return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__["default"](
+      {
+        level: 1,
+        experience: 0,
+        hp: 20,
+        strength: 5,
+        skill: 1,
+        speed: 5,
+        luck: 0,
+        defense: 3,
+        resistance: 0,
+        move: 5,
+        constitution: 12,
+        hp_growth_rate: 82,
+        strength_growth_rate: 50,
+        skill_growth_rate: 30,
+        speed_growth_rate: 20,
+        luck_growth_rate: 15,
+        defense_growth_rate: 10,
+        resistance_growth_rate: 13,
+        affinity: "wind"
+      }
     );
+  }
 }
-
-Brigand.prototype = Object.create(_unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Brigand.prototype.constructor = Brigand;
-
-Brigand.prototype.defaultStats = function() {
-  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_5__["default"](
-    {
-      level: 1,
-      experience: 0,
-      hp: 20,
-      strength: 5,
-      skill: 1,
-      speed: 5,
-      luck: 0,
-      defense: 3,
-      resistance: 0,
-      move: 5,
-      constitution: 12,
-      hp_growth_rate: 82,
-      strength_growth_rate: 50,
-      skill_growth_rate: 30,
-      speed_growth_rate: 20,
-      luck_growth_rate: 15,
-      defense_growth_rate: 10,
-      resistance_growth_rate: 13,
-      affinity: "wind"
-    }
-  );
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Brigand);
 
 
 /***/ }),
