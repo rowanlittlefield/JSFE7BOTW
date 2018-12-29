@@ -1,4 +1,4 @@
-import SpriteSequence from './spriteSequence';
+import SpriteSequence from '@/animation/sprite_sequence/sprite_sequence';
 
 function CombatSprite(spriteQueue, positionAdjustment, damageFrame) {
   SpriteSequence.call(this, spriteQueue, positionAdjustment);

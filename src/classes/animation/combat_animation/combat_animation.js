@@ -1,5 +1,5 @@
 import CombatAnimationBackgroundWindow from '@/game_window/combat_animation_background_window';
-import BattlePlatformSprite from './battlePlatformSprite';
+import BattlePlatformSprite from '@/animation/sprite/battle_platform_sprite';
 
 function CombatAnimation(combat, phaseStage, battlePlatformSprite) {
   this.combat = combat;

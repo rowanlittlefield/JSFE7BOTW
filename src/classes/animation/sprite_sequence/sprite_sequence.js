@@ -1,4 +1,4 @@
-import { c } from '../../createContext';
+import { c } from '../../../../createContext';
 
 function SpriteSequence(spriteQueue, positionAdjustment) {
   this.context = c;

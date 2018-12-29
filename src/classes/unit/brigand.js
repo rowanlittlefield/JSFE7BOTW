@@ -1,5 +1,5 @@
 import EnemyUnit from '@/unit/enemy_unit';
-import Sprite from '../../../animations/sprite';
+import Sprite from '@/animation/sprite/sprite';
 import BrigandCombatAnimation from '@/animation/combat_animation/brigand_combat_animation';
 import LynDodgeAnimation from '@/animation/combat_animation/lyn_combat_animation';
 import BrigandReceiveHitAnimation from '@/animation/combat_animation/brigand_receive_hit_animation';

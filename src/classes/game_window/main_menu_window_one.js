@@ -1,6 +1,6 @@
 import InteractiveWindow from '@/game_window/interactive_window';
-import Sprite from '../../../animations/sprite';
-import CoordinateSprite from '../../../animations/coordinateSprite';
+import Sprite from '@/animation/sprite/sprite';
+import CoordinateSprite from '@/animation/sprite/coordinate_sprite';
 import { c } from '../../../createContext';
 
 function MainMenuWindowOne() {

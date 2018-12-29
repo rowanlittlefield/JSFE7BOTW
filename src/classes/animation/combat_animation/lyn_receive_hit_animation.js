@@ -1,5 +1,5 @@
-import SpriteSequence from '../../../../animations/spriteSequence/spriteSequence';
-import Sprite from '../../../../animations/sprite';
+import SpriteSequence from '@/animation/sprite_sequence/sprite_sequence';
+import Sprite from '@/animation/sprite/sprite';
 
 function LynReceiveHitAnimation() {
   const sprite0 = new Sprite(70, 43, 70, 43, 'src/assets/combat_spritesheets/lyn/lynReceiveHitSprite.png', 4, 1);

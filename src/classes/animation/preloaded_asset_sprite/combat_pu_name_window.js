@@ -1,5 +1,5 @@
-import PreloadedAssetSprite from './preloadedAssetSprite';
-import battleAssetImage from './battleAssetImage';
+import PreloadedAssetSprite from '@/animation/preloaded_asset_sprite/preloaded_asset_sprite';
+import battleAssetImage from '@/animation/preloaded_asset_sprite/battle_asset_image';
 
 function CombatPUNameWindow() {
   //[sx, sy, width, height, renderWidth, renderHeight, numTicks]

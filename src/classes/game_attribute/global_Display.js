@@ -6,8 +6,8 @@ import UnitMapWindow from '@/game_window/unit_map_window';
 import TerrainWindow from '@/game_window/terrain_window';
 import CombatInformationWindow from '@/game_window/combat_information_window';
 import GameFinishedWindow from '@/game_window/game_finished_window';
-import BattlePlatformSprite from '../../../animations/battlePlatformSprite';
-import CombatAnimation from '../../../animations/combatAnimation';
+import BattlePlatformSprite from '@/animation/sprite/battle_platform_sprite';
+import CombatAnimation from '@/animation/combat_animation/combat_animation';
 
 function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.board = board;

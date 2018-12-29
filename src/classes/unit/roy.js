@@ -1,6 +1,6 @@
 // import PlayerUnit from '../playerUnit';
 import PlayerUnit from '@/unit/player_unit';
-import Sprite from '../../../animations/sprite';
+import Sprite from '@/animation/sprite/sprite';
 import RoyCombatAnimation from '@/animation/combat_animation/roy_combat_animation';
 import RoyCritCombatAnimation from '@/animation/combat_animation/roy_crit_combat_animation';
 import RoyDodgeAnimation from '@/animation/combat_animation/roy_dodge_animation';

@@ -86,56 +86,160 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./animations/battlePlatformSprite.js":
-/*!********************************************!*\
-  !*** ./animations/battlePlatformSprite.js ***!
-  \********************************************/
+/***/ "./createContext.js":
+/*!**************************!*\
+  !*** ./createContext.js ***!
+  \**************************/
+/*! exports provided: c */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return c; });
+var canvas = document.querySelector('canvas');
+if (canvas) {
+  // canvas.width = window.innerWidth;
+  // canvas.width = 29 * 52;
+  canvas.width = 15 * 45;
+  // canvas.height = window.innerHeight;
+  // canvas.height = 17 * 52;
+  canvas.height = 10 * 45;
+}
+const c = (canvas ? canvas.getContext('2d') : null);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/combat_animation/brigand_combat_animation.js":
+/*!****************************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/brigand_combat_animation.js ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/combat_sprite */ "./src/classes/animation/sprite_sequence/combat_sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 
 
-function BattlePlatformSprite() {
-  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+
+function BrigandCombatAnimation() {
+  let sprites0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite0.png', 6, 4);
+  let sprites1 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite1.png', 6, 1);
+  let sprites2 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite2.png', 4, 6);
+  let sprites3 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 35, 90, 35, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite3.png', 2, 4);
+  let sprites4 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite4.png', 4, 6);
+  let sprites5 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite5.png', 6, 2);
+
+  let spriteQueue = [
+    sprites0, sprites1, sprites2, sprites3, sprites4, sprites5
+  ];
+
+  let positionAdjustment = {
+    '2,0' : [0.15, 0],
+    '2,1' : [0.30, -0.3],
+    '2,2' : [0.45, -0.5],
+    '2,3' : [0.60, -0.6],
+    '2,4' : [0.75, -0.5],
+    '2,5' : [0.9, -0.3],
+
+    '3,0' : [2.5, 0],
+    '3,1' : [2.5, 0],
+    '3,2' : [2.5, 0],
+    '3,3' : [2.5, 0],
+
+    '4,0' : [2.5, 0],
+    '4,1' : [2.1, -0.2],
+    '4,2' : [1.7, -0.3],
+    '4,3' : [1.4, -0.4],
+    '4,4' : [1.1, -0.3],
+    '4,5' : [0.7, -0.1]
+  };
+
+  let damageFrame = [3, 2];
+
+  _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    194,//width
-    57,//height
-    194*1.125,//renderWidth
-
-    57*1.125,//renderHeight
-
-    'src/assets/combat_display/BattlePlatformSprite.png',//image
-    1,//ticksPerFrame
-
-    [
-      [0, 0]
-    ]//coordinatesList
+    spriteQueue,
+    positionAdjustment,
+    damageFrame
   );
-
 }
 
-BattlePlatformSprite.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-BattlePlatformSprite.prototype.constructor = BattlePlatformSprite;
+BrigandCombatAnimation.prototype = Object.create(_animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+BrigandCombatAnimation.prototype.constructor = BrigandCombatAnimation;
 
-/* harmony default export */ __webpack_exports__["default"] = (BattlePlatformSprite);
+/* harmony default export */ __webpack_exports__["default"] = (BrigandCombatAnimation);
 
 
 /***/ }),
 
-/***/ "./animations/combatAnimation.js":
-/*!***************************************!*\
-  !*** ./animations/combatAnimation.js ***!
-  \***************************************/
+/***/ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js":
+/*!*********************************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/brigand_receive_hit_animation.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/sprite_sequence */ "./src/classes/animation/sprite_sequence/sprite_sequence.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+
+function BrigandReceiveHitAnimation() {
+  const sprites0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'src/assets/combat_spritesheets/brigand/brigandReceiveHitSprite.png', 4, 1);
+  const spriteQueue = [sprites0];
+  const positionAdjustment = {};
+
+  _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    spriteQueue,
+    positionAdjustment
+  );
+
+  this.rendered = false;
+}
+
+BrigandReceiveHitAnimation.prototype = Object.create(_animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+BrigandReceiveHitAnimation.prototype.constructor = BrigandReceiveHitAnimation;
+
+BrigandReceiveHitAnimation.prototype.render = function(row, col, sF) {
+  const currentSprite = this.currentSprite();
+  currentSprite.render(row, col, sF);
+  this.update();
+  if(this.queueIndex === 0 && currentSprite.frameIndex === 0 &&
+    currentSprite.tickCount === 0) {
+    this.rendered = true;
+  }
+}
+
+BrigandReceiveHitAnimation.prototype.update = function() {
+  const sprite = this.currentSprite();
+  if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
+    sprite.tickCount === sprite.ticksPerFrame) {
+    this.updateQueueIndexAndSprite();
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (BrigandReceiveHitAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/combat_animation/combat_animation.js":
+/*!********************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/combat_animation.js ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_window_combat_animation_background_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/combat_animation_background_window */ "./src/classes/game_window/combat_animation_background_window.js");
-/* harmony import */ var _battlePlatformSprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battlePlatformSprite */ "./animations/battlePlatformSprite.js");
+/* harmony import */ var _animation_sprite_battle_platform_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/battle_platform_sprite */ "./src/classes/animation/sprite/battle_platform_sprite.js");
 
 
 
@@ -223,151 +327,583 @@ CombatAnimation.prototype.currentAttack = function() {
 
 /***/ }),
 
-/***/ "./animations/coordinateSprite.js":
-/*!****************************************!*\
-  !*** ./animations/coordinateSprite.js ***!
-  \****************************************/
+/***/ "./src/classes/animation/combat_animation/lyn_combat_animation.js":
+/*!************************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/lyn_combat_animation.js ***!
+  \************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sprite */ "./animations/sprite.js");
+/* harmony import */ var _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/combat_sprite */ "./src/classes/animation/sprite_sequence/combat_sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 
 
-function CoordinateSprite(width, height, renderWidth,
-   renderHeight, image, ticksPerFrame, coordinatesList
- ) {
-  _sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+
+function LynCombatAnimation() {
+  let desSprites0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/lyn/lynCombatSprite0.png', 3, 12);
+  let desSprites1 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'src/assets/combat_spritesheets/lyn/lynCombatSprite1.png', 3, 8);
+  let desSprites2 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'src/assets/combat_spritesheets/lyn/lynCombatSprite2.png', 3, 8);
+  let desSprites3 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/lyn/lynCombatSprite3.png', 3, 6);
+
+  let spriteQueue = [desSprites0, desSprites1, desSprites2, desSprites3];
+
+  let positionAdjustment = {
+    "0,5": [-0.5, 0],
+    "0,6": [-2.9, 0],
+    "0,7": [-2.9, 0],
+    "0,8": [-2.9, 0],
+    "0,9": [-2.9, 0],
+    "0,10": [-2.9, 0],
+    "0,11": [-2.9, 0],
+
+    "1,0": [-2.3, 0],
+    "1,1": [-2.3, 0],
+    "1,2": [-2.3, 0],
+    "1,3": [-6.5, 0],
+    "1,4": [-6.5, 0],
+    "1,5": [-6.5, 0],
+    "1,6": [-6.5, 0],
+    "1,7": [-6.5, 0],
+    "1,8": [-6.5, 0],
+
+    "2,0": [-6.5, 0],
+    "2,1": [-6.0, -0.6],
+    "2,2": [-5.9, -1.6],
+    "2,3": [-5.0, -2.4],
+    "2,4": [-4.0, -2.3],
+    "2,5": [-3.1, -1.7],
+    "2,6": [-2.5, -1.2],
+    "2,7": [-2.2, -1.0],
+
+
+    "3,0": [-1.7, 0],
+    "3,1": [-1.4, 0],
+    "3,2": [-1.4, 0],
+    "3,3": [-1.4, 0],
+    "3,4": [-1.4, 0],
+    "3,5": [-1.4, 0]
+
+  };
+
+  let damageFrame = [1, 3];
+
+  _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    width,
-    height,
-    renderWidth,
-    renderHeight,
-    image,
-    ticksPerFrame,
-    coordinatesList.length//numberOfFrames
+    spriteQueue,
+    positionAdjustment,
+    damageFrame
   );
-
-  this.coordinatesList = coordinatesList;
 }
 
-CoordinateSprite.prototype = Object.create(_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-CoordinateSprite.prototype.constructor = CoordinateSprite;
+LynCombatAnimation.prototype = Object.create(_animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+LynCombatAnimation.prototype.constructor = LynCombatAnimation;
 
-CoordinateSprite.prototype.render = function(row, col, sF) {
-  let scale = sF / 18;
-  let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));
-  let cWidth = scale * this.renderWidth;
-  let cHeight = scale *  this.renderHeight;
-  this.context.drawImage(
-    this.spriteSheet,// this.spriteSheet,
-    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
-    this.coordinatesList[this.frameIndex][1],// 0,
-    this.width,// this.width,
-    this.height,// this.height,
-    cx,// cx,
-    cy,// cy,
-    cWidth,// cWidth,
-    cHeight// cHeight
-  );
-  this.update();
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (CoordinateSprite);
+/* harmony default export */ __webpack_exports__["default"] = (LynCombatAnimation);
 
 
 /***/ }),
 
-/***/ "./animations/hitAnimations/normalCriticalDamageAnimation.js":
-/*!*******************************************************************!*\
-  !*** ./animations/hitAnimations/normalCriticalDamageAnimation.js ***!
-  \*******************************************************************/
+/***/ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js":
+/*!*****************************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/lyn_crit_combat_animation.js ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/combat_sprite */ "./src/classes/animation/sprite_sequence/combat_sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 
 
-function NormalCriticalDamageAnimation(defenderCoordinates) {
-  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+
+function LynCritCombatAnimation() {
+  let sprite0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/lyn/lynCombatSprite0.png', 4, 5);
+  let sprite1 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](140, 35, 140, 35, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet1.png', 4, 8);
+  let spriteNull1 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 16, 1);
+
+  let sprite2 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet2.png', 1, 1);
+  let sprite3 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 1, 1);
+  let spriteNull2 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 1, 1);
+  let sprite4 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 2, 1);
+  let spriteNull3 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 2, 1);
+  let sprite5 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 4, 1);
+  let spriteNull4 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 3, 1);
+  let sprite6 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 3, 1);
+  let spriteNull5 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 3, 1);
+  let sprite7 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 3, 1);
+
+  let spriteNull6 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 15, 1);
+  let sprite8 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](50, 87, 50, 87, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet4.png', 1, 2);
+  let sprite9 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet5.png', 1, 2);
+  let sprite10 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet6.png', 1, 2);
+  let sprite11 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](173, 44, 173, 44, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet7.png', 2, 1);
+  let sprite12 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'src/assets/combat_spritesheets/lyn/lynCombatSprite1.png', 4, 3);
+
+  let sprite13 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'src/assets/combat_spritesheets/lyn/lynCombatSprite2.png', 2, 8);
+  let sprite14 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/lyn/lynCombatSprite3.png', 3, 6);
+
+
+
+  let positionAdjustment = {
+    "3,0": [-3.6, 2.8],
+
+    "4,0": [-3.6, 2.8],
+
+    "6,0": [-3.6, 2.8],
+
+    "8,0": [-3.6, 2.8],
+
+    "10,0": [-3.6, 2.8],
+
+    "12,0": [-3.6, 2.8],
+
+    "15,0": [-3.6, 0],
+    "15,1": [-3.6, 0],
+
+    "17,0": [-3.6, -0.5],
+    "17,1": [-3.6, -0.5],
+
+    "19,0": [-3.9, 0.5],
+    "19,1": [-3.9, 0.5],
+
+
+    "24,0": [-2.4, -8.2],
+    "24,1": [-2.2, -7.7],
+    "24,2": [-2, -6.9],
+    "24,3": [-1.9, -6.2],
+    "24,4": [-1.9, -4.7],
+    "24,5": [-1.8, -3.4],
+    "24,6": [-1.6, -2.2],
+    "24,7": [-1.4, -1.0],
+
+
+    "25,0": [-1.7, 0],
+    "25,1": [-1.4, 0],
+    "25,2": [-1.4, 0],
+    "25,3": [-1.4, 0],
+    "25,4": [-1.4, 0],
+    "25,5": [-1.4, 0]
+
+  };
+
+  let damageFrame = [24, 0];
+
+  let spriteQueue = [
+    sprite0, sprite1, spriteNull1,
+
+    sprite2, sprite3, spriteNull2,
+    sprite4,spriteNull3, sprite5, spriteNull4, sprite6, spriteNull5,
+    sprite7, spriteNull1,
+
+    spriteNull6, sprite8, spriteNull6, sprite9, spriteNull6, sprite10, spriteNull6, sprite11, spriteNull6,
+
+      sprite12, sprite13, sprite14
+];
+
+  _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    240,//width
-    143,//height
-    //238,//renderWidth
-    240*1.4,//renderWidth
-
-    //158,//renderHeight
-    143*1.3,//renderHeight
-
-    'src/assets/hit_effect_spritesheets/FE7HitSpriteSheetsTransTest.png',//image
-    2,//ticksPerFrame
-    // [10, 21]
-    [
-      // [10, 21],
-      // [253, 1033],
-      // //[10, 1197],
-      // //[253, 1033],
-      // [10,21],
-
-      [253, 526], [496, 526],
-      [10, 690], [253, 690], [496, 690],
-      [10, 853], [253, 853], [496, 853]
-
-    ]//coordinatesList
+    spriteQueue,
+    positionAdjustment,
+    damageFrame
   );
 
-  this.defenderCoordinates = defenderCoordinates;
 }
 
-NormalCriticalDamageAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-NormalCriticalDamageAnimation.prototype.constructor = NormalCriticalDamageAnimation;
+LynCritCombatAnimation.prototype = Object.create(_animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+LynCritCombatAnimation.prototype.constructor = LynCritCombatAnimation;
 
-NormalCriticalDamageAnimation.prototype.render = function(sF) {
-  let scale = sF / 18;
-  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
-  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
-  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.5*sF);
-  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (2*sF);
-
-  let cWidth = scale * this.renderWidth;
-  let cHeight = scale *  this.renderHeight;
-  this.context.drawImage(
-    this.spriteSheet,// this.spriteSheet,
-    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
-    this.coordinatesList[this.frameIndex][1],// 0,
-    this.width,// this.width,
-    this.height,// this.height,
-    cx,// cx,
-    cy,// cy,
-    cWidth,// cWidth,
-    cHeight// cHeight
-  );
-  this.update();
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (NormalCriticalDamageAnimation);
+/* harmony default export */ __webpack_exports__["default"] = (LynCritCombatAnimation);
 
 
 /***/ }),
 
-/***/ "./animations/hitAnimations/normalDamageAnimation.js":
-/*!***********************************************************!*\
-  !*** ./animations/hitAnimations/normalDamageAnimation.js ***!
-  \***********************************************************/
+/***/ "./src/classes/animation/combat_animation/lyn_dodge_animation.js":
+/*!***********************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/lyn_dodge_animation.js ***!
+  \***********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _animation_sprite_sequence_dodge_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/dodge_sprite */ "./src/classes/animation/sprite_sequence/dodge_sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+
+
+function LynDodgeAnimation() {
+  let desSprites0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 35, 70, 35, 'src/assets/combat_spritesheets/lyn/lynDodgeSpriteSheet.png', 3, 3);
+
+  let spriteQueue = [desSprites0];
+
+  let positionAdjustment = {
+  };
+
+  let restFrame = [0, 1];
+
+  _animation_sprite_sequence_dodge_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    spriteQueue,
+    positionAdjustment,
+    restFrame
+  );
+
+}
+
+LynDodgeAnimation.prototype = Object.create(_animation_sprite_sequence_dodge_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+LynDodgeAnimation.prototype.constructor = LynDodgeAnimation;
+
+/* harmony default export */ __webpack_exports__["default"] = (LynDodgeAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js":
+/*!*****************************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/lyn_receive_hit_animation.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/sprite_sequence */ "./src/classes/animation/sprite_sequence/sprite_sequence.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+
+function LynReceiveHitAnimation() {
+  const sprite0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/lyn/lynReceiveHitSprite.png', 4, 1);
+  const spriteQueue = [sprite0];
+  const positionAdjustment = {};
+
+  _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    spriteQueue,
+    positionAdjustment
+  );
+  this.rendered = false;
+}
+
+LynReceiveHitAnimation.prototype = Object.create(_animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+LynReceiveHitAnimation.prototype.constructor = LynReceiveHitAnimation;
+
+LynReceiveHitAnimation.prototype.render = function(row, col, sF) {
+  const currentSprite = this.currentSprite();
+  currentSprite.render(row, col, sF);
+  this.update();
+  if(this.queueIndex === 0 && currentSprite.frameIndex === 0 &&
+    currentSprite.tickCount === 0) {
+    this.rendered = true;
+  }
+}
+
+LynReceiveHitAnimation.prototype.update = function() {
+  const sprite = this.currentSprite();
+  if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
+    sprite.tickCount === sprite.ticksPerFrame) {
+    this.updateQueueIndexAndSprite();
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (LynReceiveHitAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/combat_animation/roy_combat_animation.js":
+/*!************************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/roy_combat_animation.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_combat_animation_combat_animation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/combat_animation/combat_animation */ "./src/classes/animation/combat_animation/combat_animation.js");
+/* harmony import */ var _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite_sequence/combat_sprite */ "./src/classes/animation/sprite_sequence/combat_sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+
+
+function RoyCombatAnimation() {
+
+  let sprite0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royCombatSprite0.png', 3, 6);
+  let sprite1 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](46, 32, 46, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite.png', 3, 6);
+  let sprite2 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 42, 64, 42, 'src/assets/combat_spritesheets/roy/royCombatSprite2.png', 3, 6);
+  let sprite3 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 61, 64, 61, 'src/assets/combat_spritesheets/roy/royCombatSprite3.png', 3, 6);
+  let sprite4 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 52, 90, 52, 'src/assets/combat_spritesheets/roy/royCombatSprite4.png', 3, 4);
+  let sprite5 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](110, 67, 110, 67, 'src/assets/combat_spritesheets/roy/royCombatSprite5.png', 3, 2);
+  let sprite6 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 35, 90, 35, 'src/assets/combat_spritesheets/roy/royCombatSprite6.png', 3, 7);
+  let sprite7 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](140, 40, 140, 40, 'src/assets/combat_spritesheets/roy/royCombatSprite7.png', 3, 6);
+  let sprite8 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](120, 47, 120, 47, 'src/assets/combat_spritesheets/roy/royCombatSprite8.png', 3, 6);
+  let sprite9 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite9.png', 3, 6);
+  let sprite10 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite10.png', 3, 5);
+  let sprite11 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 102, 90, 102, 'src/assets/combat_spritesheets/roy/royCombatSprite11.png', 3, 10);
+  let sprite12 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/roy/royCombatSprite12.png', 3, 7);
+
+  let spriteQueue = [
+    sprite0, sprite1, sprite2, sprite3, sprite4, sprite5, sprite6,
+    sprite7, sprite8, sprite9, sprite10, sprite11, sprite12
+  ];
+
+  let positionAdjustment = {
+    "6,0": [-2.9, 0],
+    "6,1": [-2.9, 0],
+    "6,2": [-2.9, 0],
+    "6,3": [-2.9, 0],
+    "6,4": [-2.9, 0],
+    "6,5": [-2.9, 0],
+    "6,6": [-2.9, 0],
+
+    "7,0": [-2.9, 0],
+    "7,1": [-2.9, 0],
+    "7,2": [-2.9, 0],
+    "7,3": [-2.9, 0],
+    "7,4": [-2.9, 0],
+    "7,5": [-2.9, 0],
+
+    "8,0": [-2.9, 0],
+    "8,1": [-2.9, 0],
+    "8,2": [-2.9, 0],
+    "8,3": [-2.9, 0],
+    "8,4": [-2.9, 0],
+    "8,5": [-2.9, 0],
+
+    "9,0": [-2.9, 0],
+    "9,1": [-2.9, 0],
+    "9,2": [-2.9, 0],
+    "9,3": [-2.9, 0],
+    "9,4": [-2.9, 0],
+    "9,5": [-2.9, 0],
+
+    "10,0": [-2.9, 0],
+    "10,1": [-2.9, 0],
+    "10,2": [-2.9, 0],
+    "10,3": [-2.9, 0],
+    "10,4": [-2.9, 0],
+
+    "11,0": [-2.7, 0],
+    "11,1": [-2.5, 0],
+    "11,2": [-2.3, 0],
+    "11,3": [-2.1, 0],
+    "11,4": [-1.9, 0],
+    "11,5": [-1.7, 0],
+    "11,6": [-1.5, 0],
+    "11,7": [-1.3, 0],
+    "11,8": [-1.1, 0],
+    "11,9": [-0.9, 0],
+
+    "12,0": [-0.7, 0],
+    "12,1": [-0.5, 0],
+    "12,2": [-0.39, 0],
+    "12,3": [-0.39, 0],
+    "12,4": [-0.39, 0],
+    "12,5": [-0.39, 0],
+    "12,6": [-0.39, 0]
+  };
+
+  let damageFrame = [6, 1];
+
+  _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_1__["default"].call(
+    this,
+    spriteQueue,
+    positionAdjustment,
+    damageFrame
+  );
+}
+
+RoyCombatAnimation.prototype = Object.create(_animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_1__["default"].prototype);
+RoyCombatAnimation.prototype.constructor = RoyCombatAnimation;
+
+/* harmony default export */ __webpack_exports__["default"] = (RoyCombatAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/combat_animation/roy_crit_combat_animation.js":
+/*!*****************************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/roy_crit_combat_animation.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/combat_sprite */ "./src/classes/animation/sprite_sequence/combat_sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+
+function RoyCritCombatAnimation() {
+
+  let sprite0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royCombatSprite0.png', 3, 6);
+  let sprite1 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](46, 32, 46, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite.png', 3, 6);
+  let sprite2 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 42, 64, 42, 'src/assets/combat_spritesheets/roy/royCombatSprite2.png', 3, 6);
+  let sprite3 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 67, 64, 67, 'src/assets/combat_spritesheets/roy/royCritSprite3.png', 2, 6);
+  let sprite4 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'src/assets/combat_spritesheets/roy/royCritSprite4.png', 2, 6);
+  let sprite5 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'src/assets/combat_spritesheets/roy/royCritSprite5.png', 2, 6);
+  let sprite6 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 68, 64, 68, 'src/assets/combat_spritesheets/roy/royCritSprite6.png', 2, 8);
+  let sprite7 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 61, 64, 61, 'src/assets/combat_spritesheets/roy/royCritSprite7.png', 2, 3);
+  let sprite8 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 55, 150, 55, 'src/assets/combat_spritesheets/roy/royCritSprite8.png', 2, 7);
+  let sprite9 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 42, 150, 42, 'src/assets/combat_spritesheets/roy/royCritSprite9.png', 1, 3);
+  let sprite10 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 76, 150, 76, 'src/assets/combat_spritesheets/roy/royCritSprite10.png', 1, 5);
+  let sprite11 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 31, 100, 31, 'src/assets/combat_spritesheets/roy/royCritSprite11.png', 2, 7);
+  let sprite12 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 36, 100, 36, 'src/assets/combat_spritesheets/roy/royCritSprite12.png', 4, 7);
+
+  let spriteQueue = [
+    sprite0, sprite1, sprite2, sprite3, sprite4, sprite5, sprite6,
+    sprite7, sprite8, sprite9, sprite10, sprite11, sprite12
+  ];
+
+  let positionAdjustment = {
+    "9,0": [0, 0.1],
+    "9,1": [0, 0.1],
+    "9,2": [0, 0.1],
+
+    "12,1": [0, 0.03],
+    "12,1": [-0.22, 0.055],
+    "12,2": [-0.22, 0.055],
+    "12,3": [-0.22, 0.055],
+    "12,4": [-0.22, 0.055],
+    "12,5": [-0.22, 0.055],
+    "12,6": [-0.22, 0.055]
+  };
+
+  let damageFrame = [11, 0];
+
+  _animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    spriteQueue,
+    positionAdjustment,
+    damageFrame
+  );
+}
+
+RoyCritCombatAnimation.prototype = Object.create(_animation_sprite_sequence_combat_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+RoyCritCombatAnimation.prototype.constructor = RoyCritCombatAnimation;
+
+/* harmony default export */ __webpack_exports__["default"] = (RoyCritCombatAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/combat_animation/roy_dodge_animation.js":
+/*!***********************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/roy_dodge_animation.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_sequence_dodge_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/dodge_sprite */ "./src/classes/animation/sprite_sequence/dodge_sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+
+function RoyDodgeAnimation() {
+  let desSprites0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'src/assets/combat_spritesheets/roy/royDodgeSpriteSheet.png', 3, 3);
+
+  let spriteQueue = [desSprites0];
+
+  let positionAdjustment = {
+    '0,0': [0, 0.11],
+    '0,1': [0, 0.11],
+    '0,2': [0, 0.11]
+  };
+
+  let restFrame = [0, 1];
+
+  _animation_sprite_sequence_dodge_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    spriteQueue,
+    positionAdjustment,
+    restFrame
+  );
+
+}
+
+RoyDodgeAnimation.prototype = Object.create(_animation_sprite_sequence_dodge_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+RoyDodgeAnimation.prototype.constructor = RoyDodgeAnimation;
+
+/* harmony default export */ __webpack_exports__["default"] = (RoyDodgeAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/combat_animation/roy_receive_hit_sprite.js":
+/*!**************************************************************************!*\
+  !*** ./src/classes/animation/combat_animation/roy_receive_hit_sprite.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/sprite_sequence */ "./src/classes/animation/sprite_sequence/sprite_sequence.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+
+function RoyReceiveHitAnimation() {
+  const sprite0 = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royReceiveHitSprite.png', 4, 1);
+  const spriteQueue = [sprite0];
+  const positionAdjustment = {};
+
+  _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    spriteQueue,
+    positionAdjustment
+  );
+  this.rendered = false;
+}
+
+RoyReceiveHitAnimation.prototype = Object.create(_animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+RoyReceiveHitAnimation.prototype.constructor = RoyReceiveHitAnimation;
+
+RoyReceiveHitAnimation.prototype.render = function(row, col, sF) {
+  const currentSprite = this.currentSprite();
+  currentSprite.render(row, col, sF);
+  this.update();
+  if(this.queueIndex === 0 && currentSprite.frameIndex === 0 &&
+    currentSprite.tickCount === 0) {
+    this.rendered = true;
+  }
+}
+
+RoyReceiveHitAnimation.prototype.update = function() {
+  const sprite = this.currentSprite();
+  if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
+    sprite.tickCount === sprite.ticksPerFrame) {
+    this.updateQueueIndexAndSprite();
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (RoyReceiveHitAnimation);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/hit_animation/normal_damage_animation.js":
+/*!************************************************************************!*\
+  !*** ./src/classes/animation/hit_animation/normal_damage_animation.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/coordinate_sprite */ "./src/classes/animation/sprite/coordinate_sprite.js");
 
 
 function NormalDamageAnimation(defenderCoordinates) {
-  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+  _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
     238,//width
     158,//height
@@ -395,7 +931,7 @@ function NormalDamageAnimation(defenderCoordinates) {
   this.defenderCoordinates = defenderCoordinates;
 }
 
-NormalDamageAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+NormalDamageAnimation.prototype = Object.create(_animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 NormalDamageAnimation.prototype.constructor = NormalDamageAnimation;
 
 NormalDamageAnimation.prototype.render = function(sF) {
@@ -426,20 +962,20 @@ NormalDamageAnimation.prototype.render = function(sF) {
 
 /***/ }),
 
-/***/ "./animations/hitAnimations/royCriticalHitAnimation.js":
-/*!*************************************************************!*\
-  !*** ./animations/hitAnimations/royCriticalHitAnimation.js ***!
-  \*************************************************************/
+/***/ "./src/classes/animation/hit_animation/roy_critical_hit_animation.js":
+/*!***************************************************************************!*\
+  !*** ./src/classes/animation/hit_animation/roy_critical_hit_animation.js ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/coordinate_sprite */ "./src/classes/animation/sprite/coordinate_sprite.js");
 
 
 function RoyCriticalHitAnimation(defenderCoordinates) {
-  _coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+  _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
     236,//width
     156,//height
@@ -486,7 +1022,7 @@ function RoyCriticalHitAnimation(defenderCoordinates) {
   this.defenderCoordinates = defenderCoordinates;
 }
 
-RoyCriticalHitAnimation.prototype = Object.create(_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+RoyCriticalHitAnimation.prototype = Object.create(_animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 RoyCriticalHitAnimation.prototype.constructor = RoyCriticalHitAnimation;
 
 RoyCriticalHitAnimation.prototype.render = function(sF) {
@@ -517,10 +1053,10 @@ RoyCriticalHitAnimation.prototype.render = function(sF) {
 
 /***/ }),
 
-/***/ "./animations/movingAnimation.js":
-/*!***************************************!*\
-  !*** ./animations/movingAnimation.js ***!
-  \***************************************/
+/***/ "./src/classes/animation/moving_animation/moving_animation.js":
+/*!********************************************************************!*\
+  !*** ./src/classes/animation/moving_animation/moving_animation.js ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -604,10 +1140,10 @@ MovingAnimation.prototype.endAnimation = function() {
 
 /***/ }),
 
-/***/ "./animations/preloadedAssetSprite/battleAssetImage.js":
-/*!*************************************************************!*\
-  !*** ./animations/preloadedAssetSprite/battleAssetImage.js ***!
-  \*************************************************************/
+/***/ "./src/classes/animation/preloaded_asset_sprite/battle_asset_image.js":
+/*!****************************************************************************!*\
+  !*** ./src/classes/animation/preloaded_asset_sprite/battle_asset_image.js ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -620,17 +1156,17 @@ battleAssetImage.src = 'src/assets/combat_display/FEBattleAssets.png';
 
 /***/ }),
 
-/***/ "./animations/preloadedAssetSprite/combatEUNameWindow.js":
-/*!***************************************************************!*\
-  !*** ./animations/preloadedAssetSprite/combatEUNameWindow.js ***!
-  \***************************************************************/
+/***/ "./src/classes/animation/preloaded_asset_sprite/combat_eu_name_window.js":
+/*!*******************************************************************************!*\
+  !*** ./src/classes/animation/preloaded_asset_sprite/combat_eu_name_window.js ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
-/* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/preloaded_asset_sprite */ "./src/classes/animation/preloaded_asset_sprite/preloaded_asset_sprite.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_battle_asset_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/battle_asset_image */ "./src/classes/animation/preloaded_asset_sprite/battle_asset_image.js");
 
 
 
@@ -640,14 +1176,14 @@ function CombatEUNameWindow() {
     [245, 34, 67, 31, 67, 31, 1]
   ];
 
-  _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+  _animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
+    _animation_preloaded_asset_sprite_battle_asset_image__WEBPACK_IMPORTED_MODULE_1__["default"],
     renderList
   );
 }
 
-CombatEUNameWindow.prototype = Object.create(_preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatEUNameWindow.prototype = Object.create(_animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 CombatEUNameWindow.prototype.constructor = CombatEUNameWindow;
 
 /* harmony default export */ __webpack_exports__["default"] = (CombatEUNameWindow);
@@ -655,17 +1191,17 @@ CombatEUNameWindow.prototype.constructor = CombatEUNameWindow;
 
 /***/ }),
 
-/***/ "./animations/preloadedAssetSprite/combatLowerWindow.js":
-/*!**************************************************************!*\
-  !*** ./animations/preloadedAssetSprite/combatLowerWindow.js ***!
-  \**************************************************************/
+/***/ "./src/classes/animation/preloaded_asset_sprite/combat_lower_window.js":
+/*!*****************************************************************************!*\
+  !*** ./src/classes/animation/preloaded_asset_sprite/combat_lower_window.js ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
-/* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/preloaded_asset_sprite */ "./src/classes/animation/preloaded_asset_sprite/preloaded_asset_sprite.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_battle_asset_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/battle_asset_image */ "./src/classes/animation/preloaded_asset_sprite/battle_asset_image.js");
 
 
 
@@ -675,14 +1211,14 @@ function CombatLowerWindow() {
     [244, 191, 242, 56, 242*1.15, 56*0.93, 1]
   ];
 
-  _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+  _animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
+    _animation_preloaded_asset_sprite_battle_asset_image__WEBPACK_IMPORTED_MODULE_1__["default"],
     renderList
   );
 }
 
-CombatLowerWindow.prototype = Object.create(_preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatLowerWindow.prototype = Object.create(_animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 CombatLowerWindow.prototype.constructor = CombatLowerWindow;
 
 /* harmony default export */ __webpack_exports__["default"] = (CombatLowerWindow);
@@ -690,17 +1226,17 @@ CombatLowerWindow.prototype.constructor = CombatLowerWindow;
 
 /***/ }),
 
-/***/ "./animations/preloadedAssetSprite/combatPUNameWindow.js":
-/*!***************************************************************!*\
-  !*** ./animations/preloadedAssetSprite/combatPUNameWindow.js ***!
-  \***************************************************************/
+/***/ "./src/classes/animation/preloaded_asset_sprite/combat_pu_name_window.js":
+/*!*******************************************************************************!*\
+  !*** ./src/classes/animation/preloaded_asset_sprite/combat_pu_name_window.js ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preloadedAssetSprite */ "./animations/preloadedAssetSprite/preloadedAssetSprite.js");
-/* harmony import */ var _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./battleAssetImage */ "./animations/preloadedAssetSprite/battleAssetImage.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/preloaded_asset_sprite */ "./src/classes/animation/preloaded_asset_sprite/preloaded_asset_sprite.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_battle_asset_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/battle_asset_image */ "./src/classes/animation/preloaded_asset_sprite/battle_asset_image.js");
 
 
 
@@ -710,14 +1246,14 @@ function CombatPUNameWindow() {
     [384, 1, 69, 32, 69, 32, 1]
   ];
 
-  _preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+  _animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
     this,
-    _battleAssetImage__WEBPACK_IMPORTED_MODULE_1__["default"],
+    _animation_preloaded_asset_sprite_battle_asset_image__WEBPACK_IMPORTED_MODULE_1__["default"],
     renderList
   );
 }
 
-CombatPUNameWindow.prototype = Object.create(_preloadedAssetSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatPUNameWindow.prototype = Object.create(_animation_preloaded_asset_sprite_preloaded_asset_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 CombatPUNameWindow.prototype.constructor = CombatPUNameWindow;
 
 /* harmony default export */ __webpack_exports__["default"] = (CombatPUNameWindow);
@@ -725,16 +1261,16 @@ CombatPUNameWindow.prototype.constructor = CombatPUNameWindow;
 
 /***/ }),
 
-/***/ "./animations/preloadedAssetSprite/preloadedAssetSprite.js":
-/*!*****************************************************************!*\
-  !*** ./animations/preloadedAssetSprite/preloadedAssetSprite.js ***!
-  \*****************************************************************/
+/***/ "./src/classes/animation/preloaded_asset_sprite/preloaded_asset_sprite.js":
+/*!********************************************************************************!*\
+  !*** ./src/classes/animation/preloaded_asset_sprite/preloaded_asset_sprite.js ***!
+  \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
 
 
 function PreloadedAssetSprite(imageObject, renderList) {
@@ -790,16 +1326,112 @@ PreloadedAssetSprite.prototype.update = function() {
 
 /***/ }),
 
-/***/ "./animations/sprite.js":
-/*!******************************!*\
-  !*** ./animations/sprite.js ***!
-  \******************************/
+/***/ "./src/classes/animation/sprite/battle_platform_sprite.js":
+/*!****************************************************************!*\
+  !*** ./src/classes/animation/sprite/battle_platform_sprite.js ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createContext */ "./createContext.js");
+/* harmony import */ var _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/coordinate_sprite */ "./src/classes/animation/sprite/coordinate_sprite.js");
+
+
+function BattlePlatformSprite() {
+  _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    194,//width
+    57,//height
+    194*1.125,//renderWidth
+
+    57*1.125,//renderHeight
+
+    'src/assets/combat_display/BattlePlatformSprite.png',//image
+    1,//ticksPerFrame
+
+    [
+      [0, 0]
+    ]//coordinatesList
+  );
+
+}
+
+BattlePlatformSprite.prototype = Object.create(_animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+BattlePlatformSprite.prototype.constructor = BattlePlatformSprite;
+
+/* harmony default export */ __webpack_exports__["default"] = (BattlePlatformSprite);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/sprite/coordinate_sprite.js":
+/*!***********************************************************!*\
+  !*** ./src/classes/animation/sprite/coordinate_sprite.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+function CoordinateSprite(width, height, renderWidth,
+   renderHeight, image, ticksPerFrame, coordinatesList
+ ) {
+  _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    width,
+    height,
+    renderWidth,
+    renderHeight,
+    image,
+    ticksPerFrame,
+    coordinatesList.length//numberOfFrames
+  );
+
+  this.coordinatesList = coordinatesList;
+}
+
+CoordinateSprite.prototype = Object.create(_animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CoordinateSprite.prototype.constructor = CoordinateSprite;
+
+CoordinateSprite.prototype.render = function(row, col, sF) {
+  let scale = sF / 18;
+  let cx = (row * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  let cy = (col * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,// this.spriteSheet,
+    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
+    this.coordinatesList[this.frameIndex][1],// 0,
+    this.width,// this.width,
+    this.height,// this.height,
+    cx,// cx,
+    cy,// cy,
+    cWidth,// cWidth,
+    cHeight// cHeight
+  );
+  this.update();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CoordinateSprite);
+
+
+/***/ }),
+
+/***/ "./src/classes/animation/sprite/sprite.js":
+/*!************************************************!*\
+  !*** ./src/classes/animation/sprite/sprite.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
 
 
 function Sprite(width, height, renderWidth, renderHeight, image, ticksPerFrame, numberOfFrames) {
@@ -908,25 +1540,25 @@ Sprite.prototype.isFirstFrame = function() {
 
 /***/ }),
 
-/***/ "./animations/spriteSequence/combatSprite.js":
-/*!***************************************************!*\
-  !*** ./animations/spriteSequence/combatSprite.js ***!
-  \***************************************************/
+/***/ "./src/classes/animation/sprite_sequence/combat_sprite.js":
+/*!****************************************************************!*\
+  !*** ./src/classes/animation/sprite_sequence/combat_sprite.js ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
+/* harmony import */ var _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/sprite_sequence */ "./src/classes/animation/sprite_sequence/sprite_sequence.js");
 
 
 function CombatSprite(spriteQueue, positionAdjustment, damageFrame) {
-  _spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, spriteQueue, positionAdjustment);
+  _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, spriteQueue, positionAdjustment);
 
   this.damageFrame = damageFrame;
 }
 
-CombatSprite.prototype = Object.create(_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+CombatSprite.prototype = Object.create(_animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 CombatSprite.prototype.constructor = CombatSprite;
 
 CombatSprite.prototype.update = function() {
@@ -952,27 +1584,27 @@ CombatSprite.prototype.onDamageFrame = function() {
 
 /***/ }),
 
-/***/ "./animations/spriteSequence/dodgeSprite.js":
-/*!**************************************************!*\
-  !*** ./animations/spriteSequence/dodgeSprite.js ***!
-  \**************************************************/
+/***/ "./src/classes/animation/sprite_sequence/dodge_sprite.js":
+/*!***************************************************************!*\
+  !*** ./src/classes/animation/sprite_sequence/dodge_sprite.js ***!
+  \***************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
+/* harmony import */ var _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite_sequence/sprite_sequence */ "./src/classes/animation/sprite_sequence/sprite_sequence.js");
 
 
 function DodgeSprite(spriteQueue, positionAdjustment, restFrame) {
-  _spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, spriteQueue, positionAdjustment);
+  _animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, spriteQueue, positionAdjustment);
 
   this.restFrame = restFrame;
   this.restTicks = 15;
   this.restTickCount = 0;
 }
 
-DodgeSprite.prototype = Object.create(_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+DodgeSprite.prototype = Object.create(_animation_sprite_sequence_sprite_sequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 DodgeSprite.prototype.constructor = DodgeSprite;
 
 DodgeSprite.prototype.update = function() {
@@ -1005,16 +1637,16 @@ DodgeSprite.prototype.renderDecision = function(x, y, dP, sF) {
 
 /***/ }),
 
-/***/ "./animations/spriteSequence/spriteSequence.js":
-/*!*****************************************************!*\
-  !*** ./animations/spriteSequence/spriteSequence.js ***!
-  \*****************************************************/
+/***/ "./src/classes/animation/sprite_sequence/sprite_sequence.js":
+/*!******************************************************************!*\
+  !*** ./src/classes/animation/sprite_sequence/sprite_sequence.js ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../createContext */ "./createContext.js");
+/* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../createContext */ "./createContext.js");
 
 
 function SpriteSequence(spriteQueue, positionAdjustment) {
@@ -1068,712 +1700,6 @@ SpriteSequence.prototype.renderedAnimation = function() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SpriteSequence);
-
-
-/***/ }),
-
-/***/ "./createContext.js":
-/*!**************************!*\
-  !*** ./createContext.js ***!
-  \**************************/
-/*! exports provided: c */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return c; });
-var canvas = document.querySelector('canvas');
-if (canvas) {
-  // canvas.width = window.innerWidth;
-  // canvas.width = 29 * 52;
-  canvas.width = 15 * 45;
-  // canvas.height = window.innerHeight;
-  // canvas.height = 17 * 52;
-  canvas.height = 10 * 45;
-}
-const c = (canvas ? canvas.getContext('2d') : null);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/brigand_combat_animation.js":
-/*!****************************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/brigand_combat_animation.js ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-function BrigandCombatAnimation() {
-  let sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite0.png', 6, 4);
-  let sprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite1.png', 6, 1);
-  let sprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 74, 70, 74, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite2.png', 4, 6);
-  let sprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 35, 90, 35, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite3.png', 2, 4);
-  let sprites4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite4.png', 4, 6);
-  let sprites5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'src/assets/combat_spritesheets/brigand/brigandCombatSprite5.png', 6, 2);
-
-  let spriteQueue = [
-    sprites0, sprites1, sprites2, sprites3, sprites4, sprites5
-  ];
-
-  let positionAdjustment = {
-    '2,0' : [0.15, 0],
-    '2,1' : [0.30, -0.3],
-    '2,2' : [0.45, -0.5],
-    '2,3' : [0.60, -0.6],
-    '2,4' : [0.75, -0.5],
-    '2,5' : [0.9, -0.3],
-
-    '3,0' : [2.5, 0],
-    '3,1' : [2.5, 0],
-    '3,2' : [2.5, 0],
-    '3,3' : [2.5, 0],
-
-    '4,0' : [2.5, 0],
-    '4,1' : [2.1, -0.2],
-    '4,2' : [1.7, -0.3],
-    '4,3' : [1.4, -0.4],
-    '4,4' : [1.1, -0.3],
-    '4,5' : [0.7, -0.1]
-  };
-
-  let damageFrame = [3, 2];
-
-  _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment,
-    damageFrame
-  );
-}
-
-BrigandCombatAnimation.prototype = Object.create(_animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-BrigandCombatAnimation.prototype.constructor = BrigandCombatAnimation;
-
-/* harmony default export */ __webpack_exports__["default"] = (BrigandCombatAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js":
-/*!*********************************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/brigand_receive_hit_animation.js ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-function BrigandReceiveHitAnimation() {
-  const sprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 39, 70, 39, 'src/assets/combat_spritesheets/brigand/brigandReceiveHitSprite.png', 4, 1);
-  const spriteQueue = [sprites0];
-  const positionAdjustment = {};
-
-  _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment
-  );
-
-  this.rendered = false;
-}
-
-BrigandReceiveHitAnimation.prototype = Object.create(_animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-BrigandReceiveHitAnimation.prototype.constructor = BrigandReceiveHitAnimation;
-
-BrigandReceiveHitAnimation.prototype.render = function(row, col, sF) {
-  const currentSprite = this.currentSprite();
-  currentSprite.render(row, col, sF);
-  this.update();
-  if(this.queueIndex === 0 && currentSprite.frameIndex === 0 &&
-    currentSprite.tickCount === 0) {
-    this.rendered = true;
-  }
-}
-
-BrigandReceiveHitAnimation.prototype.update = function() {
-  const sprite = this.currentSprite();
-  if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
-    sprite.tickCount === sprite.ticksPerFrame) {
-    this.updateQueueIndexAndSprite();
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (BrigandReceiveHitAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/lyn_combat_animation.js":
-/*!************************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/lyn_combat_animation.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-function LynCombatAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/lyn/lynCombatSprite0.png', 3, 12);
-  let desSprites1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'src/assets/combat_spritesheets/lyn/lynCombatSprite1.png', 3, 8);
-  let desSprites2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'src/assets/combat_spritesheets/lyn/lynCombatSprite2.png', 3, 8);
-  let desSprites3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/lyn/lynCombatSprite3.png', 3, 6);
-
-  let spriteQueue = [desSprites0, desSprites1, desSprites2, desSprites3];
-
-  let positionAdjustment = {
-    "0,5": [-0.5, 0],
-    "0,6": [-2.9, 0],
-    "0,7": [-2.9, 0],
-    "0,8": [-2.9, 0],
-    "0,9": [-2.9, 0],
-    "0,10": [-2.9, 0],
-    "0,11": [-2.9, 0],
-
-    "1,0": [-2.3, 0],
-    "1,1": [-2.3, 0],
-    "1,2": [-2.3, 0],
-    "1,3": [-6.5, 0],
-    "1,4": [-6.5, 0],
-    "1,5": [-6.5, 0],
-    "1,6": [-6.5, 0],
-    "1,7": [-6.5, 0],
-    "1,8": [-6.5, 0],
-
-    "2,0": [-6.5, 0],
-    "2,1": [-6.0, -0.6],
-    "2,2": [-5.9, -1.6],
-    "2,3": [-5.0, -2.4],
-    "2,4": [-4.0, -2.3],
-    "2,5": [-3.1, -1.7],
-    "2,6": [-2.5, -1.2],
-    "2,7": [-2.2, -1.0],
-
-
-    "3,0": [-1.7, 0],
-    "3,1": [-1.4, 0],
-    "3,2": [-1.4, 0],
-    "3,3": [-1.4, 0],
-    "3,4": [-1.4, 0],
-    "3,5": [-1.4, 0]
-
-  };
-
-  let damageFrame = [1, 3];
-
-  _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment,
-    damageFrame
-  );
-}
-
-LynCombatAnimation.prototype = Object.create(_animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-LynCombatAnimation.prototype.constructor = LynCombatAnimation;
-
-/* harmony default export */ __webpack_exports__["default"] = (LynCombatAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js":
-/*!*****************************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/lyn_crit_combat_animation.js ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-function LynCritCombatAnimation() {
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/lyn/lynCombatSprite0.png', 4, 5);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](140, 35, 140, 35, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet1.png', 4, 8);
-  let spriteNull1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 16, 1);
-
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet2.png', 1, 1);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 1, 1);
-  let spriteNull2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 1, 1);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 2, 1);
-  let spriteNull3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 2, 1);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 4, 1);
-  let spriteNull4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 3, 1);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 3, 1);
-  let spriteNull5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 3, 1);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet3.png', 3, 1);
-
-  let spriteNull6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](155, 141, 155, 141, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheetNull.png', 15, 1);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](50, 87, 50, 87, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet4.png', 1, 2);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet5.png', 1, 2);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](110, 28, 110, 28, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet6.png', 1, 2);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](173, 44, 173, 44, 'src/assets/combat_spritesheets/lyn/lynCritSpriteSheet7.png', 2, 1);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 41, 100, 41, 'src/assets/combat_spritesheets/lyn/lynCombatSprite1.png', 4, 3);
-
-  let sprite13 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 46, 90, 46, 'src/assets/combat_spritesheets/lyn/lynCombatSprite2.png', 2, 8);
-  let sprite14 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](90, 48, 90, 48, 'src/assets/combat_spritesheets/lyn/lynCombatSprite3.png', 3, 6);
-
-
-
-  let positionAdjustment = {
-    "3,0": [-3.6, 2.8],
-
-    "4,0": [-3.6, 2.8],
-
-    "6,0": [-3.6, 2.8],
-
-    "8,0": [-3.6, 2.8],
-
-    "10,0": [-3.6, 2.8],
-
-    "12,0": [-3.6, 2.8],
-
-    "15,0": [-3.6, 0],
-    "15,1": [-3.6, 0],
-
-    "17,0": [-3.6, -0.5],
-    "17,1": [-3.6, -0.5],
-
-    "19,0": [-3.9, 0.5],
-    "19,1": [-3.9, 0.5],
-
-
-    "24,0": [-2.4, -8.2],
-    "24,1": [-2.2, -7.7],
-    "24,2": [-2, -6.9],
-    "24,3": [-1.9, -6.2],
-    "24,4": [-1.9, -4.7],
-    "24,5": [-1.8, -3.4],
-    "24,6": [-1.6, -2.2],
-    "24,7": [-1.4, -1.0],
-
-
-    "25,0": [-1.7, 0],
-    "25,1": [-1.4, 0],
-    "25,2": [-1.4, 0],
-    "25,3": [-1.4, 0],
-    "25,4": [-1.4, 0],
-    "25,5": [-1.4, 0]
-
-  };
-
-  let damageFrame = [24, 0];
-
-  let spriteQueue = [
-    sprite0, sprite1, spriteNull1,
-
-    sprite2, sprite3, spriteNull2,
-    sprite4,spriteNull3, sprite5, spriteNull4, sprite6, spriteNull5,
-    sprite7, spriteNull1,
-
-    spriteNull6, sprite8, spriteNull6, sprite9, spriteNull6, sprite10, spriteNull6, sprite11, spriteNull6,
-
-      sprite12, sprite13, sprite14
-];
-
-  _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment,
-    damageFrame
-  );
-
-}
-
-LynCritCombatAnimation.prototype = Object.create(_animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-LynCritCombatAnimation.prototype.constructor = LynCritCombatAnimation;
-
-/* harmony default export */ __webpack_exports__["default"] = (LynCritCombatAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/lyn_dodge_animation.js":
-/*!***********************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/lyn_dodge_animation.js ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/dodgeSprite */ "./animations/spriteSequence/dodgeSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-
-function LynDodgeAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 35, 70, 35, 'src/assets/combat_spritesheets/lyn/lynDodgeSpriteSheet.png', 3, 3);
-
-  let spriteQueue = [desSprites0];
-
-  let positionAdjustment = {
-  };
-
-  let restFrame = [0, 1];
-
-  _animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment,
-    restFrame
-  );
-
-}
-
-LynDodgeAnimation.prototype = Object.create(_animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-LynDodgeAnimation.prototype.constructor = LynDodgeAnimation;
-
-/* harmony default export */ __webpack_exports__["default"] = (LynDodgeAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js":
-/*!*****************************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/lyn_receive_hit_animation.js ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-function LynReceiveHitAnimation() {
-  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/lyn/lynReceiveHitSprite.png', 4, 1);
-  const spriteQueue = [sprite0];
-  const positionAdjustment = {};
-
-  _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment
-  );
-  this.rendered = false;
-}
-
-LynReceiveHitAnimation.prototype = Object.create(_animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-LynReceiveHitAnimation.prototype.constructor = LynReceiveHitAnimation;
-
-LynReceiveHitAnimation.prototype.render = function(row, col, sF) {
-  const currentSprite = this.currentSprite();
-  currentSprite.render(row, col, sF);
-  this.update();
-  if(this.queueIndex === 0 && currentSprite.frameIndex === 0 &&
-    currentSprite.tickCount === 0) {
-    this.rendered = true;
-  }
-}
-
-LynReceiveHitAnimation.prototype.update = function() {
-  const sprite = this.currentSprite();
-  if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
-    sprite.tickCount === sprite.ticksPerFrame) {
-    this.updateQueueIndexAndSprite();
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (LynReceiveHitAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/roy_combat_animation.js":
-/*!************************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/roy_combat_animation.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/combatAnimation */ "./animations/combatAnimation.js");
-/* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-
-function RoyCombatAnimation() {
-
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royCombatSprite0.png', 3, 6);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](46, 32, 46, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite.png', 3, 6);
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 42, 64, 42, 'src/assets/combat_spritesheets/roy/royCombatSprite2.png', 3, 6);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](64, 61, 64, 61, 'src/assets/combat_spritesheets/roy/royCombatSprite3.png', 3, 6);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 52, 90, 52, 'src/assets/combat_spritesheets/roy/royCombatSprite4.png', 3, 4);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](110, 67, 110, 67, 'src/assets/combat_spritesheets/roy/royCombatSprite5.png', 3, 2);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 35, 90, 35, 'src/assets/combat_spritesheets/roy/royCombatSprite6.png', 3, 7);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](140, 40, 140, 40, 'src/assets/combat_spritesheets/roy/royCombatSprite7.png', 3, 6);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](120, 47, 120, 47, 'src/assets/combat_spritesheets/roy/royCombatSprite8.png', 3, 6);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite9.png', 3, 6);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 32, 90, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite10.png', 3, 5);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 102, 90, 102, 'src/assets/combat_spritesheets/roy/royCombatSprite11.png', 3, 10);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](90, 50, 90, 50, 'src/assets/combat_spritesheets/roy/royCombatSprite12.png', 3, 7);
-
-  let spriteQueue = [
-    sprite0, sprite1, sprite2, sprite3, sprite4, sprite5, sprite6,
-    sprite7, sprite8, sprite9, sprite10, sprite11, sprite12
-  ];
-
-  let positionAdjustment = {
-    "6,0": [-2.9, 0],
-    "6,1": [-2.9, 0],
-    "6,2": [-2.9, 0],
-    "6,3": [-2.9, 0],
-    "6,4": [-2.9, 0],
-    "6,5": [-2.9, 0],
-    "6,6": [-2.9, 0],
-
-    "7,0": [-2.9, 0],
-    "7,1": [-2.9, 0],
-    "7,2": [-2.9, 0],
-    "7,3": [-2.9, 0],
-    "7,4": [-2.9, 0],
-    "7,5": [-2.9, 0],
-
-    "8,0": [-2.9, 0],
-    "8,1": [-2.9, 0],
-    "8,2": [-2.9, 0],
-    "8,3": [-2.9, 0],
-    "8,4": [-2.9, 0],
-    "8,5": [-2.9, 0],
-
-    "9,0": [-2.9, 0],
-    "9,1": [-2.9, 0],
-    "9,2": [-2.9, 0],
-    "9,3": [-2.9, 0],
-    "9,4": [-2.9, 0],
-    "9,5": [-2.9, 0],
-
-    "10,0": [-2.9, 0],
-    "10,1": [-2.9, 0],
-    "10,2": [-2.9, 0],
-    "10,3": [-2.9, 0],
-    "10,4": [-2.9, 0],
-
-    "11,0": [-2.7, 0],
-    "11,1": [-2.5, 0],
-    "11,2": [-2.3, 0],
-    "11,3": [-2.1, 0],
-    "11,4": [-1.9, 0],
-    "11,5": [-1.7, 0],
-    "11,6": [-1.5, 0],
-    "11,7": [-1.3, 0],
-    "11,8": [-1.1, 0],
-    "11,9": [-0.9, 0],
-
-    "12,0": [-0.7, 0],
-    "12,1": [-0.5, 0],
-    "12,2": [-0.39, 0],
-    "12,3": [-0.39, 0],
-    "12,4": [-0.39, 0],
-    "12,5": [-0.39, 0],
-    "12,6": [-0.39, 0]
-  };
-
-  let damageFrame = [6, 1];
-
-  _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_1__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment,
-    damageFrame
-  );
-}
-
-RoyCombatAnimation.prototype = Object.create(_animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_1__["default"].prototype);
-RoyCombatAnimation.prototype.constructor = RoyCombatAnimation;
-
-/* harmony default export */ __webpack_exports__["default"] = (RoyCombatAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/roy_crit_combat_animation.js":
-/*!*****************************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/roy_crit_combat_animation.js ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/combatSprite */ "./animations/spriteSequence/combatSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-function RoyCritCombatAnimation() {
-
-  let sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royCombatSprite0.png', 3, 6);
-  let sprite1 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](46, 32, 46, 32, 'src/assets/combat_spritesheets/roy/royCombatSprite.png', 3, 6);
-  let sprite2 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 42, 64, 42, 'src/assets/combat_spritesheets/roy/royCombatSprite2.png', 3, 6);
-  let sprite3 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 67, 64, 67, 'src/assets/combat_spritesheets/roy/royCritSprite3.png', 2, 6);
-  let sprite4 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'src/assets/combat_spritesheets/roy/royCritSprite4.png', 2, 6);
-  let sprite5 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 74, 64, 74, 'src/assets/combat_spritesheets/roy/royCritSprite5.png', 2, 6);
-  let sprite6 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 68, 64, 68, 'src/assets/combat_spritesheets/roy/royCritSprite6.png', 2, 8);
-  let sprite7 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](64, 61, 64, 61, 'src/assets/combat_spritesheets/roy/royCritSprite7.png', 2, 3);
-  let sprite8 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 55, 150, 55, 'src/assets/combat_spritesheets/roy/royCritSprite8.png', 2, 7);
-  let sprite9 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 42, 150, 42, 'src/assets/combat_spritesheets/roy/royCritSprite9.png', 1, 3);
-  let sprite10 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](150, 76, 150, 76, 'src/assets/combat_spritesheets/roy/royCritSprite10.png', 1, 5);
-  let sprite11 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 31, 100, 31, 'src/assets/combat_spritesheets/roy/royCritSprite11.png', 2, 7);
-  let sprite12 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](100, 36, 100, 36, 'src/assets/combat_spritesheets/roy/royCritSprite12.png', 4, 7);
-
-  let spriteQueue = [
-    sprite0, sprite1, sprite2, sprite3, sprite4, sprite5, sprite6,
-    sprite7, sprite8, sprite9, sprite10, sprite11, sprite12
-  ];
-
-  let positionAdjustment = {
-    "9,0": [0, 0.1],
-    "9,1": [0, 0.1],
-    "9,2": [0, 0.1],
-
-    "12,1": [0, 0.03],
-    "12,1": [-0.22, 0.055],
-    "12,2": [-0.22, 0.055],
-    "12,3": [-0.22, 0.055],
-    "12,4": [-0.22, 0.055],
-    "12,5": [-0.22, 0.055],
-    "12,6": [-0.22, 0.055]
-  };
-
-  let damageFrame = [11, 0];
-
-  _animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment,
-    damageFrame
-  );
-}
-
-RoyCritCombatAnimation.prototype = Object.create(_animations_spriteSequence_combatSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-RoyCritCombatAnimation.prototype.constructor = RoyCritCombatAnimation;
-
-/* harmony default export */ __webpack_exports__["default"] = (RoyCritCombatAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/roy_dodge_animation.js":
-/*!***********************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/roy_dodge_animation.js ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/dodgeSprite */ "./animations/spriteSequence/dodgeSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-function RoyDodgeAnimation() {
-  let desSprites0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 33, 70, 33, 'src/assets/combat_spritesheets/roy/royDodgeSpriteSheet.png', 3, 3);
-
-  let spriteQueue = [desSprites0];
-
-  let positionAdjustment = {
-    '0,0': [0, 0.11],
-    '0,1': [0, 0.11],
-    '0,2': [0, 0.11]
-  };
-
-  let restFrame = [0, 1];
-
-  _animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment,
-    restFrame
-  );
-
-}
-
-RoyDodgeAnimation.prototype = Object.create(_animations_spriteSequence_dodgeSprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-RoyDodgeAnimation.prototype.constructor = RoyDodgeAnimation;
-
-/* harmony default export */ __webpack_exports__["default"] = (RoyDodgeAnimation);
-
-
-/***/ }),
-
-/***/ "./src/classes/animation/combat_animation/roy_receive_hit_sprite.js":
-/*!**************************************************************************!*\
-  !*** ./src/classes/animation/combat_animation/roy_receive_hit_sprite.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../animations/spriteSequence/spriteSequence */ "./animations/spriteSequence/spriteSequence.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../animations/sprite */ "./animations/sprite.js");
-
-
-
-function RoyReceiveHitAnimation() {
-  const sprite0 = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](70, 43, 70, 43, 'src/assets/combat_spritesheets/roy/royReceiveHitSprite.png', 4, 1);
-  const spriteQueue = [sprite0];
-  const positionAdjustment = {};
-
-  _animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    spriteQueue,
-    positionAdjustment
-  );
-  this.rendered = false;
-}
-
-RoyReceiveHitAnimation.prototype = Object.create(_animations_spriteSequence_spriteSequence__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-RoyReceiveHitAnimation.prototype.constructor = RoyReceiveHitAnimation;
-
-RoyReceiveHitAnimation.prototype.render = function(row, col, sF) {
-  const currentSprite = this.currentSprite();
-  currentSprite.render(row, col, sF);
-  this.update();
-  if(this.queueIndex === 0 && currentSprite.frameIndex === 0 &&
-    currentSprite.tickCount === 0) {
-    this.rendered = true;
-  }
-}
-
-RoyReceiveHitAnimation.prototype.update = function() {
-  const sprite = this.currentSprite();
-  if (sprite.frameIndex === sprite.numberOfFrames - 1 &&
-    sprite.tickCount === sprite.ticksPerFrame) {
-    this.updateQueueIndexAndSprite();
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (RoyReceiveHitAnimation);
 
 
 /***/ }),
@@ -1926,7 +1852,7 @@ Attack.prototype.dodgeAnimationPlayedCondition = function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./attack */ "./src/classes/attack/attack.js");
-/* harmony import */ var _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/hitAnimations/normalDamageAnimation */ "./animations/hitAnimations/normalDamageAnimation.js");
+/* harmony import */ var _animation_hit_animation_normal_damage_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/hit_animation/normal_damage_animation */ "./src/classes/animation/hit_animation/normal_damage_animation.js");
 
 
 
@@ -1935,7 +1861,7 @@ function EUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
   );
 
-  this.hitAnimation = new _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.playerCoordinates[0] + 1.7, this.playerCoordinates[1] + 2.8]);
+  this.hitAnimation = new _animation_hit_animation_normal_damage_animation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.playerCoordinates[0] + 1.7, this.playerCoordinates[1] + 2.8]);
 }
 
 EUAttack.prototype = Object.create(_attack__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
@@ -1960,10 +1886,9 @@ EUAttack.prototype.render = function(enemyCoordinates, sF) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./attack */ "./src/classes/attack/attack.js");
-/* harmony import */ var _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/hitAnimations/normalDamageAnimation */ "./animations/hitAnimations/normalDamageAnimation.js");
-/* harmony import */ var _animations_hitAnimations_normalCriticalDamageAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../animations/hitAnimations/normalCriticalDamageAnimation */ "./animations/hitAnimations/normalCriticalDamageAnimation.js");
-/* harmony import */ var _animations_hitAnimations_royCriticalHitAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../animations/hitAnimations/royCriticalHitAnimation */ "./animations/hitAnimations/royCriticalHitAnimation.js");
-/* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
+/* harmony import */ var _animation_hit_animation_normal_damage_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/hit_animation/normal_damage_animation */ "./src/classes/animation/hit_animation/normal_damage_animation.js");
+/* harmony import */ var _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/hit_animation/roy_critical_hit_animation */ "./src/classes/animation/hit_animation/roy_critical_hit_animation.js");
+/* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
 
 
 
@@ -1976,13 +1901,13 @@ function PUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
   );
   if (this.isCrit) {
-    if (attacker instanceof _unit_roy__WEBPACK_IMPORTED_MODULE_4__["default"]) {
-      this.hitAnimation = new _animations_hitAnimations_royCriticalHitAnimation__WEBPACK_IMPORTED_MODULE_3__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
+    if (attacker instanceof _unit_roy__WEBPACK_IMPORTED_MODULE_3__["default"]) {
+      this.hitAnimation = new _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
     } else {
-      this.hitAnimation = new _animations_hitAnimations_normalCriticalDamageAnimation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
+      this.hitAnimation = new _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
     }
   } else {
-      this.hitAnimation = new _animations_hitAnimations_normalDamageAnimation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.enemyCoordinates[0] + 1.7, this.enemyCoordinates[1] + 2.8]);
+      this.hitAnimation = new _animation_hit_animation_normal_damage_animation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.enemyCoordinates[0] + 1.7, this.enemyCoordinates[1] + 2.8]);
   }
 }
 
@@ -2243,7 +2168,7 @@ Chapter.prototype.changePhase = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _board_board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/board/board */ "./src/classes/board/board.js");
 /* harmony import */ var _chapter_chapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/chapter/chapter */ "./src/classes/chapter/chapter.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 /* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
 /* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
 /* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
@@ -2294,7 +2219,7 @@ ChapterOne.prototype.constructor = ChapterOne;
 ChapterOne.prototype.setupBoard = function() {
   let newBoard = new _board_board__WEBPACK_IMPORTED_MODULE_0__["default"](
     [21, 17], 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](336, 299, 378, 336.375, 'src/assets/map_images/Chapter18xMapSample.png', 1, 1)
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](336, 299, 378, 336.375, 'src/assets/map_images/Chapter18xMapSample.png', 1, 1)
     );
 
 
@@ -3017,8 +2942,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_window_terrain_window__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/game_window/terrain_window */ "./src/classes/game_window/terrain_window.js");
 /* harmony import */ var _game_window_combat_information_window__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/game_window/combat_information_window */ "./src/classes/game_window/combat_information_window.js");
 /* harmony import */ var _game_window_game_finished_window__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/game_window/game_finished_window */ "./src/classes/game_window/game_finished_window.js");
-/* harmony import */ var _animations_battlePlatformSprite__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../animations/battlePlatformSprite */ "./animations/battlePlatformSprite.js");
-/* harmony import */ var _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../animations/combatAnimation */ "./animations/combatAnimation.js");
+/* harmony import */ var _animation_sprite_battle_platform_sprite__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/animation/sprite/battle_platform_sprite */ "./src/classes/animation/sprite/battle_platform_sprite.js");
+/* harmony import */ var _animation_combat_animation_combat_animation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/animation/combat_animation/combat_animation */ "./src/classes/animation/combat_animation/combat_animation.js");
 
 
 
@@ -3040,11 +2965,11 @@ function GlobalDisplay(board, cursor, phaseStage, sF) {
   this.gameIsFinished = false;
 
   //Temporary fix for pre-loading assets
-  this.battlePlatformSprite = new _animations_battlePlatformSprite__WEBPACK_IMPORTED_MODULE_8__["default"]();
+  this.battlePlatformSprite = new _animation_sprite_battle_platform_sprite__WEBPACK_IMPORTED_MODULE_8__["default"]();
 }
 
 GlobalDisplay.prototype.setupCombatAnimation = function(newCombat, phaseStage) {
-  this.combatAnimation = new _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_9__["default"](
+  this.combatAnimation = new _animation_combat_animation_combat_animation__WEBPACK_IMPORTED_MODULE_9__["default"](
     newCombat, phaseStage, this.battlePlatformSprite
   );
 }
@@ -3175,9 +3100,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/passive_window */ "./src/classes/game_window/passive_window.js");
 /* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-/* harmony import */ var _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../animations/preloadedAssetSprite/combatPUNameWindow */ "./animations/preloadedAssetSprite/combatPUNameWindow.js");
-/* harmony import */ var _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../animations/preloadedAssetSprite/combatEUNameWindow */ "./animations/preloadedAssetSprite/combatEUNameWindow.js");
-/* harmony import */ var _animations_preloadedAssetSprite_combatLowerWindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../animations/preloadedAssetSprite/combatLowerWindow */ "./animations/preloadedAssetSprite/combatLowerWindow.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_combat_pu_name_window__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/combat_pu_name_window */ "./src/classes/animation/preloaded_asset_sprite/combat_pu_name_window.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_combat_eu_name_window__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/combat_eu_name_window */ "./src/classes/animation/preloaded_asset_sprite/combat_eu_name_window.js");
+/* harmony import */ var _animation_preloaded_asset_sprite_combat_lower_window__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/preloaded_asset_sprite/combat_lower_window */ "./src/classes/animation/preloaded_asset_sprite/combat_lower_window.js");
 
 
 
@@ -3209,9 +3134,9 @@ function CombatAnimationBackgroundWindow(pu, eu) {
   this.playerHP = pu.current_hp;
   this.enemyHP = eu.current_hp;
 
-  this.puNameWindowSprite = new _animations_preloadedAssetSprite_combatPUNameWindow__WEBPACK_IMPORTED_MODULE_3__["default"]();
-  this.euNameWindowSprite = new _animations_preloadedAssetSprite_combatEUNameWindow__WEBPACK_IMPORTED_MODULE_4__["default"]();
-  this.lowerWindow = new _animations_preloadedAssetSprite_combatLowerWindow__WEBPACK_IMPORTED_MODULE_5__["default"]();
+  this.puNameWindowSprite = new _animation_preloaded_asset_sprite_combat_pu_name_window__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  this.euNameWindowSprite = new _animation_preloaded_asset_sprite_combat_eu_name_window__WEBPACK_IMPORTED_MODULE_4__["default"]();
+  this.lowerWindow = new _animation_preloaded_asset_sprite_combat_lower_window__WEBPACK_IMPORTED_MODULE_5__["default"]();
 }
 
 CombatAnimationBackgroundWindow.prototype = Object.create(_game_window_passive_window__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
@@ -3432,8 +3357,8 @@ CombatInformationWindow.prototype.renderStatRow = function(unitStat, oppStat, st
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/coordinate_sprite */ "./src/classes/animation/sprite/coordinate_sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 /* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
 
 
@@ -3452,16 +3377,16 @@ function GameFinishedWindow() {
   this.dx = 45 * 2;
   this.dy = 45 * 1;
 
-  this.backgroundWindow = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
+  this.backgroundWindow = new _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"](
     315, 191, 140, 95, "src/assets/window_images/fe_new_background_window.png", 1,
     [[0, 0]]
   );
 
-  this.backgroundSpriteOne = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_0__["default"](
+  this.backgroundSpriteOne = new _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"](
     118, 79, 118, 79, "src/assets/window_images/FE_6_story_scenes.png", 1,
     [[4, 3]]
   );
-  this.scrollSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](480, 320, 480*0.5, 320*0.5, "src/assets/window_images/fe_6_scroll_you_win.png", 1, 1);
+  this.scrollSprite = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](480, 320, 480*0.5, 320*0.5, "src/assets/window_images/fe_6_scroll_you_win.png", 1, 1);
 }
 
 GameFinishedWindow.prototype.render = function(displayWindow) {
@@ -3564,8 +3489,8 @@ InteractiveWindow.prototype.returnOption = function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/game_window/interactive_window */ "./src/classes/game_window/interactive_window.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
-/* harmony import */ var _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../animations/coordinateSprite */ "./animations/coordinateSprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+/* harmony import */ var _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/coordinate_sprite */ "./src/classes/animation/sprite/coordinate_sprite.js");
 /* harmony import */ var _createContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../createContext */ "./createContext.js");
 
 
@@ -3576,9 +3501,9 @@ function MainMenuWindowOne() {
   let options = ['New Game']//, 'Credits']
   _game_window_interactive_window__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, 0, 0, 0, 0, innerWidth, 100, options);
   this.color = "rgba(65, 105, 225, 1)";
-  this.logoSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](240, 160, 240, 160, "src/assets/window_images/FE_titlescreen_logo.png", 1, 1);
+  this.logoSprite = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](240, 160, 240, 160, "src/assets/window_images/FE_titlescreen_logo.png", 1, 1);
 
-  this.backgroundSpriteTwo = new _animations_coordinateSprite__WEBPACK_IMPORTED_MODULE_2__["default"](
+  this.backgroundSpriteTwo = new _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_2__["default"](
     //238, 319
     239, 150, 600/2.22, 450/2.5, "src/assets/window_images/FE_7_story_scenes.png", 1,
     [[490, 330]]
@@ -4564,16 +4489,16 @@ nullPhaseStage.prototype.render = function(sF) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 
 
 function PhaseStage() {
   this.stage = 'select unit';
-  this.playerPhaseSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_0__["default"](
+  this.playerPhaseSprite = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"](
     240, 160, 240*0.4, 160*0.4, 'src/assets/phase_images/FE_player_phase_sprite.png', 3, 1
   );
 
-  this.enemyPhaseSprite = new _animations_sprite__WEBPACK_IMPORTED_MODULE_0__["default"](
+  this.enemyPhaseSprite = new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"](
     240, 160, 240*0.4, 160*0.4, 'src/assets/phase_images/FE_enemy_phase_sprite.png', 3, 1
   );
 }
@@ -4611,9 +4536,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-/* harmony import */ var _animations_movingAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../animations/movingAnimation */ "./animations/movingAnimation.js");
+/* harmony import */ var _animation_moving_animation_moving_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/moving_animation/moving_animation */ "./src/classes/animation/moving_animation/moving_animation.js");
 /* harmony import */ var _combat_combat__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/combat/combat */ "./src/classes/combat/combat.js");
-/* harmony import */ var _animations_combatAnimation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../animations/combatAnimation */ "./animations/combatAnimation.js");
+/* harmony import */ var _animation_combat_animation_combat_animation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/combat_animation */ "./src/classes/animation/combat_animation/combat_animation.js");
 
 
 
@@ -4703,7 +4628,7 @@ EnemyPlayer.prototype.moveSelectedUnit = function() {
     this.finishUnitTurn();
   } else {
     const route = unit.pathFinder.setupRoute(moveSelection);
-    const movementAnimation = new _animations_movingAnimation__WEBPACK_IMPORTED_MODULE_4__["default"](
+    const movementAnimation = new _animation_moving_animation_moving_animation__WEBPACK_IMPORTED_MODULE_4__["default"](
       unit, route, 8, this.phaseStage, this
     );
       unit.movingAnimation = movementAnimation;
@@ -4809,7 +4734,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_window_null_window__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/game_window/null_window */ "./src/classes/game_window/null_window.js");
 /* harmony import */ var _game_window_unit_map_window__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/game_window/unit_map_window */ "./src/classes/game_window/unit_map_window.js");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ~/util */ "./src/util/index.js");
-/* harmony import */ var _animations_movingAnimation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../animations/movingAnimation */ "./animations/movingAnimation.js");
+/* harmony import */ var _animation_moving_animation_moving_animation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/animation/moving_animation/moving_animation */ "./src/classes/animation/moving_animation/moving_animation.js");
 /* harmony import */ var _game_window_combat_information_window__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/game_window/combat_information_window */ "./src/classes/game_window/combat_information_window.js");
 /* harmony import */ var _combat_combat__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/combat/combat */ "./src/classes/combat/combat.js");
 /* harmony import */ var _game_window_game_finished_window__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/game_window/game_finished_window */ "./src/classes/game_window/game_finished_window.js");
@@ -4931,7 +4856,7 @@ Player.prototype.setMovingAnimation = function() {
   this.selectedUnit().moving = true;
   // debugger
   const siftedRoute = this.selectedUnit().pathFinder.setupRoute(this.cursorPos());
-  this.selectedUnit().movingAnimation = new _animations_movingAnimation__WEBPACK_IMPORTED_MODULE_7__["default"](
+  this.selectedUnit().movingAnimation = new _animation_moving_animation_moving_animation__WEBPACK_IMPORTED_MODULE_7__["default"](
     this.selectedUnit(),
     siftedRoute,
     8,
@@ -5506,7 +5431,7 @@ Wall.prototype.moveCost = function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/enemy_unit */ "./src/classes/unit/enemy_unit.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 /* harmony import */ var _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/brigand_combat_animation */ "./src/classes/animation/combat_animation/brigand_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/brigand_receive_hit_animation */ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js");
@@ -5525,13 +5450,13 @@ function Brigand(board, inventory, behavior, stats) {
     board,
     inventory,
     'Brigand',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSprite.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png", 6, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandRightWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandLeftWalkSprite.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSpritePostAction.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "src/assets/mugshots/brigandHPWindowSprite.png", 6, 1),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSprite.png", 6, 12),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandForwardWalkSpriteSheet.png", 6, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 25, 22, 25, "src/assets/map_spritesheets/brigandBackwardsWalkSprite.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandRightWalkSprite.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 27, 22, 27, "src/assets/map_spritesheets/brigandLeftWalkSprite.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/brigandMapSpritePostAction.png", 6, 12),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](80, 72, 18, 18, "src/assets/mugshots/brigandHPWindowSprite.png", 6, 1),
     new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
     new _animation_combat_animation_brigand_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
     new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
@@ -5622,7 +5547,7 @@ EnemyUnit.prototype.waitForAnimationCompletion = function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 /* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_crit_combat_animation */ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
@@ -5644,15 +5569,15 @@ function Lyn(board, inventory, stats) {
     board,
     inventory,
     'Lyn',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheet.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](23, 19, 23, 19, "src/assets/map_spritesheets/lynForwardWalkSpriteSheet.png", 6, 6),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/lynBackwardWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynRightWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynLeftWalkSpriteSheet.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheet.png", 6, 12),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](23, 19, 23, 19, "src/assets/map_spritesheets/lynForwardWalkSpriteSheet.png", 6, 6),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/lynBackwardWalkSpriteSheet.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynRightWalkSpriteSheet.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynLeftWalkSpriteSheet.png", 8, 4),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheetPostAction.png", 6, 12),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheetPostAction.png", 6, 12),
 
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](165, 158, 18, 18, "src/assets/mugshots/lynHPWindowSprite3.jpg", 6, 1),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](165, 158, 18, 18, "src/assets/mugshots/lynHPWindowSprite3.jpg", 6, 1),
     new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
     new _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
     new _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
@@ -5761,7 +5686,7 @@ PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
-/* harmony import */ var _animations_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../animations/sprite */ "./animations/sprite.js");
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 /* harmony import */ var _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/roy_combat_animation */ "./src/classes/animation/combat_animation/roy_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/roy_crit_combat_animation */ "./src/classes/animation/combat_animation/roy_crit_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/roy_dodge_animation */ "./src/classes/animation/combat_animation/roy_dodge_animation.js");
@@ -5783,13 +5708,13 @@ function Roy(board, inventory, stats) {
     board,
     inventory,
     'Roy',
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royRightWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png", 8, 4),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
-    new _animations_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "src/assets/mugshots/RoyMugshotZoom.jpg", 6, 1),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackground.png", 6, 12),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](22, 20, 22, 20, "src/assets/map_spritesheets/royForwardWalkSpriteSheetRevise.png", 6, 6),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/royBackwardsWalkSpriteSheet.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royRightWalkSpriteSheet.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](34, 18, 34, 18, "src/assets/map_spritesheets/royLeftWalkSpriteSheet.png", 8, 4),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/royMapSpriteSheetBlankBackgroundPostAction.png", 6, 12),
+    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](253, 228, 18, 18, "src/assets/mugshots/RoyMugshotZoom.jpg", 6, 1),
     new _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
     new _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
     new _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),

@@ -1,4 +1,4 @@
-import SpriteSequence from './spriteSequence';
+import SpriteSequence from '@/animation/sprite_sequence/sprite_sequence';
 
 function DodgeSprite(spriteQueue, positionAdjustment, restFrame) {
   SpriteSequence.call(this, spriteQueue, positionAdjustment);

@@ -1,5 +1,5 @@
 import PlayerUnit from '@/unit/player_unit';
-import Sprite from '../../../animations/sprite';
+import Sprite from '@/animation/sprite/sprite';
 import LynCombatAnimation from '@/animation/combat_animation/lyn_combat_animation';
 import LynCritCombatAnimation from '@/animation/combat_animation/lyn_crit_combat_animation';
 import LynDodgeAnimation from '@/animation/combat_animation/lyn_dodge_animation';

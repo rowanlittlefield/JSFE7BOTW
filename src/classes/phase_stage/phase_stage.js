@@ -1,4 +1,4 @@
-import Sprite from '../../../animations/sprite';
+import Sprite from '@/animation/sprite/sprite';
 
 function PhaseStage() {
   this.stage = 'select unit';

@@ -1,5 +1,5 @@
-import CoordinateSprite from '../../../animations/coordinateSprite';
-import Sprite from '../../../animations/sprite';
+import CoordinateSprite from '@/animation/sprite/coordinate_sprite';
+import Sprite from '@/animation/sprite/sprite';
 import { c } from '../../../createContext';
 
 function drawStrokedSmaller(text, x, y, opacity) {

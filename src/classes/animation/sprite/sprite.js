@@ -1,4 +1,4 @@
-import { c } from '../createContext';
+import { c } from '../../../../createContext';
 
 function Sprite(width, height, renderWidth, renderHeight, image, ticksPerFrame, numberOfFrames) {
   this.context = c;

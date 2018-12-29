@@ -1,6 +1,6 @@
 import Board from '@/board/board';
 import Chapter from '@/chapter/chapter';
-import Sprite from '../../../animations/sprite';
+import Sprite from '@/animation/sprite/sprite';
 import Roy from '@/unit/roy';
 import Inventory from '@/unit_attribute/inventory';
 import { SwordOfSeals } from '@/item/weapon';

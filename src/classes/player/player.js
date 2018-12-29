@@ -5,7 +5,7 @@ import TerrainWindow from '@/game_window/terrain_window';
 import NullWindow from '@/game_window/null_window';
 import UnitMapWindow from '@/game_window/unit_map_window';
 import { equivalentPositions } from '~/util';
-import MovingAnimation from '../../../animations/movingAnimation';
+import MovingAnimation from '@/animation/moving_animation/moving_animation';
 import CombatInformationWindow from '@/game_window/combat_information_window';
 import Combat from '@/combat/combat';
 import GameFinishedWindow from '@/game_window/game_finished_window';

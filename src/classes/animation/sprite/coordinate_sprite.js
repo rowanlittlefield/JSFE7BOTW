@@ -1,4 +1,4 @@
-import Sprite from './sprite';
+import Sprite from '@/animation/sprite/sprite';
 
 function CoordinateSprite(width, height, renderWidth,
    renderHeight, image, ticksPerFrame, coordinatesList

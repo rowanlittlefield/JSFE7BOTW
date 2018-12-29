@@ -1,5 +1,5 @@
-import DodgeSprite from  '../../../../animations/spriteSequence/dodgeSprite';
-import Sprite from '../../../../animations/sprite';
+import DodgeSprite from  '@/animation/sprite_sequence/dodge_sprite';
+import Sprite from '@/animation/sprite/sprite';
 
 function RoyDodgeAnimation() {
   let desSprites0 = new Sprite(70, 33, 70, 33, 'src/assets/combat_spritesheets/roy/royDodgeSpriteSheet.png', 3, 3);

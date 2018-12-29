@@ -1,4 +1,4 @@
-import CoordinateSprite from '../coordinateSprite';
+import CoordinateSprite from '@/animation/sprite/coordinate_sprite';
 
 function RoyCriticalHitAnimation(defenderCoordinates) {
   CoordinateSprite.call(

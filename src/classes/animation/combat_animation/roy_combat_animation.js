@@ -1,6 +1,6 @@
-import CombatAnimation from  '../../../../animations/combatAnimation';
-import CombatSprite from '../../../../animations/spriteSequence/combatSprite';
-import Sprite from '../../../../animations/sprite';
+import CombatAnimation from  '@/animation/combat_animation/combat_animation';
+import CombatSprite from '@/animation/sprite_sequence/combat_sprite';
+import Sprite from '@/animation/sprite/sprite';
 
 function RoyCombatAnimation() {
 

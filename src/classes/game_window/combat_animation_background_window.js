@@ -1,9 +1,9 @@
 import PassiveWindow from '@/game_window/passive_window';
 import { c } from '../../../createContext';
 import { renderTextWithFont } from '~/util';
-import CombatPUNameWindow from '../../../animations/preloadedAssetSprite/combatPUNameWindow';
-import CombatEUNameWindow from '../../../animations/preloadedAssetSprite/combatEUNameWindow';
-import CombatLowerWindow from '../../../animations/preloadedAssetSprite/combatLowerWindow';
+import CombatPUNameWindow from '@/animation/preloaded_asset_sprite/combat_pu_name_window';
+import CombatEUNameWindow from '@/animation/preloaded_asset_sprite/combat_eu_name_window';
+import CombatLowerWindow from '@/animation/preloaded_asset_sprite/combat_lower_window';
 
 function drawStrokedSmaller(text, x, y, opacity) {
     c.font = "15px Serif"

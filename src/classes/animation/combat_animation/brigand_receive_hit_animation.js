@@ -1,5 +1,5 @@
-import SpriteSequence from '../../../../animations/spriteSequence/spriteSequence';
-import Sprite from '../../../../animations/sprite';
+import SpriteSequence from '@/animation/sprite_sequence/sprite_sequence';
+import Sprite from '@/animation/sprite/sprite';
 
 function BrigandReceiveHitAnimation() {
   const sprites0 = new Sprite(70, 39, 70, 39, 'src/assets/combat_spritesheets/brigand/brigandReceiveHitSprite.png', 4, 1);

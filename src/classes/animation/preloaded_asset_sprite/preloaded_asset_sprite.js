@@ -1,4 +1,4 @@
-import { c } from '../../createContext';
+import { c } from '../../../../createContext';
 
 function PreloadedAssetSprite(imageObject, renderList) {
   this.frameIndex = 0;

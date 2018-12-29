@@ -1,5 +1,5 @@
-import DodgeSprite from  '../../../../animations/spriteSequence/dodgeSprite';
-import Sprite from '../../../../animations/sprite';
+import DodgeSprite from  '@/animation/sprite_sequence/dodge_sprite';
+import Sprite from '@/animation/sprite/sprite';
 
 
 function LynDodgeAnimation() {

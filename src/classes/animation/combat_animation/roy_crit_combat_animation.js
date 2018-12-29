@@ -1,5 +1,5 @@
-import CombatSprite from '../../../../animations/spriteSequence/combatSprite';
-import Sprite from '../../../../animations/sprite';
+import CombatSprite from '@/animation/sprite_sequence/combat_sprite';
+import Sprite from '@/animation/sprite/sprite';
 
 function RoyCritCombatAnimation() {
 
