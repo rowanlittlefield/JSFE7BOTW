@@ -1,17 +1,18 @@
 const path = require('path');
 
 module.exports = {
-  entry: './game/script.js',
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname),
     filename: 'bundle.js'
   },
   devtool: 'source-map',
-  // module: {
-  //   loaders: [
-  //     { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' }
-  //   ]
-  // }
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src/classes')
+    }
+  },
   module: {
   rules: [
     {
