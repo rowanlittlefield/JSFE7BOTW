@@ -890,6 +890,80 @@ RoyReceiveHitAnimation.prototype.update = function() {
 
 /***/ }),
 
+/***/ "./src/classes/animation/hit_animation/normal_critical_damage_animation.js":
+/*!*********************************************************************************!*\
+  !*** ./src/classes/animation/hit_animation/normal_critical_damage_animation.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/coordinate_sprite */ "./src/classes/animation/sprite/coordinate_sprite.js");
+
+
+function NormalCriticalDamageAnimation(defenderCoordinates) {
+  _animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].call(
+    this,
+    240,//width
+    143,//height
+    //238,//renderWidth
+    240*1.4,//renderWidth
+
+    //158,//renderHeight
+    143*1.3,//renderHeight
+
+    'src/assets/hit_effect_spritesheets/FE7HitSpriteSheetsTransTest.png',//image
+    2,//ticksPerFrame
+    // [10, 21]
+    [
+      // [10, 21],
+      // [253, 1033],
+      // //[10, 1197],
+      // //[253, 1033],
+      // [10,21],
+
+      [253, 526], [496, 526],
+      [10, 690], [253, 690], [496, 690],
+      [10, 853], [253, 853], [496, 853]
+
+    ]//coordinatesList
+  );
+
+  this.defenderCoordinates = defenderCoordinates;
+}
+
+NormalCriticalDamageAnimation.prototype = Object.create(_animation_sprite_coordinate_sprite__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+NormalCriticalDamageAnimation.prototype.constructor = NormalCriticalDamageAnimation;
+
+NormalCriticalDamageAnimation.prototype.render = function(sF) {
+  let scale = sF / 18;
+  // let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2);
+  // let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight));
+  let cx = (this.defenderCoordinates[0] * sF) + (((scale * 18) - (scale * this.renderWidth)) / 2) + (1.5*sF);
+  let cy = (this.defenderCoordinates[1] * sF) + ((scale * 18) - (scale * this.renderHeight)) + (2*sF);
+
+  let cWidth = scale * this.renderWidth;
+  let cHeight = scale *  this.renderHeight;
+  this.context.drawImage(
+    this.spriteSheet,// this.spriteSheet,
+    this.coordinatesList[this.frameIndex][0],// this.frameIndex * this.width,
+    this.coordinatesList[this.frameIndex][1],// 0,
+    this.width,// this.width,
+    this.height,// this.height,
+    cx,// cx,
+    cy,// cy,
+    cWidth,// cWidth,
+    cHeight// cHeight
+  );
+  this.update();
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (NormalCriticalDamageAnimation);
+
+
+/***/ }),
+
 /***/ "./src/classes/animation/hit_animation/normal_damage_animation.js":
 /*!************************************************************************!*\
   !*** ./src/classes/animation/hit_animation/normal_damage_animation.js ***!
@@ -1422,16 +1496,121 @@ CoordinateSprite.prototype.render = function(row, col, sF) {
 
 /***/ }),
 
+/***/ "./src/classes/animation/sprite/lyn_map_sprites.js":
+/*!*********************************************************!*\
+  !*** ./src/classes/animation/sprite/lyn_map_sprites.js ***!
+  \*********************************************************/
+/*! exports provided: LynStationaryMapSprite, LynForwardWalkMapSprite, LynBackwardsWalkMapSprite, LynRightWalkMapSprite, LynLeftWalkMapSprite, LynPostActionMapSprite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynStationaryMapSprite", function() { return LynStationaryMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynForwardWalkMapSprite", function() { return LynForwardWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynBackwardsWalkMapSprite", function() { return LynBackwardsWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynRightWalkMapSprite", function() { return LynRightWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynLeftWalkMapSprite", function() { return LynLeftWalkMapSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynPostActionMapSprite", function() { return LynPostActionMapSprite; });
+/* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
+
+
+class LynStationaryMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/lynMapSpriteSheet.png",
+      6,
+      12
+    );
+  }
+}
+
+class LynForwardWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      23,
+      19,
+      23,
+      19,
+      "src/assets/map_spritesheets/lynForwardWalkSpriteSheet.png",
+      6,
+      6
+    );
+  }
+}
+
+class LynBackwardsWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      21,
+      18,
+      21,
+      18,
+      "src/assets/map_spritesheets/lynBackwardWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class LynRightWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      26,
+      17,
+      26,
+      17,
+      "src/assets/map_spritesheets/lynRightWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class LynLeftWalkMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      26,
+      17,
+      26,
+      17,
+      "src/assets/map_spritesheets/lynLeftWalkSpriteSheet.png",
+      8,
+      4
+    );
+  }
+}
+
+class LynPostActionMapSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      18,
+      18,
+      18,
+      18,
+      "src/assets/map_spritesheets/lynMapSpriteSheetPostAction.png",
+      6,
+      12
+    );
+  }
+}
+
+/***/ }),
+
 /***/ "./src/classes/animation/sprite/mugshot_sprites.js":
 /*!*********************************************************!*\
   !*** ./src/classes/animation/sprite/mugshot_sprites.js ***!
   \*********************************************************/
-/*! exports provided: RoyMugshotSprite */
+/*! exports provided: RoyMugshotSprite, LynMugshotSprite */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoyMugshotSprite", function() { return RoyMugshotSprite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LynMugshotSprite", function() { return LynMugshotSprite; });
 /* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
 
 
@@ -1443,6 +1622,20 @@ class RoyMugshotSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE
       18,
       18,
       "src/assets/mugshots/RoyMugshotZoom.jpg",
+      6,
+      1
+    );
+  }
+}
+
+class LynMugshotSprite extends _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    super(
+      165,
+      158,
+      18,
+      18,
+      "src/assets/mugshots/lynHPWindowSprite3.jpg",
       6,
       1
     );
@@ -2021,8 +2214,9 @@ EUAttack.prototype.render = function(enemyCoordinates, sF) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./attack */ "./src/classes/attack/attack.js");
 /* harmony import */ var _animation_hit_animation_normal_damage_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/hit_animation/normal_damage_animation */ "./src/classes/animation/hit_animation/normal_damage_animation.js");
-/* harmony import */ var _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/hit_animation/roy_critical_hit_animation */ "./src/classes/animation/hit_animation/roy_critical_hit_animation.js");
-/* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
+/* harmony import */ var _animation_hit_animation_normal_critical_damage_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/hit_animation/normal_critical_damage_animation */ "./src/classes/animation/hit_animation/normal_critical_damage_animation.js");
+/* harmony import */ var _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/hit_animation/roy_critical_hit_animation */ "./src/classes/animation/hit_animation/roy_critical_hit_animation.js");
+/* harmony import */ var _unit_roy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/unit/roy */ "./src/classes/unit/roy.js");
 
 
 
@@ -2035,10 +2229,10 @@ function PUAttack(attacker, defender, attackerCurrentHP, defenderInitialHP) {
     this, attacker, defender, attackerCurrentHP, defenderInitialHP
   );
   if (this.isCrit) {
-    if (attacker instanceof _unit_roy__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-      this.hitAnimation = new _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
+    if (attacker instanceof _unit_roy__WEBPACK_IMPORTED_MODULE_4__["default"]) {
+      this.hitAnimation = new _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_3__["default"]([this.enemyCoordinates[0], this.enemyCoordinates[1]]);
     } else {
-      this.hitAnimation = new _animation_hit_animation_roy_critical_hit_animation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
+      this.hitAnimation = new _animation_hit_animation_normal_critical_damage_animation__WEBPACK_IMPORTED_MODULE_2__["default"]([this.enemyCoordinates[0] + 0.7, this.enemyCoordinates[1]]);
     }
   } else {
       this.hitAnimation = new _animation_hit_animation_normal_damage_animation__WEBPACK_IMPORTED_MODULE_1__["default"]([this.enemyCoordinates[0] + 1.7, this.enemyCoordinates[1] + 2.8]);
@@ -5682,11 +5876,15 @@ EnemyUnit.prototype.waitForAnimationCompletion = function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/sprite */ "./src/classes/animation/sprite/sprite.js");
-/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/combat_animation/lyn_crit_combat_animation */ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
-/* harmony import */ var _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/lyn_receive_hit_animation */ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js");
-/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/lyn_map_sprites */ "./src/classes/animation/sprite/lyn_map_sprites.js");
+/* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
+/* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/lyn_crit_combat_animation */ "./src/classes/animation/combat_animation/lyn_crit_combat_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
+/* harmony import */ var _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/animation/combat_animation/lyn_receive_hit_animation */ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js");
+/* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+
+
 
 
 
@@ -5703,19 +5901,17 @@ function Lyn(board, inventory, stats) {
     board,
     inventory,
     'Lyn',
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheet.png", 6, 12),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](23, 19, 23, 19, "src/assets/map_spritesheets/lynForwardWalkSpriteSheet.png", 6, 6),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](21, 18, 21, 18, "src/assets/map_spritesheets/lynBackwardWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynRightWalkSpriteSheet.png", 8, 4),
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](26, 17, 26, 17, "src/assets/map_spritesheets/lynLeftWalkSpriteSheet.png", 8, 4),
-
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](18, 18, 18, 18, "src/assets/map_spritesheets/lynMapSpriteSheetPostAction.png", 6, 12),
-
-    new _animation_sprite_sprite__WEBPACK_IMPORTED_MODULE_1__["default"](165, 158, 18, 18, "src/assets/mugshots/lynHPWindowSprite3.jpg", 6, 1),
-    new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    new _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__["default"]()
+    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynStationaryMapSprite"](),
+    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynForwardWalkMapSprite"](),
+    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynBackwardsWalkMapSprite"](),
+    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynRightWalkMapSprite"](),
+    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynLeftWalkMapSprite"](),
+    new _animation_sprite_lyn_map_sprites__WEBPACK_IMPORTED_MODULE_2__["LynPostActionMapSprite"](),
+    new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_3__["LynMugshotSprite"](),
+    new _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+    new _animation_combat_animation_lyn_crit_combat_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
+    new _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_6__["default"](),
+    new _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_7__["default"]()
   );
 }
 
@@ -5723,7 +5919,7 @@ Lyn.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["de
 Lyn.prototype.constructor = Lyn;
 
 Lyn.prototype.defaultStats = function() {
-  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__["default"](
+  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_8__["default"](
     {
       level: 1,
       experience: 0,
@@ -5819,6 +6015,7 @@ PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Roy; });
 /* harmony import */ var _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/player_unit */ "./src/classes/unit/player_unit.js");
 /* harmony import */ var _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/animation/sprite/roy_map_sprites */ "./src/classes/animation/sprite/roy_map_sprites.js");
 /* harmony import */ var _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/animation/sprite/mugshot_sprites */ "./src/classes/animation/sprite/mugshot_sprites.js");
@@ -5836,57 +6033,53 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Roy(board, inventory, stats) {
-  _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(
-    this,
-    stats,
-    board,
-    inventory,
-    'Roy',
-    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyStationaryMapSprite"](),
-    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyForwardWalkMapSprite"](),
-    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyBackwardsWalkMapSprite"](),
-    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyRightWalkMapSprite"](),
-    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyLeftWalkMapSprite"](),
-    new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyPostActionMapSprite"](),
-    new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__["RoyMugshotSprite"](),
-    new _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
-    new _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
-    new _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
-    new _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_6__["default"]()
-  );
+class Roy extends _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(board, inventory, stats) {
+    super(
+      stats,
+      board,
+      inventory,
+      'Roy',
+      new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyStationaryMapSprite"](),
+      new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyForwardWalkMapSprite"](),
+      new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyBackwardsWalkMapSprite"](),
+      new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyRightWalkMapSprite"](),
+      new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyLeftWalkMapSprite"](),
+      new _animation_sprite_roy_map_sprites__WEBPACK_IMPORTED_MODULE_1__["RoyPostActionMapSprite"](),
+      new _animation_sprite_mugshot_sprites__WEBPACK_IMPORTED_MODULE_2__["RoyMugshotSprite"](),
+      new _animation_combat_animation_roy_combat_animation__WEBPACK_IMPORTED_MODULE_3__["default"](),
+      new _animation_combat_animation_roy_crit_combat_animation__WEBPACK_IMPORTED_MODULE_4__["default"](),
+      new _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_5__["default"](),
+      new _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_6__["default"]()
+    );    
+  }
+
+  defaultStats() {
+    return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__["default"](
+      {
+        level: 1,
+        experience: 0,
+        hp: 42,
+        strength: 16,
+        skill: 19,
+        speed: 22,
+        luck: 17,
+        defense: 14,
+        resistance: 7,
+        move: 6,
+        constitution: 8,
+        hp_growth_rate: 80,
+        strength_growth_rate: 40,
+        skill_growth_rate: 50,
+        speed_growth_rate: 40,
+        luck_growth_rate: 60,
+        defense_growth_rate: 25,
+        resistance_growth_rate: 30,
+        affinity: "wind"
+      }
+    );
+  }
 }
-
-Roy.prototype = Object.create(_unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Roy.prototype.constructor = Roy;
-
-Roy.prototype.defaultStats = function() {
-  return new _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__["default"](
-    {
-      level: 1,
-      experience: 0,
-      hp: 42,
-      strength: 16,
-      skill: 19,
-      speed: 22,
-      luck: 17,
-      defense: 14,
-      resistance: 7,
-      move: 6,
-      constitution: 8,
-      hp_growth_rate: 80,
-      strength_growth_rate: 40,
-      skill_growth_rate: 50,
-      speed_growth_rate: 40,
-      luck_growth_rate: 60,
-      defense_growth_rate: 25,
-      resistance_growth_rate: 30,
-      affinity: "wind"
-    }
-  );
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Roy);
 
 
 /***/ }),

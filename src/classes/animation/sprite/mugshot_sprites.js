@@ -13,3 +13,17 @@ export class RoyMugshotSprite extends Sprite {
     );
   }
 }
+
+export class LynMugshotSprite extends Sprite {
+  constructor() {
+    super(
+      165,
+      158,
+      18,
+      18,
+      "src/assets/mugshots/lynHPWindowSprite3.jpg",
+      6,
+      1
+    );
+  }
+}
