@@ -6,6 +6,8 @@ import RoyCritCombatAnimation from '@/animation/combat_animation/roy_crit_combat
 import RoyDodgeAnimation from '@/animation/combat_animation/roy_dodge_animation';
 import RoyReceiveHitAnimation from '@/animation/combat_animation/roy_receive_hit_sprite';
 import UnitStats from '@/unit_attribute/unit_stats';
+import Inventory from '@/unit_attribute/inventory'
+import { SwordOfSeals } from '@/item/weapon';
 
 export default class Roy extends PlayerUnit {
   constructor(board, inventory, stats) {
@@ -51,6 +53,14 @@ export default class Roy extends PlayerUnit {
         resistance_growth_rate: 30,
         affinity: "wind"
       }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new Inventory([
+        new SwordOfSeals(),
+      ])
     );
   }
 }

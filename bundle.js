@@ -5885,6 +5885,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animation_combat_animation_lyn_combat_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/animation/combat_animation/lyn_combat_animation */ "./src/classes/animation/combat_animation/lyn_combat_animation.js");
 /* harmony import */ var _animation_combat_animation_brigand_receive_hit_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/brigand_receive_hit_animation */ "./src/classes/animation/combat_animation/brigand_receive_hit_animation.js");
 /* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
+
+
+
 
 
 
@@ -5938,6 +5943,14 @@ class Brigand extends _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
         resistance_growth_rate: 13,
         affinity: "wind"
       }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_7__["default"]([
+        new _item_weapon__WEBPACK_IMPORTED_MODULE_8__["IronAxe"]
+      ])
     );
   }
 }
@@ -6001,6 +6014,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animation_combat_animation_lyn_dodge_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/lyn_dodge_animation */ "./src/classes/animation/combat_animation/lyn_dodge_animation.js");
 /* harmony import */ var _animation_combat_animation_lyn_receive_hit_animation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/lyn_receive_hit_animation */ "./src/classes/animation/combat_animation/lyn_receive_hit_animation.js");
 /* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
+
+
 
 
 
@@ -6054,6 +6071,14 @@ class Lyn extends _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
         resistance_growth_rate: 30,
         affinity: "wind"
       }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_8__["default"]([
+        new _item_weapon__WEBPACK_IMPORTED_MODULE_9__["ManiKatti"](),
+      ])
     );
   }
 }
@@ -6137,6 +6162,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animation_combat_animation_roy_dodge_animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/animation/combat_animation/roy_dodge_animation */ "./src/classes/animation/combat_animation/roy_dodge_animation.js");
 /* harmony import */ var _animation_combat_animation_roy_receive_hit_sprite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/animation/combat_animation/roy_receive_hit_sprite */ "./src/classes/animation/combat_animation/roy_receive_hit_sprite.js");
 /* harmony import */ var _unit_attribute_unit_stats__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/unit_attribute/unit_stats */ "./src/classes/unit_attribute/unit_stats.js");
+/* harmony import */ var _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/unit_attribute/inventory */ "./src/classes/unit_attribute/inventory.js");
+/* harmony import */ var _item_weapon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/item/weapon */ "./src/classes/item/weapon.js");
+
+
 
 
 
@@ -6190,6 +6219,14 @@ class Roy extends _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
         resistance_growth_rate: 30,
         affinity: "wind"
       }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new _unit_attribute_inventory__WEBPACK_IMPORTED_MODULE_8__["default"]([
+        new _item_weapon__WEBPACK_IMPORTED_MODULE_9__["SwordOfSeals"](),
+      ])
     );
   }
 }

@@ -5,6 +5,9 @@ import BrigandCombatAnimation from '@/animation/combat_animation/brigand_combat_
 import LynDodgeAnimation from '@/animation/combat_animation/lyn_combat_animation';
 import BrigandReceiveHitAnimation from '@/animation/combat_animation/brigand_receive_hit_animation';
 import UnitStats from '@/unit_attribute/unit_stats';
+import Inventory from '@/unit_attribute/inventory';
+import { IronAxe } from '@/item/weapon';
+
 
 export default class Brigand extends EnemyUnit {
   constructor(board, inventory, behavior, stats) {
@@ -51,6 +54,14 @@ export default class Brigand extends EnemyUnit {
         resistance_growth_rate: 13,
         affinity: "wind"
       }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new Inventory([
+        new IronAxe
+      ])
     );
   }
 }

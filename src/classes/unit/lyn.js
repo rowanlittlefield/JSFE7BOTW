@@ -6,6 +6,8 @@ import LynCritCombatAnimation from '@/animation/combat_animation/lyn_crit_combat
 import LynDodgeAnimation from '@/animation/combat_animation/lyn_dodge_animation';
 import LynReceiveHitAnimation from '@/animation/combat_animation/lyn_receive_hit_animation';
 import UnitStats from '@/unit_attribute/unit_stats';
+import Inventory from '@/unit_attribute/inventory';
+import { ManiKatti } from '@/item/weapon';
 
 export default class Lyn extends PlayerUnit {
   constructor(board, inventory, stats) {
@@ -51,6 +53,14 @@ export default class Lyn extends PlayerUnit {
         resistance_growth_rate: 30,
         affinity: "wind"
       }
+    );
+  }
+
+  defaultInventory() {
+    return (
+      new Inventory([
+        new ManiKatti(),
+      ])
     );
   }
 }
