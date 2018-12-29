@@ -8,18 +8,35 @@ import CombatInformationWindow from '@/game_window/combat_information_window';
 import GameFinishedWindow from '@/game_window/game_finished_window';
 import BattlePlatformSprite from '@/animation/sprite/battle_platform_sprite';
 import CombatAnimation from '@/animation/combat_animation/combat_animation';
+import NullBoard from '@/board/nullBoard';
+import NullCursor from '@/cursor/null_cursor';
+import nullPhaseStage from '@/phase_stage/null_phase_stage';
 
-function GlobalDisplay(board, cursor, phaseStage, sF) {
-  this.board = board;
+
+function GlobalDisplay(sF, displayOptions) {
+  const options = {
+    ...displayOptions,
+    ...this.defaultOptions(),
+  };
+  
+  this.board = options.board;
   this.displayWindow = new DisplayWindow(sF, 5*sF, 1*sF, 15*sF, 10*sF);
-  this.cursor = cursor;
-  this.phaseStage = phaseStage;
+  this.cursor = options.cursor;
+  this.phaseStage = options.phaseStage;
   this.window = new NullWindow();
   this.combatAnimation = null;
   this.gameIsFinished = false;
 
   //Temporary fix for pre-loading assets
   this.battlePlatformSprite = new BattlePlatformSprite();
+}
+
+GlobalDisplay.prototype.defaultOptions = function() {
+  return ({
+    board: new NullBoard(),
+    cursor: new NullCursor,
+    phaseStage: new nullPhaseStage(),
+  });
 }
 
 GlobalDisplay.prototype.setupCombatAnimation = function(newCombat, phaseStage) {

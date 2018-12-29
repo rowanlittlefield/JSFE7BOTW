@@ -1,5 +1,7 @@
-function MainMenu(windowOne) {
-  this.windowOne = windowOne;
+import MainMenuWindowOne from '@/game_window/main_menu_window_one';
+
+function MainMenu() {
+  this.windowOne = new MainMenuWindowOne();
 }
 
 MainMenu.prototype.receiveControllerInput = function(button) {
