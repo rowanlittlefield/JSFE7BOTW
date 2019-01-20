@@ -5477,14 +5477,14 @@ Space.prototype.isTraversable = function(isPlayerUnit) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
+/* harmony import */ var _classes_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ~/classes/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
 function Forest(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
+  _classes_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
 }
 
-Forest.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+Forest.prototype = Object.create(_classes_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
 Forest.prototype.constructor = Forest;
 
 Forest.prototype.terrainName = function() {
