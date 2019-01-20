@@ -1,4 +1,4 @@
-import Terrain from '~/classes/terrain/terrain';
+import Terrain from '@/terrain/terrain';
 
 function Forest(board, position) {
   Terrain.call(this, board, position);

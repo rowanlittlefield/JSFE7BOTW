@@ -1,5 +1,6 @@
 // TODO: Update all terrain classes to ES6 class syntax
 // Then refactor these tests and get working. Technique below
+// for testing if constructor was called
 // only works reliably with ES6 syntax.
 
 // import Forest from '@/terrain/forest';
