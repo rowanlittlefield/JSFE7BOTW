@@ -1,30 +1,28 @@
 import Terrain from '@/terrain/terrain';
 
-function Gate(board, position) {
-  Terrain.call(this, board, position);
+export default class Gate extends Terrain {
+
+  constructor(board, position) {
+    super(board, position);
+  }
+
+  terrainName() {
+    return "Gate";
+  }
+
+  defenseBonus() {
+    return 3;
+  }
+
+  avoidBonus() {
+    return 20;
+  }
+
+  healBonus() {
+    return 10;
+  }
+
+  moveCost() {
+    return 1;
+  }
 }
-
-Gate.prototype = Object.create(Terrain.prototype);
-Gate.prototype.constructor = Gate;
-
-Gate.prototype.terrainName = function() {
-  return "Gate";
-}
-
-Gate.prototype.defenseBonus = function() {
-  return 3;
-}
-
-Gate.prototype.avoidBonus = function() {
-  return 20;
-}
-
-Gate.prototype.healBonus = function() {
-  return 10;
-}
-
-Gate.prototype.moveCost = function(constructorName) {
-  return 1;
-}
-
-export default Gate;
