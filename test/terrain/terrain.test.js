@@ -1,7 +1,7 @@
 import Terrain from '@/terrain/terrain';
 
 describe('Terrain', () => {
-  let defaultBoard;
+  let board;
   let mockSetTerrainAtPosition;
   let pos;
   let terrain;
@@ -9,19 +9,19 @@ describe('Terrain', () => {
   beforeEach(() => {
     mockSetTerrainAtPosition = jest.fn();
     mockSetTerrainAtPosition.mockReturnValue(true);
-    defaultBoard = { setTerrainAtPosition: mockSetTerrainAtPosition };
+    board = { setTerrainAtPosition: mockSetTerrainAtPosition };
     pos = [0, 0];
-    terrain = new Terrain(defaultBoard, pos);
+    terrain = new Terrain(board, pos);
   });
 
   describe('Constructor', () => {
     it('sets the board attribute', () => {
-      expect(terrain.board).toBe(defaultBoard);
+      expect(terrain.board).toBe(board);
     });
 
     it('calls board.prototype.setTerrainAtPosition on board and passes in terrain and pos', () => {
-      expect(defaultBoard.setTerrainAtPosition.mock.calls[0][0]).toBe(terrain);
-      expect(defaultBoard.setTerrainAtPosition.mock.calls[0][1]).toBe(pos);
+      expect(board.setTerrainAtPosition.mock.calls[0][0]).toBe(terrain);
+      expect(board.setTerrainAtPosition.mock.calls[0][1]).toBe(pos);
     })
 
     it('sets the attribute position when board.prototype.setTerrainAtPosition returns true', () => {
@@ -29,11 +29,9 @@ describe('Terrain', () => {
     });
 
     it('throws an exception when board.prototype.setTerrainAtPosition returns false', () => {
-      const mockSetTerrainAtPositionFalse = jest.fn();
-      mockSetTerrainAtPositionFalse.mockReturnValue(false);
-      const board = { setTerrainAtPosition: mockSetTerrainAtPositionFalse };
+      mockSetTerrainAtPosition.mockReturnValue(false);
 
-      expect(() => { new Terrain(board, [0, 0]) }).toThrow('Space already occupied');
+      expect(() => { new Terrain(board, pos) }).toThrow('Space already occupied');
     });
   });
 
