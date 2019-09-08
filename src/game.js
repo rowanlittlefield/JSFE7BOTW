@@ -1,12 +1,17 @@
 import Controller from '@/game_attribute/controller';
+import GlobalDisplay from '@/game_attribute/global_display';
+import FrameSource from '@/game_attribute/frame_source';
+import Campaign from '@/game_attribute/campaign';
+import MainMenu from '@/game_attribute/main_menu';
 
-function Game(display, frameSource, campaign, menu) {
+function Game() {
+  const sF = 45;
+  
   this.controller = new Controller(this);
-  this.frameSource = frameSource;
-
-  this.display = display;
-  this.campaign = campaign;
-  this.menu = menu;
+  this.display = new GlobalDisplay(sF);
+  this.frameSource = new FrameSource(this.display);
+  this.campaign = new Campaign(this.display, this.frameSource);
+  this.menu = new MainMenu();
 
   this.gameStage = null;
 }

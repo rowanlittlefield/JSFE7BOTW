@@ -1,35 +1,37 @@
-import Terrain from '../../../board/terrain/terrain';
+import Terrain from '@/terrain/terrain';
 
 describe('Terrain', () => {
-  const mockSetTerrainAtPositionTrue = jest.fn();
-  mockSetTerrainAtPositionTrue.mockReturnValue(true);
-  const mockSetTerrainAtPositionFalse = jest.fn();
-  mockSetTerrainAtPositionFalse.mockReturnValue(false);
-  const board = {
-    setTerrainAtPosition: mockSetTerrainAtPositionTrue
-  };
-  const boardTwo = {
-    setTerrainAtPosition: mockSetTerrainAtPositionFalse
-  };
-  const terrain = new Terrain(board, [0,0]);
-  
+  let board;
+  let mockSetTerrainAtPosition;
+  let pos;
+  let terrain;
+
+  beforeEach(() => {
+    mockSetTerrainAtPosition = jest.fn();
+    mockSetTerrainAtPosition.mockReturnValue(true);
+    board = { setTerrainAtPosition: mockSetTerrainAtPosition };
+    pos = [0, 0];
+    terrain = new Terrain(board, pos);
+  });
+
   describe('Constructor', () => {
     it('sets the board attribute', () => {
       expect(terrain.board).toBe(board);
     });
 
-    it('sets the position when board.prototype.setTerrainAtPosition returns true', () => {
+    it('calls board.prototype.setTerrainAtPosition on board and passes in terrain and pos', () => {
       expect(board.setTerrainAtPosition.mock.calls[0][0]).toBe(terrain);
-      expect(board.setTerrainAtPosition.mock.calls[0][1][0]).toBe(0);
-      expect(board.setTerrainAtPosition.mock.calls[0][1][1]).toBe(0);
+      expect(board.setTerrainAtPosition.mock.calls[0][1]).toBe(pos);
+    })
 
-      expect(terrain.position.length).toBe(2);
-      expect(terrain.position[0]).toBe(0);
-      expect(terrain.position[1]).toBe(0);
+    it('sets the attribute position when board.prototype.setTerrainAtPosition returns true', () => {
+      expect(terrain.position).toEqual(pos)
     });
 
     it('throws an exception when board.prototype.setTerrainAtPosition returns false', () => {
-      expect(() => {new Terrain(boardTwo, [0,0])}).toThrow('Space already occupied');
+      mockSetTerrainAtPosition.mockReturnValue(false);
+
+      expect(() => { new Terrain(board, pos) }).toThrow('Space already occupied');
     });
   });
 
@@ -62,5 +64,4 @@ describe('Terrain', () => {
       expect(terrain.moveCost()).toBe(1);
     });
   });
-
 });

@@ -3,30 +3,30 @@ import EnemyUnit from '@/unit/enemy_unit';
 import PlayerUnit from '@/unit/player_unit';
 import Gate from '@/terrain/gate';
 import { PhysicalWeapon, MagicalWeapon } from '@/item/weapon';
-import { c } from '../../../createContext';
 
-export default function Unit(stats, board, inventory, name, mapSprite,
-  forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-  leftWalkSprite, postActionMapSprite, hpWindowSprite, combatAnimation,
-  critAnimation, dodgeAnimation, receiveHitAnimation) {
-  if (!stats) stats = this.defaultStats();
-  this.stats = stats;
+export default function Unit(board, unitOptions) {
+  const options = {
+    ...this.defaultUnitOptions(), 
+    ...unitOptions,
+  };
+    
   this.board = board;
+  this.stats = options.stats;
   this.current_hp = this.stats['hp'];
-  this.inventory = inventory;
-  this.equippedWeapon = inventory.autoEquipWeapon();
-  this.name = name;
-  this.mapSprite = mapSprite;
-  this.forwardWalkSprite = forwardWalkSprite;
-  this.backwardWalkSprite = backwardWalkSprite;
-  this.rightWalkSprite = rightWalkSprite;
-  this.leftWalkSprite = leftWalkSprite;
-  this.postActionMapSprite = postActionMapSprite;
-  this.hpWindowSprite = hpWindowSprite;
-  this.combatAnimation = combatAnimation;
-  this.critAnimation = critAnimation;
-  this.dodgeAnimation = dodgeAnimation;
-  this.receiveHitAnimation = receiveHitAnimation
+  this.inventory = options.inventory;
+  this.equippedWeapon = options.inventory.autoEquipWeapon();
+  this.name = options.name;
+  this.mapSprite = options.stationaryMapSprite;
+  this.forwardWalkSprite = options.forwardWalkMapSprite;
+  this.backwardWalkSprite = options.backwardsWalkMapSprite;
+  this.rightWalkSprite = options.rightWalkMapSprite;
+  this.leftWalkSprite = options.leftWalkMapSprite;
+  this.postActionMapSprite = options.postActionMapSprite;
+  this.hpWindowSprite = options.mugshotSprite;
+  this.combatAnimation = options.combatAnimation;
+  this.critAnimation = options.critCombatAnimation;
+  this.dodgeAnimation = options.dodgeAnimation;
+  this.receiveHitAnimation = options.receiveHitAnimation
   this.position = null;
   this.actionTaken = false;
 }
@@ -48,11 +48,8 @@ Unit.prototype.render = function(displayWindow) {
     this.mapSprite.update();
     this.postActionMapSprite.update();
   } else {
-    // this.mapSprite.render(highlightPos[0], highlightPos[1], sF);
 
     if(this.actionTaken) {
-      // c.fillStyle = "rgba(128, 128, 128, 0.2)";
-      // c.fill();
       this.postActionMapSprite.render(highlightPos[0], highlightPos[1], sF);
       this.mapSprite.update();
     } else {
@@ -243,5 +240,3 @@ Unit.prototype.criticalChance = function(opposingUnit) {
     return chance;
   }
 }
-
-// export default Unit;

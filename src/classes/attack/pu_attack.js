@@ -1,6 +1,6 @@
 import Attack from './attack';
 import NormalDamageAnimation from '@/animation/hit_animation/normal_damage_animation';
-import NormalCriticalDamageAnimation from '@/animation/hit_animation/roy_critical_hit_animation';
+import NormalCriticalDamageAnimation from '@/animation/hit_animation/normal_critical_damage_animation';
 import RoyCriticalHitAnimation from '@/animation/hit_animation/roy_critical_hit_animation';
 import Roy from '@/unit/roy';
 

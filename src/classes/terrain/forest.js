@@ -1,30 +1,28 @@
 import Terrain from '@/terrain/terrain';
 
-function Forest(board, position) {
-  Terrain.call(this, board, position);
+export default class Forest extends Terrain {
+
+  constructor(board, position) {
+    super(board, position);
+  }
+
+  terrainName() {
+    return "Forest";
+  }
+
+  defenseBonus() {
+    return 1;
+  }
+
+  avoidBonus() {
+    return 20;
+  }
+
+  healBonus() {
+    return 0;
+  }
+
+  moveCost() {
+    return 2;
+  }
 }
-
-Forest.prototype = Object.create(Terrain.prototype);
-Forest.prototype.constructor = Forest;
-
-Forest.prototype.terrainName = function() {
-  return "Forest";
-}
-
-Forest.prototype.defenseBonus = function() {
-  return 1;
-}
-
-Forest.prototype.avoidBonus = function() {
-  return 20;
-}
-
-Forest.prototype.healBonus = function() {
-  return 0;
-}
-
-Forest.prototype.moveCost = function() {
-  return 2;
-}
-
-export default Forest;

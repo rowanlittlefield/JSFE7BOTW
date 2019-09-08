@@ -1,34 +1,32 @@
 import Terrain from '@/terrain/terrain';
 
-function Mountain(board, position) {
-  Terrain.call(this, board, position);
-}
+export default class Mountain extends Terrain {
 
-Mountain.prototype = Object.create(Terrain.prototype);
-Mountain.prototype.constructor = Mountain;
+  constructor(board, position) {
+    super(board, position);
+  }
 
-Mountain.prototype.terrainName = function() {
-  return "Mountain";
-}
+  terrainName() {
+    return "Mountain";
+  }
 
-Mountain.prototype.defenseBonus = function() {
-  return 1;
-}
+  defenseBonus() {
+    return 1;
+  }
 
-Mountain.prototype.avoidBonus = function() {
-  return 30;
-}
+  avoidBonus() {
+    return 30;
+  }
 
-Mountain.prototype.healBonus = function() {
-  return 0;
-}
+  healBonus() {
+    return 0;
+  }
 
-Mountain.prototype.moveCost = function(constructorName) {
-  if (constructorName === 'Brigand') {
-    return 3;
-  } else {
-    return 4;
+  moveCost(constructorName) {
+    if (constructorName === 'Brigand') {
+      return 3;
+    } else {
+      return 4;
+    }
   }
 }
-
-export default Mountain;
