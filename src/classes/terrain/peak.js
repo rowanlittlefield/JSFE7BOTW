@@ -1,34 +1,32 @@
 import Terrain from '@/terrain/terrain';
 
-function Peak(board, position) {
-  Terrain.call(this, board, position);
-}
+export default class Peak extends Terrain {
 
-Peak.prototype = Object.create(Terrain.prototype);
-Peak.prototype.constructor = Peak;
+  constructor(board, position) {
+    super(board, position);
+  }
 
-Peak.prototype.terrainName = function() {
-  return "Peak";
-}
+  terrainName() {
+    return "Peak";
+  }
 
-Peak.prototype.defenseBonus = function() {
-  return 2;
-}
+  defenseBonus() {
+    return 2;
+  }
 
-Peak.prototype.avoidBonus = function() {
-  return 40;
-}
+  avoidBonus() {
+    return 40;
+  }
 
-Peak.prototype.healBonus = function() {
-  return 0;
-}
+  healBonus() {
+    return 0;
+  }
 
-Peak.prototype.moveCost = function(constructorName) {
-  if (constructorName === 'Brigand') {
-    return 4;
-  } else {
-    return Infinity;
+  moveCost(constructorName) {
+    if (constructorName === 'Brigand') {
+      return 4;
+    } else {
+      return Infinity;
+    }
   }
 }
-
-export default Peak;

@@ -1,23 +1,18 @@
 import Unit from '@/unit/unit';
 import PathFinder from '@/pathfinding/path_finder';
 
-function EnemyUnit(stats, board, inventory, name, mapSprite,
-  forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
-  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
-  dodgeAnimation, receiveHitAnimation, behavior) {
-  Unit.call(this, stats, board, inventory, name, mapSprite,
-    forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
-    leftWalkSprite, postActionMapSprite, hpWindowSprite,
-    combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
-  this.behavior = behavior;
-  this.pathFinder =  new PathFinder(board, this);
+export default class EnemyUnit extends Unit {
+  constructor(board, behavior, unitOptions) {
+    super(
+      board,
+      unitOptions,
+    );
+
+    this.behavior = behavior;
+    this.pathFinder = new PathFinder(board, this);
+  }
+
+  waitForAnimationCompletion() {
+
+  }
 }
-
-EnemyUnit.prototype = Object.create(Unit.prototype);
-EnemyUnit.prototype.constructor = EnemyUnit;
-
-EnemyUnit.prototype.waitForAnimationCompletion = function() {
-
-}
-
-export default EnemyUnit;
