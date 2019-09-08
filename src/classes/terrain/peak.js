@@ -28,5 +28,5 @@ export default class Peak extends Terrain {
     } else {
       return Infinity;
     }
-  }  
+  }
 }

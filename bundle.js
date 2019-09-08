@@ -5477,37 +5477,36 @@ Space.prototype.isTraversable = function(isPlayerUnit) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Forest; });
 /* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
-function Forest(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
+class Forest extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+  constructor(board, position) {
+    super(board, position);
+  }
+
+  terrainName() {
+    return "Forest";
+  }
+
+  defenseBonus() {
+    return 1;
+  }
+
+  avoidBonus() {
+    return 20;
+  }
+
+  healBonus() {
+    return 0;
+  }
+
+  moveCost() {
+    return 2;
+  }
 }
-
-Forest.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Forest.prototype.constructor = Forest;
-
-Forest.prototype.terrainName = function() {
-  return "Forest";
-}
-
-Forest.prototype.defenseBonus = function() {
-  return 1;
-}
-
-Forest.prototype.avoidBonus = function() {
-  return 20;
-}
-
-Forest.prototype.healBonus = function() {
-  return 0;
-}
-
-Forest.prototype.moveCost = function() {
-  return 2;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Forest);
 
 
 /***/ }),
@@ -5521,37 +5520,36 @@ Forest.prototype.moveCost = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Fort; });
 /* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
-function Fort(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
+class Fort extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+  constructor(board, position) {
+    super(board, position);
+  }
+
+  terrainName() {
+    return "Fort";
+  }
+
+  defenseBonus() {
+    return 2;
+  }
+
+  avoidBonus() {
+    return 20;
+  }
+
+  healBonus() {
+    return 20;
+  }
+
+  moveCost() {
+    return 2;
+  }
 }
-
-Fort.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Fort.prototype.constructor = Fort;
-
-Fort.prototype.terrainName = function() {
-  return "Fort";
-}
-
-Fort.prototype.defenseBonus = function() {
-  return 2;
-}
-
-Fort.prototype.avoidBonus = function() {
-  return 20;
-}
-
-Fort.prototype.healBonus = function() {
-  return 20;
-}
-
-Fort.prototype.moveCost = function(constructorName) {
-  return 2;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Fort);
 
 
 /***/ }),
@@ -5565,37 +5563,36 @@ Fort.prototype.moveCost = function(constructorName) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Gate; });
 /* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
-function Gate(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
+class Gate extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+  constructor(board, position) {
+    super(board, position);
+  }
+
+  terrainName() {
+    return "Gate";
+  }
+
+  defenseBonus() {
+    return 3;
+  }
+
+  avoidBonus() {
+    return 20;
+  }
+
+  healBonus() {
+    return 10;
+  }
+
+  moveCost() {
+    return 1;
+  }
 }
-
-Gate.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Gate.prototype.constructor = Gate;
-
-Gate.prototype.terrainName = function() {
-  return "Gate";
-}
-
-Gate.prototype.defenseBonus = function() {
-  return 3;
-}
-
-Gate.prototype.avoidBonus = function() {
-  return 20;
-}
-
-Gate.prototype.healBonus = function() {
-  return 10;
-}
-
-Gate.prototype.moveCost = function(constructorName) {
-  return 1;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Gate);
 
 
 /***/ }),
@@ -5609,41 +5606,40 @@ Gate.prototype.moveCost = function(constructorName) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Mountain; });
 /* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
-function Mountain(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
-}
+class Mountain extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
 
-Mountain.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Mountain.prototype.constructor = Mountain;
+  constructor(board, position) {
+    super(board, position);
+  }
 
-Mountain.prototype.terrainName = function() {
-  return "Mountain";
-}
+  terrainName() {
+    return "Mountain";
+  }
 
-Mountain.prototype.defenseBonus = function() {
-  return 1;
-}
+  defenseBonus() {
+    return 1;
+  }
 
-Mountain.prototype.avoidBonus = function() {
-  return 30;
-}
+  avoidBonus() {
+    return 30;
+  }
 
-Mountain.prototype.healBonus = function() {
-  return 0;
-}
+  healBonus() {
+    return 0;
+  }
 
-Mountain.prototype.moveCost = function(constructorName) {
-  if (constructorName === 'Brigand') {
-    return 3;
-  } else {
-    return 4;
+  moveCost(constructorName) {
+    if (constructorName === 'Brigand') {
+      return 3;
+    } else {
+      return 4;
+    }
   }
 }
-
-/* harmony default export */ __webpack_exports__["default"] = (Mountain);
 
 
 /***/ }),
@@ -5657,41 +5653,40 @@ Mountain.prototype.moveCost = function(constructorName) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Peak; });
 /* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
-function Peak(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
-}
+class Peak extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
 
-Peak.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Peak.prototype.constructor = Peak;
+  constructor(board, position) {
+    super(board, position);
+  }
 
-Peak.prototype.terrainName = function() {
-  return "Peak";
-}
+  terrainName() {
+    return "Peak";
+  }
 
-Peak.prototype.defenseBonus = function() {
-  return 2;
-}
+  defenseBonus() {
+    return 2;
+  }
 
-Peak.prototype.avoidBonus = function() {
-  return 40;
-}
+  avoidBonus() {
+    return 40;
+  }
 
-Peak.prototype.healBonus = function() {
-  return 0;
-}
+  healBonus() {
+    return 0;
+  }
 
-Peak.prototype.moveCost = function(constructorName) {
-  if (constructorName === 'Brigand') {
-    return 4;
-  } else {
-    return Infinity;
+  moveCost(constructorName) {
+    if (constructorName === 'Brigand') {
+      return 4;
+    } else {
+      return Infinity;
+    }
   }
 }
-
-/* harmony default export */ __webpack_exports__["default"] = (Peak);
 
 
 /***/ }),
@@ -5705,43 +5700,45 @@ Peak.prototype.moveCost = function(constructorName) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function Terrain(board, position) {
-  this.board = board;
-  this.setTerrain(position);
-}
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Terrain; });
+class Terrain {
 
-Terrain.prototype.setTerrain = function(pos) {
-  if (this.board.setTerrainAtPosition(this, pos)) {
-    this.position = pos;
-  } else {
-    throw 'Space already occupied';
+  constructor(board, position) {
+    this.board = board;
+    this.setTerrain(position);
+  }
+
+  setTerrain(pos) {
+    if (this.board.setTerrainAtPosition(this, pos)) {
+      this.position = pos;
+    } else {
+      throw 'Space already occupied';
+    }
+  }
+
+  render() {
+  }
+
+  terrainName() {
+    return "Terrain";
+  }
+
+  defenseBonus() {
+    return 0;
+  }
+
+  avoidBonus() {
+    return 0;
+  }
+
+  healBonus() {
+    return 0;
+  }
+
+  moveCost() {
+    return 1;
   }
 }
-
-Terrain.prototype.render = function() {
-}
-
-Terrain.prototype.terrainName = function() {
-  return "Terrain";
-}
-
-Terrain.prototype.defenseBonus = function() {
-  return 0;
-}
-
-Terrain.prototype.avoidBonus = function() {
-  return 0;
-}
-
-Terrain.prototype.healBonus = function() {
-  return 0;
-}
-
-Terrain.prototype.moveCost = function() {
-  return 1;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Terrain);
 
 
 /***/ }),
@@ -5755,37 +5752,36 @@ Terrain.prototype.moveCost = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Thicket; });
 /* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
-function Thicket(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
+class Thicket extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+  constructor(board, position) {
+    super(board, position);
+  }
+
+  terrainName() {
+    return "Thicket";
+  }
+
+  defenseBonus() {
+    return "---";
+  }
+
+  avoidBonus() {
+    return "---";
+  }
+
+  healBonus() {
+    return 0;
+  }
+
+  moveCost() {
+    return Infinity;
+  }
 }
-
-Thicket.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Thicket.prototype.constructor = Thicket;
-
-Thicket.prototype.terrainName = function() {
-  return "Thicket";
-}
-
-Thicket.prototype.defenseBonus = function() {
-  return "---";
-}
-
-Thicket.prototype.avoidBonus = function() {
-  return "---";
-}
-
-Thicket.prototype.healBonus = function() {
-  return 0;
-}
-
-Thicket.prototype.moveCost = function() {
-  return Infinity;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Thicket);
 
 
 /***/ }),
@@ -5799,37 +5795,36 @@ Thicket.prototype.moveCost = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Village; });
 /* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
-function Village(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
+class Village extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+  constructor(board, position) {
+    super(board, position);
+  }
+
+  terrainName() {
+    return "Village";
+  }
+
+  defenseBonus() {
+    return 0;
+  }
+
+  avoidBonus() {
+    return 10;
+  }
+
+  healBonus() {
+    return 0;
+  }
+
+  moveCost() {
+    return 1;
+  }
 }
-
-Village.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Village.prototype.constructor = Village;
-
-Village.prototype.terrainName = function() {
-  return "Village";
-}
-
-Village.prototype.defenseBonus = function() {
-  return 0;
-}
-
-Village.prototype.avoidBonus = function() {
-  return 10;
-}
-
-Village.prototype.healBonus = function() {
-  return 0;
-}
-
-Village.prototype.moveCost = function() {
-  return 1;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Village);
 
 
 /***/ }),
@@ -5843,37 +5838,36 @@ Village.prototype.moveCost = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Wall; });
 /* harmony import */ var _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/terrain/terrain */ "./src/classes/terrain/terrain.js");
 
 
-function Wall(board, position) {
-  _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, board, position);
+class Wall extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+  constructor(board, position) {
+    super(board, position);
+  }
+
+  terrainName() {
+    return "Wall";
+  }
+
+  defenseBonus() {
+    return "---";
+  }
+
+  avoidBonus() {
+    return "---";
+  }
+
+  healBonus() {
+    return 0;
+  }
+
+  moveCost() {
+    return Infinity;
+  }
 }
-
-Wall.prototype = Object.create(_terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
-Wall.prototype.constructor = Wall;
-
-Wall.prototype.terrainName = function() {
-  return "Wall";
-}
-
-Wall.prototype.defenseBonus = function() {
-  return "---";
-}
-
-Wall.prototype.avoidBonus = function() {
-  return "---";
-}
-
-Wall.prototype.healBonus = function() {
-  return 0;
-}
-
-Wall.prototype.moveCost = function() {
-  return Infinity;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Wall);
 
 
 /***/ }),
@@ -6131,7 +6125,7 @@ class PlayerUnit extends _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.windowOptions = null;
     this.fightOptions = null;
 
-    this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
+    this.pathFinder = new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
   }
 
   setMoveForecast() {

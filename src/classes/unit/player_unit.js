@@ -12,7 +12,7 @@ export default class PlayerUnit extends Unit {
     this.windowOptions = null;
     this.fightOptions = null;
 
-    this.pathFinder =  new PathFinder(board, this);
+    this.pathFinder = new PathFinder(board, this);
   }
 
   setMoveForecast() {
