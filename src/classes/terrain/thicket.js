@@ -1,28 +1,30 @@
 import Terrain from '@/terrain/terrain';
 
-export default class Thicket extends Terrain {
-
-  constructor(board, position) {
-    super(board, position);
-  }
-
-  terrainName() {
-    return "Thicket";
-  }
-
-  defenseBonus() {
-    return "---";
-  }
-
-  avoidBonus() {
-    return "---";
-  }
-
-  healBonus() {
-    return 0;
-  }
-
-  moveCost() {
-    return Infinity;
-  }
+function Thicket(board, position) {
+  Terrain.call(this, board, position);
 }
+
+Thicket.prototype = Object.create(Terrain.prototype);
+Thicket.prototype.constructor = Thicket;
+
+Thicket.prototype.terrainName = function() {
+  return "Thicket";
+}
+
+Thicket.prototype.defenseBonus = function() {
+  return "---";
+}
+
+Thicket.prototype.avoidBonus = function() {
+  return "---";
+}
+
+Thicket.prototype.healBonus = function() {
+  return 0;
+}
+
+Thicket.prototype.moveCost = function() {
+  return Infinity;
+}
+
+export default Thicket;

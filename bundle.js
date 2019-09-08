@@ -5983,27 +5983,31 @@ class Brigand extends _unit_enemy_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EnemyUnit; });
 /* harmony import */ var _unit_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/unit */ "./src/classes/unit/unit.js");
 /* harmony import */ var _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/path_finder */ "./src/classes/pathfinding/path_finder.js");
 
 
 
-class EnemyUnit extends _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(board, behavior, unitOptions) {
-    super(
-      board,
-      unitOptions,
-    );
-
-    this.behavior = behavior;
-    this.pathFinder = new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
-  }
-
-  waitForAnimationCompletion() {
-
-  }
+function EnemyUnit(stats, board, inventory, name, mapSprite,
+  forwardWalkSprite,backwardWalkSprite, rightWalkSprite, leftWalkSprite,
+  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation, behavior) {
+  _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
+    forwardWalkSprite, backwardWalkSprite, rightWalkSprite,
+    leftWalkSprite, postActionMapSprite, hpWindowSprite,
+    combatAnimation, critAnimation, dodgeAnimation, receiveHitAnimation);
+  this.behavior = behavior;
+  this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
 }
+
+EnemyUnit.prototype = Object.create(_unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+EnemyUnit.prototype.constructor = EnemyUnit;
+
+EnemyUnit.prototype.waitForAnimationCompletion = function() {
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (EnemyUnit);
 
 
 /***/ }),
@@ -6114,52 +6118,50 @@ class Lyn extends _unit_player_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PlayerUnit; });
 /* harmony import */ var _unit_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/unit/unit */ "./src/classes/unit/unit.js");
 /* harmony import */ var _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/pathfinding/path_finder */ "./src/classes/pathfinding/path_finder.js");
 
 
 
-class PlayerUnit extends _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(board, unitOptions) {
-    super(
-      board,
-      unitOptions,
-    );
+function PlayerUnit(stats, board, inventory, name, mapSprite,
+forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
+ postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation) {
+  _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].call(this, stats, board, inventory, name, mapSprite,
+  forwardWalkSprite, backwardWalkSprite, rightWalkSprite, leftWalkSprite,
+  postActionMapSprite, hpWindowSprite, combatAnimation, critAnimation,
+  dodgeAnimation, receiveHitAnimation);
+  this.prevPos = null;
+  this.windowOptions = null;
+  this.fightOptions = null;
 
-    this.prevPos = null;
-    this.windowOptions = null;
-    this.fightOptions = null;
-
-    this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
-  }
-
-  setMoveForecast() {
-    this.inTransit = true;
-    this.prevPos = [this.position[0], this.position[1]];
-
-    this.pathFinder.setupSingleMovePositionSets(this.position)
-  }
-
-  nullifyOptions() {
-    this.prevPos = null;
-    this.windowOptions = null;
-    this.fightOptions = null;
-    this.inTransit = false;
-
-    this.pathFinder.clearAndUpdate(this.position);
-  }
-
-  renderMoveSpaces(sF, x, y, width, height) {
-    this.pathFinder.renderSingleMovePositionSets(
-      sF,
-      x,
-      y,
-      width,
-      height
-    );
-  }
+  this.pathFinder =  new _pathfinding_path_finder__WEBPACK_IMPORTED_MODULE_1__["default"](board, this);
 }
+
+PlayerUnit.prototype = Object.create(_unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"].prototype);
+PlayerUnit.prototype.constructor = PlayerUnit;
+
+PlayerUnit.prototype.setMoveForecast = function() {
+  this.inTransit = true;
+  this.prevPos = [this.position[0], this.position[1]];
+
+  this.pathFinder.setupSingleMovePositionSets(this.position)
+}
+
+PlayerUnit.prototype.nullifyOptions = function(display) {
+  this.prevPos = null;
+  this.windowOptions = null;
+  this.fightOptions = null;
+  this.inTransit = false;
+
+  this.pathFinder.clearAndUpdate(this.position);
+}
+
+PlayerUnit.prototype.renderMoveSpaces = function(sF, x, y, width, height) {
+  this.pathFinder.renderSingleMovePositionSets(sF, x, y, width, height);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PlayerUnit);
 
 
 /***/ }),
