@@ -5508,6 +5508,7 @@ class Forest extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 }
 
+
 /***/ }),
 
 /***/ "./src/classes/terrain/fort.js":
@@ -5550,6 +5551,7 @@ class Fort extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 }
 
+
 /***/ }),
 
 /***/ "./src/classes/terrain/gate.js":
@@ -5591,6 +5593,7 @@ class Gate extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
     return 1;
   }
 }
+
 
 /***/ }),
 
@@ -5638,6 +5641,7 @@ class Mountain extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] 
   }
 }
 
+
 /***/ }),
 
 /***/ "./src/classes/terrain/peak.js":
@@ -5683,6 +5687,7 @@ class Peak extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
     }
   }
 }
+
 
 /***/ }),
 
@@ -5735,6 +5740,7 @@ class Terrain {
   }
 }
 
+
 /***/ }),
 
 /***/ "./src/classes/terrain/thicket.js":
@@ -5776,6 +5782,7 @@ class Thicket extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
     return Infinity;
   }
 }
+
 
 /***/ }),
 
@@ -5819,6 +5826,7 @@ class Village extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 }
 
+
 /***/ }),
 
 /***/ "./src/classes/terrain/wall.js":
@@ -5860,6 +5868,7 @@ class Wall extends _terrain_terrain__WEBPACK_IMPORTED_MODULE_0__["default"] {
     return Infinity;
   }
 }
+
 
 /***/ }),
 
@@ -5989,6 +5998,7 @@ class EnemyUnit extends _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
 
   }
 }
+
 
 /***/ }),
 
@@ -6144,6 +6154,7 @@ class PlayerUnit extends _unit_unit__WEBPACK_IMPORTED_MODULE_0__["default"] {
     );
   }
 }
+
 
 /***/ }),
 
