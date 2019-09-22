@@ -4,7 +4,7 @@
 
 ### Screenshot
 
-![Screenshot](https://user-images.githubusercontent.com/30376211/65390529-f5e1e600-dd2d-11e9-8e2b-b95ccb4b3828.png)
+![Screenshot](https://user-images.githubusercontent.com/30376211/65392337-c3da7f00-dd41-11e9-9180-0419483ace30.jpg)
 
 ### Background
 Emblem of Fire is a browser game modeled after the 6th and 7th entries in Nintendo's popular Fire Emblem series. The gameplay features turn-based strategy against an AI player in which the player moves his/her units across a map to fight units on the opposing team. The player achieves victory by capturing the opposing team's throne. 
