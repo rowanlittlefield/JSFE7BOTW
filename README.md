@@ -1,6 +1,6 @@
 # Emblem of Fire
 
-[Live link](http://rowanlittlefield.com/JSFE7BOTW/)
+[Live link](https://rowanlittlefield.github.io/JSFE7BOTW/)
 
 ### Screenshot
 ![Screenshot](https://user-images.githubusercontent.com/30376211/65392337-c3da7f00-dd41-11e9-9180-0419483ace30.jpg)
